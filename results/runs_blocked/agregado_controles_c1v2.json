@@ -1,0 +1,367 @@
+{
+  "artefato_tipo": "agregado_controles_c1v2",
+  "script": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\scripts\\agregar_controles_c1v2.py",
+  "script_sha256": "3d8c885021f8ee870f503965462dec543dbee68326f280cd4afd360a50de8524",
+  "versao": "H2 de 2026-09-13 — populacao desambiguada, IC por cluster, TOST",
+  "correcao_aplicada": "M5 do parecer de matematica 2026-09-13: a versao anterior gravava 25 chaves em `pares` com n_pares=24 e repetia o par cirurgico em `extra_cirurgico_*`, fazendo a media oscilar entre -0.013584 e -0.018808 dB conforme a leitura. Campos agora disjuntos.",
+  "nota_regime": "controle sem-cadeia usa 35ep/1e-3 vs 20ep/2e-4 das celulas encadeadas Q2-Q4; o delta mistura cadeia com regime — conclusao licita: NAO-INFLACAO, nao medida limpa do efeito da cadeia (R1r, parecer eng-dados 13/09)",
+  "sem_transferencia": {
+    "definicao_populacao": "pares_24_declarados = 4 cidades x seeds 42,43 x Q2,Q3,Q4. O par cirurgico campinas_s44_Q3 vive em `par_cirurgico`, fora desta populacao e de todas as medias abaixo.",
+    "n_pares": 24,
+    "media_sem_cadeia_db": 0.38174212848146755,
+    "media_encadeado_db": 0.36815849381188553,
+    "pares_em_que_encadeado_vence": 15,
+    "estatistica_unidade_run": {
+      "unidade": "run (24 pares)",
+      "n": 24,
+      "media_db": -0.013583634669582048,
+      "dp_db": 0.09183460141269852,
+      "ep_db": 0.018745659516082216,
+      "ic95_db": [
+        -0.052361985889849784,
+        0.02519471655068569
+      ],
+      "t": -0.7246282617012445,
+      "p_bicaudal": 0.4759877294169587,
+      "aviso": "pares da mesma cidade-semente compartilham checkpoint e vizinhanca; unidade nao independente, reportada so para comparacao"
+    },
+    "estatistica_unidade_cluster": {
+      "unidade": "cluster (cidade, seed)",
+      "n": 8,
+      "media_db": -0.01358363466958205,
+      "dp_db": 0.07025233052006655,
+      "ep_db": 0.024837949652448853,
+      "ic95_db": [
+        -0.07231605277760317,
+        0.045148783438439075
+      ],
+      "t": -0.5468903375542029,
+      "p_bicaudal": 0.6014445394491659,
+      "piso_pares_por_cluster": 3,
+      "clusters": {
+        "bauru_s42": {
+          "n_pares": 3,
+          "delta_medio_db": -0.00200405220190684
+        },
+        "bauru_s43": {
+          "n_pares": 3,
+          "delta_medio_db": 0.017772992451985676
+        },
+        "campinas_s42": {
+          "n_pares": 3,
+          "delta_medio_db": -0.09758023420969646
+        },
+        "campinas_s43": {
+          "n_pares": 3,
+          "delta_medio_db": -0.0991936723391215
+        },
+        "lins_s42": {
+          "n_pares": 3,
+          "delta_medio_db": 0.0980155070622762
+        },
+        "lins_s43": {
+          "n_pares": 3,
+          "delta_medio_db": -0.02736610174179077
+        },
+        "sorocaba_s42": {
+          "n_pares": 3,
+          "delta_medio_db": 0.0555483748515447
+        },
+        "sorocaba_s43": {
+          "n_pares": 3,
+          "delta_medio_db": -0.05386189122994741
+        }
+      },
+      "clusters_descartados": {}
+    },
+    "tost_equivalencia": {
+      "margem_db": 0.1,
+      "n": 8,
+      "media_db": -0.01358363466958205,
+      "dp_db": 0.07025233052006655,
+      "ep_db": 0.024837949652448853,
+      "t_inferior": 3.479206880584762,
+      "p_inferior": 0.0051386314067105145,
+      "t_superior": -4.572987555693168,
+      "p_superior": 0.0012825083032134144,
+      "p_tost": 0.0051386314067105145,
+      "equivalencia_rejeita_inflacao": true,
+      "poder_sob_delta_zero": 0.94905,
+      "interpretacao": "p_tost < 0.05 significa: os dados EXCLUEM uma inflacao (ou deflacao) de 0.1 dB ou mais causada pela cadeia; NAO significa que o efeito seja exatamente zero"
+    },
+    "pares_24_declarados": {
+      "lins_s42_Q2": {
+        "cidade": "lins",
+        "seed": 42,
+        "quadrante": "Q2",
+        "sem_cadeia_db": 0.31655535101890564,
+        "encadeado_db": 0.49571287631988525,
+        "delta_encadeado_menos_semcadeia_db": 0.17915752530097961,
+        "epoca_sc": 28,
+        "epoca_ch": 20
+      },
+      "lins_s42_Q3": {
+        "cidade": "lins",
+        "seed": 42,
+        "quadrante": "Q3",
+        "sem_cadeia_db": 0.21226325631141663,
+        "encadeado_db": 0.33692893385887146,
+        "delta_encadeado_menos_semcadeia_db": 0.12466567754745483,
+        "epoca_sc": 30,
+        "epoca_ch": 9
+      },
+      "lins_s42_Q4": {
+        "cidade": "lins",
+        "seed": 42,
+        "quadrante": "Q4",
+        "sem_cadeia_db": 0.27087587118148804,
+        "encadeado_db": 0.2610991895198822,
+        "delta_encadeado_menos_semcadeia_db": -0.009776681661605835,
+        "epoca_sc": 10,
+        "epoca_ch": 9
+      },
+      "lins_s43_Q2": {
+        "cidade": "lins",
+        "seed": 43,
+        "quadrante": "Q2",
+        "sem_cadeia_db": 0.4960255026817322,
+        "encadeado_db": 0.44850054383277893,
+        "delta_encadeado_menos_semcadeia_db": -0.04752495884895325,
+        "epoca_sc": 27,
+        "epoca_ch": 8
+      },
+      "lins_s43_Q3": {
+        "cidade": "lins",
+        "seed": 43,
+        "quadrante": "Q3",
+        "sem_cadeia_db": 0.2532525658607483,
+        "encadeado_db": 0.22970378398895264,
+        "delta_encadeado_menos_semcadeia_db": -0.023548781871795654,
+        "epoca_sc": 30,
+        "epoca_ch": 9
+      },
+      "lins_s43_Q4": {
+        "cidade": "lins",
+        "seed": 43,
+        "quadrante": "Q4",
+        "sem_cadeia_db": 0.17898592352867126,
+        "encadeado_db": 0.16796135902404785,
+        "delta_encadeado_menos_semcadeia_db": -0.011024564504623413,
+        "epoca_sc": 28,
+        "epoca_ch": 10
+      },
+      "bauru_s42_Q2": {
+        "cidade": "bauru",
+        "seed": 42,
+        "quadrante": "Q2",
+        "sem_cadeia_db": 0.3161599040031433,
+        "encadeado_db": 0.4700026214122772,
+        "delta_encadeado_menos_semcadeia_db": 0.1538427174091339,
+        "epoca_sc": 30,
+        "epoca_ch": 4
+      },
+      "bauru_s42_Q3": {
+        "cidade": "bauru",
+        "seed": 42,
+        "quadrante": "Q3",
+        "sem_cadeia_db": 0.4170244038105011,
+        "encadeado_db": 0.373127281665802,
+        "delta_encadeado_menos_semcadeia_db": -0.0438971221446991,
+        "epoca_sc": 29,
+        "epoca_ch": 10
+      },
+      "bauru_s42_Q4": {
+        "cidade": "bauru",
+        "seed": 42,
+        "quadrante": "Q4",
+        "sem_cadeia_db": 0.3639490604400635,
+        "encadeado_db": 0.24799130856990814,
+        "delta_encadeado_menos_semcadeia_db": -0.11595775187015533,
+        "epoca_sc": 26,
+        "epoca_ch": 10
+      },
+      "bauru_s43_Q2": {
+        "cidade": "bauru",
+        "seed": 43,
+        "quadrante": "Q2",
+        "sem_cadeia_db": 0.2716222107410431,
+        "encadeado_db": 0.3152998983860016,
+        "delta_encadeado_menos_semcadeia_db": 0.043677687644958496,
+        "epoca_sc": 30,
+        "epoca_ch": 9
+      },
+      "bauru_s43_Q3": {
+        "cidade": "bauru",
+        "seed": 43,
+        "quadrante": "Q3",
+        "sem_cadeia_db": 0.41130146384239197,
+        "encadeado_db": 0.41911688446998596,
+        "delta_encadeado_menos_semcadeia_db": 0.007815420627593994,
+        "epoca_sc": 10,
+        "epoca_ch": 7
+      },
+      "bauru_s43_Q4": {
+        "cidade": "bauru",
+        "seed": 43,
+        "quadrante": "Q4",
+        "sem_cadeia_db": 0.3512754738330841,
+        "encadeado_db": 0.35310134291648865,
+        "delta_encadeado_menos_semcadeia_db": 0.001825869083404541,
+        "epoca_sc": 28,
+        "epoca_ch": 14
+      },
+      "campinas_s42_Q2": {
+        "cidade": "campinas",
+        "seed": 42,
+        "quadrante": "Q2",
+        "sem_cadeia_db": 0.34839147329330444,
+        "encadeado_db": 0.26717692613601685,
+        "delta_encadeado_menos_semcadeia_db": -0.0812145471572876,
+        "epoca_sc": 30,
+        "epoca_ch": 9
+      },
+      "campinas_s42_Q3": {
+        "cidade": "campinas",
+        "seed": 42,
+        "quadrante": "Q3",
+        "sem_cadeia_db": 0.8500824570655823,
+        "encadeado_db": 0.6476114392280579,
+        "delta_encadeado_menos_semcadeia_db": -0.20247101783752441,
+        "epoca_sc": 29,
+        "epoca_ch": 10
+      },
+      "campinas_s42_Q4": {
+        "cidade": "campinas",
+        "seed": 42,
+        "quadrante": "Q4",
+        "sem_cadeia_db": 0.19403661787509918,
+        "encadeado_db": 0.18498148024082184,
+        "delta_encadeado_menos_semcadeia_db": -0.009055137634277344,
+        "epoca_sc": 29,
+        "epoca_ch": 7
+      },
+      "campinas_s43_Q2": {
+        "cidade": "campinas",
+        "seed": 43,
+        "quadrante": "Q2",
+        "sem_cadeia_db": 0.33242732286453247,
+        "encadeado_db": 0.24144937098026276,
+        "delta_encadeado_menos_semcadeia_db": -0.09097795188426971,
+        "epoca_sc": 29,
+        "epoca_ch": 7
+      },
+      "campinas_s43_Q3": {
+        "cidade": "campinas",
+        "seed": 43,
+        "quadrante": "Q3",
+        "sem_cadeia_db": 0.9740759134292603,
+        "encadeado_db": 0.8695249557495117,
+        "delta_encadeado_menos_semcadeia_db": -0.10455095767974854,
+        "epoca_sc": 30,
+        "epoca_ch": 19
+      },
+      "campinas_s43_Q4": {
+        "cidade": "campinas",
+        "seed": 43,
+        "quadrante": "Q4",
+        "sem_cadeia_db": 0.29067641496658325,
+        "encadeado_db": 0.188624307513237,
+        "delta_encadeado_menos_semcadeia_db": -0.10205210745334625,
+        "epoca_sc": 30,
+        "epoca_ch": 9
+      },
+      "sorocaba_s42_Q2": {
+        "cidade": "sorocaba",
+        "seed": 42,
+        "quadrante": "Q2",
+        "sem_cadeia_db": 0.4842570424079895,
+        "encadeado_db": 0.5934473872184753,
+        "delta_encadeado_menos_semcadeia_db": 0.10919034481048584,
+        "epoca_sc": 30,
+        "epoca_ch": 6
+      },
+      "sorocaba_s42_Q3": {
+        "cidade": "sorocaba",
+        "seed": 42,
+        "quadrante": "Q3",
+        "sem_cadeia_db": 0.46762850880622864,
+        "encadeado_db": 0.5051820874214172,
+        "delta_encadeado_menos_semcadeia_db": 0.0375535786151886,
+        "epoca_sc": 27,
+        "epoca_ch": 10
+      },
+      "sorocaba_s42_Q4": {
+        "cidade": "sorocaba",
+        "seed": 42,
+        "quadrante": "Q4",
+        "sem_cadeia_db": 0.23849935829639435,
+        "encadeado_db": 0.258400559425354,
+        "delta_encadeado_menos_semcadeia_db": 0.019901201128959656,
+        "epoca_sc": 25,
+        "epoca_ch": 10
+      },
+      "sorocaba_s43_Q2": {
+        "cidade": "sorocaba",
+        "seed": 43,
+        "quadrante": "Q2",
+        "sem_cadeia_db": 0.3647719621658325,
+        "encadeado_db": 0.36040881276130676,
+        "delta_encadeado_menos_semcadeia_db": -0.004363149404525757,
+        "epoca_sc": 30,
+        "epoca_ch": 10
+      },
+      "sorocaba_s43_Q3": {
+        "cidade": "sorocaba",
+        "seed": 43,
+        "quadrante": "Q3",
+        "sem_cadeia_db": 0.46848350763320923,
+        "encadeado_db": 0.4305950701236725,
+        "delta_encadeado_menos_semcadeia_db": -0.03788843750953674,
+        "epoca_sc": 29,
+        "epoca_ch": 10
+      },
+      "sorocaba_s43_Q4": {
+        "cidade": "sorocaba",
+        "seed": 43,
+        "quadrante": "Q4",
+        "sem_cadeia_db": 0.28918951749801636,
+        "encadeado_db": 0.16985543072223663,
+        "delta_encadeado_menos_semcadeia_db": -0.11933408677577972,
+        "epoca_sc": 29,
+        "epoca_ch": 7
+      }
+    },
+    "par_cirurgico": {
+      "chave": "campinas_s44_Q3",
+      "cidade": "campinas",
+      "seed": 44,
+      "quadrante": "Q3",
+      "sem_cadeia_db": 1.2232551574707031,
+      "encadeado_db": 1.0790520906448364,
+      "delta_encadeado_menos_semcadeia_db": -0.1442030668258667,
+      "epoca_sc": 29,
+      "epoca_ch": 10,
+      "motivo_de_estar_fora": "cluster (campinas, s44) tem 1 par, abaixo do piso de 3; incluido nas medias ele move a media de cluster em ~107% (R-M4 do parecer de matematica). Reportado separadamente e NUNCA somado a pares_24_declarados."
+    }
+  },
+  "cadeia_invertida_lins_s42": {
+    "invertida_Q4_Q3_Q2_Q1_db": {
+      "Q4_cabeca_from_scratch": 0.27087587118148804,
+      "Q3": 0.24439142644405365,
+      "Q2": 0.6592387557029724,
+      "Q1": 0.39544013142585754
+    },
+    "original_Q1_Q2_Q3_Q4_db": {
+      "Q1": 0.5013471245765686,
+      "Q2": 0.49571287631988525,
+      "Q3": 0.33692893385887146,
+      "Q4": 0.2610991895198822
+    },
+    "media_invertida_db": 0.3924865461885929,
+    "media_original_db": 0.3987720310688019,
+    "n_seeds": 1,
+    "aviso_inferencia": "n=1 semente: nenhuma inferencia licita. A diferenca entre as medias (0.0063 dB) e menor que o ruido entre sementes (0.0364 dB) medido pelo parecer de matematica; use apenas como frase descritiva de ordem de grandeza.",
+    "nota": "cabeca Q4 e o run from-scratch do controle A (compartilhada; nada rodou duas vezes)"
+  },
+  "pareamento_verificado": "rf_data_sha256 + idx_sha256_global de train/val/test identicos em todo par (aborta)"
+}

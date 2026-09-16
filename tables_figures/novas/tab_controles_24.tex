@@ -1,0 +1,37 @@
+\begin{table}[t]
+\caption{Transfer chain versus training from scratch on the same blocked split. Each pair compares the quadrant model obtained by fine-tuning from the previous quadrant (chained: 20 epochs, learning rate $2\times10^{-4}$) with a model trained from scratch on the same data and split (35 epochs, $10^{-3}$); test RSSI MAE in dB, all test nodes. Unit of analysis: (city, seed) cluster, $n=8$. Mean difference (chained minus scratch) $-0.014$~dB, 95\% CI [$-0.072$; $0.045$], paired $t$ $p=0.60$; two one-sided tests at a $\pm0.1$~dB margin exclude a chaining effect of that size ($p=0.0051$). Because the two regimes differ in epochs and learning rate, the comparison establishes the absence of a systematic advantage of chaining, not a clean estimate of its effect.}
+\label{tab:transfer_control}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llcccc}
+\toprule
+City & Seed & Q & Scratch (dB) & Chained (dB) & $\Delta$ (dB) \\
+\midrule
+Bauru & 42 & Q2 & 0.316 & 0.470 & +0.154 \\
+Bauru & 42 & Q3 & 0.417 & 0.373 & $-0.044$ \\
+Bauru & 42 & Q4 & 0.364 & 0.248 & $-0.116$ \\
+Bauru & 43 & Q2 & 0.272 & 0.315 & +0.044 \\
+Bauru & 43 & Q3 & 0.411 & 0.419 & +0.008 \\
+Bauru & 43 & Q4 & 0.351 & 0.353 & +0.002 \\
+Campinas & 42 & Q2 & 0.348 & 0.267 & $-0.081$ \\
+Campinas & 42 & Q3 & 0.850 & 0.648 & $-0.202$ \\
+Campinas & 42 & Q4 & 0.194 & 0.185 & $-0.009$ \\
+Campinas & 43 & Q2 & 0.332 & 0.241 & $-0.091$ \\
+Campinas & 43 & Q3 & 0.974 & 0.870 & $-0.105$ \\
+Campinas & 43 & Q4 & 0.291 & 0.189 & $-0.102$ \\
+Lins & 42 & Q2 & 0.317 & 0.496 & +0.179 \\
+Lins & 42 & Q3 & 0.212 & 0.337 & +0.125 \\
+Lins & 42 & Q4 & 0.271 & 0.261 & $-0.010$ \\
+Lins & 43 & Q2 & 0.496 & 0.449 & $-0.048$ \\
+Lins & 43 & Q3 & 0.253 & 0.230 & $-0.024$ \\
+Lins & 43 & Q4 & 0.179 & 0.168 & $-0.011$ \\
+Sorocaba & 42 & Q2 & 0.484 & 0.593 & +0.109 \\
+Sorocaba & 42 & Q3 & 0.468 & 0.505 & +0.038 \\
+Sorocaba & 42 & Q4 & 0.238 & 0.258 & +0.020 \\
+Sorocaba & 43 & Q2 & 0.365 & 0.360 & $-0.004$ \\
+Sorocaba & 43 & Q3 & 0.468 & 0.431 & $-0.038$ \\
+Sorocaba & 43 & Q4 & 0.289 & 0.170 & $-0.119$ \\
+\bottomrule
+\end{tabular}
+\end{table}

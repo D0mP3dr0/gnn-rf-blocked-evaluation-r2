@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\caption{Prediction-interval coverage on the spatially blocked test split, covered nodes, RSSI channel, 16 cells (seed-42 checkpoints, 50 stochastic passes). PICP is the mean over cells with the [min; max] across cells; width is the mean interval width. The last column counts cells within $\pm0.05$ of nominal simultaneously at 80, 90 and 95\,\%; the pre-registered criterion for describing a method as calibrated required at least 12 of 16, which no method meets. Calibration for the conformal and residual methods uses the validation blocks of the same cell, which are spatially separated from the test blocks.}
+\label{tab:uncertainty_blocked}
+\centering
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccccc c}
+\toprule
+Method & & \multicolumn{5}{c}{Nominal level} & Cells within 0.05 \\
+ & & 50\,\% & 80\,\% & 90\,\% & 95\,\% & 99\,\% & (80/90/95) \\
+\midrule
+MC-dropout (percentile) & PICP & 0.369 [0.01; 0.67] & 0.592 [0.02; 0.92] & 0.683 [0.03; 0.97] & 0.738 [0.06; 0.98] & 0.801 [0.15; 0.99] & 3/16 \\
+ & width (dB) & 2.0 & 4.0 & 5.2 & 6.1 & 7.2 & \\
+MC-dropout (Gaussian) & PICP & 0.383 [0.01; 0.70] & 0.616 [0.02; 0.94] & 0.712 [0.03; 0.98] & 0.776 [0.09; 0.99] & 0.869 [0.31; 1.00] & 3/16 \\
+ & width (dB) & 2.2 & 4.3 & 5.5 & 6.5 & 8.6 & \\
+Split-conformal on validation blocks & PICP & 0.610 [0.01; 1.00] & 0.825 [0.06; 1.00] & 0.878 [0.16; 1.00] & 0.914 [0.26; 1.00] & 0.951 [0.38; 1.00] & 1/16 \\
+ & width (dB) & 6.0 & 10.8 & 14.0 & 17.6 & 25.0 & \\
+Deterministic residual (validation-calibrated) & PICP & 0.659 [0.01; 1.00] & 0.833 [0.05; 1.00] & 0.887 [0.11; 1.00] & 0.917 [0.15; 1.00] & 0.942 [0.20; 1.00] & 2/16 \\
+ & width (dB) & 5.5 & 11.3 & 16.5 & 22.7 & 34.9 & \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

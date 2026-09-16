@@ -1,0 +1,194 @@
+{
+  "timestamp_utc": "2026-09-11T08:41:57.700450+00:00",
+  "protocolo": "C1 g10b2 (grid 10 km, buffer 2 km); teste tocado 1x no melhor ckpt por val — LINHAGEM V2",
+  "linhagem": "v2",
+  "cidade": "sorocaba",
+  "prefixo_rotulo": "c0c1cf",
+  "script_sha256_unico": "6F955629CDE164F2843F454E1EBF6977292FD80647EF48ECD0DF31E464C42445",
+  "split_seed_unico": 42,
+  "seeds_pedidos": [
+    "42",
+    "43",
+    "44",
+    "45",
+    "46"
+  ],
+  "seeds_com_run": [
+    "42",
+    "43",
+    "44",
+    "45",
+    "46"
+  ],
+  "runs_ausentes": [],
+  "quadrantes": {
+    "Q1": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.3861083984375,
+          "rmse_rssi_db": 0.7728268504142761,
+          "mae_pl_db": 4.1381916999816895,
+          "melhor_epoca": 10
+        },
+        "43": {
+          "mae_rssi_db": 0.2982734739780426,
+          "rmse_rssi_db": 0.5329939723014832,
+          "mae_pl_db": 1.6063755750656128,
+          "melhor_epoca": 29
+        },
+        "44": {
+          "mae_rssi_db": 0.4119611084461212,
+          "rmse_rssi_db": 0.7912340760231018,
+          "mae_pl_db": 1.238146424293518,
+          "melhor_epoca": 35
+        },
+        "45": {
+          "mae_rssi_db": 0.3954279124736786,
+          "rmse_rssi_db": 0.6762492656707764,
+          "mae_pl_db": 1.6456854343414307,
+          "melhor_epoca": 30
+        },
+        "46": {
+          "mae_rssi_db": 0.4026475250720978,
+          "rmse_rssi_db": 0.7665233016014099,
+          "mae_pl_db": 2.1462459564208984,
+          "melhor_epoca": 26
+        }
+      },
+      "mae_rssi_db_media": 0.37888368368148806,
+      "mae_rssi_db_desvio": 0.04605092318500672,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 5.45137914315275,
+        "baseline_hata_rural_mae": 8.628628663070472,
+        "baseline_cost231_sub_mae": 8.628628663070472
+      }
+    },
+    "Q2": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.5934473872184753,
+          "rmse_rssi_db": 1.3291873931884766,
+          "mae_pl_db": 1.3322280645370483,
+          "melhor_epoca": 6
+        },
+        "43": {
+          "mae_rssi_db": 0.36040881276130676,
+          "rmse_rssi_db": 0.7769665718078613,
+          "mae_pl_db": 1.1139627695083618,
+          "melhor_epoca": 10
+        },
+        "44": {
+          "mae_rssi_db": 0.38124775886535645,
+          "rmse_rssi_db": 0.8293812274932861,
+          "mae_pl_db": 0.9008861780166626,
+          "melhor_epoca": 7
+        },
+        "45": {
+          "mae_rssi_db": 0.33958834409713745,
+          "rmse_rssi_db": 0.7024972438812256,
+          "mae_pl_db": 2.881096363067627,
+          "melhor_epoca": 8
+        },
+        "46": {
+          "mae_rssi_db": 0.2791333794593811,
+          "rmse_rssi_db": 0.5128734707832336,
+          "mae_pl_db": 0.9726629257202148,
+          "melhor_epoca": 20
+        }
+      },
+      "mae_rssi_db_media": 0.3907651364803314,
+      "mae_rssi_db_desvio": 0.11955427102878541,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 1.8910892605192733,
+        "baseline_hata_rural_mae": 4.776876305854333,
+        "baseline_cost231_sub_mae": 4.776876305854339
+      }
+    },
+    "Q3": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.5051820874214172,
+          "rmse_rssi_db": 1.0831427574157715,
+          "mae_pl_db": 3.146465539932251,
+          "melhor_epoca": 10
+        },
+        "43": {
+          "mae_rssi_db": 0.4305950701236725,
+          "rmse_rssi_db": 0.9122392535209656,
+          "mae_pl_db": 3.6928789615631104,
+          "melhor_epoca": 10
+        },
+        "44": {
+          "mae_rssi_db": 0.4411727488040924,
+          "rmse_rssi_db": 0.8245589137077332,
+          "mae_pl_db": 2.845925807952881,
+          "melhor_epoca": 10
+        },
+        "45": {
+          "mae_rssi_db": 0.36142048239707947,
+          "rmse_rssi_db": 0.7435007095336914,
+          "mae_pl_db": 3.685882806777954,
+          "melhor_epoca": 9
+        },
+        "46": {
+          "mae_rssi_db": 0.3565225601196289,
+          "rmse_rssi_db": 0.7331825494766235,
+          "mae_pl_db": 2.6614458560943604,
+          "melhor_epoca": 7
+        }
+      },
+      "mae_rssi_db_media": 0.4189785897731781,
+      "mae_rssi_db_desvio": 0.061790488107831824,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 5.4428029214959714,
+        "baseline_hata_rural_mae": 8.364697975123715,
+        "baseline_cost231_sub_mae": 8.364697975123716
+      }
+    },
+    "Q4": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.258400559425354,
+          "rmse_rssi_db": 0.45210912823677063,
+          "mae_pl_db": 0.9444307684898376,
+          "melhor_epoca": 10
+        },
+        "43": {
+          "mae_rssi_db": 0.16985543072223663,
+          "rmse_rssi_db": 0.3508128225803375,
+          "mae_pl_db": 2.0350916385650635,
+          "melhor_epoca": 7
+        },
+        "44": {
+          "mae_rssi_db": 0.22049382328987122,
+          "rmse_rssi_db": 0.4078139662742615,
+          "mae_pl_db": 2.069370746612549,
+          "melhor_epoca": 5
+        },
+        "45": {
+          "mae_rssi_db": 0.244977205991745,
+          "rmse_rssi_db": 0.3900463879108429,
+          "mae_pl_db": 1.4351962804794312,
+          "melhor_epoca": 10
+        },
+        "46": {
+          "mae_rssi_db": 0.24039766192436218,
+          "rmse_rssi_db": 0.46391916275024414,
+          "mae_pl_db": 1.221231460571289,
+          "melhor_epoca": 3
+        }
+      },
+      "mae_rssi_db_media": 0.22682493627071382,
+      "mae_rssi_db_desvio": 0.034627847569955475,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 1.9642116436312207,
+        "baseline_hata_rural_mae": 4.468114411097175,
+        "baseline_cost231_sub_mae": 4.468114411097175
+      }
+    }
+  }
+}

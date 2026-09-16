@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the article below."
+type: software
+title: "GNN-RF under spatially blocked evaluation — reproducibility package (R3)"
+authors:
+  - family-names: "Seelig"
+    given-names: "L. F. C."
+  - family-names: "Salles"
+    given-names: "R. M."
+preferred-citation:
+  type: article
+  title: "Physics-Consistent Multi-Target RF Field Reconstruction over Heterogeneous Terrain Graphs under Spatially Blocked Evaluation"
+  authors:
+    - family-names: "Seelig"
+      given-names: "L. F. C."
+    - family-names: "Salles"
+      given-names: "R. M."
+  journal: "IEEE Access"
+  year: 2026
+  identifiers:
+    - type: other
+      value: "Access-2026-29524"
+      description: "IEEE Access manuscript number (revision R3)"
+  doi: "[DOI]"
+identifiers:
+  - type: doi
+    value: "[DOI]"
+license: "MIT"
+license-url: "https://opensource.org/licenses/MIT"
+date-released: "2026-09-16"
+repository-code: "https://github.com/D0mP3dr0/gnn-rf-blocked-evaluation-r2"
+version: "R3"

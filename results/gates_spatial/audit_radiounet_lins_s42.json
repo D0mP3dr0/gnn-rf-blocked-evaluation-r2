@@ -1,0 +1,121 @@
+{
+  "logs_root": "/content/drive/MyDrive/GNN_RF/logs/version_20",
+  "seed": 42,
+  "gates": {
+    "schema": [
+      {
+        "run": "radiounet_lins_s42_Q1",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q2",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q3",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q4",
+        "pass": true,
+        "failures": []
+      }
+    ],
+    "protocol": [
+      {
+        "run": "radiounet_lins_s42_Q1",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q2",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q3",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q4",
+        "pass": true,
+        "failures": []
+      }
+    ],
+    "metric_quality": [
+      {
+        "run": "radiounet_lins_s42_Q1",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q2",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q3",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q4",
+        "pass": true,
+        "failures": []
+      }
+    ],
+    "anti_leakage": [
+      {
+        "run": "radiounet_lins_s42_Q1",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q2",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q3",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q4",
+        "pass": true,
+        "failures": []
+      }
+    ],
+    "spatial_generalization": [
+      {
+        "run": "radiounet_lins_s42_Q1",
+        "pass": false,
+        "failures": [
+          "degradação espacial excessiva: ratio=11.342 (max=3.000)"
+        ]
+      },
+      {
+        "run": "radiounet_lins_s42_Q2",
+        "pass": true,
+        "failures": []
+      },
+      {
+        "run": "radiounet_lins_s42_Q3",
+        "pass": false,
+        "failures": [
+          "degradação espacial excessiva: ratio=4.465 (max=3.000)"
+        ]
+      },
+      {
+        "run": "radiounet_lins_s42_Q4",
+        "pass": true,
+        "failures": []
+      }
+    ]
+  },
+  "overall_pass": false
+}

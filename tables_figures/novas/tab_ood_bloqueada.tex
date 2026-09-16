@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\caption{Cross-city transfer under the spatially blocked protocol. Lins checkpoints (seed~42, blocked campaign, one per quadrant) are applied without fine-tuning to the blocked test partition of the same quadrant in Lins (in-domain), Campinas and Sorocaba. The no\_topo arm zeroes the eight topographic input features of the terrain nodes at inference. Entries are the unweighted mean MAE over Q1--Q4 for three test populations: all nodes (sentinel included), covered nodes for RSSI, and covered nodes for path loss (PL). $\Delta$ is no\_topo minus full; the change is $\Delta$ divided by the full-arm MAE.}
+\label{tab:ood_blocked}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{ll ccc ccc ccc}
+\toprule
+ & & \multicolumn{3}{c}{RSSI, all nodes} & \multicolumn{3}{c}{RSSI, covered} & \multicolumn{3}{c}{PL, covered} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(lr){9-11}
+Target city & Arm & MAE (dB) & $\Delta$ (dB) & Change & MAE (dB) & $\Delta$ (dB) & Change & MAE (dB) & $\Delta$ (dB) & Change \\
+\midrule
+Lins (in-domain) & full & 0.399 & -- & -- & 3.92 & -- & -- & 3.64 & -- & -- \\
+Lins (in-domain) & no\_topo & 2.757 & +2.358 & +591.2\% & 23.51 & +19.59 & +500.4\% & 29.98 & +26.34 & +722.6\% \\
+\midrule
+Campinas (OOD) & full & 1.353 & -- & -- & 5.73 & -- & -- & 7.54 & -- & -- \\
+Campinas (OOD) & no\_topo & 3.304 & +1.950 & +144.1\% & 17.54 & +11.81 & +206.1\% & 25.02 & +17.48 & +231.9\% \\
+\midrule
+Sorocaba (OOD) & full & 1.622 & -- & -- & 7.50 & -- & -- & 8.72 & -- & -- \\
+Sorocaba (OOD) & no\_topo & 3.931 & +2.309 & +142.4\% & 20.75 & +13.26 & +176.9\% & 27.45 & +18.72 & +214.7\% \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,15 @@
+\begin{table}[!t]
+\centering
+\caption{Modern baseline architectures under the identical-treatment protocol of the earlier campaign (96~runs). Parameters counted on the Bauru seed-42 checkpoints whose errors are reported (training set without the terrain-to-terrain step); the RME-GAN count is that of the generator only. Size assumes 4 bytes per parameter.}
+\label{tab:baseline_arch}
+\begin{tabular}{lrlrl}
+\toprule
+Model & Params & Size & Family & Key mechanism \\
+\midrule
+RadioUNet & \num{265602} & \SI{1.01}{\mega\byte} & U-Net & Skip connections \\
+REM-GNN   & \num{72450}  & \SI{0.28}{\mega\byte} & MLP & Feed-forward \\
+RadioGAT  & \num{301826} & \SI{1.15}{\mega\byte} & Attention & Multi-head att. \\
+RME-GAN   & \num{72194}  & \SI{0.28}{\mega\byte} & GAN & Adversarial \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,447 @@
+% =====================================================================
+% appendix_target_generator.tex
+% IEEE Access #Access-2026-29524 -- resubmission, Reviewer 1, point 2.
+% Appendix documenting the deterministic target generator that the GNN
+% is now positioned as EMULATING.
+%
+% Usage: \input{REVISAO_R1/appendix_target_generator} immediately before
+% the bibliography in main.tex. Requires amsmath and booktabs, both
+% already loaded in the preamble (main.tex:11,16).
+%
+% PROVENANCE DISCIPLINE: every numerical value printed by this file is
+% listed in the commented provenance table at the end, with the artefact
+% field and the command that produced it. No number was read off a log.
+% Artefact: REVISAO_R1/audit_target_generator.json
+% Script:   REVISAO_R1/audit_target_generator.py
+% =====================================================================
+
+\section{Target Generation Model}
+\label{app:target-generator}
+
+\subsection{Software identification and scope}
+
+The reference fields used throughout this study are not field measurements
+but the output of a deterministic propagation generator written for this
+project, and the contribution evaluated in this paper is
+therefore the emulation of that generator at graph scale rather than the
+prediction of measured radio conditions. No commercial or third-party
+planning tool participates in the pipeline: there is no Atoll, ICS Telecom,
+WinProp, TIREM or Longley--Rice component anywhere in the chain, and the
+entire target field is produced by three Python modules and a post-processing corrector that depend, for
+the propagation arithmetic itself, only on NumPy. Because those modules
+carry no version string, they are identified here by the SHA-256 digest of
+their contents, which is the only unambiguous version key available:
+\texttt{generate\_\allowbreak{}realistic\_\allowbreak{}coverage\allowbreak{}.py} (\texttt{95ea0423\,2280\,6fd6},
+13\,631~bytes) holds the propagation equations,
+\texttt{01\_\allowbreak{}data/\allowbreak{}prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py}
+(\texttt{45c16d43\,bc13\,a4bc}, 22\,917~bytes) applies them over the terrain
+graph and writes the five supervised channels, and
+\texttt{data\_\allowbreak{}raw/\allowbreak{}enrich\_\allowbreak{}rf\_\allowbreak{}targets\allowbreak{}.py} (\texttt{5d38012e\,c66e\,842d},
+26\,012~bytes) replaces the two auxiliary channels with terrain-derived
+attenuation terms. The corrector \texttt{contrafactual\_\allowbreak{}alvo\_\allowbreak{}completo\allowbreak{}.py}
+(\texttt{ebeaf759\,2511\,fae3}, 10\,076~bytes) then rewrote the enriched files as
+described in Section~\ref{app:corrector}; every result of the spatially blocked
+evaluation uses the corrected files, whereas the comparisons quoted from the
+earlier campaign use the enriched files before correction. Antenna
+parameters come from a single ANATEL licensing extract,
+\texttt{antenas\_\allowbreak{}interior\_\allowbreak{}sp\_\allowbreak{}final\allowbreak{}.csv}
+(\texttt{ad9addb0\,c515\,a0b4}, 17\,763\,282~bytes). Everything reported in
+this appendix is transcribed from those five files, and the equations below
+are annotated with the source line at which each expression is implemented
+so that the correspondence can be checked line by line.
+
+\subsection{Base path loss}
+
+The base term is a frequency-switched pair of empirical median-path-loss
+models, both evaluated in decibels with distance in kilometres and
+frequency in megahertz. The mobile-height correction factor for a
+medium-to-small city is applied identically in both branches,
+\begin{equation}
+a(h_{m}) = \bigl(1.1\log_{10} f - 0.7\bigr)h_{m}
+         - \bigl(1.56\log_{10} f - 0.8\bigr) ,
+\label{eq:app-ahm}
+\end{equation}
+% generate_realistic_coverage.py:38 (Okumura branch) and :62 (COST-231 branch)
+with the mobile height fixed at $h_{m}=1.5$~m for every node in the domain
+(\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}210}). The Okumura--Hata urban
+reference curve is
+\begin{equation}
+\begin{split}
+L_{\mathrm{urb}}^{\mathrm{OH}} = {}& 69.55 + 26.16\log_{10} f
+   - 13.82\log_{10} h_{b} - a(h_{m}) \\
+ & + \bigl(44.9 - 6.55\log_{10} h_{b}\bigr)\log_{10} d ,
+\end{split}
+\label{eq:app-hata-urban}
+\end{equation}
+% generate_realistic_coverage.py:41-42
+and the environment corrections applied to it are
+\begin{equation}
+L_{\mathrm{base}}^{\mathrm{OH}} =
+\begin{cases}
+L_{\mathrm{urb}}^{\mathrm{OH}}, & \text{urban},\\[2pt]
+L_{\mathrm{urb}}^{\mathrm{OH}} - 2\bigl(\log_{10}\tfrac{f}{28}\bigr)^{2} - 5.4,
+  & \text{suburban},\\[2pt]
+L_{\mathrm{urb}}^{\mathrm{OH}} - 4.78\bigl(\log_{10} f\bigr)^{2} & \\
+  \qquad {} + 18.33\log_{10} f - 40.94, & \text{rural}.
+\end{cases}
+\label{eq:app-hata-env}
+\end{equation}
+
+% generate_realistic_coverage.py:44-51
+Above 1500~MHz the generator switches to the COST\,231 Hata extension,
+\begin{equation}
+\begin{split}
+L_{\mathrm{base}}^{\mathrm{C231}} = {}& 46.3 + 33.9\log_{10} f
+   - 13.82\log_{10} h_{b} - a(h_{m}) \\
+ & + \bigl(44.9 - 6.55\log_{10} h_{b}\bigr)\log_{10} d + C_{m} ,
+\end{split}
+\label{eq:app-cost231}
+\end{equation}
+% generate_realistic_coverage.py:67-68; C_m at :65
+where $C_{m}=3$~dB for the urban class and $C_{m}=0$~dB otherwise, and the
+selection between the two branches is the hard threshold
+$L_{\mathrm{base}} = L_{\mathrm{base}}^{\mathrm{OH}}$ if $f\le 1500$~MHz and
+$L_{\mathrm{base}} = L_{\mathrm{base}}^{\mathrm{C231}}$ otherwise
+(\texttt{generate\_\allowbreak{}realistic\_\allowbreak{}coverage\allowbreak{}.py:\allowbreak{}85--88}).
+
+Three numerical guards inside these branches change the effective inputs
+and must be declared because they are not part of either published model.
+Frequency is clipped to $[150, 2000]$~MHz in the Okumura branch and to
+$[1500, 2000]$~MHz in the COST\,231 branch
+(\texttt{generate\_\allowbreak{}realistic\_\allowbreak{}coverage\allowbreak{}.py:\allowbreak{}34,58}), so that every carrier
+above 2000~MHz enters the base term as if it were at exactly 2000~MHz,
+while the vegetation term of Eq.~\eqref{eq:app-aveg} continues to receive
+the true carrier (\texttt{generate\_\allowbreak{}realistic\_\allowbreak{}coverage\allowbreak{}.py:\allowbreak{}101}) and the two
+components of the same sum are consequently evaluated at different
+frequencies; in the four cities this clip is active for 27.4\,\% of the
+Lins transmitters, 26.8\,\% of Campinas, 24.5\,\% of Sorocaba and 30.1\,\%
+of Bauru, which means that for roughly a quarter of the field the base
+frequency has been silently substituted. Distance is floored at $10^{-3}$~km,
+that is at one metre (\texttt{generate\_\allowbreak{}realistic\_\allowbreak{}coverage\allowbreak{}.py:\allowbreak{}35,59}),
+three decades below the 1~km lower bound of the Okumura--Hata validity
+domain. Base-station height enters unclipped, and 5.1\,\% of the Lins
+transmitters, 23.3\,\% of Campinas, 18.9\,\% of Sorocaba and 6.7\,\% of
+Bauru sit below the 30~m floor of that same domain. The generator is
+therefore an extrapolation of both empirical models over part of its input
+range, and the reported accuracy figures should be read as fidelity to this
+particular extrapolation rather than as agreement with the published
+models inside their stated envelopes.
+
+\subsection{Clutter and environment class}
+
+What the generator calls the propagation environment is not a clutter
+parameter in the usual sense, and this is the single point in the model
+most likely to be misread. There is no land-cover raster, no morphology
+database, no building or clutter-height layer, and no per-pixel clutter
+correction anywhere in the chain; the class is assigned once per
+transmitter by a threshold on its own carrier frequency, urban when
+$f>1800$~MHz, suburban when $800<f\le 1800$~MHz and rural when
+$f\le 800$~MHz (\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}84--86}). The
+consequence is that the environment label is a deterministic function of
+frequency and carries no independent geographic information, so that
+Eq.~\eqref{eq:app-hata-env} does not describe the ground under a given node
+but only the band of the transmitter serving it. A verifiable corollary of
+this coupling is that the urban class can never reach the Okumura branch
+and the rural class can never reach COST\,231, which the transmitter records
+confirm exactly: zero transmitters fall in either impossible combination in any of
+the four cities. Terrain clutter is therefore unmodelled, and a frequency-indexed
+correction constant stands in its place.
+
+\subsection{Vegetation attenuation}
+
+Vegetation enters through a single additive term parameterised by NDVI
+taken raw from column 12 of the terrain feature matrix
+(\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}140}), which the code maps to a
+density and then to an effective path depth,
+\begin{equation}
+\rho_{v} = \operatorname{clip}\!\left(\frac{\mathrm{NDVI}+1}{2},\,0,\,1\right),
+\qquad
+d_{v} = 0.3\, \rho_{v}\, d_{m} ,
+\label{eq:app-vegdepth}
+\end{equation}
+% generate_realistic_coverage.py:95,98 -- d_m in metres
+so that at most 30\,\% of the geometric path is declared to lie inside
+vegetation regardless of where the vegetation actually is. The attenuation
+follows the ITU-R P.833 functional form for a single vegetation entry,
+\begin{equation}
+A_{\mathrm{veg}} = \operatorname{clip}\!\bigl(
+0.25 f^{0.39} \min(d_{v}, 400)^{0.25},\, 0,\, 40 \bigr)\ [\mathrm{dB}] ,
+\label{eq:app-aveg}
+\end{equation}
+% generate_realistic_coverage.py:101-102 -- f in MHz, d_v in metres
+with frequency in megahertz and depth in metres, a depth cap of 400~m and
+an attenuation cap of 40~dB. The depth cap is the dominant feature of this
+term in practice: for a node with $\mathrm{NDVI}=0.5$ the cap is reached at
+a geometric distance of about 1778~m, beyond which $A_{\mathrm{veg}}$ is
+constant in distance and depends only on frequency, taking the values
+15.87~dB at 900~MHz, 20.80~dB at 1800~MHz and 24.00~dB at 2600~MHz.
+Because the argument of the quarter-power is a product of distance and
+NDVI, the term is also strongly distance-driven below the cap, reaching
+7.73~dB at 100~m and 13.74~dB at 1~km for the same NDVI at 900~MHz, so that
+most of its dynamic range is geometry rather than vegetation. The 40~dB
+clip is unreachable in this dataset: at the highest carrier present in the
+four cities, 3550~MHz, and with the depth cap and NDVI both saturated, the
+term attains only 27.10~dB.
+
+\subsection{Terrain attenuation}
+
+The terrain term is the component of the generator that most needs an
+explicit and uncomfortable statement, because its name does not describe
+its content. Formally it is a piecewise-linear function of a dimensionless
+slope variable,
+\begin{equation}
+A_{\mathrm{ter}} = \operatorname{clip}\!\Bigl(
+20\,s + 30\,\max(s-0.1,\,0),\; 0,\; 30 \Bigr)\ [\mathrm{dB}] ,
+\label{eq:app-aterrain}
+\end{equation}
+% generate_realistic_coverage.py:109-116
+with $s$ the local slope expressed as a rise-over-run ratio. The V19 stage
+of the pipeline did not read $s$ from the digital elevation model: it drew
+it independently for each node from a uniform distribution on $[0.02, 0.15]$
+by an unseeded call to the NumPy generator
+(\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}141}, and identically at
+\texttt{generate\_\allowbreak{}realistic\_\allowbreak{}coverage\allowbreak{}.py:\allowbreak{}167}), which made
+Eq.~\eqref{eq:app-aterrain} an independent random offset per node between
+0.4~dB and 4.5~dB, with mean 1.99~dB and standard deviation 1.15~dB over the
+support of that distribution. The corrector of Section~\ref{app:corrector}
+replaces the draw with the node's DEM slope, stored as feature~1 of the
+released files, and recomputes the total-loss and RSSI channels by exact
+difference, so that in every reference field used for the blocked evaluation
+Eq.~\eqref{eq:app-aterrain} is a deterministic function of terrain.
+Recomputing the corrected total-loss channel from the features stored in the
+released files reproduces it with a mean absolute error of at most
+$3.02 \times 10^{-4}$~dB per cell over 150\,000 covered nodes in five cells.
+
+\subsection{Total loss, link budget and serving cell}
+
+The three components are summed without interaction terms,
+\begin{equation}
+\begin{split}
+L_{\mathrm{tot}}(i,j) = {}& L_{\mathrm{base}}(d_{ij}, f_{j}, h_{b,j}, e_{j}) \\
+ & + A_{\mathrm{veg}}(d_{ij}, \mathrm{NDVI}_{i})
+   + A_{\mathrm{ter}}(s_{i}) ,
+\end{split}
+\label{eq:app-ltot}
+\end{equation}
+% generate_realistic_coverage.py:121
+and converted to a received level by a two-term link budget that contains
+no cable, connector, body or feeder loss and no receive antenna gain,
+\begin{equation}
+\mathrm{RSSI}(i,j) = P_{j} + G_{j} - L_{\mathrm{tot}}(i,j)
+\quad [\mathrm{dBm}] ,
+\label{eq:app-rssi}
+\end{equation}
+% prepare_transfer_dataset_v19.py:215
+where $P_{j}=10\log_{10}(1000\,P_{j}^{\mathrm{W}})$ is the transmitter power
+in dBm (\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}81}) and $G_{j}$ is the
+catalogue antenna gain in dBi, applied as a scalar in every direction. The
+serving cell is then the strongest received level among the transmitters
+whose planar distance to the node is within the 30~km inclusion radius,
+\begin{equation}
+s(i) = \!\!\operatorname*{arg\,max}_{j \,:\, d_{ij} \le 30\,\mathrm{km}}\!\!
+\mathrm{RSSI}(i,j),
+\quad
+L_{i} = L_{\mathrm{tot}}\bigl(i, s(i)\bigr) ,
+\label{eq:app-serving}
+\end{equation}
+% prepare_transfer_dataset_v19.py:220-228; radius at :46
+which is a pure best-server rule with no handover hysteresis, no load
+balancing, no cell-selection offset and no minimum-received-level
+qualification. Distances are planar rather than geodesic, computed as
+$\Delta y = 111000\,\Delta\varphi$ and
+$\Delta x = 111000\,\Delta\lambda\cos\varphi$ in metres
+(\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}183--185}); the constant
+111000~m per degree understates the WGS-84 mean meridian degree of
+111194.93~m by 0.175\,\%, a bias that is negligible against the decibel
+scale of the model but is nonetheless a systematic contraction of every
+distance in the dataset. Nodes with no transmitter inside the radius retain
+the sentinel initialisation of $-200$~dBm and 300~dB, and any node whose
+best level falls below $-150$~dBm is subsequently overwritten with a
+constant $-110$~dBm (\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}274}),
+which introduces a point mass in the RSSI distribution that must be
+excluded before any distributional claim about the target field is made.
+
+\subsection{Coverage definition}
+
+Coverage is a hard indicator rather than a probability, defined on the
+serving-cell received level by a single threshold,
+\begin{equation}
+c_{i} = \mathbf{1}\bigl[\mathrm{RSSI}_{i} > -85\ \mathrm{dBm}\bigr] ,
+\label{eq:app-coverage}
+\end{equation}
+% prepare_transfer_dataset_v19.py:275
+so that $H(c_{i}\mid \mathrm{RSSI}_{i}) = 0$ exactly and the fifth
+supervised channel carries no information beyond the fourth. There is no
+fading margin, no outage probability, no shadowing standard deviation and
+no receiver sensitivity or noise-figure calculation entering this
+definition; the threshold is a fixed design constant of the generator. The
+learned coverage channel is accordingly a derived classification of the
+received level rather than an independent coverage probability.
+
+\subsection{Antenna configuration}
+
+Table~\ref{tab:app-antenna-params} separates the antenna quantities the
+generator actually consumes from those that exist in the licensing extract
+and are discarded, and Table~\ref{tab:app-antenna-inventory} gives the
+resulting per-city inventory. The essential point for a reader assessing
+the physical realism of the target is that the radiation pattern is
+isotropic: azimuth, mechanical and electrical downtilt, half-power
+beamwidth, front-to-back ratio and polarisation are all present in the
+source records and none is read by the loader
+(\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}73--79}). Because sectors of the
+same site share coordinates, discarding azimuth turns each site into a
+stack of co-located omnidirectional sources that differ only in frequency,
+power, gain and height, with a mean of 13.5 and a maximum of 21 such
+sources per site in Lins and a maximum of 49 in Campinas; the best-server
+rule of Eq.~\eqref{eq:app-serving} then reduces each stack to whichever
+member happens to maximise $P_{j}+G_{j}-L_{\mathrm{tot}}$. The loader also
+retains catalogue gains of exactly 0~dBi where the licensing record carries
+no value, affecting 32 transmitters in Campinas, 4 in Sorocaba and 1 in
+Bauru, and it does not apply the 12~dBi substitution that the standalone
+coverage script uses for the same situation
+(\texttt{generate\_\allowbreak{}realistic\_\allowbreak{}coverage\allowbreak{}.py:\allowbreak{}191}), so the two entry points to
+the same physics are not numerically identical.
+
+\begin{table}[!t]
+\caption{Antenna quantities in the target generator, grouped by whether
+the model consumes them. Column names in typewriter font are fields of the
+ANATEL licensing extract. The second group is the reason the radiation
+pattern is isotropic: those fields are populated in the records and the
+loader never reads them.}
+\label{tab:app-antenna-params}
+\centering
+\footnotesize
+\begin{tabular}{@{}ll@{}}
+\toprule
+Quantity & Source and unit in the model \\
+\midrule
+\multicolumn{2}{@{}l}{\textit{Used}} \\
+Carrier frequency $f$   & \texttt{FreqTxMHz}, MHz \\
+Transmit power $P$      & $10\log_{10}(1000P^{\mathrm{W}})$, dBm \\
+Antenna gain $G$        & \texttt{GanhoAntena}, dBi, isotropic \\
+Antenna height $h_{b}$  & \texttt{AlturaAntena}, m AGL \\
+Site coordinates        & \texttt{Latitude}, \texttt{Longitude}, deg \\
+Environment class $e$   & derived from $f$ alone \\
+Mobile height $h_{m}$   & fixed at 1.5\,m for all nodes \\
+\midrule
+\multicolumn{2}{@{}l}{\textit{Present in the records but never read}} \\
+Azimuth                 & \texttt{Azimute}, deg \\
+Downtilt                & \texttt{AnguloElevacao}, deg \\
+Half-power beamwidth    & \texttt{AnguloMeiaPotenciaAntena}, deg \\
+Front-to-back ratio     & \texttt{FrenteCostaAntena}, dB \\
+Polarisation            & \texttt{Polarizacao} \\
+\midrule
+\multicolumn{2}{@{}l}{\textit{Absent from the model altogether}} \\
+Feeder, connector, body loss & --- \\
+Receive antenna gain         & --- \\
+Noise figure, thermal noise  & --- \\
+Interference, SINR           & --- \\
+Fading, shadowing margin     & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!t]
+\caption{Per-city transmitter inventory after the generator's validity
+filter ($f>0$ and $P^{\mathrm{W}}>0$). Sites are unique coordinate pairs.
+The last column is the share of transmitters whose carrier exceeds the
+2000\,MHz internal clip.}
+\label{tab:app-antenna-inventory}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrccrr@{}}
+\toprule
+City & Tx & Sites & $f$ (MHz) & $P$ (dBm) & $h_{b}$ (m) & Clip \\
+\midrule
+Lins     &  175 &  13 & 788--2680 & 41.6--49.0 & 21--75 & 27.4\,\% \\
+Campinas & 4252 & 350 & 778--3550 & 33.0--53.0 &  3--74 & 26.8\,\% \\
+Sorocaba & 1398 & 120 & 788--2680 & 35.1--49.3 &  3--76 & 24.5\,\% \\
+Bauru    &  794 &  75 & 788--2680 & 40.0--49.0 &  3--90 & 30.1\,\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The two auxiliary channels}
+
+The five supervised channels written by the V19 pipeline are total path
+loss, two placeholder channels, serving-cell RSSI and the coverage
+indicator; the placeholders are written as zeros at that stage
+(\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}276--282}) and are then filled
+by the enrichment step, which is part of the pipeline for every dataset
+used in this study. That step computes a vegetation shadow margin
+following ITU-R P.833 from the Sentinel-2 NDVI of the node and a
+knife-edge diffraction loss following ITU-R P.526 from the DEM-derived
+terrain ruggedness index and roughness
+(\texttt{data\_\allowbreak{}raw/\allowbreak{}enrich\_\allowbreak{}rf\_\allowbreak{}targets\allowbreak{}.py:\allowbreak{}336--396,533--534}), using a
+specific attenuation $\gamma = 0.2\,\mathrm{NDVI}\,(f_{\mathrm{GHz}}/1.8)^{0.4}$
+in dB/m over a depth $d_{v} = d\,\operatorname{clip}(\mathrm{NDVI}-0.5,0,1)$
+capped at 40~dB, and a single knife-edge obstacle placed at the path
+midpoint with an obstruction height
+$h_{\mathrm{obs}} = \operatorname{clip}(0.5\,\mathrm{TRI}_{\mathrm{m}} + 0.5\,r_{\mathrm{m}},\,0,\,80)$
+in metres, also capped at 40~dB, with roughness $r_{\mathrm{m}}$ in metres after
+correction. These two channels are therefore the point
+at which the digital elevation model and the vegetation index enter the
+reference field as physically labelled attenuation terms, and they are the
+targets against which the decoder's vegetation and terrain heads are
+trained and scored. Two properties of the enrichment must be stated because
+they differ from the geometry of the total-loss channel: the distance it
+uses is the distance to the nearest transmitter rather than to the serving
+cell of Eq.~\eqref{eq:app-serving}
+(\texttt{enrich\_\allowbreak{}rf\_\allowbreak{}targets\allowbreak{}.py:\allowbreak{}546}), and the frequency is a single
+global 1800~MHz (\texttt{FREQ\_\allowbreak{}MHZ\_\allowbreak{}DEFAULT}, line 38) rather than the
+per-transmitter carrier. The auxiliary channels are consequently
+consistent with each other but evaluated under a different link geometry
+and frequency from the total-loss channel, and the manuscript states this
+explicitly where the three channels are compared.
+
+\subsection{Target corrector}
+\label{app:corrector}
+
+Three defects of the enriched files were corrected before the spatially
+blocked evaluation, all by \texttt{contrafactual\_\allowbreak{}alvo\_\allowbreak{}completo\allowbreak{}.py}, which
+writes new files and leaves the originals untouched. First, the terrain term
+of the total-loss channel used the random slope draw described above; the
+corrector substitutes the node's DEM slope and updates the total-loss and
+RSSI channels by exact difference, which is possible because
+Eq.~\eqref{eq:app-aterrain} depends only on the node and does not change which
+transmitter serves it. Second, the enrichment step read the topographic
+position index column where the diffraction term expects the terrain
+ruggedness index; the corrector reads the ruggedness column. Third, the
+obstruction height added ruggedness in metres to roughness in normalised
+units, whose scale differs by city; the corrector converts roughness to
+metres with the per-city elevation standard deviation. The diffraction
+channel is then recomputed with the original enrichment function. Sentinel
+nodes keep their sentinel values in the total-loss and RSSI channels. The
+16 corrected reference fields are released with their SHA-256 digests.
+
+\subsection{What the generator does not model}
+
+An emulation claim is only as strong as the honesty of the description of
+what is being emulated, and several mechanisms that a radio-planning reader
+would expect are simply absent here. There is no ray tracing and no terrain
+profile along the link: the base term never sees an elevation sample
+between transmitter and receiver, so diffraction over real obstacles,
+Fresnel-zone clearance, line-of-sight testing, multipath and ground
+reflection have no representation, and the knife-edge term of the
+enrichment substitutes a single midpoint obstacle whose height is a
+ruggedness proxy rather than a profile maximum. There is no clutter
+database, as discussed above, and no building layer, so the urban,
+suburban and rural corrections act as three global constants selected by
+carrier frequency. There is no stochastic component of any kind in the
+delivered path loss: the docstring of the propagation routine announces
+log-normal fading (\texttt{generate\_\allowbreak{}realistic\_\allowbreak{}coverage\allowbreak{}.py:\allowbreak{}80}) but no
+random term appears in the body of the function, and the only randomness in
+the pipeline was the terrain slope draw described above, which the corrector
+removes from the released fields. There is no noise floor, no
+receiver noise figure, no interference from neighbouring cells and
+therefore no SINR, so the received level of Eq.~\eqref{eq:app-rssi} is a
+pure two-term link budget and coverage is a threshold on that budget rather
+than a link-quality decision. Finally, the geometry is two-dimensional and
+planar: node and transmitter altitudes never enter, the receiver is fixed
+at 1.5~m above an unspecified reference surface, Earth curvature is
+ignored, and the distance uses a constant metres-per-degree factor. Stating
+these absences precisely is what allows the reformulated contribution to be
+defended, because the quantity the network reproduces is a well-defined and
+fully specified analytical field, and the accuracy figures in the body of
+the paper measure emulation fidelity to that field and nothing more.

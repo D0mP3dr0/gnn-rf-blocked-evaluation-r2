@@ -1,0 +1,2081 @@
+{
+  "artefato_tipo": "medicao_contraste_1nn_vizinho_valido",
+  "cegueira": "NAO cego: releitura exploratoria do JSON anterior ja indicava o sentido (ver pre-registro)",
+  "gerado_em_utc": "2026-09-16T14:53:24Z",
+  "script": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\contraste_1nn_vizinho_valido\\contraste_1nn_vizinho_valido.py",
+  "script_sha256": "4007c916f78169243b38d3df3d24ddabb23725dd57ee9c8c8a4b3837ba1c3198",
+  "preregistro": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\planos\\preregistro_contraste_1nn_vizinho_valido_2026-09-16.json",
+  "preregistro_sha256": "1b5ea2d845232bde040f96e5bbc77fc04f1ccf78cd6eadd78cdd789c161de03b",
+  "medicao_anterior": {
+    "preregistro": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\planos\\preregistro_contraste_1nn_16celulas_2026-09-16.json",
+    "preregistro_sha256": "77ed66be9f6a59c49cb6bb71ad9a15f31f0ab417ae1c785fa3eb61d5e61aef9d",
+    "script": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\contraste_1nn_16celulas\\contraste_1nn_16celulas.py",
+    "script_sha256": "0c7c65b406974c15b1356ce0ba0a43c7db034aaa6cc7b16e1c514e200ef719cc",
+    "json": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\contraste_1nn_16celulas\\contraste_1nn_16celulas.json",
+    "json_sha256": "6bf5c567312dd9e2a26bf73693915c85ec1d764a58b475f925bc49bb2e7b1924"
+  },
+  "script_particao": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\scripts_congelados\\train_gnn_c0_spatial.py",
+  "script_particao_sha256": "6f955629cde164f2843f454e1ebf6977292fd80647ef48ecd0df31e464c42445",
+  "ambiente": {
+    "python": "F:\\S33_dslm\\s33_amb_virtual\\.venv\\Scripts\\python.exe",
+    "torch": "2.10.0+cu128",
+    "numpy": "2.4.6",
+    "scipy": "1.17.0",
+    "dispositivo": "cpu"
+  },
+  "parametros": {
+    "seed": 42,
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "fracs": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "pl_valid_max_db": 299.0,
+    "n_amostra_test": 20000,
+    "vizinho_candidato": "treino com PL < 299 dB",
+    "tol_reproducao_db": 1e-09
+  },
+  "criterio": {
+    "R_min": 2.0,
+    "delta_min_db": 1.0,
+    "n_min_amostrado": 1000,
+    "cidade_min_presentes_de_4": 3,
+    "conjunto_presente_min_de_16": 13,
+    "conjunto_ausente_max_de_16": 8
+  },
+  "celulas": [
+    {
+      "cidade": "lins",
+      "quadrante": "Q1",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_lins_v19_Q1_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "f23d15852f1d132eeb5412e194cb0d4251f88c6a0d32097cef08588835742cfc",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_lins_s42_Q1_g10b2.json",
+      "run_c0c1cf_sha256": "e56719dffd273cce73fcafa71afbb8f8417ddd0ce8dd923089652bce253f8359",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9189821,
+          "idx_sha256_global": "d4a122f2582a3609a9dc13e97adcaed991c2a32589fd3f7586c6f3c7fd8f807d",
+          "confere": true
+        },
+        "val": {
+          "n": 1031207,
+          "idx_sha256_global": "b4ac444ba0de4323496d94844ef860f61a07ee66c3555b8eb6248c61f8d8cd45",
+          "confere": true
+        },
+        "test": {
+          "n": 833593,
+          "idx_sha256_global": "3cdac4e6c3c76e6ce4fe66f19904442bc85fd02aaa9d28866df86d7377a754c6",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9189821,
+        "n_train_candidatos": 784675,
+        "n_test_total": 833593,
+        "n_test_valido_total": 71452,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.18572723865509033,
+        "dist_vizinho_km_media": 0.028907269213924083,
+        "dist_vizinho_km_mediana": 0.02874470075430935,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.18572723865509033,
+        "diag_frac_pred_mudou_vs_desligado": 0.06095,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1201,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9189821,
+        "n_train_candidatos": 890993,
+        "n_test_total": 833593,
+        "n_test_valido_total": 24945,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 3.079200267791748,
+        "dist_vizinho_km_media": 2.5799012732986775,
+        "dist_vizinho_km_mediana": 2.5793765223331544,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 3.079200267791748,
+        "diag_frac_pred_mudou_vs_desligado": 0.0,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 16.579152794653123,
+      "delta_db": 2.8934730291366577,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.301302969455719,
+          "mae_db_desligado": 0.301302969455719,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 3.079200267791748,
+          "mae_db_desligado": 3.079200267791748,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": {
+          "esperado_round4": {
+            "aleatorio": 0.3013,
+            "bloqueado": 3.0792
+          },
+          "obtido_desligado": {
+            "aleatorio": 0.301302969455719,
+            "bloqueado": 3.079200267791748
+          },
+          "passou": true
+        }
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9189821,
+          "n_train_candidatos": 9189821,
+          "n_test_total": 833593,
+          "n_test_valido_total": 71452,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.301302969455719,
+          "dist_vizinho_km_media": 0.028906847333098607,
+          "dist_vizinho_km_mediana": 0.028744673321014602,
+          "frac_pred_sentinela": 0.0009,
+          "n_pred_sentinela": 18,
+          "diag_mae_db_so_vizinho_valido": 0.18521131575107574
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9189821,
+          "n_train_candidatos": 9189821,
+          "n_test_total": 833593,
+          "n_test_valido_total": 24945,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 3.079200267791748,
+          "dist_vizinho_km_media": 2.5799012732986775,
+          "dist_vizinho_km_mediana": 2.5793765223331544,
+          "frac_pred_sentinela": 0.0,
+          "n_pred_sentinela": 0,
+          "diag_mae_db_so_vizinho_valido": 3.079200267791748
+        }
+      },
+      "custo_s": {
+        "carga": 3.5678210258483887,
+        "particao": 3.1200449466705322,
+        "1nn": 4.235813617706299,
+        "total_celula": 12.185830354690552
+      }
+    },
+    {
+      "cidade": "bauru",
+      "quadrante": "Q1",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_bauru_v19_Q1_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "33e8d57368920241fc289f8c939de35ece7178c316d2bf5488c3cdf98ff5fb5c",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_bauru_s42_Q1_g10b2.json",
+      "run_c0c1cf_sha256": "552890b4dd972c6e7e4bb2193d03a7483b70f6d6bcedb2434c0401cbd9c5f7a2",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9188831,
+          "idx_sha256_global": "7ce69f2153a11e0b3019823367d32ee8f1d32832be8e62378a09bbd33e6f7a17",
+          "confere": true
+        },
+        "val": {
+          "n": 1033370,
+          "idx_sha256_global": "2c0c847ebf26a317df1ee2d11f19c899480a6848b3e3acee89efd0b715a0eeb7",
+          "confere": true
+        },
+        "test": {
+          "n": 828243,
+          "idx_sha256_global": "f070b3e31cec5b7e10810b0b093d1149b7a7fe3fd9ef26e1643d9e29d7cc449d",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188831,
+        "n_train_candidatos": 1490123,
+        "n_test_total": 828243,
+        "n_test_valido_total": 134574,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.38731756806373596,
+        "dist_vizinho_km_media": 0.028800781542687053,
+        "dist_vizinho_km_mediana": 0.028621719320661043,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.38731756806373596,
+        "diag_frac_pred_mudou_vs_desligado": 0.06215,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1231,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188831,
+        "n_train_candidatos": 1309278,
+        "n_test_total": 828243,
+        "n_test_valido_total": 271812,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 6.654171943664551,
+        "dist_vizinho_km_media": 4.262840849815141,
+        "dist_vizinho_km_mediana": 3.9159012887779205,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 6.654171943664551,
+        "diag_frac_pred_mudou_vs_desligado": 0.0704,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 17.18014490519975,
+      "delta_db": 6.266854375600815,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.4685222804546356,
+          "mae_db_desligado": 0.4685222804546356,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 15.603777885437012,
+          "mae_db_desligado": 15.603777885437012,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": {
+          "esperado_round4": {
+            "aleatorio": 0.4685,
+            "bloqueado": 15.6038
+          },
+          "obtido_desligado": {
+            "aleatorio": 0.4685222804546356,
+            "bloqueado": 15.603777885437012
+          },
+          "passou": true
+        }
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188831,
+          "n_train_candidatos": 9188831,
+          "n_test_total": 828243,
+          "n_test_valido_total": 134574,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.4685222804546356,
+          "dist_vizinho_km_media": 0.028798973247691286,
+          "dist_vizinho_km_mediana": 0.02862169095403999,
+          "frac_pred_sentinela": 0.0006,
+          "n_pred_sentinela": 12,
+          "diag_mae_db_so_vizinho_valido": 0.3899315297603607
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188831,
+          "n_train_candidatos": 9188831,
+          "n_test_total": 828243,
+          "n_test_valido_total": 271812,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 15.603777885437012,
+          "dist_vizinho_km_media": 4.152184385351876,
+          "dist_vizinho_km_mediana": 3.885866350567035,
+          "frac_pred_sentinela": 0.0704,
+          "n_pred_sentinela": 1408,
+          "diag_mae_db_so_vizinho_valido": 6.363010406494141
+        }
+      },
+      "custo_s": {
+        "carga": 3.562997341156006,
+        "particao": 3.187394142150879,
+        "1nn": 4.451836347579956,
+        "total_celula": 12.453230619430542
+      }
+    },
+    {
+      "cidade": "lins",
+      "quadrante": "Q2",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_lins_v19_Q2_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "64a48e1cb48287cf0753c04bb4934d65bf21144a084e1afe058161640a428249",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_lins_s42_Q2_g10b2.json",
+      "run_c0c1cf_sha256": "2c60de023b73a63d642a6023a4159bfe28bcbf85643be3f1c5b92f76f47fa0e9",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9189821,
+          "idx_sha256_global": "d4a122f2582a3609a9dc13e97adcaed991c2a32589fd3f7586c6f3c7fd8f807d",
+          "confere": true
+        },
+        "val": {
+          "n": 1031207,
+          "idx_sha256_global": "b4ac444ba0de4323496d94844ef860f61a07ee66c3555b8eb6248c61f8d8cd45",
+          "confere": true
+        },
+        "test": {
+          "n": 833593,
+          "idx_sha256_global": "3cdac4e6c3c76e6ce4fe66f19904442bc85fd02aaa9d28866df86d7377a754c6",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9189821,
+        "n_train_candidatos": 1366322,
+        "n_test_total": 833593,
+        "n_test_valido_total": 123586,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.16419750452041626,
+        "dist_vizinho_km_media": 0.02891861780753004,
+        "dist_vizinho_km_mediana": 0.02875315189551486,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.16419750452041626,
+        "diag_frac_pred_mudou_vs_desligado": 0.0612,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1214,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9189821,
+        "n_train_candidatos": 1475046,
+        "n_test_total": 833593,
+        "n_test_valido_total": 123306,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 6.612626552581787,
+        "dist_vizinho_km_media": 3.9308807973617528,
+        "dist_vizinho_km_mediana": 3.7617645263790456,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 6.612626552581787,
+        "diag_frac_pred_mudou_vs_desligado": 0.0,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 40.2723937364077,
+      "delta_db": 6.448429048061371,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.2333884835243225,
+          "mae_db_desligado": 0.2333884835243225,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 6.612626552581787,
+          "mae_db_desligado": 6.612626552581787,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9189821,
+          "n_train_candidatos": 9189821,
+          "n_test_total": 833593,
+          "n_test_valido_total": 123586,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.2333884835243225,
+          "dist_vizinho_km_media": 0.02891795163653704,
+          "dist_vizinho_km_mediana": 0.02875315189551131,
+          "frac_pred_sentinela": 0.0005,
+          "n_pred_sentinela": 10,
+          "diag_mae_db_so_vizinho_valido": 0.16357016563415527
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9189821,
+          "n_train_candidatos": 9189821,
+          "n_test_total": 833593,
+          "n_test_valido_total": 123306,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 6.612626552581787,
+          "dist_vizinho_km_media": 3.9308807973617528,
+          "dist_vizinho_km_mediana": 3.7617645263790456,
+          "frac_pred_sentinela": 0.0,
+          "n_pred_sentinela": 0,
+          "diag_mae_db_so_vizinho_valido": 6.612626552581787
+        }
+      },
+      "custo_s": {
+        "carga": 3.651201009750366,
+        "particao": 3.156764268875122,
+        "1nn": 4.396281480789185,
+        "total_celula": 12.5619478225708
+      }
+    },
+    {
+      "cidade": "lins",
+      "quadrante": "Q3",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_lins_v19_Q3_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "845b287a7b3d33e1b08670c0dad745c2b9f50628e2d38540553de73ed234a4f2",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_lins_s42_Q3_g10b2.json",
+      "run_c0c1cf_sha256": "0d25f361abecab655e17e28d5a82c9e7d2833d80bcf59367e31e3de5b61a4a77",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9189022,
+          "idx_sha256_global": "1285a86419643708d8f6285a9ee351182c1a291b6a19490b02986ed231dfbdb2",
+          "confere": true
+        },
+        "val": {
+          "n": 1032790,
+          "idx_sha256_global": "04520a7f06b17eed051d2e38458ebdc1ca1772eb78d3bc83f18a88880f72d0a4",
+          "confere": true
+        },
+        "test": {
+          "n": 824701,
+          "idx_sha256_global": "b36bf1a98e708823b4a89f51ee497d3d3d5bea72df77f6e4b7a45059603978f7",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9189022,
+        "n_train_candidatos": 655675,
+        "n_test_total": 824701,
+        "n_test_valido_total": 58992,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.23593628406524658,
+        "dist_vizinho_km_media": 0.0288635655539344,
+        "dist_vizinho_km_mediana": 0.028694357479423616,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.23593628406524658,
+        "diag_frac_pred_mudou_vs_desligado": 0.06135,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1215,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9189022,
+        "n_train_candidatos": 576070,
+        "n_test_total": 824701,
+        "n_test_valido_total": 82826,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 4.114220142364502,
+        "dist_vizinho_km_media": 3.4000082927677804,
+        "dist_vizinho_km_mediana": 3.289326705165446,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 4.114220142364502,
+        "diag_frac_pred_mudou_vs_desligado": 0.11665,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 17.437844113992835,
+      "delta_db": 3.8782838582992554,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.30533885955810547,
+          "mae_db_desligado": 0.30533885955810547,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 18.504621505737305,
+          "mae_db_desligado": 18.504621505737305,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9189022,
+          "n_train_candidatos": 9189022,
+          "n_test_total": 824701,
+          "n_test_valido_total": 58992,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.30533885955810547,
+          "dist_vizinho_km_media": 0.028861989605652456,
+          "dist_vizinho_km_mediana": 0.028694301619324847,
+          "frac_pred_sentinela": 0.0006,
+          "n_pred_sentinela": 12,
+          "diag_mae_db_so_vizinho_valido": 0.2325088232755661
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9189022,
+          "n_train_candidatos": 9189022,
+          "n_test_total": 824701,
+          "n_test_valido_total": 82826,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 18.504621505737305,
+          "dist_vizinho_km_media": 3.3420851965372758,
+          "dist_vizinho_km_mediana": 3.1759616172498357,
+          "frac_pred_sentinela": 0.11665,
+          "n_pred_sentinela": 2333,
+          "diag_mae_db_so_vizinho_valido": 2.096273183822632
+        }
+      },
+      "custo_s": {
+        "carga": 3.6325576305389404,
+        "particao": 3.2001049518585205,
+        "1nn": 4.144793510437012,
+        "total_celula": 12.267400741577148
+      }
+    },
+    {
+      "cidade": "lins",
+      "quadrante": "Q4",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_lins_v19_Q4_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "eb2974f829c149378d1025fca8fa51e3191e8a06ba0821cf8f1adc2712754744",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_lins_s42_Q4_g10b2.json",
+      "run_c0c1cf_sha256": "f732d6e97c4146b4c053fad63023ba8ba131845e923a47eb1b0e1f5fd9d9d873",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9189022,
+          "idx_sha256_global": "1285a86419643708d8f6285a9ee351182c1a291b6a19490b02986ed231dfbdb2",
+          "confere": true
+        },
+        "val": {
+          "n": 1032790,
+          "idx_sha256_global": "04520a7f06b17eed051d2e38458ebdc1ca1772eb78d3bc83f18a88880f72d0a4",
+          "confere": true
+        },
+        "test": {
+          "n": 824701,
+          "idx_sha256_global": "b36bf1a98e708823b4a89f51ee497d3d3d5bea72df77f6e4b7a45059603978f7",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9189022,
+        "n_train_candidatos": 641328,
+        "n_test_total": 824701,
+        "n_test_valido_total": 57733,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.2087544947862625,
+        "dist_vizinho_km_media": 0.028856356526358796,
+        "dist_vizinho_km_mediana": 0.028694357479434274,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.2087544947862625,
+        "diag_frac_pred_mudou_vs_desligado": 0.0591,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1170,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9189022,
+        "n_train_candidatos": 693305,
+        "n_test_total": 824701,
+        "n_test_valido_total": 102910,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 2.1777968406677246,
+        "dist_vizinho_km_media": 3.629000239561954,
+        "dist_vizinho_km_mediana": 3.547896293480144,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 2.1777968406677246,
+        "diag_frac_pred_mudou_vs_desligado": 0.0925,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 10.432335087670834,
+      "delta_db": 1.969042345881462,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.28358498215675354,
+          "mae_db_desligado": 0.28358498215675354,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 14.34135627746582,
+          "mae_db_desligado": 14.34135627746582,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9189022,
+          "n_train_candidatos": 9189022,
+          "n_test_total": 824701,
+          "n_test_valido_total": 57733,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.28358498215675354,
+          "dist_vizinho_km_media": 0.028853685725916966,
+          "dist_vizinho_km_mediana": 0.028694329549377784,
+          "frac_pred_sentinela": 0.0006,
+          "n_pred_sentinela": 12,
+          "diag_mae_db_so_vizinho_valido": 0.20512278378009796
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9189022,
+          "n_train_candidatos": 9189022,
+          "n_test_total": 824701,
+          "n_test_valido_total": 102910,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 14.34135627746582,
+          "dist_vizinho_km_media": 3.5352826673827664,
+          "dist_vizinho_km_mediana": 3.4900974102382616,
+          "frac_pred_sentinela": 0.0925,
+          "n_pred_sentinela": 1850,
+          "diag_mae_db_so_vizinho_valido": 1.8667092323303223
+        }
+      },
+      "custo_s": {
+        "carga": 3.4001803398132324,
+        "particao": 3.086911678314209,
+        "1nn": 4.405425071716309,
+        "total_celula": 12.189246654510498
+      }
+    },
+    {
+      "cidade": "bauru",
+      "quadrante": "Q2",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_bauru_v19_Q2_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "29bdc73e6f4bea464f2e3772670bef68febac95c21e18d66e0293dcd5f799163",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_bauru_s42_Q2_g10b2.json",
+      "run_c0c1cf_sha256": "42256b79ed7914b9776aaccc24ff1139236c59ce6662e653e8684419c436f7d2",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9188829,
+          "idx_sha256_global": "c8ff5e72549a5c4ad405452eb7da93c935937a6bd6a5405ca614ff7a976eeb32",
+          "confere": true
+        },
+        "val": {
+          "n": 1033369,
+          "idx_sha256_global": "43c41930904045c175d8a48f9df9dbbbf2f87dc1020b077f6e3c27e4d13ab135",
+          "confere": true
+        },
+        "test": {
+          "n": 828243,
+          "idx_sha256_global": "f070b3e31cec5b7e10810b0b093d1149b7a7fe3fd9ef26e1643d9e29d7cc449d",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188829,
+        "n_train_candidatos": 869356,
+        "n_test_total": 828243,
+        "n_test_valido_total": 78064,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.2605713903903961,
+        "dist_vizinho_km_media": 0.028796484163866858,
+        "dist_vizinho_km_mediana": 0.02861353454972715,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.2605713903903961,
+        "diag_frac_pred_mudou_vs_desligado": 0.0597,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1178,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188829,
+        "n_train_candidatos": 835702,
+        "n_test_total": 828243,
+        "n_test_valido_total": 123838,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 4.230729103088379,
+        "dist_vizinho_km_media": 3.926549065538052,
+        "dist_vizinho_km_mediana": 3.7617645363625654,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 4.230729103088379,
+        "diag_frac_pred_mudou_vs_desligado": 0.0,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 16.236353103653357,
+      "delta_db": 3.970157712697983,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.3591712713241577,
+          "mae_db_desligado": 0.3591712713241577,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 4.230729103088379,
+          "mae_db_desligado": 4.230729103088379,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188829,
+          "n_train_candidatos": 9188829,
+          "n_test_total": 828243,
+          "n_test_valido_total": 78064,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.3591712713241577,
+          "dist_vizinho_km_media": 0.028792432736433057,
+          "dist_vizinho_km_mediana": 0.02861353454972182,
+          "frac_pred_sentinela": 0.0008,
+          "n_pred_sentinela": 16,
+          "diag_mae_db_so_vizinho_valido": 0.2615368068218231
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188829,
+          "n_train_candidatos": 9188829,
+          "n_test_total": 828243,
+          "n_test_valido_total": 123838,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 4.230729103088379,
+          "dist_vizinho_km_media": 3.926549065538052,
+          "dist_vizinho_km_mediana": 3.7617645363625654,
+          "frac_pred_sentinela": 0.0,
+          "n_pred_sentinela": 0,
+          "diag_mae_db_so_vizinho_valido": 4.230729103088379
+        }
+      },
+      "custo_s": {
+        "carga": 3.4908413887023926,
+        "particao": 3.1027636528015137,
+        "1nn": 4.239924669265747,
+        "total_celula": 12.144761800765991
+      }
+    },
+    {
+      "cidade": "bauru",
+      "quadrante": "Q3",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_bauru_v19_Q3_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "ef67c8c886b6c0cb7001a84f0316033699965d73961b6eca31ea66dd042f5264",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_bauru_s42_Q3_g10b2.json",
+      "run_c0c1cf_sha256": "a2519b94caf880d98995ea8066a99357a3e6780ec1ab35ebfca9d144fbe89909",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9188528,
+          "idx_sha256_global": "656caa03af953d51ab94e17e74170947466f7c3e7db8266f61d3ce5baefedf84",
+          "confere": true
+        },
+        "val": {
+          "n": 1034037,
+          "idx_sha256_global": "936dcc7d9b9f5d06bd41403c58013579e3df551c2ad6205273f11ac0f5cb7193",
+          "confere": true
+        },
+        "test": {
+          "n": 817601,
+          "idx_sha256_global": "9faaea122e57bb4a8f2f602a9138caa1eb17ea3cae54bb5d95595c6d5f8742f7",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188528,
+        "n_train_candidatos": 901920,
+        "n_test_total": 817601,
+        "n_test_valido_total": 80515,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.4870481491088867,
+        "dist_vizinho_km_media": 0.02872999077213292,
+        "dist_vizinho_km_mediana": 0.02855926223071492,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.4870481491088867,
+        "diag_frac_pred_mudou_vs_desligado": 0.05645,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1118,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188528,
+        "n_train_candidatos": 771191,
+        "n_test_total": 817601,
+        "n_test_valido_total": 130120,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 2.0060672760009766,
+        "dist_vizinho_km_media": 3.2411587552040935,
+        "dist_vizinho_km_mediana": 3.079170753569871,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 2.0060672760009766,
+        "diag_frac_pred_mudou_vs_desligado": 0.0985,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 4.118827429426266,
+      "delta_db": 1.5190191268920898,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.5606944561004639,
+          "mae_db_desligado": 0.5606944561004639,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 15.879865646362305,
+          "mae_db_desligado": 15.879865646362305,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188528,
+          "n_train_candidatos": 9188528,
+          "n_test_total": 817601,
+          "n_test_valido_total": 80515,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.5606944561004639,
+          "dist_vizinho_km_media": 0.028728119043048173,
+          "dist_vizinho_km_mediana": 0.028559205152092204,
+          "frac_pred_sentinela": 0.00055,
+          "n_pred_sentinela": 11,
+          "diag_mae_db_so_vizinho_valido": 0.48925063014030457
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188528,
+          "n_train_candidatos": 9188528,
+          "n_test_total": 817601,
+          "n_test_valido_total": 130120,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 15.879865646362305,
+          "dist_vizinho_km_media": 3.20243117478989,
+          "dist_vizinho_km_mediana": 3.0216291698197555,
+          "frac_pred_sentinela": 0.0985,
+          "n_pred_sentinela": 1970,
+          "diag_mae_db_so_vizinho_valido": 2.1024017333984375
+        }
+      },
+      "custo_s": {
+        "carga": 3.413662910461426,
+        "particao": 3.1149308681488037,
+        "1nn": 4.263957977294922,
+        "total_celula": 12.049445867538452
+      }
+    },
+    {
+      "cidade": "bauru",
+      "quadrante": "Q4",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_bauru_v19_Q4_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "0caa7c2c3a7412a4f7fbf39ce08cefffc6896f7efa9db376897df6438024db20",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_bauru_s42_Q4_g10b2.json",
+      "run_c0c1cf_sha256": "adddf2211d473a592fc18722c12eb4ec980b1d5da7512f18611ede57d7fec885",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9188530,
+          "idx_sha256_global": "d1db695dbce9ea542a4415f786a085c0a5dc616e859abd962bb8208017f19318",
+          "confere": true
+        },
+        "val": {
+          "n": 1034035,
+          "idx_sha256_global": "0f5a7946aa3fee79ae657834f18446f6d25f2512452b3b0c0fec3f4d1a264c41",
+          "confere": true
+        },
+        "test": {
+          "n": 817601,
+          "idx_sha256_global": "9faaea122e57bb4a8f2f602a9138caa1eb17ea3cae54bb5d95595c6d5f8742f7",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188530,
+        "n_train_candidatos": 876357,
+        "n_test_total": 817601,
+        "n_test_valido_total": 78099,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.3929854929447174,
+        "dist_vizinho_km_media": 0.0287441964673899,
+        "dist_vizinho_km_mediana": 0.028558803614600725,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.3929854929447174,
+        "diag_frac_pred_mudou_vs_desligado": 0.05865,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1167,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188530,
+        "n_train_candidatos": 931860,
+        "n_test_total": 817601,
+        "n_test_valido_total": 110136,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 4.116689682006836,
+        "dist_vizinho_km_media": 3.489883066060624,
+        "dist_vizinho_km_mediana": 3.4176393265151184,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 4.116689682006836,
+        "diag_frac_pred_mudou_vs_desligado": 0.00015,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 3,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 10.47542404468845,
+      "delta_db": 3.7237041890621185,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.43182626366615295,
+          "mae_db_desligado": 0.43182626366615295,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 4.116758823394775,
+          "mae_db_desligado": 4.116758823394775,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188530,
+          "n_train_candidatos": 9188530,
+          "n_test_total": 817601,
+          "n_test_valido_total": 78099,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.43182626366615295,
+          "dist_vizinho_km_media": 0.02874393379703281,
+          "dist_vizinho_km_mediana": 0.028558803614600503,
+          "frac_pred_sentinela": 0.0003,
+          "n_pred_sentinela": 6,
+          "diag_mae_db_so_vizinho_valido": 0.3948110044002533
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188530,
+          "n_train_candidatos": 9188530,
+          "n_test_total": 817601,
+          "n_test_valido_total": 110136,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 4.116758823394775,
+          "dist_vizinho_km_media": 3.489883066060624,
+          "dist_vizinho_km_mediana": 3.4176393265151184,
+          "frac_pred_sentinela": 0.0,
+          "n_pred_sentinela": 0,
+          "diag_mae_db_so_vizinho_valido": 4.116758823394775
+        }
+      },
+      "custo_s": {
+        "carga": 3.3923022747039795,
+        "particao": 3.1731560230255127,
+        "1nn": 4.237523794174194,
+        "total_celula": 12.028048992156982
+      }
+    },
+    {
+      "cidade": "campinas",
+      "quadrante": "Q1",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_campinas_v19_Q1_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "d3787cd087c1ded417da788a83bd048bcaafa347dcd6adc0e64a9fe1e405fe00",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_campinas_s42_Q1_g10b2.json",
+      "run_c0c1cf_sha256": "257ca5ef60b07acede04a81a84764dc152d455d2adf797b417a64727dd8366c6",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9188776,
+          "idx_sha256_global": "5fbb4173644ede4f21dd4c7396368fb2f2ce3ac02877907ddcc78ce43cdeb3ef",
+          "confere": true
+        },
+        "val": {
+          "n": 1033211,
+          "idx_sha256_global": "91ac6abe762d9c1b7243727085b8a9fc15de5393464e61a1db92abaaa1cb5008",
+          "confere": true
+        },
+        "test": {
+          "n": 821276,
+          "idx_sha256_global": "f2e230c569a7d6d0f867607f12ca0582474ef7dbd61839218d0b5eed05a7b617",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188776,
+        "n_train_candidatos": 1280615,
+        "n_test_total": 821276,
+        "n_test_valido_total": 114807,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.3498441278934479,
+        "dist_vizinho_km_media": 0.028673962067109527,
+        "dist_vizinho_km_mediana": 0.028496027564330006,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.3498441278934479,
+        "diag_frac_pred_mudou_vs_desligado": 0.05565,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1107,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188776,
+        "n_train_candidatos": 1247771,
+        "n_test_total": 821276,
+        "n_test_valido_total": 198070,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 4.7581987380981445,
+        "dist_vizinho_km_media": 3.8164712854470055,
+        "dist_vizinho_km_mediana": 3.6305922220196067,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 4.7581987380981445,
+        "diag_frac_pred_mudou_vs_desligado": 0.09415,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 13.600910687708756,
+      "delta_db": 4.408354610204697,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.3876688778400421,
+          "mae_db_desligado": 0.3876688778400421,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 15.705559730529785,
+          "mae_db_desligado": 15.705559730529785,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188776,
+          "n_train_candidatos": 9188776,
+          "n_test_total": 821276,
+          "n_test_valido_total": 114807,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.3876688778400421,
+          "dist_vizinho_km_media": 0.028673548467343317,
+          "dist_vizinho_km_mediana": 0.028496027564330006,
+          "frac_pred_sentinela": 0.0003,
+          "n_pred_sentinela": 6,
+          "diag_mae_db_so_vizinho_valido": 0.35173800587654114
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188776,
+          "n_train_candidatos": 9188776,
+          "n_test_total": 821276,
+          "n_test_valido_total": 198070,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 15.705559730529785,
+          "dist_vizinho_km_media": 3.7700165019291227,
+          "dist_vizinho_km_mediana": 3.576737751494334,
+          "frac_pred_sentinela": 0.09415,
+          "n_pred_sentinela": 1883,
+          "diag_mae_db_so_vizinho_valido": 4.62579345703125
+        }
+      },
+      "custo_s": {
+        "carga": 3.4562323093414307,
+        "particao": 3.1166322231292725,
+        "1nn": 4.708647966384888,
+        "total_celula": 12.56510305404663
+      }
+    },
+    {
+      "cidade": "campinas",
+      "quadrante": "Q2",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_campinas_v19_Q2_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "c952a61cfcbeda2a042a6ba80f17ff73aabea5e42511a5614b0a7954321ef16c",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_campinas_s42_Q2_g10b2.json",
+      "run_c0c1cf_sha256": "3f4137ec7c2f7c1dcf23ba3d8c5eecac69038d75948c89d3d65785fe176a9df5",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9188780,
+          "idx_sha256_global": "7b770c8bde187bbad51cad761aa1aa091731c3f15dd7321110caf8214de4e5da",
+          "confere": true
+        },
+        "val": {
+          "n": 1033207,
+          "idx_sha256_global": "372d85d30560e380c3a0d0a2113e7872c4fe07114654f37784fcd4b8d9ffcc6f",
+          "confere": true
+        },
+        "test": {
+          "n": 821276,
+          "idx_sha256_global": "f2e230c569a7d6d0f867607f12ca0582474ef7dbd61839218d0b5eed05a7b617",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188780,
+        "n_train_candidatos": 1350482,
+        "n_test_total": 821276,
+        "n_test_valido_total": 120177,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.8709827065467834,
+        "dist_vizinho_km_media": 0.02868235338481682,
+        "dist_vizinho_km_mediana": 0.028501250476200113,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.8709827065467834,
+        "diag_frac_pred_mudou_vs_desligado": 0.059,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1176,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188780,
+        "n_train_candidatos": 1419373,
+        "n_test_total": 821276,
+        "n_test_valido_total": 124349,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 2.8941149711608887,
+        "dist_vizinho_km_media": 3.933625950646054,
+        "dist_vizinho_km_mediana": 3.761765103035092,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 2.8941149711608887,
+        "diag_frac_pred_mudou_vs_desligado": 0.0,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 3.3228156534075066,
+      "delta_db": 2.0231322646141052,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.8954068422317505,
+          "mae_db_desligado": 0.8954068422317505,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 2.8941149711608887,
+          "mae_db_desligado": 2.8941149711608887,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188780,
+          "n_train_candidatos": 9188780,
+          "n_test_total": 821276,
+          "n_test_valido_total": 120177,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.8954068422317505,
+          "dist_vizinho_km_media": 0.02868218300108814,
+          "dist_vizinho_km_mediana": 0.028501250476200113,
+          "frac_pred_sentinela": 0.0002,
+          "n_pred_sentinela": 4,
+          "diag_mae_db_so_vizinho_valido": 0.8724271059036255
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188780,
+          "n_train_candidatos": 9188780,
+          "n_test_total": 821276,
+          "n_test_valido_total": 124349,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 2.8941149711608887,
+          "dist_vizinho_km_media": 3.933625950646054,
+          "dist_vizinho_km_mediana": 3.761765103035092,
+          "frac_pred_sentinela": 0.0,
+          "n_pred_sentinela": 0,
+          "diag_mae_db_so_vizinho_valido": 2.8941149711608887
+        }
+      },
+      "custo_s": {
+        "carga": 3.462247133255005,
+        "particao": 3.204700231552124,
+        "1nn": 4.4154603481292725,
+        "total_celula": 12.295459985733032
+      }
+    },
+    {
+      "cidade": "campinas",
+      "quadrante": "Q3",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_campinas_v19_Q3_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "8b7bacbcdb7d34bc8c0234554a1f1afd954a05773a61d1b79e53191687330bb5",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_campinas_s42_Q3_g10b2.json",
+      "run_c0c1cf_sha256": "2549ce770a5fce6fc95929a2ddfe42801f63e27dc435a8fe77c60bcc4c32477e",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9187817,
+          "idx_sha256_global": "5bf011d5f11f216099a3425dda17d0ce728c9ef16c0d0d579e3760ee0c7ad72c",
+          "confere": true
+        },
+        "val": {
+          "n": 1038048,
+          "idx_sha256_global": "be5422227cb111a48d64a6cb1e4dd82c6186837064529f579e8a2b33d4bf3714",
+          "confere": true
+        },
+        "test": {
+          "n": 822561,
+          "idx_sha256_global": "11ef172422c555b6e745b0d51c0e50301475f6723df5a84bf575152ccd270056",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9187817,
+        "n_train_candidatos": 1397512,
+        "n_test_total": 822561,
+        "n_test_valido_total": 125444,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.5464389324188232,
+        "dist_vizinho_km_media": 0.028612230340945382,
+        "dist_vizinho_km_mediana": 0.028427458600333466,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.5464389324188232,
+        "diag_frac_pred_mudou_vs_desligado": 0.05865,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1166,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9187817,
+        "n_train_candidatos": 1142101,
+        "n_test_total": 822561,
+        "n_test_valido_total": 244139,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 4.167551040649414,
+        "dist_vizinho_km_media": 3.6058613180771366,
+        "dist_vizinho_km_mediana": 3.316750024185546,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 4.167551040649414,
+        "diag_frac_pred_mudou_vs_desligado": 5e-05,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 7.62674618040421,
+      "delta_db": 3.621112108230591,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.5857438445091248,
+          "mae_db_desligado": 0.5857438445091248,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 4.172926902770996,
+          "mae_db_desligado": 4.172926902770996,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9187817,
+          "n_train_candidatos": 9187817,
+          "n_test_total": 822561,
+          "n_test_valido_total": 125444,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.5857438445091248,
+          "dist_vizinho_km_media": 0.028610820496228012,
+          "dist_vizinho_km_mediana": 0.028427458600319255,
+          "frac_pred_sentinela": 0.00035,
+          "n_pred_sentinela": 7,
+          "diag_mae_db_so_vizinho_valido": 0.5449600219726562
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9187817,
+          "n_train_candidatos": 9187817,
+          "n_test_total": 822561,
+          "n_test_valido_total": 244139,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 4.172926902770996,
+          "dist_vizinho_km_media": 3.605859753212966,
+          "dist_vizinho_km_mediana": 3.316750024185546,
+          "frac_pred_sentinela": 5e-05,
+          "n_pred_sentinela": 1,
+          "diag_mae_db_so_vizinho_valido": 4.167397975921631
+        }
+      },
+      "custo_s": {
+        "carga": 3.4375147819519043,
+        "particao": 3.137023448944092,
+        "1nn": 4.39628791809082,
+        "total_celula": 12.269072532653809
+      }
+    },
+    {
+      "cidade": "campinas",
+      "quadrante": "Q4",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_campinas_v19_Q4_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "7e9c4e41fc10078813afe081a436b88323532ff41282555232938f17913916dc",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_campinas_s42_Q4_g10b2.json",
+      "run_c0c1cf_sha256": "3760ce316e13e52a7ff614880b9fe3efe0524f5b55402d41f75948181ec07224",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9187819,
+          "idx_sha256_global": "9559a58d6a214ee23e53c7c1eafde9e2eab47467e2f9caf8f1aefe73ee6c4764",
+          "confere": true
+        },
+        "val": {
+          "n": 1038048,
+          "idx_sha256_global": "be5422227cb111a48d64a6cb1e4dd82c6186837064529f579e8a2b33d4bf3714",
+          "confere": true
+        },
+        "test": {
+          "n": 822561,
+          "idx_sha256_global": "11ef172422c555b6e745b0d51c0e50301475f6723df5a84bf575152ccd270056",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9187819,
+        "n_train_candidatos": 1167414,
+        "n_test_total": 822561,
+        "n_test_valido_total": 104465,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.9948946237564087,
+        "dist_vizinho_km_media": 0.02862570788662086,
+        "dist_vizinho_km_mediana": 0.028431517587492294,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.9948946237564087,
+        "diag_frac_pred_mudou_vs_desligado": 0.0594,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1181,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9187819,
+        "n_train_candidatos": 1259161,
+        "n_test_total": 822561,
+        "n_test_valido_total": 111006,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 4.919105529785156,
+        "dist_vizinho_km_media": 3.5035764804658336,
+        "dist_vizinho_km_mediana": 3.4313257692031325,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 4.919105529785156,
+        "diag_frac_pred_mudou_vs_desligado": 0.0,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 4.944348288075137,
+      "delta_db": 3.9242109060287476,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 1.0386027097702026,
+          "mae_db_desligado": 1.0386027097702026,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 4.919105529785156,
+          "mae_db_desligado": 4.919105529785156,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9187819,
+          "n_train_candidatos": 9187819,
+          "n_test_total": 822561,
+          "n_test_valido_total": 104465,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 1.0386027097702026,
+          "dist_vizinho_km_media": 0.02862486887854962,
+          "dist_vizinho_km_mediana": 0.028431517587492294,
+          "frac_pred_sentinela": 0.00035,
+          "n_pred_sentinela": 7,
+          "diag_mae_db_so_vizinho_valido": 0.9975614547729492
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9187819,
+          "n_train_candidatos": 9187819,
+          "n_test_total": 822561,
+          "n_test_valido_total": 111006,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 4.919105529785156,
+          "dist_vizinho_km_media": 3.5035764804658336,
+          "dist_vizinho_km_mediana": 3.4313257692031325,
+          "frac_pred_sentinela": 0.0,
+          "n_pred_sentinela": 0,
+          "diag_mae_db_so_vizinho_valido": 4.919105529785156
+        }
+      },
+      "custo_s": {
+        "carga": 3.4785056114196777,
+        "particao": 3.186767578125,
+        "1nn": 4.440041542053223,
+        "total_celula": 12.35931396484375
+      }
+    },
+    {
+      "cidade": "sorocaba",
+      "quadrante": "Q1",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_sorocaba_v19_Q1_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "858293a658cddbf2b45ddf2673d46153108698b0d04c7b48f8d39d3bf8527919",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_sorocaba_s42_Q1_g10b2.json",
+      "run_c0c1cf_sha256": "091a498915d1482476f983fb260cc4f774ab9b3118fd7187e311259b01e03819",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9188187,
+          "idx_sha256_global": "9dd5eb07bd981fa125adf5db6e8ce723e6403643a9ef13c46140f3c3acfe4413",
+          "confere": true
+        },
+        "val": {
+          "n": 1035070,
+          "idx_sha256_global": "7dfbd1b7a6e0b37ba00aad086ae84a946f9aa2c2b1498afe489eabc40b4e670c",
+          "confere": true
+        },
+        "test": {
+          "n": 818925,
+          "idx_sha256_global": "a30d0ddb4e3896af487adc2b8709e27290dfd58415c359b1bcb4316e146fd347",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188187,
+        "n_train_candidatos": 1172204,
+        "n_test_total": 818925,
+        "n_test_valido_total": 104772,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.435703307390213,
+        "dist_vizinho_km_media": 0.02856129574362392,
+        "dist_vizinho_km_mediana": 0.028373244074536785,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.435703307390213,
+        "diag_frac_pred_mudou_vs_desligado": 0.0597,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1183,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188187,
+        "n_train_candidatos": 1140156,
+        "n_test_total": 818925,
+        "n_test_valido_total": 181177,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 5.102258682250977,
+        "dist_vizinho_km_media": 4.149828613953717,
+        "dist_vizinho_km_mediana": 3.9158997435786382,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 5.102258682250977,
+        "diag_frac_pred_mudou_vs_desligado": 0.0748,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 11.710396950651162,
+      "delta_db": 4.6665553748607635,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.5034801959991455,
+          "mae_db_desligado": 0.5034801959991455,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 14.117525100708008,
+          "mae_db_desligado": 14.117525100708008,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188187,
+          "n_train_candidatos": 9188187,
+          "n_test_total": 818925,
+          "n_test_valido_total": 104772,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.5034801959991455,
+          "dist_vizinho_km_media": 0.02855968207845312,
+          "dist_vizinho_km_mediana": 0.02837321447434249,
+          "frac_pred_sentinela": 0.00055,
+          "n_pred_sentinela": 11,
+          "diag_mae_db_so_vizinho_valido": 0.4379333555698395
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188187,
+          "n_train_candidatos": 9188187,
+          "n_test_total": 818925,
+          "n_test_valido_total": 181177,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 14.117525100708008,
+          "dist_vizinho_km_media": 4.138568596148051,
+          "dist_vizinho_km_mediana": 3.909531663270492,
+          "frac_pred_sentinela": 0.0748,
+          "n_pred_sentinela": 1496,
+          "diag_mae_db_so_vizinho_valido": 5.435318470001221
+        }
+      },
+      "custo_s": {
+        "carga": 3.365037679672241,
+        "particao": 3.1417887210845947,
+        "1nn": 4.450078010559082,
+        "total_celula": 12.221326351165771
+      }
+    },
+    {
+      "cidade": "sorocaba",
+      "quadrante": "Q2",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_sorocaba_v19_Q2_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "5741e2b87fee80b15907aebee1122a5f12c992a66555a4b8b17282d384ab991d",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_sorocaba_s42_Q2_g10b2.json",
+      "run_c0c1cf_sha256": "bafed7e36b1096e3e3bb064181357298d09212edf6e875f59f0997d10b0bf368",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9188187,
+          "idx_sha256_global": "9dd5eb07bd981fa125adf5db6e8ce723e6403643a9ef13c46140f3c3acfe4413",
+          "confere": true
+        },
+        "val": {
+          "n": 1035070,
+          "idx_sha256_global": "7dfbd1b7a6e0b37ba00aad086ae84a946f9aa2c2b1498afe489eabc40b4e670c",
+          "confere": true
+        },
+        "test": {
+          "n": 818925,
+          "idx_sha256_global": "a30d0ddb4e3896af487adc2b8709e27290dfd58415c359b1bcb4316e146fd347",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188187,
+        "n_train_candidatos": 1197152,
+        "n_test_total": 818925,
+        "n_test_valido_total": 106124,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.8731432557106018,
+        "dist_vizinho_km_media": 0.02857331449507874,
+        "dist_vizinho_km_mediana": 0.028372054829578275,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.8731432557106018,
+        "diag_frac_pred_mudou_vs_desligado": 0.06055,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1202,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9188187,
+        "n_train_candidatos": 1217719,
+        "n_test_total": 818925,
+        "n_test_valido_total": 125010,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 2.72867488861084,
+        "dist_vizinho_km_media": 3.936475706829746,
+        "dist_vizinho_km_mediana": 3.764134933186566,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 2.72867488861084,
+        "diag_frac_pred_mudou_vs_desligado": 0.0,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 3.1251170649999764,
+      "delta_db": 1.855531632900238,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.9178881049156189,
+          "mae_db_desligado": 0.9178881049156189,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 2.72867488861084,
+          "mae_db_desligado": 2.72867488861084,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188187,
+          "n_train_candidatos": 9188187,
+          "n_test_total": 818925,
+          "n_test_valido_total": 106124,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.9178881049156189,
+          "dist_vizinho_km_media": 0.028572232067128278,
+          "dist_vizinho_km_mediana": 0.02837202501855529,
+          "frac_pred_sentinela": 0.00045,
+          "n_pred_sentinela": 9,
+          "diag_mae_db_so_vizinho_valido": 0.8729053139686584
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9188187,
+          "n_train_candidatos": 9188187,
+          "n_test_total": 818925,
+          "n_test_valido_total": 125010,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 2.72867488861084,
+          "dist_vizinho_km_media": 3.936475706829746,
+          "dist_vizinho_km_mediana": 3.764134933186566,
+          "frac_pred_sentinela": 0.0,
+          "n_pred_sentinela": 0,
+          "diag_mae_db_so_vizinho_valido": 2.72867488861084
+        }
+      },
+      "custo_s": {
+        "carga": 3.416243553161621,
+        "particao": 3.227252244949341,
+        "1nn": 4.495883941650391,
+        "total_celula": 12.472353458404541
+      }
+    },
+    {
+      "cidade": "sorocaba",
+      "quadrante": "Q3",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_sorocaba_v19_Q3_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "aed5e373e11bc94650b1d944e03153cf58af07b1224884f2f011a14609db8f2a",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_sorocaba_s42_Q3_g10b2.json",
+      "run_c0c1cf_sha256": "dca25aaaa504d33a766859231164f49d2a825c3461fa9a47f9b3e9e9058c9069",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9187682,
+          "idx_sha256_global": "7405a18a5955199e6697c0d1b6ed9a56877a712e78ca6fbcf22344de31bcad56",
+          "confere": true
+        },
+        "val": {
+          "n": 1041517,
+          "idx_sha256_global": "9e533ea30f4bdb563109c13e0062c67f10b9533889b6361bcfdc0471018fd276",
+          "confere": true
+        },
+        "test": {
+          "n": 826159,
+          "idx_sha256_global": "07451f5893c08d800d571ab423754590845e1303fb2e13c816c4842bbf6de2eb",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9187682,
+        "n_train_candidatos": 998200,
+        "n_test_total": 826159,
+        "n_test_valido_total": 90093,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 0.7652212977409363,
+        "dist_vizinho_km_media": 0.028519261466809116,
+        "dist_vizinho_km_mediana": 0.028305358008580583,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 0.7652212977409363,
+        "diag_frac_pred_mudou_vs_desligado": 0.0561,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1116,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9187682,
+        "n_train_candidatos": 806206,
+        "n_test_total": 826159,
+        "n_test_valido_total": 182144,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 7.033504009246826,
+        "dist_vizinho_km_media": 3.3401357118733066,
+        "dist_vizinho_km_mediana": 3.184000708253927,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 7.033504009246826,
+        "diag_frac_pred_mudou_vs_desligado": 0.1005,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 9.191463998729425,
+      "delta_db": 6.26828271150589,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 0.8015271425247192,
+          "mae_db_desligado": 0.8015271425247192,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 16.72707748413086,
+          "mae_db_desligado": 16.72707748413086,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9187682,
+          "n_train_candidatos": 9187682,
+          "n_test_total": 826159,
+          "n_test_valido_total": 90093,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 0.8015271425247192,
+          "dist_vizinho_km_media": 0.02851884399338892,
+          "dist_vizinho_km_mediana": 0.028305358008580583,
+          "frac_pred_sentinela": 0.0003,
+          "n_pred_sentinela": 6,
+          "diag_mae_db_so_vizinho_valido": 0.770087480545044
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9187682,
+          "n_train_candidatos": 9187682,
+          "n_test_total": 826159,
+          "n_test_valido_total": 182144,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 16.72707748413086,
+          "dist_vizinho_km_media": 3.2786093048696014,
+          "dist_vizinho_km_mediana": 3.1450505398917716,
+          "frac_pred_sentinela": 0.1005,
+          "n_pred_sentinela": 2010,
+          "diag_mae_db_so_vizinho_valido": 7.345163822174072
+        }
+      },
+      "custo_s": {
+        "carga": 3.3635427951812744,
+        "particao": 3.2487905025482178,
+        "1nn": 4.244211435317993,
+        "total_celula": 12.209397077560425
+      }
+    },
+    {
+      "cidade": "sorocaba",
+      "quadrante": "Q4",
+      "seed": 42,
+      "split_seed": 42,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_sorocaba_v19_Q4_enriched_cftudo.pt",
+      "rf_data_sha256_HASHES_txt": "467a03166acd932abea979a48dded6ce51cf1c3d13992aa45ae4949c3737177a",
+      "run_c0c1cf": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\run_c0c1cf_sorocaba_s42_Q4_g10b2.json",
+      "run_c0c1cf_sha256": "2eaa5abd38fb24ff466b77501ba3ea0c1e4a2bb39a646701a441cb4856eba2d4",
+      "n_total": 12960000,
+      "particao_bloqueada_conferencia": {
+        "train": {
+          "n": 9187684,
+          "idx_sha256_global": "c57a66132a2d189d6cfbe29789635191969f750270c275f17ea21e0209324dcd",
+          "confere": true
+        },
+        "val": {
+          "n": 1041519,
+          "idx_sha256_global": "feffe980e8d5864b09b1832bba95e590a01f579a8a74117c12b166de66e89aae",
+          "confere": true
+        },
+        "test": {
+          "n": 826159,
+          "idx_sha256_global": "07451f5893c08d800d571ab423754590845e1303fb2e13c816c4842bbf6de2eb",
+          "confere": true
+        }
+      },
+      "mae_1nn_aleatorio": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9187684,
+        "n_train_candidatos": 970831,
+        "n_test_total": 826159,
+        "n_test_valido_total": 87522,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 1.0813244581222534,
+        "dist_vizinho_km_media": 0.02852271716275471,
+        "dist_vizinho_km_mediana": 0.02831047392022157,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 1.0813244581222534,
+        "diag_frac_pred_mudou_vs_desligado": 0.0661,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 1312,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "mae_1nn_bloqueado": {
+        "restricao_vizinho_valido": true,
+        "n_train_total": 9187684,
+        "n_train_candidatos": 1014328,
+        "n_test_total": 826159,
+        "n_test_valido_total": 111649,
+        "n_test_valido_amostrado": 20000,
+        "mae_db": 4.045273780822754,
+        "dist_vizinho_km_media": 3.4967599408358008,
+        "dist_vizinho_km_mediana": 3.4170535687864376,
+        "frac_pred_sentinela": 0.0,
+        "n_pred_sentinela": 0,
+        "diag_mae_db_so_vizinho_valido": 4.045273780822754,
+        "diag_frac_pred_mudou_vs_desligado": 0.0671,
+        "diag_n_pred_mudou_sem_ser_sentinela_antes": 0,
+        "diag_n_sentinela_antes_nao_mudou": 0
+      },
+      "razao_R": 3.7410360511473786,
+      "delta_db": 2.9639493227005005,
+      "leitura_criterio": "presente",
+      "guarda_restricao_desligada": {
+        "aleatorio": {
+          "mae_db_anterior": 1.1389579772949219,
+          "mae_db_desligado": 1.1389579772949219,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "bloqueado": {
+          "mae_db_anterior": 11.7821683883667,
+          "mae_db_desligado": 11.7821683883667,
+          "abs_dif": 0.0,
+          "confere": true
+        },
+        "guarda_preregistrada_round4": null
+      },
+      "diag_definicao_desligada": {
+        "aleatorio": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9187684,
+          "n_train_candidatos": 9187684,
+          "n_test_total": 826159,
+          "n_test_valido_total": 87522,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 1.1389579772949219,
+          "dist_vizinho_km_media": 0.02852082492584626,
+          "dist_vizinho_km_mediana": 0.028310473920218016,
+          "frac_pred_sentinela": 0.0005,
+          "n_pred_sentinela": 10,
+          "diag_mae_db_so_vizinho_valido": 1.083340048789978
+        },
+        "bloqueado": {
+          "restricao_vizinho_valido": false,
+          "n_train_total": 9187684,
+          "n_train_candidatos": 9187684,
+          "n_test_total": 826159,
+          "n_test_valido_total": 111649,
+          "n_test_valido_amostrado": 20000,
+          "mae_db": 11.7821683883667,
+          "dist_vizinho_km_media": 3.4852015885705563,
+          "dist_vizinho_km_mediana": 3.410737294836527,
+          "frac_pred_sentinela": 0.0671,
+          "n_pred_sentinela": 1342,
+          "diag_mae_db_so_vizinho_valido": 3.655780076980591
+        }
+      },
+      "custo_s": {
+        "carga": 3.1241679191589355,
+        "particao": 3.1149709224700928,
+        "1nn": 4.2538111209869385,
+        "total_celula": 11.816225051879883
+      }
+    }
+  ],
+  "abortado": null,
+  "parada_por_custo": false,
+  "agregado_por_cidade": {
+    "lins": {
+      "n_celulas": 4,
+      "n_presente": 4,
+      "mae_aleatorio_db": {
+        "n": 4,
+        "mediana": 0.19724086672067642,
+        "min": 0.16419750452041626,
+        "max": 0.23593628406524658
+      },
+      "mae_bloqueado_db": {
+        "n": 4,
+        "mediana": 3.596710205078125,
+        "min": 2.1777968406677246,
+        "max": 6.612626552581787
+      },
+      "razao_R": {
+        "n": 4,
+        "mediana": 17.00849845432298,
+        "min": 10.432335087670834,
+        "max": 40.2723937364077
+      },
+      "delta_db": {
+        "n": 4,
+        "mediana": 3.3858784437179565,
+        "min": 1.969042345881462,
+        "max": 6.448429048061371
+      },
+      "frac_pred_sentinela_max": 0.0,
+      "leitura": "presente"
+    },
+    "bauru": {
+      "n_celulas": 4,
+      "n_presente": 4,
+      "mae_aleatorio_db": {
+        "n": 4,
+        "mediana": 0.3901515305042267,
+        "min": 0.2605713903903961,
+        "max": 0.4870481491088867
+      },
+      "mae_bloqueado_db": {
+        "n": 4,
+        "mediana": 4.173709392547607,
+        "min": 2.0060672760009766,
+        "max": 6.654171943664551
+      },
+      "razao_R": {
+        "n": 4,
+        "mediana": 13.355888574170905,
+        "min": 4.118827429426266,
+        "max": 17.18014490519975
+      },
+      "delta_db": {
+        "n": 4,
+        "mediana": 3.8469309508800507,
+        "min": 1.5190191268920898,
+        "max": 6.266854375600815
+      },
+      "frac_pred_sentinela_max": 0.0,
+      "leitura": "presente"
+    },
+    "campinas": {
+      "n_celulas": 4,
+      "n_presente": 4,
+      "mae_aleatorio_db": {
+        "n": 4,
+        "mediana": 0.7087108194828033,
+        "min": 0.3498441278934479,
+        "max": 0.9948946237564087
+      },
+      "mae_bloqueado_db": {
+        "n": 4,
+        "mediana": 4.462874889373779,
+        "min": 2.8941149711608887,
+        "max": 4.919105529785156
+      },
+      "razao_R": {
+        "n": 4,
+        "mediana": 6.285547234239673,
+        "min": 3.3228156534075066,
+        "max": 13.600910687708756
+      },
+      "delta_db": {
+        "n": 4,
+        "mediana": 3.772661507129669,
+        "min": 2.0231322646141052,
+        "max": 4.408354610204697
+      },
+      "frac_pred_sentinela_max": 0.0,
+      "leitura": "presente"
+    },
+    "sorocaba": {
+      "n_celulas": 4,
+      "n_presente": 4,
+      "mae_aleatorio_db": {
+        "n": 4,
+        "mediana": 0.819182276725769,
+        "min": 0.435703307390213,
+        "max": 1.0813244581222534
+      },
+      "mae_bloqueado_db": {
+        "n": 4,
+        "mediana": 4.573766231536865,
+        "min": 2.72867488861084,
+        "max": 7.033504009246826
+      },
+      "razao_R": {
+        "n": 4,
+        "mediana": 6.466250024938402,
+        "min": 3.1251170649999764,
+        "max": 11.710396950651162
+      },
+      "delta_db": {
+        "n": 4,
+        "mediana": 3.815252348780632,
+        "min": 1.855531632900238,
+        "max": 6.26828271150589
+      },
+      "frac_pred_sentinela_max": 0.0,
+      "leitura": "presente"
+    }
+  },
+  "agregado_geral": {
+    "n_celulas": 16,
+    "n_presente": 16,
+    "mae_aleatorio_db": {
+      "n": 16,
+      "mediana": 0.4143444001674652,
+      "min": 0.16419750452041626,
+      "max": 1.0813244581222534
+    },
+    "mae_bloqueado_db": {
+      "n": 16,
+      "mediana": 4.142120361328125,
+      "min": 2.0060672760009766,
+      "max": 7.033504009246826
+    },
+    "razao_R": {
+      "n": 16,
+      "mediana": 10.453879566179642,
+      "min": 3.1251170649999764,
+      "max": 40.2723937364077
+    },
+    "delta_db": {
+      "n": 16,
+      "mediana": 3.800994023680687,
+      "min": 1.5190191268920898,
+      "max": 6.448429048061371
+    },
+    "frac_pred_sentinela_max": 0.0,
+    "veredito_conjunto": "PRESENTE"
+  },
+  "custo_total_s": 200.98423886299133
+}

@@ -1,0 +1,22 @@
+\begin{table}[t]
+\caption{Graph census and training cost. Counts are read from the 16 quadrant graph files; the terrain grid, and therefore the terrain-to-terrain edge count, is the same in every cell. Antenna nodes are all licensed transmitters of the city: \num{175} in Lins, \num{794} in Bauru, \num{1398} in Sorocaba, \num{4252} in Campinas. Costs are over the 80 blocked runs on one NVIDIA RTX 5070 Ti (16~GB).}
+\label{tab:graph_census}
+\centering
+\footnotesize
+\begin{tabular}{@{}p{0.56\columnwidth}@{\hspace{4pt}}r@{}}
+\toprule
+Terrain nodes per cell & \num{12960000} \\
+Antenna nodes per cell & \num{175}--\num{4252} \\
+Antenna$\to$terrain edges (and reverse) & \num{4524526}--\num{10503392} \\
+Terrain$\to$terrain edges (8-neighbour) & \num{116596804} \\
+Carrier frequencies & 778--3550~MHz \\
+Serialised graph file & 28.2--28.3~GB \\
+Sampled neighbours per node (antenna / terrain) & 20 / 8 \\
+Training batch (seed nodes) & \num{24576} \\
+Epochs (head quadrant / transferred) & 35 / 20 \\
+Trainable parameters & \num{1812515} \\
+Peak training VRAM (min--max, median) & 7430--7512~MB, 7467 \\
+Wall-clock per run (min--max, median) & 2181--4032~s, 2292 \\
+\bottomrule
+\end{tabular}
+\end{table}

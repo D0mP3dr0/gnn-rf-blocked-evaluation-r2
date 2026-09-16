@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\caption{Structural ablation on the spatially blocked test split. The four edge-ablation rows use Lins and Bauru (Q1--Q4, seed~42 checkpoints; $n=8$ cells, three shuffling seeds per arm); entries are the change in test RSSI MAE relative to the trained model with the real graph, paired by cell; positive means worse. The last three rows are a different contrast: the paired difference GNN-RF minus a multilayer perceptron with exactly the same number of trainable parameters, loss, split and selection rule and no message passing, in all four cities with five training seeds per cell, tested in the three pre-registered units (city; city--quadrant cell; seed chain, the mean of the four quadrants of one seed); negative means GNN-RF is more accurate. Cells and chains are not independent, since Q2--Q4 inherit the Q1 checkpoint of the same seed. With $n=4$ the smallest attainable two-sided non-parametric $p$ is 0.125.}
+\label{tab:structural_ablation}
+\centering
+\begin{tabular}{lccc c}
+\toprule
+Arm & $\Delta$MAE (dB) & 95\% CI & $p$ (paired $t$) & $p$ (Wilcoxon) \\
+\midrule
+Antenna$\to$terrain edges shuffled (degree preserved) & +0.181 & [+0.019; +0.343] & 0.0332 & 0.0391 \\
+Terrain$\to$terrain edges shuffled (degree preserved) & +0.673 & [+0.262; +1.084] & 0.0061 & 0.0078 \\
+Both relations shuffled & +0.798 & [+0.428; +1.169] & 0.0014 & 0.0078 \\
+Empty graph (no message passing) & +1.723 & [+0.773; +2.674] & 0.0036 & 0.0078 \\
+\midrule
+\multicolumn{5}{l}{GNN-RF minus capacity-matched MLP (1{,}812{,}515 params), four cities} \\
+\quad unit: city ($n=4$) & $-0.247$ & [$-0.736$; +0.241] & 0.2051 & 0.3750 \\
+\quad unit: cell ($n=16$) & $-0.247$ & [$-0.482$; $-0.013$] & 0.0397 & 0.1167 \\
+\quad unit: seed chain ($n=20$) & $-0.247$ & [$-0.381$; $-0.114$] & 0.0010 & 0.0032 \\
+\bottomrule
+\end{tabular}
+\end{table*}

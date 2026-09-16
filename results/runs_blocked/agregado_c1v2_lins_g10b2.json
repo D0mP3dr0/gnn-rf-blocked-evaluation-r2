@@ -1,0 +1,194 @@
+{
+  "timestamp_utc": "2026-09-11T08:41:55.768242+00:00",
+  "protocolo": "C1 g10b2 (grid 10 km, buffer 2 km); teste tocado 1x no melhor ckpt por val — LINHAGEM V2",
+  "linhagem": "v2",
+  "cidade": "lins",
+  "prefixo_rotulo": "c0c1cf",
+  "script_sha256_unico": "6F955629CDE164F2843F454E1EBF6977292FD80647EF48ECD0DF31E464C42445",
+  "split_seed_unico": 42,
+  "seeds_pedidos": [
+    "42",
+    "43",
+    "44",
+    "45",
+    "46"
+  ],
+  "seeds_com_run": [
+    "42",
+    "43",
+    "44",
+    "45",
+    "46"
+  ],
+  "runs_ausentes": [],
+  "quadrantes": {
+    "Q1": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.5013471245765686,
+          "rmse_rssi_db": 3.161100387573242,
+          "mae_pl_db": 9.473087310791016,
+          "melhor_epoca": 30
+        },
+        "43": {
+          "mae_rssi_db": 0.33782920241355896,
+          "rmse_rssi_db": 2.641906261444092,
+          "mae_pl_db": 7.493069171905518,
+          "melhor_epoca": 28
+        },
+        "44": {
+          "mae_rssi_db": 0.5198937654495239,
+          "rmse_rssi_db": 3.3453547954559326,
+          "mae_pl_db": 8.563340187072754,
+          "melhor_epoca": 30
+        },
+        "45": {
+          "mae_rssi_db": 0.4540621042251587,
+          "rmse_rssi_db": 3.471752643585205,
+          "mae_pl_db": 12.024739265441895,
+          "melhor_epoca": 27
+        },
+        "46": {
+          "mae_rssi_db": 0.42408469319343567,
+          "rmse_rssi_db": 2.605534076690674,
+          "mae_pl_db": 5.706004619598389,
+          "melhor_epoca": 30
+        }
+      },
+      "mae_rssi_db_media": 0.4474433779716492,
+      "mae_rssi_db_desvio": 0.07204057141432217,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 3.9786365497202305,
+        "baseline_hata_rural_mae": 6.410912778228271,
+        "baseline_cost231_sub_mae": 6.410912778228278
+      }
+    },
+    "Q2": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.49571287631988525,
+          "rmse_rssi_db": 1.2634522914886475,
+          "mae_pl_db": 2.2007339000701904,
+          "melhor_epoca": 20
+        },
+        "43": {
+          "mae_rssi_db": 0.44850054383277893,
+          "rmse_rssi_db": 1.169708490371704,
+          "mae_pl_db": 2.602172613143921,
+          "melhor_epoca": 8
+        },
+        "44": {
+          "mae_rssi_db": 0.37484872341156006,
+          "rmse_rssi_db": 0.9418350458145142,
+          "mae_pl_db": 2.5911924839019775,
+          "melhor_epoca": 20
+        },
+        "45": {
+          "mae_rssi_db": 0.5088342428207397,
+          "rmse_rssi_db": 1.3062242269515991,
+          "mae_pl_db": 3.0794379711151123,
+          "melhor_epoca": 9
+        },
+        "46": {
+          "mae_rssi_db": 0.5420714616775513,
+          "rmse_rssi_db": 1.2415732145309448,
+          "mae_pl_db": 1.5005136728286743,
+          "melhor_epoca": 8
+        }
+      },
+      "mae_rssi_db_media": 0.47399356961250305,
+      "mae_rssi_db_desvio": 0.06480701172150888,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 3.0818017353976703,
+        "baseline_hata_rural_mae": 3.328022466006035,
+        "baseline_cost231_sub_mae": 3.328022466006042
+      }
+    },
+    "Q3": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.33692893385887146,
+          "rmse_rssi_db": 0.6368246674537659,
+          "mae_pl_db": 1.3892035484313965,
+          "melhor_epoca": 9
+        },
+        "43": {
+          "mae_rssi_db": 0.22970378398895264,
+          "rmse_rssi_db": 0.4186052978038788,
+          "mae_pl_db": 1.2131438255310059,
+          "melhor_epoca": 9
+        },
+        "44": {
+          "mae_rssi_db": 0.25832080841064453,
+          "rmse_rssi_db": 0.40361759066581726,
+          "mae_pl_db": 2.746328115463257,
+          "melhor_epoca": 9
+        },
+        "45": {
+          "mae_rssi_db": 0.21433711051940918,
+          "rmse_rssi_db": 0.37866348028182983,
+          "mae_pl_db": 1.53616464138031,
+          "melhor_epoca": 8
+        },
+        "46": {
+          "mae_rssi_db": 0.23077894747257233,
+          "rmse_rssi_db": 0.32309556007385254,
+          "mae_pl_db": 1.2470957040786743,
+          "melhor_epoca": 10
+        }
+      },
+      "mae_rssi_db_media": 0.25401391685009,
+      "mae_rssi_db_desvio": 0.04898608139763678,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 3.101705263507517,
+        "baseline_hata_rural_mae": 4.708199460092658,
+        "baseline_cost231_sub_mae": 4.708199460092658
+      }
+    },
+    "Q4": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.2610991895198822,
+          "rmse_rssi_db": 0.6275385618209839,
+          "mae_pl_db": 1.5130927562713623,
+          "melhor_epoca": 9
+        },
+        "43": {
+          "mae_rssi_db": 0.16796135902404785,
+          "rmse_rssi_db": 0.48542770743370056,
+          "mae_pl_db": 1.663863182067871,
+          "melhor_epoca": 10
+        },
+        "44": {
+          "mae_rssi_db": 0.23666124045848846,
+          "rmse_rssi_db": 0.5347711443901062,
+          "mae_pl_db": 2.8487701416015625,
+          "melhor_epoca": 10
+        },
+        "45": {
+          "mae_rssi_db": 0.22962038218975067,
+          "rmse_rssi_db": 0.5724362730979919,
+          "mae_pl_db": 1.3675215244293213,
+          "melhor_epoca": 10
+        },
+        "46": {
+          "mae_rssi_db": 0.17772513628005981,
+          "rmse_rssi_db": 0.6516731381416321,
+          "mae_pl_db": 2.8903088569641113,
+          "melhor_epoca": 6
+        }
+      },
+      "mae_rssi_db_media": 0.2146134614944458,
+      "mae_rssi_db_desvio": 0.04002937152294584,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 2.02715056372836,
+        "baseline_hata_rural_mae": 3.5663567593051857,
+        "baseline_cost231_sub_mae": 3.5663567593051857
+      }
+    }
+  }
+}

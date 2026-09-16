@@ -1,0 +1,31 @@
+\begin{table*}[t]
+\caption{Test error on the spatially blocked split (10~km blocks, 2~km exclusion buffer), all 16 city--quadrant cells, three populations of test nodes: all nodes (sentinel included), nodes with a valid path-loss target (``covered''), and the covered subset for path loss. GNN-RF entries are mean $\pm$ s.d. over training seeds; MLP is the capacity-matched control without message passing (all nodes; mean over training seeds). ``Best empirical'' is the lowest-error calibrated empirical model on the same nodes, chosen separately for the all-node and covered populations; ``Constant'' is the $-110$~dBm sentinel predictor. A seed enters the table when its recomputed test error reproduces the training record within $2.5\times10^{-4}$~dB, the measured inference non-determinism of the pipeline; all 80 runs meet this criterion.}
+\label{tab:blocked_three_pop}
+\centering
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ll c ccc c cc c c}
+\toprule
+ & & & \multicolumn{3}{c}{GNN-RF (dB)} & MLP & \multicolumn{2}{c}{Best empirical (dB)} & Constant & \\
+City & Q & Covered frac. & RSSI, all & RSSI, covered & PL, covered & RSSI, all & RSSI, all & RSSI, covered & RSSI, all & seeds \\
+\midrule
+Bauru & Q1 & 0.328 & 0.632 $\pm$ 0.093 & 1.67 $\pm$ 0.34 & 2.21 $\pm$ 0.54 & 0.927 & 1.932 & 3.99 & 5.236 & 5 \\
+Bauru & Q2 & 0.150 & 0.369 $\pm$ 0.073 & 1.62 $\pm$ 0.34 & 2.82 $\pm$ 0.65 & 0.373 & 0.982 & 4.33 & 1.694 & 5 \\
+Bauru & Q3 & 0.159 & 0.391 $\pm$ 0.048 & 1.54 $\pm$ 0.30 & 2.14 $\pm$ 0.66 & 0.434 & 1.019 & 3.82 & 2.613 & 5 \\
+Bauru & Q4 & 0.135 & 0.236 $\pm$ 0.071 & 1.09 $\pm$ 0.43 & 2.20 $\pm$ 1.10 & 0.205 & 0.806 & 3.61 & 2.077 & 5 \\
+Campinas & Q1 & 0.241 & 0.495 $\pm$ 0.100 & 1.63 $\pm$ 0.45 & 3.76 $\pm$ 1.66 & 1.824 & 1.994 & 7.38 & 2.417 & 5 \\
+Campinas & Q2 & 0.151 & 0.350 $\pm$ 0.205 & 1.71 $\pm$ 1.16 & 2.90 $\pm$ 3.00 & 0.315 & 0.341 & 1.30 & 2.636 & 5 \\
+Campinas & Q3 & 0.297 & 0.812 $\pm$ 0.170 & 2.37 $\pm$ 0.54 & 3.55 $\pm$ 1.54 & 1.229 & 2.035 & 6.86 & 3.882 & 5 \\
+Campinas & Q4 & 0.135 & 0.222 $\pm$ 0.078 & 1.12 $\pm$ 0.56 & 2.16 $\pm$ 1.51 & 0.568 & 0.787 & 2.98 & 2.087 & 5 \\
+Lins & Q1 & 0.030 & 0.447 $\pm$ 0.072 & 9.65 $\pm$ 2.22 & 8.65 $\pm$ 2.35 & 0.366 & 1.130 & 3.69 & 1.130 & 5 \\
+Lins & Q2 & 0.148 & 0.474 $\pm$ 0.065 & 2.64 $\pm$ 0.49 & 2.40 $\pm$ 0.59 & 0.172 & 0.484 & 1.65 & 4.334 & 5 \\
+Lins & Q3 & 0.100 & 0.254 $\pm$ 0.049 & 0.95 $\pm$ 0.44 & 1.63 $\pm$ 0.64 & 0.227 & 0.436 & 3.02 & 1.830 & 5 \\
+Lins & Q4 & 0.125 & 0.215 $\pm$ 0.040 & 1.04 $\pm$ 0.22 & 2.06 $\pm$ 0.75 & 0.230 & 0.802 & 2.94 & 1.927 & 5 \\
+Sorocaba & Q1 & 0.221 & 0.379 $\pm$ 0.046 & 1.16 $\pm$ 0.25 & 2.16 $\pm$ 1.16 & 1.184 & 1.390 & 7.64 & 1.390 & 5 \\
+Sorocaba & Q2 & 0.153 & 0.391 $\pm$ 0.120 & 1.84 $\pm$ 0.77 & 1.44 $\pm$ 0.82 & 0.264 & 0.401 & 1.12 & 2.428 & 5 \\
+Sorocaba & Q3 & 0.220 & 0.419 $\pm$ 0.062 & 1.37 $\pm$ 0.27 & 3.21 $\pm$ 0.47 & 1.302 & 2.683 & 12.03 & 4.063 & 5 \\
+Sorocaba & Q4 & 0.135 & 0.227 $\pm$ 0.035 & 0.82 $\pm$ 0.12 & 1.54 $\pm$ 0.50 & 0.656 & 0.652 & 3.44 & 1.665 & 5 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

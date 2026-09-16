@@ -1,0 +1,194 @@
+{
+  "timestamp_utc": "2026-09-11T08:41:57.221101+00:00",
+  "protocolo": "C1 g10b2 (grid 10 km, buffer 2 km); teste tocado 1x no melhor ckpt por val — LINHAGEM V2",
+  "linhagem": "v2",
+  "cidade": "campinas",
+  "prefixo_rotulo": "c0c1cf",
+  "script_sha256_unico": "6F955629CDE164F2843F454E1EBF6977292FD80647EF48ECD0DF31E464C42445",
+  "split_seed_unico": 42,
+  "seeds_pedidos": [
+    "42",
+    "43",
+    "44",
+    "45",
+    "46"
+  ],
+  "seeds_com_run": [
+    "42",
+    "43",
+    "44",
+    "45",
+    "46"
+  ],
+  "runs_ausentes": [],
+  "quadrantes": {
+    "Q1": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.447235643863678,
+          "rmse_rssi_db": 2.079928159713745,
+          "mae_pl_db": 2.4178106784820557,
+          "melhor_epoca": 30
+        },
+        "43": {
+          "mae_rssi_db": 0.4898671507835388,
+          "rmse_rssi_db": 2.1536803245544434,
+          "mae_pl_db": 3.318506956100464,
+          "melhor_epoca": 29
+        },
+        "44": {
+          "mae_rssi_db": 0.6673271059989929,
+          "rmse_rssi_db": 2.5791211128234863,
+          "mae_pl_db": 6.481035232543945,
+          "melhor_epoca": 29
+        },
+        "45": {
+          "mae_rssi_db": 0.45984721183776855,
+          "rmse_rssi_db": 1.6843703985214233,
+          "mae_pl_db": 4.045163154602051,
+          "melhor_epoca": 28
+        },
+        "46": {
+          "mae_rssi_db": 0.4115256667137146,
+          "rmse_rssi_db": 1.9397902488708496,
+          "mae_pl_db": 2.5281453132629395,
+          "melhor_epoca": 30
+        }
+      },
+      "mae_rssi_db_media": 0.49516055583953855,
+      "mae_rssi_db_desvio": 0.10025961956648474,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 4.145930563091585,
+        "baseline_hata_rural_mae": 6.806896001437963,
+        "baseline_cost231_sub_mae": 6.806896001437963
+      }
+    },
+    "Q2": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.26717692613601685,
+          "rmse_rssi_db": 0.6042872071266174,
+          "mae_pl_db": 1.4643065929412842,
+          "melhor_epoca": 9
+        },
+        "43": {
+          "mae_rssi_db": 0.24144937098026276,
+          "rmse_rssi_db": 0.550146758556366,
+          "mae_pl_db": 2.6541175842285156,
+          "melhor_epoca": 7
+        },
+        "44": {
+          "mae_rssi_db": 0.7167841792106628,
+          "rmse_rssi_db": 1.7220693826675415,
+          "mae_pl_db": 8.137587547302246,
+          "melhor_epoca": 3
+        },
+        "45": {
+          "mae_rssi_db": 0.25951018929481506,
+          "rmse_rssi_db": 0.7027109265327454,
+          "mae_pl_db": 1.305492877960205,
+          "melhor_epoca": 10
+        },
+        "46": {
+          "mae_rssi_db": 0.26683366298675537,
+          "rmse_rssi_db": 0.6237194538116455,
+          "mae_pl_db": 0.9545401930809021,
+          "melhor_epoca": 10
+        }
+      },
+      "mae_rssi_db_media": 0.3503508657217026,
+      "mae_rssi_db_desvio": 0.2051084863334441,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 1.855860022626141,
+        "baseline_hata_rural_mae": 5.117676827853596,
+        "baseline_cost231_sub_mae": 5.117676827853599
+      }
+    },
+    "Q3": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.6476114392280579,
+          "rmse_rssi_db": 1.9029675722122192,
+          "mae_pl_db": 1.9682618379592896,
+          "melhor_epoca": 10
+        },
+        "43": {
+          "mae_rssi_db": 0.8695249557495117,
+          "rmse_rssi_db": 2.368779182434082,
+          "mae_pl_db": 2.5669655799865723,
+          "melhor_epoca": 19
+        },
+        "44": {
+          "mae_rssi_db": 1.0790520906448364,
+          "rmse_rssi_db": 4.243096828460693,
+          "mae_pl_db": 5.969742774963379,
+          "melhor_epoca": 10
+        },
+        "45": {
+          "mae_rssi_db": 0.7133654356002808,
+          "rmse_rssi_db": 2.31430721282959,
+          "mae_pl_db": 3.324202060699463,
+          "melhor_epoca": 17
+        },
+        "46": {
+          "mae_rssi_db": 0.7501175999641418,
+          "rmse_rssi_db": 2.1157867908477783,
+          "mae_pl_db": 3.9141275882720947,
+          "melhor_epoca": 18
+        }
+      },
+      "mae_rssi_db_media": 0.8119343042373657,
+      "mae_rssi_db_desvio": 0.16971131791463256,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 4.541543015180742,
+        "baseline_hata_rural_mae": 8.519064591879836,
+        "baseline_cost231_sub_mae": 8.519064591879836
+      }
+    },
+    "Q4": {
+      "por_seed": {
+        "42": {
+          "mae_rssi_db": 0.18498148024082184,
+          "rmse_rssi_db": 0.426435649394989,
+          "mae_pl_db": 1.6687304973602295,
+          "melhor_epoca": 7
+        },
+        "43": {
+          "mae_rssi_db": 0.188624307513237,
+          "rmse_rssi_db": 0.44919663667678833,
+          "mae_pl_db": 1.3013179302215576,
+          "melhor_epoca": 9
+        },
+        "44": {
+          "mae_rssi_db": 0.35779401659965515,
+          "rmse_rssi_db": 0.8675447106361389,
+          "mae_pl_db": 4.610867977142334,
+          "melhor_epoca": 10
+        },
+        "45": {
+          "mae_rssi_db": 0.16706599295139313,
+          "rmse_rssi_db": 0.3190806210041046,
+          "mae_pl_db": 0.727286159992218,
+          "melhor_epoca": 18
+        },
+        "46": {
+          "mae_rssi_db": 0.2109593152999878,
+          "rmse_rssi_db": 0.5323074460029602,
+          "mae_pl_db": 2.4751038551330566,
+          "melhor_epoca": 3
+        }
+      },
+      "mae_rssi_db_media": 0.221885022521019,
+      "mae_rssi_db_desvio": 0.07756271389713804,
+      "n_seeds": 5,
+      "baselines_analiticos_test_seed_base": {
+        "baseline_fspl_mae": 1.8903300683978121,
+        "baseline_hata_rural_mae": 4.353227991080312,
+        "baseline_cost231_sub_mae": 4.3532279910802965
+      }
+    }
+  }
+}

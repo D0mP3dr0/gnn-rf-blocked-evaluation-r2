@@ -1,0 +1,713 @@
+{
+  "artefato_tipo": "claim_estatistica_c1v2",
+  "script": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\scripts\\claim_estatistica_c1v2.py",
+  "script_sha256": "1e9b86b7e93c15df1af800b5fd9d152cb3a6386c03a4e2f94f85b9dc9af6943f",
+  "fonte": "selecao.test_no_melhor_ckpt.mae_rssi_db dos 80 run_c0c1cf_*.json",
+  "n_runs": 80,
+  "claim": {
+    "definicao": "MAE de RSSI (dB) no teste espacialmente bloqueado, checkpoint escolhido por val, teste tocado 1x",
+    "unidade_celula": {
+      "n": 16,
+      "media_db": 0.3946161365136504,
+      "dp_db": 0.16095249255610405,
+      "ic95_db": [
+        0.30885058894897344,
+        0.4803816840783274
+      ],
+      "t": 2.13145
+    },
+    "unidade_cidade": {
+      "n": 4,
+      "media_db": 0.3946161365136504,
+      "dp_db": 0.056851966404208136,
+      "ic95_db": [
+        0.30415197997604715,
+        0.48508029305125366
+      ],
+      "t": 3.182446
+    },
+    "medias_por_celula_db": {
+      "lins_Q1": 0.4474433779716492,
+      "lins_Q2": 0.47399356961250305,
+      "lins_Q3": 0.25401391685009,
+      "lins_Q4": 0.2146134614944458,
+      "bauru_Q1": 0.6322900533676148,
+      "bauru_Q2": 0.36953291296958923,
+      "bauru_Q3": 0.3910794615745544,
+      "bauru_Q4": 0.23610833585262297,
+      "campinas_Q1": 0.49516055583953855,
+      "campinas_Q2": 0.3503508657217026,
+      "campinas_Q3": 0.8119343042373657,
+      "campinas_Q4": 0.221885022521019,
+      "sorocaba_Q1": 0.37888368368148806,
+      "sorocaba_Q2": 0.3907651364803314,
+      "sorocaba_Q3": 0.4189785897731781,
+      "sorocaba_Q4": 0.22682493627071382
+    },
+    "medias_por_cidade_db": {
+      "lins": 0.347516081482172,
+      "bauru": 0.40725269094109534,
+      "campinas": 0.46983268707990644,
+      "sorocaba": 0.35386308655142784
+    },
+    "decomposicao_celula_x_seed": {
+      "icc1": 0.7297438989933875,
+      "f": 14.500969936947556,
+      "ms_between": 0.1295285243001137,
+      "ms_within": 0.00893240416767455,
+      "dp_entre_grupos": 0.15530365104043056,
+      "dp_dentro": 0.0945113970253035
+    },
+    "nota": "80 runs nao sao independentes (ICC alto + cadeia de transferencia Q1->Q4); a unidade de inferencia e a celula (ou cidade), nunca o run"
+  },
+  "sensibilidade_criterio_selecao": {
+    "criterio_oficial": "min val.mae_rssi_db",
+    "criterio_alternativo": "min val.mae_pl_db",
+    "runs_em_que_alt_melhora_pl": 48,
+    "mae_pl_medio_oficial_db": 2.800965345650911,
+    "mae_pl_medio_alt_db": 2.6886470884084703,
+    "por_run": {
+      "lins_s42_Q1": {
+        "epoca_oficial": 30,
+        "epoca_alt_pl": 32,
+        "test_mae_pl_oficial": 9.476515769958496,
+        "test_mae_pl_alt": 8.724160194396973,
+        "test_mae_rssi_oficial": 0.5014041066169739,
+        "test_mae_rssi_alt": 2.6929633617401123
+      },
+      "lins_s42_Q2": {
+        "epoca_oficial": 20,
+        "epoca_alt_pl": 20,
+        "test_mae_pl_oficial": 2.20212459564209,
+        "test_mae_pl_alt": 2.20212459564209,
+        "test_mae_rssi_oficial": 0.4958391785621643,
+        "test_mae_rssi_alt": 0.4958391785621643
+      },
+      "lins_s42_Q3": {
+        "epoca_oficial": 9,
+        "epoca_alt_pl": 19,
+        "test_mae_pl_oficial": 1.3885470628738403,
+        "test_mae_pl_alt": 0.7699098587036133,
+        "test_mae_rssi_oficial": 0.3368555009365082,
+        "test_mae_rssi_alt": 0.4475957453250885
+      },
+      "lins_s42_Q4": {
+        "epoca_oficial": 9,
+        "epoca_alt_pl": 19,
+        "test_mae_pl_oficial": 1.5131551027297974,
+        "test_mae_pl_alt": 1.1129525899887085,
+        "test_mae_rssi_oficial": 0.2611585855484009,
+        "test_mae_rssi_alt": 0.23243962228298187
+      },
+      "lins_s43_Q1": {
+        "epoca_oficial": 28,
+        "epoca_alt_pl": 7,
+        "test_mae_pl_oficial": 7.494691848754883,
+        "test_mae_pl_alt": 12.798491477966309,
+        "test_mae_rssi_oficial": 0.3379085958003998,
+        "test_mae_rssi_alt": 1.1809812784194946
+      },
+      "lins_s43_Q2": {
+        "epoca_oficial": 8,
+        "epoca_alt_pl": 13,
+        "test_mae_pl_oficial": 2.603093147277832,
+        "test_mae_pl_alt": 2.392993688583374,
+        "test_mae_rssi_oficial": 0.4485490322113037,
+        "test_mae_rssi_alt": 0.5890589952468872
+      },
+      "lins_s43_Q3": {
+        "epoca_oficial": 9,
+        "epoca_alt_pl": 9,
+        "test_mae_pl_oficial": 1.2135372161865234,
+        "test_mae_pl_alt": 1.2135372161865234,
+        "test_mae_rssi_oficial": 0.22969414293766022,
+        "test_mae_rssi_alt": 0.22969414293766022
+      },
+      "lins_s43_Q4": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 4,
+        "test_mae_pl_oficial": 1.664512038230896,
+        "test_mae_pl_alt": 2.134355306625366,
+        "test_mae_rssi_oficial": 0.16807030141353607,
+        "test_mae_rssi_alt": 0.38015294075012207
+      },
+      "lins_s44_Q1": {
+        "epoca_oficial": 30,
+        "epoca_alt_pl": 35,
+        "test_mae_pl_oficial": 8.566631317138672,
+        "test_mae_pl_alt": 8.447858810424805,
+        "test_mae_rssi_oficial": 0.5198666453361511,
+        "test_mae_rssi_alt": 1.9084807634353638
+      },
+      "lins_s44_Q2": {
+        "epoca_oficial": 20,
+        "epoca_alt_pl": 6,
+        "test_mae_pl_oficial": 2.591029167175293,
+        "test_mae_pl_alt": 1.8774203062057495,
+        "test_mae_rssi_oficial": 0.37474197149276733,
+        "test_mae_rssi_alt": 0.8172311782836914
+      },
+      "lins_s44_Q3": {
+        "epoca_oficial": 9,
+        "epoca_alt_pl": 20,
+        "test_mae_pl_oficial": 2.7447328567504883,
+        "test_mae_pl_alt": 0.752683162689209,
+        "test_mae_rssi_oficial": 0.2583393156528473,
+        "test_mae_rssi_alt": 0.5170215964317322
+      },
+      "lins_s44_Q4": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 12,
+        "test_mae_pl_oficial": 2.84798526763916,
+        "test_mae_pl_alt": 2.7999699115753174,
+        "test_mae_rssi_oficial": 0.23664559423923492,
+        "test_mae_rssi_alt": 0.5531511306762695
+      },
+      "lins_s45_Q1": {
+        "epoca_oficial": 27,
+        "epoca_alt_pl": 16,
+        "test_mae_pl_oficial": 12.023483276367188,
+        "test_mae_pl_alt": 21.107135772705078,
+        "test_mae_rssi_oficial": 0.45401516556739807,
+        "test_mae_rssi_alt": 2.8575029373168945
+      },
+      "lins_s45_Q2": {
+        "epoca_oficial": 9,
+        "epoca_alt_pl": 16,
+        "test_mae_pl_oficial": 3.0797975063323975,
+        "test_mae_pl_alt": 1.7362552881240845,
+        "test_mae_rssi_oficial": 0.5087329745292664,
+        "test_mae_rssi_alt": 0.5826935768127441
+      },
+      "lins_s45_Q3": {
+        "epoca_oficial": 8,
+        "epoca_alt_pl": 14,
+        "test_mae_pl_oficial": 1.536786675453186,
+        "test_mae_pl_alt": 1.081192970275879,
+        "test_mae_rssi_oficial": 0.21439482271671295,
+        "test_mae_rssi_alt": 0.3116157352924347
+      },
+      "lins_s45_Q4": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 18,
+        "test_mae_pl_oficial": 1.3669577836990356,
+        "test_mae_pl_alt": 1.0579955577850342,
+        "test_mae_rssi_oficial": 0.2295820564031601,
+        "test_mae_rssi_alt": 0.553388237953186
+      },
+      "lins_s46_Q1": {
+        "epoca_oficial": 30,
+        "epoca_alt_pl": 29,
+        "test_mae_pl_oficial": 5.708051681518555,
+        "test_mae_pl_alt": 5.748003959655762,
+        "test_mae_rssi_oficial": 0.42410022020339966,
+        "test_mae_rssi_alt": 0.4427935779094696
+      },
+      "lins_s46_Q2": {
+        "epoca_oficial": 8,
+        "epoca_alt_pl": 15,
+        "test_mae_pl_oficial": 1.5007270574569702,
+        "test_mae_pl_alt": 1.2210948467254639,
+        "test_mae_rssi_oficial": 0.5420718193054199,
+        "test_mae_rssi_alt": 1.109635829925537
+      },
+      "lins_s46_Q3": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 1,
+        "test_mae_pl_oficial": 1.2471784353256226,
+        "test_mae_pl_alt": 0.8648344874382019,
+        "test_mae_rssi_oficial": 0.2308018058538437,
+        "test_mae_rssi_alt": 0.46632635593414307
+      },
+      "lins_s46_Q4": {
+        "epoca_oficial": 6,
+        "epoca_alt_pl": 8,
+        "test_mae_pl_oficial": 2.889843463897705,
+        "test_mae_pl_alt": 1.9156736135482788,
+        "test_mae_rssi_oficial": 0.17771895229816437,
+        "test_mae_rssi_alt": 0.2958686649799347
+      },
+      "bauru_s42_Q1": {
+        "epoca_oficial": 28,
+        "epoca_alt_pl": 11,
+        "test_mae_pl_oficial": 1.9150515794754028,
+        "test_mae_pl_alt": 2.5468974113464355,
+        "test_mae_rssi_oficial": 0.7567614316940308,
+        "test_mae_rssi_alt": 4.805027961730957
+      },
+      "bauru_s42_Q2": {
+        "epoca_oficial": 4,
+        "epoca_alt_pl": 19,
+        "test_mae_pl_oficial": 2.397268772125244,
+        "test_mae_pl_alt": 3.1171751022338867,
+        "test_mae_rssi_oficial": 0.47008562088012695,
+        "test_mae_rssi_alt": 0.7045050263404846
+      },
+      "bauru_s42_Q3": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 16,
+        "test_mae_pl_oficial": 1.7263586521148682,
+        "test_mae_pl_alt": 1.213599443435669,
+        "test_mae_rssi_oficial": 0.37307026982307434,
+        "test_mae_rssi_alt": 0.6261612772941589
+      },
+      "bauru_s42_Q4": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 13,
+        "test_mae_pl_oficial": 2.3124117851257324,
+        "test_mae_pl_alt": 2.304877758026123,
+        "test_mae_rssi_oficial": 0.24803374707698822,
+        "test_mae_rssi_alt": 0.5869526863098145
+      },
+      "bauru_s43_Q1": {
+        "epoca_oficial": 30,
+        "epoca_alt_pl": 10,
+        "test_mae_pl_oficial": 2.9147391319274902,
+        "test_mae_pl_alt": 3.9765427112579346,
+        "test_mae_rssi_oficial": 0.633082389831543,
+        "test_mae_rssi_alt": 1.1856024265289307
+      },
+      "bauru_s43_Q2": {
+        "epoca_oficial": 9,
+        "epoca_alt_pl": 7,
+        "test_mae_pl_oficial": 3.348308563232422,
+        "test_mae_pl_alt": 2.959805965423584,
+        "test_mae_rssi_oficial": 0.31528928875923157,
+        "test_mae_rssi_alt": 0.3111477792263031
+      },
+      "bauru_s43_Q3": {
+        "epoca_oficial": 7,
+        "epoca_alt_pl": 16,
+        "test_mae_pl_oficial": 3.2799036502838135,
+        "test_mae_pl_alt": 2.561372995376587,
+        "test_mae_rssi_oficial": 0.41918474435806274,
+        "test_mae_rssi_alt": 0.8015468716621399
+      },
+      "bauru_s43_Q4": {
+        "epoca_oficial": 14,
+        "epoca_alt_pl": 17,
+        "test_mae_pl_oficial": 3.313876152038574,
+        "test_mae_pl_alt": 4.20382022857666,
+        "test_mae_rssi_oficial": 0.35301995277404785,
+        "test_mae_rssi_alt": 0.4934792220592499
+      },
+      "bauru_s44_Q1": {
+        "epoca_oficial": 29,
+        "epoca_alt_pl": 26,
+        "test_mae_pl_oficial": 2.1181540489196777,
+        "test_mae_pl_alt": 1.4719555377960205,
+        "test_mae_rssi_oficial": 0.5631483793258667,
+        "test_mae_rssi_alt": 1.15458345413208
+      },
+      "bauru_s44_Q2": {
+        "epoca_oficial": 9,
+        "epoca_alt_pl": 16,
+        "test_mae_pl_oficial": 3.5307676792144775,
+        "test_mae_pl_alt": 3.3140292167663574,
+        "test_mae_rssi_oficial": 0.421728253364563,
+        "test_mae_rssi_alt": 1.2403066158294678
+      },
+      "bauru_s44_Q3": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 20,
+        "test_mae_pl_oficial": 1.790474534034729,
+        "test_mae_pl_alt": 1.395067572593689,
+        "test_mae_rssi_oficial": 0.3947919011116028,
+        "test_mae_rssi_alt": 0.43990084528923035
+      },
+      "bauru_s44_Q4": {
+        "epoca_oficial": 5,
+        "epoca_alt_pl": 5,
+        "test_mae_pl_oficial": 3.236346960067749,
+        "test_mae_pl_alt": 3.236346960067749,
+        "test_mae_rssi_oficial": 0.20427602529525757,
+        "test_mae_rssi_alt": 0.20427602529525757
+      },
+      "bauru_s45_Q1": {
+        "epoca_oficial": 28,
+        "epoca_alt_pl": 5,
+        "test_mae_pl_oficial": 2.5677266120910645,
+        "test_mae_pl_alt": 2.470407247543335,
+        "test_mae_rssi_oficial": 0.5254945158958435,
+        "test_mae_rssi_alt": 1.7463101148605347
+      },
+      "bauru_s45_Q2": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 19,
+        "test_mae_pl_oficial": 2.822787046432495,
+        "test_mae_pl_alt": 2.6757190227508545,
+        "test_mae_rssi_oficial": 0.2999807298183441,
+        "test_mae_rssi_alt": 0.33553895354270935
+      },
+      "bauru_s45_Q3": {
+        "epoca_oficial": 19,
+        "epoca_alt_pl": 19,
+        "test_mae_pl_oficial": 2.193284511566162,
+        "test_mae_pl_alt": 2.193284511566162,
+        "test_mae_rssi_oficial": 0.32176467776298523,
+        "test_mae_rssi_alt": 0.32176467776298523
+      },
+      "bauru_s45_Q4": {
+        "epoca_oficial": 18,
+        "epoca_alt_pl": 14,
+        "test_mae_pl_oficial": 1.1722402572631836,
+        "test_mae_pl_alt": 1.3818460702896118,
+        "test_mae_rssi_oficial": 0.17446112632751465,
+        "test_mae_rssi_alt": 0.26312780380249023
+      },
+      "bauru_s46_Q1": {
+        "epoca_oficial": 28,
+        "epoca_alt_pl": 26,
+        "test_mae_pl_oficial": 1.537856101989746,
+        "test_mae_pl_alt": 1.854504942893982,
+        "test_mae_rssi_oficial": 0.682891309261322,
+        "test_mae_rssi_alt": 0.7570960521697998
+      },
+      "bauru_s46_Q2": {
+        "epoca_oficial": 8,
+        "epoca_alt_pl": 5,
+        "test_mae_pl_oficial": 1.9818272590637207,
+        "test_mae_pl_alt": 2.2632906436920166,
+        "test_mae_rssi_oficial": 0.3407669961452484,
+        "test_mae_rssi_alt": 0.49523410201072693
+      },
+      "bauru_s46_Q3": {
+        "epoca_oficial": 7,
+        "epoca_alt_pl": 15,
+        "test_mae_pl_oficial": 1.7298293113708496,
+        "test_mae_pl_alt": 1.4034295082092285,
+        "test_mae_rssi_oficial": 0.4468318223953247,
+        "test_mae_rssi_alt": 0.3563691973686218
+      },
+      "bauru_s46_Q4": {
+        "epoca_oficial": 16,
+        "epoca_alt_pl": 6,
+        "test_mae_pl_oficial": 0.9806572198867798,
+        "test_mae_pl_alt": 1.4970369338989258,
+        "test_mae_rssi_oficial": 0.2007964700460434,
+        "test_mae_rssi_alt": 0.21305720508098602
+      },
+      "campinas_s42_Q1": {
+        "epoca_oficial": 30,
+        "epoca_alt_pl": 35,
+        "test_mae_pl_oficial": 2.4172372817993164,
+        "test_mae_pl_alt": 2.088268280029297,
+        "test_mae_rssi_oficial": 0.4472387731075287,
+        "test_mae_rssi_alt": 0.9596320390701294
+      },
+      "campinas_s42_Q2": {
+        "epoca_oficial": 9,
+        "epoca_alt_pl": 18,
+        "test_mae_pl_oficial": 1.464225172996521,
+        "test_mae_pl_alt": 1.4192602634429932,
+        "test_mae_rssi_oficial": 0.2670617997646332,
+        "test_mae_rssi_alt": 1.001346230506897
+      },
+      "campinas_s42_Q3": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 19,
+        "test_mae_pl_oficial": 1.9693151712417603,
+        "test_mae_pl_alt": 1.8603085279464722,
+        "test_mae_rssi_oficial": 0.6476751565933228,
+        "test_mae_rssi_alt": 0.7499781847000122
+      },
+      "campinas_s42_Q4": {
+        "epoca_oficial": 7,
+        "epoca_alt_pl": 7,
+        "test_mae_pl_oficial": 1.669367790222168,
+        "test_mae_pl_alt": 1.669367790222168,
+        "test_mae_rssi_oficial": 0.18500235676765442,
+        "test_mae_rssi_alt": 0.18500235676765442
+      },
+      "campinas_s43_Q1": {
+        "epoca_oficial": 29,
+        "epoca_alt_pl": 34,
+        "test_mae_pl_oficial": 3.3191428184509277,
+        "test_mae_pl_alt": 2.662301778793335,
+        "test_mae_rssi_oficial": 0.4899340271949768,
+        "test_mae_rssi_alt": 1.3224308490753174
+      },
+      "campinas_s43_Q2": {
+        "epoca_oficial": 7,
+        "epoca_alt_pl": 9,
+        "test_mae_pl_oficial": 2.654473066329956,
+        "test_mae_pl_alt": 2.371350049972534,
+        "test_mae_rssi_oficial": 0.24144315719604492,
+        "test_mae_rssi_alt": 0.21787311136722565
+      },
+      "campinas_s43_Q3": {
+        "epoca_oficial": 19,
+        "epoca_alt_pl": 18,
+        "test_mae_pl_oficial": 2.567969560623169,
+        "test_mae_pl_alt": 2.6125261783599854,
+        "test_mae_rssi_oficial": 0.8695189952850342,
+        "test_mae_rssi_alt": 0.927441418170929
+      },
+      "campinas_s43_Q4": {
+        "epoca_oficial": 9,
+        "epoca_alt_pl": 15,
+        "test_mae_pl_oficial": 1.3020720481872559,
+        "test_mae_pl_alt": 1.1923086643218994,
+        "test_mae_rssi_oficial": 0.18871554732322693,
+        "test_mae_rssi_alt": 0.23764367401599884
+      },
+      "campinas_s44_Q1": {
+        "epoca_oficial": 29,
+        "epoca_alt_pl": 15,
+        "test_mae_pl_oficial": 6.479968070983887,
+        "test_mae_pl_alt": 2.609363079071045,
+        "test_mae_rssi_oficial": 0.6670594811439514,
+        "test_mae_rssi_alt": 5.600101947784424
+      },
+      "campinas_s44_Q2": {
+        "epoca_oficial": 3,
+        "epoca_alt_pl": 15,
+        "test_mae_pl_oficial": 8.137038230895996,
+        "test_mae_pl_alt": 5.722990036010742,
+        "test_mae_rssi_oficial": 0.7167344093322754,
+        "test_mae_rssi_alt": 0.7641280293464661
+      },
+      "campinas_s44_Q3": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 5,
+        "test_mae_pl_oficial": 5.96838903427124,
+        "test_mae_pl_alt": 5.64090633392334,
+        "test_mae_rssi_oficial": 1.0786691904067993,
+        "test_mae_rssi_alt": 1.4465051889419556
+      },
+      "campinas_s44_Q4": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 20,
+        "test_mae_pl_oficial": 4.610298156738281,
+        "test_mae_pl_alt": 4.2975945472717285,
+        "test_mae_rssi_oficial": 0.35774219036102295,
+        "test_mae_rssi_alt": 0.659430742263794
+      },
+      "campinas_s45_Q1": {
+        "epoca_oficial": 28,
+        "epoca_alt_pl": 28,
+        "test_mae_pl_oficial": 4.045137405395508,
+        "test_mae_pl_alt": 4.045137405395508,
+        "test_mae_rssi_oficial": 0.45974233746528625,
+        "test_mae_rssi_alt": 0.45974233746528625
+      },
+      "campinas_s45_Q2": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 20,
+        "test_mae_pl_oficial": 1.3051904439926147,
+        "test_mae_pl_alt": 1.0820555686950684,
+        "test_mae_rssi_oficial": 0.25946471095085144,
+        "test_mae_rssi_alt": 0.3974338471889496
+      },
+      "campinas_s45_Q3": {
+        "epoca_oficial": 17,
+        "epoca_alt_pl": 5,
+        "test_mae_pl_oficial": 3.3247060775756836,
+        "test_mae_pl_alt": 3.415339708328247,
+        "test_mae_rssi_oficial": 0.7133371233940125,
+        "test_mae_rssi_alt": 0.7546927332878113
+      },
+      "campinas_s45_Q4": {
+        "epoca_oficial": 18,
+        "epoca_alt_pl": 1,
+        "test_mae_pl_oficial": 0.7277379631996155,
+        "test_mae_pl_alt": 1.0644490718841553,
+        "test_mae_rssi_oficial": 0.16700883209705353,
+        "test_mae_rssi_alt": 0.29270344972610474
+      },
+      "campinas_s46_Q1": {
+        "epoca_oficial": 30,
+        "epoca_alt_pl": 34,
+        "test_mae_pl_oficial": 2.526331901550293,
+        "test_mae_pl_alt": 2.640065908432007,
+        "test_mae_rssi_oficial": 0.4114517867565155,
+        "test_mae_rssi_alt": 2.1366491317749023
+      },
+      "campinas_s46_Q2": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 12,
+        "test_mae_pl_oficial": 0.9551697969436646,
+        "test_mae_pl_alt": 1.009008765220642,
+        "test_mae_rssi_oficial": 0.2668868601322174,
+        "test_mae_rssi_alt": 0.679874837398529
+      },
+      "campinas_s46_Q3": {
+        "epoca_oficial": 18,
+        "epoca_alt_pl": 17,
+        "test_mae_pl_oficial": 3.914811849594116,
+        "test_mae_pl_alt": 2.218406915664673,
+        "test_mae_rssi_oficial": 0.7500516772270203,
+        "test_mae_rssi_alt": 0.8482075929641724
+      },
+      "campinas_s46_Q4": {
+        "epoca_oficial": 3,
+        "epoca_alt_pl": 16,
+        "test_mae_pl_oficial": 2.4769365787506104,
+        "test_mae_pl_alt": 1.695212960243225,
+        "test_mae_rssi_oficial": 0.21111272275447845,
+        "test_mae_rssi_alt": 1.0049370527267456
+      },
+      "sorocaba_s42_Q1": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 33,
+        "test_mae_pl_oficial": 4.137280464172363,
+        "test_mae_pl_alt": 1.2337356805801392,
+        "test_mae_rssi_oficial": 0.38611701130867004,
+        "test_mae_rssi_alt": 2.1473441123962402
+      },
+      "sorocaba_s42_Q2": {
+        "epoca_oficial": 6,
+        "epoca_alt_pl": 2,
+        "test_mae_pl_oficial": 1.3317452669143677,
+        "test_mae_pl_alt": 1.7135924100875854,
+        "test_mae_rssi_oficial": 0.5934388637542725,
+        "test_mae_rssi_alt": 1.8116298913955688
+      },
+      "sorocaba_s42_Q3": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 19,
+        "test_mae_pl_oficial": 3.1455485820770264,
+        "test_mae_pl_alt": 2.9316585063934326,
+        "test_mae_rssi_oficial": 0.5052122473716736,
+        "test_mae_rssi_alt": 0.7494760155677795
+      },
+      "sorocaba_s42_Q4": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 4,
+        "test_mae_pl_oficial": 0.944635272026062,
+        "test_mae_pl_alt": 1.053911566734314,
+        "test_mae_rssi_oficial": 0.2583439350128174,
+        "test_mae_rssi_alt": 1.0053879022598267
+      },
+      "sorocaba_s43_Q1": {
+        "epoca_oficial": 29,
+        "epoca_alt_pl": 19,
+        "test_mae_pl_oficial": 1.605832815170288,
+        "test_mae_pl_alt": 1.4548065662384033,
+        "test_mae_rssi_oficial": 0.29827556014060974,
+        "test_mae_rssi_alt": 1.476148009300232
+      },
+      "sorocaba_s43_Q2": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 19,
+        "test_mae_pl_oficial": 1.1141891479492188,
+        "test_mae_pl_alt": 1.1775578260421753,
+        "test_mae_rssi_oficial": 0.36049947142601013,
+        "test_mae_rssi_alt": 0.5665205717086792
+      },
+      "sorocaba_s43_Q3": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 20,
+        "test_mae_pl_oficial": 3.693403959274292,
+        "test_mae_pl_alt": 3.608687400817871,
+        "test_mae_rssi_oficial": 0.43058040738105774,
+        "test_mae_rssi_alt": 0.5788214206695557
+      },
+      "sorocaba_s43_Q4": {
+        "epoca_oficial": 7,
+        "epoca_alt_pl": 4,
+        "test_mae_pl_oficial": 2.0349931716918945,
+        "test_mae_pl_alt": 1.4039442539215088,
+        "test_mae_rssi_oficial": 0.1698256880044937,
+        "test_mae_rssi_alt": 0.47187212109565735
+      },
+      "sorocaba_s44_Q1": {
+        "epoca_oficial": 35,
+        "epoca_alt_pl": 17,
+        "test_mae_pl_oficial": 1.238532304763794,
+        "test_mae_pl_alt": 1.3192397356033325,
+        "test_mae_rssi_oficial": 0.4118507504463196,
+        "test_mae_rssi_alt": 1.5520191192626953
+      },
+      "sorocaba_s44_Q2": {
+        "epoca_oficial": 7,
+        "epoca_alt_pl": 7,
+        "test_mae_pl_oficial": 0.9007505178451538,
+        "test_mae_pl_alt": 0.9007505178451538,
+        "test_mae_rssi_oficial": 0.38127586245536804,
+        "test_mae_rssi_alt": 0.38127586245536804
+      },
+      "sorocaba_s44_Q3": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 19,
+        "test_mae_pl_oficial": 2.8462085723876953,
+        "test_mae_pl_alt": 2.8324408531188965,
+        "test_mae_rssi_oficial": 0.4411352276802063,
+        "test_mae_rssi_alt": 0.4517655670642853
+      },
+      "sorocaba_s44_Q4": {
+        "epoca_oficial": 5,
+        "epoca_alt_pl": 2,
+        "test_mae_pl_oficial": 2.06943941116333,
+        "test_mae_pl_alt": 0.8417955040931702,
+        "test_mae_rssi_oficial": 0.2204924374818802,
+        "test_mae_rssi_alt": 0.30113300681114197
+      },
+      "sorocaba_s45_Q1": {
+        "epoca_oficial": 30,
+        "epoca_alt_pl": 35,
+        "test_mae_pl_oficial": 1.6455612182617188,
+        "test_mae_pl_alt": 1.2175146341323853,
+        "test_mae_rssi_oficial": 0.3953169584274292,
+        "test_mae_rssi_alt": 0.997340977191925
+      },
+      "sorocaba_s45_Q2": {
+        "epoca_oficial": 8,
+        "epoca_alt_pl": 8,
+        "test_mae_pl_oficial": 2.880929708480835,
+        "test_mae_pl_alt": 2.880929708480835,
+        "test_mae_rssi_oficial": 0.33948469161987305,
+        "test_mae_rssi_alt": 0.33948469161987305
+      },
+      "sorocaba_s45_Q3": {
+        "epoca_oficial": 9,
+        "epoca_alt_pl": 7,
+        "test_mae_pl_oficial": 3.686088800430298,
+        "test_mae_pl_alt": 2.8779091835021973,
+        "test_mae_rssi_oficial": 0.36156409978866577,
+        "test_mae_rssi_alt": 0.5254916548728943
+      },
+      "sorocaba_s45_Q4": {
+        "epoca_oficial": 10,
+        "epoca_alt_pl": 5,
+        "test_mae_pl_oficial": 1.4349209070205688,
+        "test_mae_pl_alt": 1.2441767454147339,
+        "test_mae_rssi_oficial": 0.24506424367427826,
+        "test_mae_rssi_alt": 0.2246980518102646
+      },
+      "sorocaba_s46_Q1": {
+        "epoca_oficial": 26,
+        "epoca_alt_pl": 18,
+        "test_mae_pl_oficial": 2.146031141281128,
+        "test_mae_pl_alt": 1.7436566352844238,
+        "test_mae_rssi_oficial": 0.4027547538280487,
+        "test_mae_rssi_alt": 1.8575981855392456
+      },
+      "sorocaba_s46_Q2": {
+        "epoca_oficial": 20,
+        "epoca_alt_pl": 20,
+        "test_mae_pl_oficial": 0.9738034009933472,
+        "test_mae_pl_alt": 0.9738034009933472,
+        "test_mae_rssi_oficial": 0.2791064977645874,
+        "test_mae_rssi_alt": 0.2791064977645874
+      },
+      "sorocaba_s46_Q3": {
+        "epoca_oficial": 7,
+        "epoca_alt_pl": 5,
+        "test_mae_pl_oficial": 2.6608033180236816,
+        "test_mae_pl_alt": 2.922048568725586,
+        "test_mae_rssi_oficial": 0.356418251991272,
+        "test_mae_rssi_alt": 0.4027676284313202
+      },
+      "sorocaba_s46_Q4": {
+        "epoca_oficial": 3,
+        "epoca_alt_pl": 1,
+        "test_mae_pl_oficial": 1.2217601537704468,
+        "test_mae_pl_alt": 1.4437321424484253,
+        "test_mae_rssi_oficial": 0.2403772920370102,
+        "test_mae_rssi_alt": 0.889528214931488
+      }
+    },
+    "nota": "teste por epoca e diagnostico; a selecao oficial nunca viu o teste. Esta tabela responde 'e se o criterio fosse outro' sem alterar nenhum resultado publicado"
+  }
+}

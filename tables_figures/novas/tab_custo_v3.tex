@@ -1,0 +1,16 @@
+\begin{table}[!t]
+\centering
+\caption{Computational cost in the spatially blocked campaign (Bauru, seed~42): GNN-RF and the capacity-matched control without message passing (MLP). Both have the same number of trainable parameters. Q1 trains from scratch (35 epochs); Q4 transfers (20 epochs). All runs of the blocked campaign used the same hardware (NVIDIA GeForce RTX 5070 Ti). Size assumes 4 bytes per parameter ($2^{20}$ bytes per MB); peak VRAM is the maximum memory allocated by PyTorch during training ($10^{6}$ bytes per MB).}
+\label{tab:cost}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+ & & & \multicolumn{2}{c}{Time (s)} & \multicolumn{2}{c}{Peak VRAM (MB)} \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Model & Params & Size (MB) & Q1 & Q4 & Q1 & Q4 \\
+\midrule
+GNN-RF & \num{1812515} & 6.91 & 3987 & 2323 & 7475 & 7466 \\
+MLP & \num{1812515} & 6.91 & 616 & 409 & 653 & 676 \\
+\bottomrule
+\end{tabular}
+\end{table}

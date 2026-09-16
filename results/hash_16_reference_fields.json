@@ -1,0 +1,119 @@
+{
+  "transfer_dataset_bauru_v19_Q1_enriched_cftudo.pt": {
+    "sha256": "33e8d57368920241fc289f8c939de35ece7178c316d2bf5488c3cdf98ff5fb5c",
+    "tamanho_bytes": 28316234345,
+    "mtime_iso": "2026-09-08T09:41:41-0300",
+    "mtime_epoch": 1788871301.3807833,
+    "tempo_hash_s": 34.39
+  },
+  "transfer_dataset_bauru_v19_Q2_enriched_cftudo.pt": {
+    "sha256": "29bdc73e6f4bea464f2e3772670bef68febac95c21e18d66e0293dcd5f799163",
+    "tamanho_bytes": 28245441193,
+    "mtime_iso": "2026-09-08T10:22:53-0300",
+    "mtime_epoch": 1788873773.388688,
+    "tempo_hash_s": 33.2
+  },
+  "transfer_dataset_bauru_v19_Q3_enriched_cftudo.pt": {
+    "sha256": "ef67c8c886b6c0cb7001a84f0316033699965d73961b6eca31ea66dd042f5264",
+    "tamanho_bytes": 28246855209,
+    "mtime_iso": "2026-09-07T14:52:32-0300",
+    "mtime_epoch": 1788803552.1613307,
+    "tempo_hash_s": 35.42
+  },
+  "transfer_dataset_bauru_v19_Q4_enriched_cftudo.pt": {
+    "sha256": "0caa7c2c3a7412a4f7fbf39ce08cefffc6896f7efa9db376897df6438024db20",
+    "tamanho_bytes": 28239043497,
+    "mtime_iso": "2026-09-07T14:54:20-0300",
+    "mtime_epoch": 1788803660.5931666,
+    "tempo_hash_s": 34.46
+  },
+  "transfer_dataset_campinas_v19_Q1_enriched_cftudo.pt": {
+    "sha256": "d3787cd087c1ded417da788a83bd048bcaafa347dcd6adc0e64a9fe1e405fe00",
+    "tamanho_bytes": 28293194963,
+    "mtime_iso": "2026-09-07T14:31:00-0300",
+    "mtime_epoch": 1788802260.4286578,
+    "tempo_hash_s": 34.75
+  },
+  "transfer_dataset_campinas_v19_Q2_enriched_cftudo.pt": {
+    "sha256": "c952a61cfcbeda2a042a6ba80f17ff73aabea5e42511a5614b0a7954321ef16c",
+    "tamanho_bytes": 28297822803,
+    "mtime_iso": "2026-09-07T14:32:25-0300",
+    "mtime_epoch": 1788802345.0303123,
+    "tempo_hash_s": 34.95
+  },
+  "transfer_dataset_campinas_v19_Q3_enriched_cftudo.pt": {
+    "sha256": "8b7bacbcdb7d34bc8c0234554a1f1afd954a05773a61d1b79e53191687330bb5",
+    "tamanho_bytes": 28304852115,
+    "mtime_iso": "2026-09-07T14:33:48-0300",
+    "mtime_epoch": 1788802428.566539,
+    "tempo_hash_s": 36.13
+  },
+  "transfer_dataset_campinas_v19_Q4_enriched_cftudo.pt": {
+    "sha256": "7e9c4e41fc10078813afe081a436b88323532ff41282555232938f17913916dc",
+    "tamanho_bytes": 28271082707,
+    "mtime_iso": "2026-09-07T14:35:11-0300",
+    "mtime_epoch": 1788802511.8302734,
+    "tempo_hash_s": 40.75
+  },
+  "transfer_dataset_lins_v19_Q1_enriched_cftudo.pt": {
+    "sha256": "f23d15852f1d132eeb5412e194cb0d4251f88c6a0d32097cef08588835742cfc",
+    "tamanho_bytes": 28234062555,
+    "mtime_iso": "2026-09-07T19:55:58-0300",
+    "mtime_epoch": 1788821758.0580919,
+    "tempo_hash_s": 56.51
+  },
+  "transfer_dataset_lins_v19_Q2_enriched_cftudo.pt": {
+    "sha256": "64a48e1cb48287cf0753c04bb4934d65bf21144a084e1afe058161640a428249",
+    "tamanho_bytes": 28298425243,
+    "mtime_iso": "2026-09-07T20:31:10-0300",
+    "mtime_epoch": 1788823870.0779474,
+    "tempo_hash_s": 37.54
+  },
+  "transfer_dataset_lins_v19_Q3_enriched_cftudo.pt": {
+    "sha256": "845b287a7b3d33e1b08670c0dad745c2b9f50628e2d38540553de73ed234a4f2",
+    "tamanho_bytes": 28219178203,
+    "mtime_iso": "2026-09-08T08:18:53-0300",
+    "mtime_epoch": 1788866333.4122965,
+    "tempo_hash_s": 38.21
+  },
+  "transfer_dataset_lins_v19_Q4_enriched_cftudo.pt": {
+    "sha256": "eb2974f829c149378d1025fca8fa51e3191e8a06ba0821cf8f1adc2712754744",
+    "tamanho_bytes": 28217780059,
+    "mtime_iso": "2026-09-08T08:51:19-0300",
+    "mtime_epoch": 1788868279.829782,
+    "tempo_hash_s": 45.05
+  },
+  "transfer_dataset_sorocaba_v19_Q1_enriched_cftudo.pt": {
+    "sha256": "858293a658cddbf2b45ddf2673d46153108698b0d04c7b48f8d39d3bf8527919",
+    "tamanho_bytes": 28280056915,
+    "mtime_iso": "2026-09-07T14:36:37-0300",
+    "mtime_epoch": 1788802597.6428685,
+    "tempo_hash_s": 35.75
+  },
+  "transfer_dataset_sorocaba_v19_Q2_enriched_cftudo.pt": {
+    "sha256": "5741e2b87fee80b15907aebee1122a5f12c992a66555a4b8b17282d384ab991d",
+    "tamanho_bytes": 28275876179,
+    "mtime_iso": "2026-09-07T14:38:06-0300",
+    "mtime_epoch": 1788802686.3632903,
+    "tempo_hash_s": 50.87
+  },
+  "transfer_dataset_sorocaba_v19_Q3_enriched_cftudo.pt": {
+    "sha256": "aed5e373e11bc94650b1d944e03153cf58af07b1224884f2f011a14609db8f2a",
+    "tamanho_bytes": 28256037331,
+    "mtime_iso": "2026-09-07T14:48:53-0300",
+    "mtime_epoch": 1788803333.5571282,
+    "tempo_hash_s": 46.34
+  },
+  "transfer_dataset_sorocaba_v19_Q4_enriched_cftudo.pt": {
+    "sha256": "467a03166acd932abea979a48dded6ce51cf1c3d13992aa45ae4949c3737177a",
+    "tamanho_bytes": 28220735507,
+    "mtime_iso": "2026-09-07T14:50:42-0300",
+    "mtime_epoch": 1788803442.1912205,
+    "tempo_hash_s": 40.34
+  },
+  "_meta": {
+    "tempo_total_s": 634.67,
+    "base": "F:/TOPO_RF_DOWNLOAD_DRIVE/graph_data_v3",
+    "gerado_em": "2026-09-13T14:04:07-0300"
+  }
+}

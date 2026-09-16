@@ -1,0 +1,19 @@
+\begin{table}[!t]
+\centering
+\caption{Free-space-floor admissibility of GNN-RF under the spatially blocked protocol (80 runs: four cities, Q1--Q4, five seeds; checkpoint of lowest validation RSSI MAE). A test node is below the floor when its predicted path loss is lower than the free-space loss at the distance to the nearest transmitter and 1800~MHz; the population is the test partition of the blocked split. Node counts are recovered from the recorded per-run fraction and number of test nodes.}
+\label{tab:physics_compliance}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+City & Runs with no node & Nodes below & Test nodes \\
+ & below the floor & the floor & evaluated \\
+\midrule
+Bauru & 18 of 20 & \num{115} & \num{16458440} \\
+Campinas & 13 of 20 & \num{2118} & \num{16438370} \\
+Lins & 18 of 20 & \num{303} & \num{16582940} \\
+Sorocaba & 20 of 20 & \num{0} & \num{16450840} \\
+\midrule
+Total & 69 of 80 & \num{2536} & \num{65930590} \\
+\bottomrule
+\end{tabular}
+\end{table}
