@@ -1,0 +1,10 @@
+# Dependências do pacote de reprodutibilidade.
+# Versões lidas do ambiente em que os resultados foram gerados
+# (Python 3.11/3.12, CUDA 12.8); torch vem do índice https://download.pytorch.org/whl/cu128
+numpy==2.4.6
+pandas==2.3.3
+scipy==1.17.0
+matplotlib==3.10.8
+rasterio==1.4.4
+torch==2.10.0+cu128
+torch-geometric==2.8.0.post1
