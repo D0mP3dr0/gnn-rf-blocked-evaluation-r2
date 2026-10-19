@@ -1,0 +1,2875 @@
+{
+  "artefato_tipo": "teste_estatistico_pareado",
+  "id": "T16_teste_pareado_gnn_x_empiricos",
+  "pre_registro": {
+    "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\planos\\preregistro_teste_pareado_empiricos_2026-09-15.json",
+    "sha256": "ca54a9dc8b8d9f74d4bce1499ea05f28e6d0e9897f157dd68845e5a2f6046b3a",
+    "criterio_de_leitura": {
+      "SUPORTA": "media de d_i > 0 E p < 0,05 nos TRES testes primarios E limite inferior do IC95 (t e bootstrap) > 0 E no maximo 1 das 16 celulas com d_i <= 0",
+      "SUPORTA_COM_RESSALVA": "media de d_i > 0 E p < 0,05 nos tres, mas 2 ou mais celulas com d_i <= 0, ou algum IC95 tocando o zero. Neste caso o texto do artigo TEM de nomear as celulas discordantes.",
+      "NAO_SUPORTA": "qualquer teste primario com p >= 0,05, ou media de d_i <= 0",
+      "regra_de_escrita": "O p sozinho nao autoriza afirmacao de relevancia pratica: a frase do artigo tem de trazer a diferenca media em dB e o IC95, e o p como acessorio. Nenhum numero desta analise entra no manuscrito antes de contra-auditoria por quem nao escreveu o script (status provisorio no JSON).",
+      "regra_de_imutabilidade": "Este criterio so muda por NOVO pre-registro, carimbado no manifest antes de rodar de novo. Resultado que reprova nao reescreve o criterio."
+    }
+  },
+  "script": {
+    "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\scripts\\teste_pareado_empiricos_c1v2.py",
+    "sha256": "a136319b582108273919f4d6399de095531a6343c4bfc770c00403bbc62d33d4",
+    "nota": "sha256 do proprio script no momento da execucao"
+  },
+  "ambiente": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "scipy": "1.17.0",
+    "executavel": "F:\\S33_dslm\\s33_amb_virtual\\.venv\\Scripts\\python.exe",
+    "dispositivo": "CPU (nenhum modelo ou dataset .pt carregado; so JSON)"
+  },
+  "linhagem": {
+    "campanha": "C1 v2, particao espacialmente bloqueada (blocos 10 km, buffer 2 km), 16 celulas cidade x quadrante, 5 sementes por celula",
+    "gnn": "t15_tres_populacoes.json (recomputo com custodia de idx_sha256 de teste)",
+    "empiricos": "t5_baselines_v3 (NAO dados/baselines_v2), contra-auditado por ca-t5-baselines-v3.json, veredito CONFIRMA",
+    "aviso": "numeros desta saida NAO sao comparaveis com statistical_report_gold.json (linhagem v20 gold, n=4 quadrantes, outra populacao e sem clamp)"
+  },
+  "definicoes": {
+    "unidade": "celula cidade x quadrante (n=16, caixas delimitadoras disjuntas)",
+    "d_db": "MAE do baseline menos MAE da GNN, na mesma celula e nos mesmos nos de teste; d>0 = GNN melhor",
+    "populacao_primaria": "todos os nos de teste, sentinela -110 dBm incluida",
+    "gnn_por_celula": "media das sementes com custodia ok (idx_sha256_global_test_ok e diff_rssi_total_vs_run_db <= 2.5e-4 dB)",
+    "melhor_analitico": "min sobre 3 modelos x 3 variantes calibradas; escolha conservadora que favorece o baseline"
+  },
+  "custodia": {
+    "tolerancia_db": 0.00025,
+    "celulas_com_semente_excluida": [],
+    "n_sementes_por_celula": {
+      "bauru_Q1": 5,
+      "bauru_Q2": 5,
+      "bauru_Q3": 5,
+      "bauru_Q4": 5,
+      "campinas_Q1": 5,
+      "campinas_Q2": 5,
+      "campinas_Q3": 5,
+      "campinas_Q4": 5,
+      "lins_Q1": 5,
+      "lins_Q2": 5,
+      "lins_Q3": 5,
+      "lins_Q4": 5,
+      "sorocaba_Q1": 5,
+      "sorocaba_Q2": 5,
+      "sorocaba_Q3": 5,
+      "sorocaba_Q4": 5
+    }
+  },
+  "conferencia_contra_tabela_publicada": {
+    "n_checagens": 96,
+    "todas_batem": true,
+    "diff_maxima": 0.004744189836609625,
+    "checagem_da_diff_maxima": {
+      "celula": "bauru_Q1",
+      "campo": "best_empirico_cobertos",
+      "publicado": 3.99,
+      "recalculado": 3.9852558101633906,
+      "diff": 0.004744189836609625,
+      "bate": true
+    },
+    "nota_sobre_a_tolerancia": "campos impressos com 3 casas usam tolerancia 5,1e-4 e os de 2 casas 5,1e-3: a diferenca residual e arredondamento de impressao, nao divergencia de valor",
+    "checagens": [
+      {
+        "celula": "bauru_Q1",
+        "campo": "frac_valido",
+        "publicado": 0.328,
+        "recalculado": 0.3281790489023149,
+        "diff": 0.00017904890231490445,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q1",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.632,
+        "recalculado": 0.6322736024856568,
+        "diff": 0.0002736024856567765,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q1",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 1.67,
+        "recalculado": 1.666839051246643,
+        "diff": 0.003160948753356818,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q1",
+        "campo": "best_empirico_todos",
+        "publicado": 1.932,
+        "recalculado": 1.9317665144214873,
+        "diff": 0.00023348557851265994,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q1",
+        "campo": "best_empirico_cobertos",
+        "publicado": 3.99,
+        "recalculado": 3.9852558101633906,
+        "diff": 0.004744189836609625,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q1",
+        "campo": "constante_todos",
+        "publicado": 5.236,
+        "recalculado": 5.2355122566223145,
+        "diff": 0.0004877433776853124,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q2",
+        "campo": "frac_valido",
+        "publicado": 0.15,
+        "recalculado": 0.14951892137935363,
+        "diff": 0.00048107862064636353,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q2",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.369,
+        "recalculado": 0.3694924175739288,
+        "diff": 0.0004924175739288161,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q2",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 1.62,
+        "recalculado": 1.616987442970276,
+        "diff": 0.003012557029724139,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q2",
+        "campo": "best_empirico_todos",
+        "publicado": 0.982,
+        "recalculado": 0.9821318853825757,
+        "diff": 0.0001318853825756916,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q2",
+        "campo": "best_empirico_cobertos",
+        "publicado": 4.33,
+        "recalculado": 4.326384087565657,
+        "diff": 0.003615912434343116,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q2",
+        "campo": "constante_todos",
+        "publicado": 1.694,
+        "recalculado": 1.6941554546356201,
+        "diff": 0.00015545463562016693,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q3",
+        "campo": "frac_valido",
+        "publicado": 0.159,
+        "recalculado": 0.15914853333105022,
+        "diff": 0.00014853333105022126,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q3",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.391,
+        "recalculado": 0.39114442467689514,
+        "diff": 0.0001444246768951274,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q3",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 1.54,
+        "recalculado": 1.5367091178894043,
+        "diff": 0.0032908821105956942,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q3",
+        "campo": "best_empirico_todos",
+        "publicado": 1.019,
+        "recalculado": 1.0186414350243018,
+        "diff": 0.00035856497569808354,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q3",
+        "campo": "best_empirico_cobertos",
+        "publicado": 3.82,
+        "recalculado": 3.822755442345798,
+        "diff": 0.0027554423457982757,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q3",
+        "campo": "constante_todos",
+        "publicado": 2.613,
+        "recalculado": 2.6132473945617676,
+        "diff": 0.0002473945617675888,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q4",
+        "campo": "frac_valido",
+        "publicado": 0.135,
+        "recalculado": 0.13470629316744964,
+        "diff": 0.00029370683255036667,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q4",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.236,
+        "recalculado": 0.23610035479068756,
+        "diff": 0.00010035479068756792,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q4",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 1.09,
+        "recalculado": 1.0858029961585998,
+        "diff": 0.004197003841400315,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q4",
+        "campo": "best_empirico_todos",
+        "publicado": 0.806,
+        "recalculado": 0.8062369277692577,
+        "diff": 0.00023692776925765546,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q4",
+        "campo": "best_empirico_cobertos",
+        "publicado": 3.61,
+        "recalculado": 3.608262947998579,
+        "diff": 0.0017370520014208246,
+        "bate": true
+      },
+      {
+        "celula": "bauru_Q4",
+        "campo": "constante_todos",
+        "publicado": 2.077,
+        "recalculado": 2.076847791671753,
+        "diff": 0.00015220832824702768,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q1",
+        "campo": "frac_valido",
+        "publicado": 0.241,
+        "recalculado": 0.24117349100667743,
+        "diff": 0.00017349100667743422,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q1",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.495,
+        "recalculado": 0.49510898590087893,
+        "diff": 0.0001089859008789329,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q1",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 1.63,
+        "recalculado": 1.6260693073272705,
+        "diff": 0.003930692672729386,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q1",
+        "campo": "best_empirico_todos",
+        "publicado": 1.994,
+        "recalculado": 1.9937098596622678,
+        "diff": 0.00029014033773222536,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q1",
+        "campo": "best_empirico_cobertos",
+        "publicado": 7.38,
+        "recalculado": 7.379977386418888,
+        "diff": 2.261358111166345e-05,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q1",
+        "campo": "constante_todos",
+        "publicado": 2.417,
+        "recalculado": 2.4169626235961914,
+        "diff": 3.737640380840901e-05,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q2",
+        "campo": "frac_valido",
+        "publicado": 0.151,
+        "recalculado": 0.15140951397581326,
+        "diff": 0.00040951397581326376,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q2",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.35,
+        "recalculado": 0.35031203031539915,
+        "diff": 0.0003120303153991699,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q2",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 1.71,
+        "recalculado": 1.7077349424362183,
+        "diff": 0.0022650575637817028,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q2",
+        "campo": "best_empirico_todos",
+        "publicado": 0.341,
+        "recalculado": 0.34095112745890394,
+        "diff": 4.887254109608996e-05,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q2",
+        "campo": "best_empirico_cobertos",
+        "publicado": 1.3,
+        "recalculado": 1.3027531987267178,
+        "diff": 0.002753198726717754,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q2",
+        "campo": "constante_todos",
+        "publicado": 2.636,
+        "recalculado": 2.6360485553741455,
+        "diff": 4.855537414538702e-05,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q3",
+        "campo": "frac_valido",
+        "publicado": 0.297,
+        "recalculado": 0.29680351973896163,
+        "diff": 0.00019648026103835647,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q3",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.812,
+        "recalculado": 0.8118838787078857,
+        "diff": 0.00011612129211435729,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q3",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 2.37,
+        "recalculado": 2.3712141036987306,
+        "diff": 0.0012141036987305398,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q3",
+        "campo": "best_empirico_todos",
+        "publicado": 2.035,
+        "recalculado": 2.034935593521707,
+        "diff": 6.44064782933107e-05,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q3",
+        "campo": "best_empirico_cobertos",
+        "publicado": 6.86,
+        "recalculado": 6.856170692690675,
+        "diff": 0.0038293073093251806,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q3",
+        "campo": "constante_todos",
+        "publicado": 3.882,
+        "recalculado": 3.8824081420898438,
+        "diff": 0.00040814208984363276,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q4",
+        "campo": "frac_valido",
+        "publicado": 0.135,
+        "recalculado": 0.1349516935522107,
+        "diff": 4.83064477893036e-05,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q4",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.222,
+        "recalculado": 0.22194795310497284,
+        "diff": 5.204689502716353e-05,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q4",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 1.12,
+        "recalculado": 1.1155520915985107,
+        "diff": 0.004447908401489453,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q4",
+        "campo": "best_empirico_todos",
+        "publicado": 0.787,
+        "recalculado": 0.7870980282285355,
+        "diff": 9.802822853544058e-05,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q4",
+        "campo": "best_empirico_cobertos",
+        "publicado": 2.98,
+        "recalculado": 2.9755527547438323,
+        "diff": 0.004447245256167687,
+        "bate": true
+      },
+      {
+        "celula": "campinas_Q4",
+        "campo": "constante_todos",
+        "publicado": 2.087,
+        "recalculado": 2.0868752002716064,
+        "diff": 0.00012479972839374298,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q1",
+        "campo": "frac_valido",
+        "publicado": 0.03,
+        "recalculado": 0.029924675471123197,
+        "diff": 7.53245288768016e-05,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q1",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.447,
+        "recalculado": 0.4474680721759796,
+        "diff": 0.0004680721759796058,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q1",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 9.65,
+        "recalculado": 9.654428672790527,
+        "diff": 0.004428672790526278,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q1",
+        "campo": "best_empirico_todos",
+        "publicado": 1.13,
+        "recalculado": 1.130406141281128,
+        "diff": 0.00040614128112803627,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q1",
+        "campo": "best_empirico_cobertos",
+        "publicado": 3.69,
+        "recalculado": 3.6940655647042044,
+        "diff": 0.004065564704204494,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q1",
+        "campo": "constante_todos",
+        "publicado": 1.13,
+        "recalculado": 1.130406141281128,
+        "diff": 0.00040614128112803627,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q2",
+        "campo": "frac_valido",
+        "publicado": 0.148,
+        "recalculado": 0.14792110778281486,
+        "diff": 7.889221718512807e-05,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q2",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.474,
+        "recalculado": 0.47392709255218507,
+        "diff": 7.290744781490721e-05,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q2",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 2.64,
+        "recalculado": 2.6378905296325685,
+        "diff": 0.0021094703674315873,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q2",
+        "campo": "best_empirico_todos",
+        "publicado": 0.484,
+        "recalculado": 0.48388158358909755,
+        "diff": 0.00011841641090243327,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q2",
+        "campo": "best_empirico_cobertos",
+        "publicado": 1.65,
+        "recalculado": 1.651302405882208,
+        "diff": 0.0013024058822079798,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q2",
+        "campo": "constante_todos",
+        "publicado": 4.334,
+        "recalculado": 4.334395408630371,
+        "diff": 0.00039540863037146323,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q3",
+        "campo": "frac_valido",
+        "publicado": 0.1,
+        "recalculado": 0.10043155034370033,
+        "diff": 0.00043155034370032097,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q3",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.254,
+        "recalculado": 0.2540064722299576,
+        "diff": 6.472229957588116e-06,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q3",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 0.95,
+        "recalculado": 0.948495614528656,
+        "diff": 0.0015043854713439053,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q3",
+        "campo": "best_empirico_todos",
+        "publicado": 0.436,
+        "recalculado": 0.43576830452663445,
+        "diff": 0.0002316954733655452,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q3",
+        "campo": "best_empirico_cobertos",
+        "publicado": 3.02,
+        "recalculado": 3.023225847133106,
+        "diff": 0.003225847133105919,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q3",
+        "campo": "constante_todos",
+        "publicado": 1.83,
+        "recalculado": 1.8298245668411255,
+        "diff": 0.00017543315887458277,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q4",
+        "campo": "frac_valido",
+        "publicado": 0.125,
+        "recalculado": 0.12478461891036872,
+        "diff": 0.00021538108963127522,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q4",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.215,
+        "recalculado": 0.2147085964679718,
+        "diff": 0.0002914035320281949,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q4",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 1.04,
+        "recalculado": 1.0441252946853639,
+        "diff": 0.004125294685363823,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q4",
+        "campo": "best_empirico_todos",
+        "publicado": 0.802,
+        "recalculado": 0.8023602227336224,
+        "diff": 0.0003602227336223507,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q4",
+        "campo": "best_empirico_cobertos",
+        "publicado": 2.94,
+        "recalculado": 2.9403904629480047,
+        "diff": 0.0003904629480047106,
+        "bate": true
+      },
+      {
+        "celula": "lins_Q4",
+        "campo": "constante_todos",
+        "publicado": 1.927,
+        "recalculado": 1.9266293048858643,
+        "diff": 0.00037069511413578837,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q1",
+        "campo": "frac_valido",
+        "publicado": 0.221,
+        "recalculado": 0.2212375980706414,
+        "diff": 0.00023759807064138716,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q1",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.379,
+        "recalculado": 0.37888242602348327,
+        "diff": 0.00011757397651673829,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q1",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 1.16,
+        "recalculado": 1.1589804649353028,
+        "diff": 0.0010195350646970969,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q1",
+        "campo": "best_empirico_todos",
+        "publicado": 1.39,
+        "recalculado": 1.390494704246521,
+        "diff": 0.0004947042465210938,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q1",
+        "campo": "best_empirico_cobertos",
+        "publicado": 7.64,
+        "recalculado": 7.641383108671521,
+        "diff": 0.0013831086715212493,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q1",
+        "campo": "constante_todos",
+        "publicado": 1.39,
+        "recalculado": 1.390494704246521,
+        "diff": 0.0004947042465210938,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q2",
+        "campo": "frac_valido",
+        "publicado": 0.153,
+        "recalculado": 0.1526513416979577,
+        "diff": 0.0003486583020423095,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q2",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.391,
+        "recalculado": 0.3907035231590271,
+        "diff": 0.0002964768409728924,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q2",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 1.84,
+        "recalculado": 1.843004536628723,
+        "diff": 0.00300453662872302,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q2",
+        "campo": "best_empirico_todos",
+        "publicado": 0.401,
+        "recalculado": 0.4013691702994181,
+        "diff": 0.00036917029941807566,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q2",
+        "campo": "best_empirico_cobertos",
+        "publicado": 1.12,
+        "recalculado": 1.1183294846147416,
+        "diff": 0.0016705153852585308,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q2",
+        "campo": "constante_todos",
+        "publicado": 2.428,
+        "recalculado": 2.4277050495147705,
+        "diff": 0.00029495048522942824,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q3",
+        "campo": "frac_valido",
+        "publicado": 0.22,
+        "recalculado": 0.2204708778818605,
+        "diff": 0.0004708778818605097,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q3",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.419,
+        "recalculado": 0.41896626353263855,
+        "diff": 3.3736467361433764e-05,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q3",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 1.37,
+        "recalculado": 1.3653849124908448,
+        "diff": 0.004615087509155291,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q3",
+        "campo": "best_empirico_todos",
+        "publicado": 2.683,
+        "recalculado": 2.6831335734475643,
+        "diff": 0.00013357344756448342,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q3",
+        "campo": "best_empirico_cobertos",
+        "publicado": 12.03,
+        "recalculado": 12.030667262369702,
+        "diff": 0.0006672623697028257,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q3",
+        "campo": "constante_todos",
+        "publicado": 4.063,
+        "recalculado": 4.063169002532959,
+        "diff": 0.0001690025329592615,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q4",
+        "campo": "frac_valido",
+        "publicado": 0.135,
+        "recalculado": 0.13514226680336353,
+        "diff": 0.0001422668033635166,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q4",
+        "campo": "gnn_rssi_todos",
+        "publicado": 0.227,
+        "recalculado": 0.22682959735393524,
+        "diff": 0.00017040264606477118,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q4",
+        "campo": "gnn_rssi_cobertos",
+        "publicado": 0.82,
+        "recalculado": 0.8161104083061218,
+        "diff": 0.003889591693878147,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q4",
+        "campo": "best_empirico_todos",
+        "publicado": 0.652,
+        "recalculado": 0.651828943687486,
+        "diff": 0.00017105631251401743,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q4",
+        "campo": "best_empirico_cobertos",
+        "publicado": 3.44,
+        "recalculado": 3.4419801628822713,
+        "diff": 0.001980162882271319,
+        "bate": true
+      },
+      {
+        "celula": "sorocaba_Q4",
+        "campo": "constante_todos",
+        "publicado": 1.665,
+        "recalculado": 1.6649006605148315,
+        "diff": 9.933948516849256e-05,
+        "bate": true
+      }
+    ],
+    "regra": "cada numero impresso na tab:blocked_three_pop e reconferido contra o artefato; divergencia ABORTA"
+  },
+  "checagem_cruzada_contra_auditoria": {
+    "fonte": "ca-t5-baselines-v3.json (recomputo independente dos empiricos e da media da GNN)",
+    "diff_maxima_melhor_analitico_db": 0.0,
+    "diff_maxima_gnn_media_db": 9.513497352600653e-05,
+    "por_celula": [
+      {
+        "celula": "bauru_Q1",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 1.6450881958007812e-05
+      },
+      {
+        "celula": "bauru_Q2",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 4.0495395660422595e-05
+      },
+      {
+        "celula": "bauru_Q3",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 6.496310234072045e-05
+      },
+      {
+        "celula": "bauru_Q4",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 7.981061935419254e-06
+      },
+      {
+        "celula": "campinas_Q1",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 5.156993865962356e-05
+      },
+      {
+        "celula": "campinas_Q2",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 3.883540630345017e-05
+      },
+      {
+        "celula": "campinas_Q3",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 5.042552947998047e-05
+      },
+      {
+        "celula": "campinas_Q4",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 6.293058395384632e-05
+      },
+      {
+        "celula": "lins_Q1",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 2.4694204330433234e-05
+      },
+      {
+        "celula": "lins_Q2",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 6.647706031798206e-05
+      },
+      {
+        "celula": "lins_Q3",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 7.444620132412982e-06
+      },
+      {
+        "celula": "lins_Q4",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 9.513497352600653e-05
+      },
+      {
+        "celula": "sorocaba_Q1",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 1.2576580047940489e-06
+      },
+      {
+        "celula": "sorocaba_Q2",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 6.161332130427688e-05
+      },
+      {
+        "celula": "sorocaba_Q3",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 1.2326240539539679e-05
+      },
+      {
+        "celula": "sorocaba_Q4",
+        "diff_melhor_analitico_db": 0.0,
+        "diff_gnn_media_db": 4.6610832214188935e-06
+      }
+    ]
+  },
+  "pares_por_celula": {
+    "bauru_Q1": {
+      "n_test": 828243,
+      "frac_valido": 0.3281790489023149,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.6322736024856568,
+      "gnn_mae_rssi_todos_dp_db": 0.0925640969317966,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.7567781805992126,
+      "gnn_mae_rssi_cobertos_media_db": 1.666839051246643,
+      "competidores_todos_db": {
+        "v1_original.fspl": 2.7875528620082433,
+        "v1_original.hata_rural": 4.246883110326011,
+        "v1_original.cost231_sub": 4.246883110326011,
+        "v2_clamp.fspl": 2.8513568773103732,
+        "v2_clamp.hata_rural": 1.9317665144215173,
+        "v2_clamp.cost231_sub": 1.9317665144214873,
+        "v3_clamp_freq_enlace.fspl": 2.8647611141204834,
+        "v3_clamp_freq_enlace.hata_rural": 1.9503485819401813,
+        "v3_clamp_freq_enlace.cost231_sub": 1.9733740061264602,
+        "preditor_constante_-110dBm": 5.2355122566223145
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 3.9852558101633906,
+        "v1_original.hata_rural": 4.435731769218321,
+        "v1_original.cost231_sub": 4.435731769218321,
+        "v2_clamp.fspl": 8.163849375127077,
+        "v2_clamp.hata_rural": 5.363328401414846,
+        "v2_clamp.cost231_sub": 5.36332840141473,
+        "v3_clamp_freq_enlace.fspl": 8.067095756530762,
+        "v3_clamp_freq_enlace.hata_rural": 5.308174415087335,
+        "v3_clamp_freq_enlace.cost231_sub": 5.264789361456937
+      },
+      "primaria": {
+        "competidor": "v2_clamp.cost231_sub",
+        "mae_db": 1.9317665144214873,
+        "d_db": 1.2994929119358305
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v2_clamp.cost231_sub",
+        "mae_db": 1.9317665144214873,
+        "d_db": 1.2994929119358305
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v1_original.fspl",
+        "mae_db": 3.9852558101633906,
+        "d_db": 2.3184167589167473
+      },
+      "constante_todos_db": 5.2355122566223145,
+      "familia_fspl": {
+        "variante": "v1_original",
+        "mae_db": 2.7875528620082433,
+        "d_db": 2.1552792595225867
+      },
+      "familia_hata_rural": {
+        "variante": "v2_clamp",
+        "mae_db": 1.9317665144215173,
+        "d_db": 1.2994929119358605
+      },
+      "familia_cost231_sub": {
+        "variante": "v2_clamp",
+        "mae_db": 1.9317665144214873,
+        "d_db": 1.2994929119358305
+      }
+    },
+    "bauru_Q2": {
+      "n_test": 828243,
+      "frac_valido": 0.14951892137935363,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.3694924175739288,
+      "gnn_mae_rssi_todos_dp_db": 0.07314105272561282,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.4698736369609833,
+      "gnn_mae_rssi_cobertos_media_db": 1.616987442970276,
+      "competidores_todos_db": {
+        "v1_original.fspl": 2.307638785220362,
+        "v1_original.hata_rural": 4.483833257968185,
+        "v1_original.cost231_sub": 4.483833257968182,
+        "v2_clamp.fspl": 1.2233249265912094,
+        "v2_clamp.hata_rural": 1.0518640760495153,
+        "v2_clamp.cost231_sub": 1.0518640760495017,
+        "v3_clamp_freq_enlace.fspl": 1.182164192199707,
+        "v3_clamp_freq_enlace.hata_rural": 1.017156823284036,
+        "v3_clamp_freq_enlace.cost231_sub": 0.9821318853825757,
+        "preditor_constante_-110dBm": 1.6941554546356201
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 4.326384087565657,
+        "v1_original.hata_rural": 9.206185122803129,
+        "v1_original.cost231_sub": 9.206185122803156,
+        "v2_clamp.fspl": 8.181739911615846,
+        "v2_clamp.hata_rural": 7.034989728027574,
+        "v2_clamp.cost231_sub": 7.034989728027482,
+        "v3_clamp_freq_enlace.fspl": 7.906451225280762,
+        "v3_clamp_freq_enlace.hata_rural": 6.8028635700450595,
+        "v3_clamp_freq_enlace.cost231_sub": 6.568612696788712
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.9821318853825757,
+        "d_db": 0.6126394678086469
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.9821318853825757,
+        "d_db": 0.6126394678086469
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v1_original.fspl",
+        "mae_db": 4.326384087565657,
+        "d_db": 2.709396644595381
+      },
+      "constante_todos_db": 1.6941554546356201,
+      "familia_fspl": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.182164192199707,
+        "d_db": 0.8126717746257782
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.017156823284036,
+        "d_db": 0.6476644057101072
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.9821318853825757,
+        "d_db": 0.6126394678086469
+      }
+    },
+    "bauru_Q3": {
+      "n_test": 817601,
+      "frac_valido": 0.15914853333105022,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.39114442467689514,
+      "gnn_mae_rssi_todos_dp_db": 0.04754863794068349,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.4468550384044647,
+      "gnn_mae_rssi_cobertos_media_db": 1.5367091178894043,
+      "competidores_todos_db": {
+        "v1_original.fspl": 2.9723822572778373,
+        "v1_original.hata_rural": 4.7204079212332255,
+        "v1_original.cost231_sub": 4.720407921233231,
+        "v2_clamp.fspl": 1.8102162112064395,
+        "v2_clamp.hata_rural": 1.2032015194907937,
+        "v2_clamp.cost231_sub": 1.2032015194907923,
+        "v3_clamp_freq_enlace.fspl": 1.6745631694793701,
+        "v3_clamp_freq_enlace.hata_rural": 1.107022901659164,
+        "v3_clamp_freq_enlace.cost231_sub": 1.0186414350243018,
+        "preditor_constante_-110dBm": 2.6132473945617676
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 3.822755442345798,
+        "v1_original.hata_rural": 5.280712028363311,
+        "v1_original.cost231_sub": 5.280712028363339,
+        "v2_clamp.fspl": 9.407908074504741,
+        "v2_clamp.hata_rural": 5.267666230038145,
+        "v2_clamp.cost231_sub": 5.267666230037971,
+        "v3_clamp_freq_enlace.fspl": 9.003012657165527,
+        "v3_clamp_freq_enlace.hata_rural": 5.062268004019425,
+        "v3_clamp_freq_enlace.cost231_sub": 4.86176081836544
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 1.0186414350243018,
+        "d_db": 0.6274970103474067
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 1.0186414350243018,
+        "d_db": 0.6274970103474067
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v1_original.fspl",
+        "mae_db": 3.822755442345798,
+        "d_db": 2.286046324456394
+      },
+      "constante_todos_db": 2.6132473945617676,
+      "familia_fspl": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.6745631694793701,
+        "d_db": 1.283418744802475
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.107022901659164,
+        "d_db": 0.7158784769822688
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.0186414350243018,
+        "d_db": 0.6274970103474067
+      }
+    },
+    "bauru_Q4": {
+      "n_test": 817601,
+      "frac_valido": 0.13470629316744964,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.23610035479068756,
+      "gnn_mae_rssi_todos_dp_db": 0.07050205785144868,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.353025883436203,
+      "gnn_mae_rssi_cobertos_media_db": 1.0858029961585998,
+      "competidores_todos_db": {
+        "v1_original.fspl": 1.778836527167829,
+        "v1_original.hata_rural": 3.964955918407476,
+        "v1_original.cost231_sub": 3.9649559184074596,
+        "v2_clamp.fspl": 1.2508068955919625,
+        "v2_clamp.hata_rural": 0.8753961793537448,
+        "v2_clamp.cost231_sub": 0.8753961793537168,
+        "v3_clamp_freq_enlace.fspl": 1.213846206665039,
+        "v3_clamp_freq_enlace.hata_rural": 0.8430336697393512,
+        "v3_clamp_freq_enlace.cost231_sub": 0.8062369277692577,
+        "preditor_constante_-110dBm": 2.076847791671753
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 3.608262947998579,
+        "v1_original.hata_rural": 5.7855507970335625,
+        "v1_original.cost231_sub": 5.785550797033589,
+        "v2_clamp.fspl": 9.28543771920974,
+        "v2_clamp.hata_rural": 6.49855443847426,
+        "v2_clamp.cost231_sub": 6.498554438474053,
+        "v3_clamp_freq_enlace.fspl": 9.011056900024414,
+        "v3_clamp_freq_enlace.hata_rural": 6.258309466591881,
+        "v3_clamp_freq_enlace.cost231_sub": 5.985146712982793
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.8062369277692577,
+        "d_db": 0.5701365729785701
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.8062369277692577,
+        "d_db": 0.5701365729785701
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v1_original.fspl",
+        "mae_db": 3.608262947998579,
+        "d_db": 2.5224599518399793
+      },
+      "constante_todos_db": 2.076847791671753,
+      "familia_fspl": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.213846206665039,
+        "d_db": 0.9777458518743515
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.8430336697393512,
+        "d_db": 0.6069333149486636
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.8062369277692577,
+        "d_db": 0.5701365729785701
+      }
+    },
+    "campinas_Q1": {
+      "n_test": 821276,
+      "frac_valido": 0.24117349100667743,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.49510898590087893,
+      "gnn_mae_rssi_todos_dp_db": 0.10025086418273065,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.6672285795211792,
+      "gnn_mae_rssi_cobertos_media_db": 1.6260693073272705,
+      "competidores_todos_db": {
+        "v1_original.fspl": 4.145930563091585,
+        "v1_original.hata_rural": 6.806896001437963,
+        "v1_original.cost231_sub": 6.806896001437963,
+        "v2_clamp.fspl": 2.4613188875251413,
+        "v2_clamp.hata_rural": 2.1712902752435843,
+        "v2_clamp.cost231_sub": 2.1712902752436216,
+        "v3_clamp_freq_enlace.fspl": 2.3589015007019043,
+        "v3_clamp_freq_enlace.hata_rural": 2.0735269331931088,
+        "v3_clamp_freq_enlace.cost231_sub": 1.9937098596622678,
+        "preditor_constante_-110dBm": 2.4169626235961914
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 8.051459097413444,
+        "v1_original.hata_rural": 12.33872521809581,
+        "v1_original.cost231_sub": 12.33872521809581,
+        "v2_clamp.fspl": 8.26799406594777,
+        "v2_clamp.hata_rural": 7.875674659972951,
+        "v2_clamp.cost231_sub": 7.875674659972949,
+        "v3_clamp_freq_enlace.fspl": 7.924661159515381,
+        "v3_clamp_freq_enlace.hata_rural": 7.631386085863484,
+        "v3_clamp_freq_enlace.cost231_sub": 7.379977386418888
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 1.9937098596622678,
+        "d_db": 1.4986008737613887
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 1.9937098596622678,
+        "d_db": 1.4986008737613887
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 7.379977386418888,
+        "d_db": 5.753908079091618
+      },
+      "constante_todos_db": 2.4169626235961914,
+      "familia_fspl": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 2.3589015007019043,
+        "d_db": 1.8637925148010255
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 2.0735269331931088,
+        "d_db": 1.57841794729223
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.9937098596622678,
+        "d_db": 1.4986008737613887
+      }
+    },
+    "campinas_Q2": {
+      "n_test": 821276,
+      "frac_valido": 0.15140951397581326,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.35031203031539915,
+      "gnn_mae_rssi_todos_dp_db": 0.2051355814365285,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.7167905569076538,
+      "gnn_mae_rssi_cobertos_media_db": 1.7077349424362183,
+      "competidores_todos_db": {
+        "v1_original.fspl": 1.855860022626141,
+        "v1_original.hata_rural": 5.117676827853596,
+        "v1_original.cost231_sub": 5.117676827853599,
+        "v2_clamp.fspl": 0.8558887628852925,
+        "v2_clamp.hata_rural": 0.34095112745890394,
+        "v2_clamp.cost231_sub": 0.34095112745890677,
+        "v3_clamp_freq_enlace.fspl": 0.7364230155944824,
+        "v3_clamp_freq_enlace.hata_rural": 0.35364112246544016,
+        "v3_clamp_freq_enlace.cost231_sub": 0.3790832758121026,
+        "preditor_constante_-110dBm": 2.6360485553741455
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 1.3027531987267178,
+        "v1_original.hata_rural": 12.173126572011906,
+        "v1_original.cost231_sub": 12.173126572011896,
+        "v2_clamp.fspl": 5.652807015958162,
+        "v2_clamp.hata_rural": 2.2518474467421434,
+        "v2_clamp.cost231_sub": 2.251847446742162,
+        "v3_clamp_freq_enlace.fspl": 4.82662296295166,
+        "v3_clamp_freq_enlace.hata_rural": 2.335659848442101,
+        "v3_clamp_freq_enlace.cost231_sub": 2.503695216092292
+      },
+      "primaria": {
+        "competidor": "v2_clamp.hata_rural",
+        "mae_db": 0.34095112745890394,
+        "d_db": -0.009360902856495212
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v2_clamp.hata_rural",
+        "mae_db": 0.34095112745890394,
+        "d_db": -0.009360902856495212
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v1_original.fspl",
+        "mae_db": 1.3027531987267178,
+        "d_db": -0.40498174370950046
+      },
+      "constante_todos_db": 2.6360485553741455,
+      "familia_fspl": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.7364230155944824,
+        "d_db": 0.3861109852790833
+      },
+      "familia_hata_rural": {
+        "variante": "v2_clamp",
+        "mae_db": 0.34095112745890394,
+        "d_db": -0.009360902856495212
+      },
+      "familia_cost231_sub": {
+        "variante": "v2_clamp",
+        "mae_db": 0.34095112745890677,
+        "d_db": -0.009360902856492381
+      }
+    },
+    "campinas_Q3": {
+      "n_test": 822561,
+      "frac_valido": 0.29680351973896163,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.8118838787078857,
+      "gnn_mae_rssi_todos_dp_db": 0.16960028493942284,
+      "gnn_mae_rssi_todos_pior_semente_db": 1.0788136720657349,
+      "gnn_mae_rssi_cobertos_media_db": 2.3712141036987306,
+      "competidores_todos_db": {
+        "v1_original.fspl": 4.541543015180742,
+        "v1_original.hata_rural": 8.519064591879836,
+        "v1_original.cost231_sub": 8.519064591879836,
+        "v2_clamp.fspl": 2.5445227208061922,
+        "v2_clamp.hata_rural": 2.122077878236581,
+        "v2_clamp.cost231_sub": 2.122077878236601,
+        "v3_clamp_freq_enlace.fspl": 2.4613196849823,
+        "v3_clamp_freq_enlace.hata_rural": 2.078973510852409,
+        "v3_clamp_freq_enlace.cost231_sub": 2.034935593521707,
+        "preditor_constante_-110dBm": 3.8824081420898438
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 10.873031759555241,
+        "v1_original.hata_rural": 20.905697389464038,
+        "v1_original.cost231_sub": 20.905697389464038,
+        "v2_clamp.fspl": 8.538245827656327,
+        "v2_clamp.hata_rural": 7.1497732914452845,
+        "v2_clamp.cost231_sub": 7.149773291445353,
+        "v3_clamp_freq_enlace.fspl": 8.249394416809082,
+        "v3_clamp_freq_enlace.hata_rural": 7.004544665376151,
+        "v3_clamp_freq_enlace.cost231_sub": 6.856170692690675
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 2.034935593521707,
+        "d_db": 1.2230517148138211
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 2.034935593521707,
+        "d_db": 1.2230517148138211
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 6.856170692690675,
+        "d_db": 4.4849565889919445
+      },
+      "constante_todos_db": 3.8824081420898438,
+      "familia_fspl": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 2.4613196849823,
+        "d_db": 1.649435806274414
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 2.078973510852409,
+        "d_db": 1.267089632144523
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 2.034935593521707,
+        "d_db": 1.2230517148138211
+      }
+    },
+    "campinas_Q4": {
+      "n_test": 822561,
+      "frac_valido": 0.1349516935522107,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.22194795310497284,
+      "gnn_mae_rssi_todos_dp_db": 0.07752186349032693,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.35774800181388855,
+      "gnn_mae_rssi_cobertos_media_db": 1.1155520915985107,
+      "competidores_todos_db": {
+        "v1_original.fspl": 1.8903300683978121,
+        "v1_original.hata_rural": 4.353227991080312,
+        "v1_original.cost231_sub": 4.3532279910802965,
+        "v2_clamp.fspl": 1.1158382352219878,
+        "v2_clamp.hata_rural": 0.875634585722746,
+        "v2_clamp.cost231_sub": 0.8756345857227099,
+        "v3_clamp_freq_enlace.fspl": 1.0512279272079468,
+        "v3_clamp_freq_enlace.hata_rural": 0.8290126159405583,
+        "v3_clamp_freq_enlace.cost231_sub": 0.7870980282285355,
+        "preditor_constante_-110dBm": 2.0868752002716064
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 2.9755527547438323,
+        "v1_original.hata_rural": 6.321651189029026,
+        "v1_original.cost231_sub": 6.3216511890290565,
+        "v2_clamp.fspl": 8.2684270634239,
+        "v2_clamp.hata_rural": 6.488503868860131,
+        "v2_clamp.cost231_sub": 6.488503868859863,
+        "v3_clamp_freq_enlace.fspl": 7.789660930633545,
+        "v3_clamp_freq_enlace.hata_rural": 6.143032326006536,
+        "v3_clamp_freq_enlace.cost231_sub": 5.832442761631735
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.7870980282285355,
+        "d_db": 0.5651500751235626
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.7870980282285355,
+        "d_db": 0.5651500751235626
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v1_original.fspl",
+        "mae_db": 2.9755527547438323,
+        "d_db": 1.8600006631453216
+      },
+      "constante_todos_db": 2.0868752002716064,
+      "familia_fspl": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.0512279272079468,
+        "d_db": 0.8292799741029739
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.8290126159405583,
+        "d_db": 0.6070646628355855
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.7870980282285355,
+        "d_db": 0.5651500751235626
+      }
+    },
+    "lins_Q1": {
+      "n_test": 833593,
+      "frac_valido": 0.029924675471123197,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.4474680721759796,
+      "gnn_mae_rssi_todos_dp_db": 0.07198972658105006,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.5199057459831238,
+      "gnn_mae_rssi_cobertos_media_db": 9.654428672790527,
+      "competidores_todos_db": {
+        "v1_original.fspl": 3.9786365497202305,
+        "v1_original.hata_rural": 6.410912778228271,
+        "v1_original.cost231_sub": 6.410912778228278,
+        "v2_clamp.fspl": 1.200482205432925,
+        "v2_clamp.hata_rural": 1.3621622422044752,
+        "v2_clamp.cost231_sub": 1.3621622422045563,
+        "v3_clamp_freq_enlace.fspl": 1.3818343877792358,
+        "v3_clamp_freq_enlace.hata_rural": 1.5793328656417245,
+        "v3_clamp_freq_enlace.cost231_sub": 1.6785260462600993,
+        "preditor_constante_-110dBm": 1.130406141281128
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 11.08639010508629,
+        "v1_original.hata_rural": 8.088020904407632,
+        "v1_original.cost231_sub": 8.08802090440766,
+        "v2_clamp.fspl": 15.97576187719599,
+        "v2_clamp.hata_rural": 3.9688740887523646,
+        "v2_clamp.cost231_sub": 3.9688740887523113,
+        "v3_clamp_freq_enlace.fspl": 15.193520545959473,
+        "v3_clamp_freq_enlace.hata_rural": 3.7601748762552436,
+        "v3_clamp_freq_enlace.cost231_sub": 3.6940655647042044
+      },
+      "primaria": {
+        "competidor": "v2_clamp.fspl",
+        "mae_db": 1.200482205432925,
+        "d_db": 0.7530141332569453
+      },
+      "secundaria_A_publicada": {
+        "competidor": "preditor_constante_-110dBm",
+        "mae_db": 1.130406141281128,
+        "d_db": 0.6829380691051483
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 3.6940655647042044,
+        "d_db": -5.960363108086322
+      },
+      "constante_todos_db": 1.130406141281128,
+      "familia_fspl": {
+        "variante": "v2_clamp",
+        "mae_db": 1.200482205432925,
+        "d_db": 0.7530141332569453
+      },
+      "familia_hata_rural": {
+        "variante": "v2_clamp",
+        "mae_db": 1.3621622422044752,
+        "d_db": 0.9146941700284956
+      },
+      "familia_cost231_sub": {
+        "variante": "v2_clamp",
+        "mae_db": 1.3621622422045563,
+        "d_db": 0.9146941700285767
+      }
+    },
+    "lins_Q2": {
+      "n_test": 833593,
+      "frac_valido": 0.14792110778281486,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.47392709255218507,
+      "gnn_mae_rssi_todos_dp_db": 0.06480461356667595,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.541929304599762,
+      "gnn_mae_rssi_cobertos_media_db": 2.6378905296325685,
+      "competidores_todos_db": {
+        "v1_original.fspl": 3.0818017353976703,
+        "v1_original.hata_rural": 3.328022466006035,
+        "v1_original.cost231_sub": 3.328022466006042,
+        "v2_clamp.fspl": 2.1315371554578455,
+        "v2_clamp.hata_rural": 0.4838895426892516,
+        "v2_clamp.cost231_sub": 0.48388954268923684,
+        "v3_clamp_freq_enlace.fspl": 2.1315371990203857,
+        "v3_clamp_freq_enlace.hata_rural": 0.4838859248893029,
+        "v3_clamp_freq_enlace.cost231_sub": 0.48388158358909755,
+        "preditor_constante_-110dBm": 4.334395408630371
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 10.244719274567682,
+        "v1_original.hata_rural": 1.6513024058822363,
+        "v1_original.cost231_sub": 1.651302405882208,
+        "v2_clamp.fspl": 14.104706417126623,
+        "v2_clamp.hata_rural": 2.8821951642418933,
+        "v2_clamp.cost231_sub": 2.882195164241723,
+        "v3_clamp_freq_enlace.fspl": 14.104707717895508,
+        "v3_clamp_freq_enlace.hata_rural": 2.882153277829606,
+        "v3_clamp_freq_enlace.cost231_sub": 2.8821030141346298
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.48388158358909755,
+        "d_db": 0.009954491036912483
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.48388158358909755,
+        "d_db": 0.009954491036912483
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v1_original.cost231_sub",
+        "mae_db": 1.651302405882208,
+        "d_db": -0.9865881237503606
+      },
+      "constante_todos_db": 4.334395408630371,
+      "familia_fspl": {
+        "variante": "v2_clamp",
+        "mae_db": 2.1315371554578455,
+        "d_db": 1.6576100629056605
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.4838859248893029,
+        "d_db": 0.009958832337117807
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.48388158358909755,
+        "d_db": 0.009954491036912483
+      }
+    },
+    "lins_Q3": {
+      "n_test": 824701,
+      "frac_valido": 0.10043155034370033,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.2540064722299576,
+      "gnn_mae_rssi_todos_dp_db": 0.048969897135306154,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.3368961215019226,
+      "gnn_mae_rssi_cobertos_media_db": 0.948495614528656,
+      "competidores_todos_db": {
+        "v1_original.fspl": 3.101705263507517,
+        "v1_original.hata_rural": 4.708199460092658,
+        "v1_original.cost231_sub": 4.708199460092658,
+        "v2_clamp.fspl": 1.3893704250524845,
+        "v2_clamp.hata_rural": 1.0414336524350751,
+        "v2_clamp.cost231_sub": 1.0414336524350825,
+        "v3_clamp_freq_enlace.fspl": 1.0020015239715576,
+        "v3_clamp_freq_enlace.hata_rural": 0.5042489888335361,
+        "v3_clamp_freq_enlace.cost231_sub": 0.43576830452663445,
+        "preditor_constante_-110dBm": 1.8298245668411255
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 5.264474293479416,
+        "v1_original.hata_rural": 3.7386957429794507,
+        "v1_original.cost231_sub": 3.7386957429794507,
+        "v2_clamp.fspl": 11.86768347563062,
+        "v2_clamp.hata_rural": 7.241771432052019,
+        "v2_clamp.cost231_sub": 7.241771432051892,
+        "v3_clamp_freq_enlace.fspl": 8.975128173828125,
+        "v3_clamp_freq_enlace.hata_rural": 4.2175101009427785,
+        "v3_clamp_freq_enlace.cost231_sub": 3.023225847133106
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.43576830452663445,
+        "d_db": 0.18176183229667686
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.43576830452663445,
+        "d_db": 0.18176183229667686
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 3.023225847133106,
+        "d_db": 2.07473023260445
+      },
+      "constante_todos_db": 1.8298245668411255,
+      "familia_fspl": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.0020015239715576,
+        "d_db": 0.7479950517416001
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.5042489888335361,
+        "d_db": 0.2502425166035785
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.43576830452663445,
+        "d_db": 0.18176183229667686
+      }
+    },
+    "lins_Q4": {
+      "n_test": 824701,
+      "frac_valido": 0.12478461891036872,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.2147085964679718,
+      "gnn_mae_rssi_todos_dp_db": 0.03996115305775205,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.26123395562171936,
+      "gnn_mae_rssi_cobertos_media_db": 1.0441252946853639,
+      "competidores_todos_db": {
+        "v1_original.fspl": 2.02715056372836,
+        "v1_original.hata_rural": 3.5663567593051857,
+        "v1_original.cost231_sub": 3.5663567593051857,
+        "v2_clamp.fspl": 1.2819849158959775,
+        "v2_clamp.hata_rural": 0.8023602227336498,
+        "v2_clamp.cost231_sub": 0.8023602227336224,
+        "v3_clamp_freq_enlace.fspl": 1.3063714504241943,
+        "v3_clamp_freq_enlace.hata_rural": 0.8206948765017255,
+        "v3_clamp_freq_enlace.cost231_sub": 0.8402345401465662,
+        "preditor_constante_-110dBm": 1.9266293048858643
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 5.014660189925796,
+        "v1_original.hata_rural": 2.9403904629480047,
+        "v1_original.cost231_sub": 2.940390462948005,
+        "v2_clamp.fspl": 10.057247714879573,
+        "v2_clamp.hata_rural": 6.054826884502665,
+        "v2_clamp.cost231_sub": 6.054826884502425,
+        "v3_clamp_freq_enlace.fspl": 10.25265884399414,
+        "v3_clamp_freq_enlace.hata_rural": 6.201035518668171,
+        "v3_clamp_freq_enlace.cost231_sub": 6.356901022287059
+      },
+      "primaria": {
+        "competidor": "v2_clamp.cost231_sub",
+        "mae_db": 0.8023602227336224,
+        "d_db": 0.5876516262656506
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v2_clamp.cost231_sub",
+        "mae_db": 0.8023602227336224,
+        "d_db": 0.5876516262656506
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v1_original.hata_rural",
+        "mae_db": 2.9403904629480047,
+        "d_db": 1.8962651682626408
+      },
+      "constante_todos_db": 1.9266293048858643,
+      "familia_fspl": {
+        "variante": "v2_clamp",
+        "mae_db": 1.2819849158959775,
+        "d_db": 1.0672763194280057
+      },
+      "familia_hata_rural": {
+        "variante": "v2_clamp",
+        "mae_db": 0.8023602227336498,
+        "d_db": 0.587651626265678
+      },
+      "familia_cost231_sub": {
+        "variante": "v2_clamp",
+        "mae_db": 0.8023602227336224,
+        "d_db": 0.5876516262656506
+      }
+    },
+    "sorocaba_Q1": {
+      "n_test": 818925,
+      "frac_valido": 0.2212375980706414,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.37888242602348327,
+      "gnn_mae_rssi_todos_dp_db": 0.04603334113190347,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.41192546486854553,
+      "gnn_mae_rssi_cobertos_media_db": 1.1589804649353028,
+      "competidores_todos_db": {
+        "v1_original.fspl": 5.45137914315275,
+        "v1_original.hata_rural": 8.628628663070472,
+        "v1_original.cost231_sub": 8.628628663070472,
+        "v2_clamp.fspl": 2.549677564116965,
+        "v2_clamp.hata_rural": 1.948175222961532,
+        "v2_clamp.cost231_sub": 1.9481752229615767,
+        "v3_clamp_freq_enlace.fspl": 2.568283796310425,
+        "v3_clamp_freq_enlace.hata_rural": 1.8156384416983786,
+        "v3_clamp_freq_enlace.cost231_sub": 1.6905612449000582,
+        "preditor_constante_-110dBm": 1.390494704246521
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 14.378408923264097,
+        "v1_original.hata_rural": 20.90803825637756,
+        "v1_original.cost231_sub": 20.90803825637756,
+        "v2_clamp.fspl": 10.00546942872205,
+        "v2_clamp.hata_rural": 8.701045762209974,
+        "v2_clamp.cost231_sub": 8.70104576221014,
+        "v3_clamp_freq_enlace.fspl": 9.891279220581055,
+        "v3_clamp_freq_enlace.hata_rural": 8.189345775767789,
+        "v3_clamp_freq_enlace.cost231_sub": 7.641383108671521
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 1.6905612449000582,
+        "d_db": 1.311678818876575
+      },
+      "secundaria_A_publicada": {
+        "competidor": "preditor_constante_-110dBm",
+        "mae_db": 1.390494704246521,
+        "d_db": 1.0116122782230377
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 7.641383108671521,
+        "d_db": 6.4824026437362186
+      },
+      "constante_todos_db": 1.390494704246521,
+      "familia_fspl": {
+        "variante": "v2_clamp",
+        "mae_db": 2.549677564116965,
+        "d_db": 2.170795138093482
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.8156384416983786,
+        "d_db": 1.4367560156748953
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.6905612449000582,
+        "d_db": 1.311678818876575
+      }
+    },
+    "sorocaba_Q2": {
+      "n_test": 818925,
+      "frac_valido": 0.1526513416979577,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.3907035231590271,
+      "gnn_mae_rssi_todos_dp_db": 0.11951434963385689,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.5933230519294739,
+      "gnn_mae_rssi_cobertos_media_db": 1.843004536628723,
+      "competidores_todos_db": {
+        "v1_original.fspl": 1.8910892605192733,
+        "v1_original.hata_rural": 4.776876305854333,
+        "v1_original.cost231_sub": 4.776876305854339,
+        "v2_clamp.fspl": 1.0319962124443463,
+        "v2_clamp.hata_rural": 0.4701375165396185,
+        "v2_clamp.cost231_sub": 0.4701375165395944,
+        "v3_clamp_freq_enlace.fspl": 1.0032610893249512,
+        "v3_clamp_freq_enlace.hata_rural": 0.43529073253644585,
+        "v3_clamp_freq_enlace.cost231_sub": 0.4013691702994181,
+        "preditor_constante_-110dBm": 2.4277050495147705
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 1.1183294846147416,
+        "v1_original.hata_rural": 9.846597638242223,
+        "v1_original.cost231_sub": 9.846597638242194,
+        "v2_clamp.fspl": 6.760479147876059,
+        "v2_clamp.hata_rural": 3.0798125408543884,
+        "v2_clamp.cost231_sub": 3.07981254085423,
+        "v3_clamp_freq_enlace.fspl": 6.572239398956299,
+        "v3_clamp_freq_enlace.hata_rural": 2.851535582292688,
+        "v3_clamp_freq_enlace.cost231_sub": 2.6293196367286695
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.4013691702994181,
+        "d_db": 0.010665647140390977
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.4013691702994181,
+        "d_db": 0.010665647140390977
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v1_original.fspl",
+        "mae_db": 1.1183294846147416,
+        "d_db": -0.7246750520139815
+      },
+      "constante_todos_db": 2.4277050495147705,
+      "familia_fspl": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 1.0032610893249512,
+        "d_db": 0.612557566165924
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.43529073253644585,
+        "d_db": 0.044587209377418724
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.4013691702994181,
+        "d_db": 0.010665647140390977
+      }
+    },
+    "sorocaba_Q3": {
+      "n_test": 826159,
+      "frac_valido": 0.2204708778818605,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.41896626353263855,
+      "gnn_mae_rssi_todos_dp_db": 0.06180548108632372,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.5051940679550171,
+      "gnn_mae_rssi_cobertos_media_db": 1.3653849124908448,
+      "competidores_todos_db": {
+        "v1_original.fspl": 5.4428029214959714,
+        "v1_original.hata_rural": 8.364697975123715,
+        "v1_original.cost231_sub": 8.364697975123716,
+        "v2_clamp.fspl": 3.487775176506396,
+        "v2_clamp.hata_rural": 2.9424222976719507,
+        "v2_clamp.cost231_sub": 2.9424222976719716,
+        "v3_clamp_freq_enlace.fspl": 3.088231086730957,
+        "v3_clamp_freq_enlace.hata_rural": 2.720681102473168,
+        "v3_clamp_freq_enlace.cost231_sub": 2.6831335734475643,
+        "preditor_constante_-110dBm": 4.063169002532959
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 16.50674862332396,
+        "v1_original.hata_rural": 23.913649229494776,
+        "v1_original.cost231_sub": 23.913649229494794,
+        "v2_clamp.fspl": 15.380491352351465,
+        "v2_clamp.hata_rural": 13.173325356079289,
+        "v2_clamp.cost231_sub": 13.173325356079328,
+        "v3_clamp_freq_enlace.fspl": 13.718297004699707,
+        "v3_clamp_freq_enlace.hata_rural": 12.203420853369124,
+        "v3_clamp_freq_enlace.cost231_sub": 12.030667262369702
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 2.6831335734475643,
+        "d_db": 2.2641673099149258
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 2.6831335734475643,
+        "d_db": 2.2641673099149258
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 12.030667262369702,
+        "d_db": 10.665282349878858
+      },
+      "constante_todos_db": 4.063169002532959,
+      "familia_fspl": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 3.088231086730957,
+        "d_db": 2.6692648231983185
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 2.720681102473168,
+        "d_db": 2.3017148389405295
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 2.6831335734475643,
+        "d_db": 2.2641673099149258
+      }
+    },
+    "sorocaba_Q4": {
+      "n_test": 826159,
+      "frac_valido": 0.13514226680336353,
+      "seeds_usadas": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "gnn_mae_rssi_todos_media_db": 0.22682959735393524,
+      "gnn_mae_rssi_todos_dp_db": 0.034634483789603994,
+      "gnn_mae_rssi_todos_pior_semente_db": 0.25835439562797546,
+      "gnn_mae_rssi_cobertos_media_db": 0.8161104083061218,
+      "competidores_todos_db": {
+        "v1_original.fspl": 1.9642116436312207,
+        "v1_original.hata_rural": 4.468114411097175,
+        "v1_original.cost231_sub": 4.468114411097175,
+        "v2_clamp.fspl": 0.9475313399264723,
+        "v2_clamp.hata_rural": 0.7597829625475746,
+        "v2_clamp.cost231_sub": 0.7597829625475571,
+        "v3_clamp_freq_enlace.fspl": 0.7935630679130554,
+        "v3_clamp_freq_enlace.hata_rural": 0.6839104051351331,
+        "v3_clamp_freq_enlace.cost231_sub": 0.651828943687486,
+        "preditor_constante_-110dBm": 1.6649006605148315
+      },
+      "competidores_cobertos_db": {
+        "v1_original.fspl": 3.4419801628822713,
+        "v1_original.hata_rural": 8.99026708230113,
+        "v1_original.cost231_sub": 8.99026708230113,
+        "v2_clamp.fspl": 7.011361895425077,
+        "v2_clamp.hata_rural": 5.622097220354339,
+        "v2_clamp.cost231_sub": 5.62209722035421,
+        "v3_clamp_freq_enlace.fspl": 5.872057914733887,
+        "v3_clamp_freq_enlace.hata_rural": 5.060669924460017,
+        "v3_clamp_freq_enlace.cost231_sub": 4.823279637864287
+      },
+      "primaria": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.651828943687486,
+        "d_db": 0.42499934633355074
+      },
+      "secundaria_A_publicada": {
+        "competidor": "v3_clamp_freq_enlace.cost231_sub",
+        "mae_db": 0.651828943687486,
+        "d_db": 0.42499934633355074
+      },
+      "secundaria_C_cobertos": {
+        "competidor": "v1_original.fspl",
+        "mae_db": 3.4419801628822713,
+        "d_db": 2.6258697545761494
+      },
+      "constante_todos_db": 1.6649006605148315,
+      "familia_fspl": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.7935630679130554,
+        "d_db": 0.5667334705591202
+      },
+      "familia_hata_rural": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.6839104051351331,
+        "d_db": 0.45708080778119786
+      },
+      "familia_cost231_sub": {
+        "variante": "v3_clamp_freq_enlace",
+        "mae_db": 0.651828943687486,
+        "d_db": 0.42499934633355074
+      }
+    }
+  },
+  "resultado_primario": {
+    "rotulo": "primaria: melhor analitico calibrado por celula (9 candidatos, sem o preditor constante), populacao todos os nos",
+    "n": 16,
+    "celulas": [
+      "bauru_Q1",
+      "bauru_Q2",
+      "bauru_Q3",
+      "bauru_Q4",
+      "campinas_Q1",
+      "campinas_Q2",
+      "campinas_Q3",
+      "campinas_Q4",
+      "lins_Q1",
+      "lins_Q2",
+      "lins_Q3",
+      "lins_Q4",
+      "sorocaba_Q1",
+      "sorocaba_Q2",
+      "sorocaba_Q3",
+      "sorocaba_Q4"
+    ],
+    "d_db": [
+      1.2994929119358305,
+      0.6126394678086469,
+      0.6274970103474067,
+      0.5701365729785701,
+      1.4986008737613887,
+      -0.009360902856495212,
+      1.2230517148138211,
+      0.5651500751235626,
+      0.7530141332569453,
+      0.009954491036912483,
+      0.18176183229667686,
+      0.5876516262656506,
+      1.311678818876575,
+      0.010665647140390977,
+      2.2641673099149258,
+      0.42499934633355074
+    ],
+    "media_d_db": 0.7456938080646474,
+    "dp_d_db": 0.6282359262313448,
+    "erro_padrao_db": 0.1570589815578362,
+    "ic95_t_db": [
+      0.4109305131971162,
+      1.0804571029321786
+    ],
+    "mediana_d_db": 0.6001455470371487,
+    "t_pareado": {
+      "estatistica": 4.747858420246086,
+      "gl": 15,
+      "p": 0.0002591088102800109,
+      "nota": "ttest_1samp sobre as diferencas = ttest_rel sobre os dois vetores pareados"
+    },
+    "wilcoxon": {
+      "estatistica": 1.0,
+      "p": 6.103515625e-05,
+      "zeros": 0,
+      "w_mais": 135.0,
+      "w_menos": 1.0,
+      "r_biserial_pareado": 0.9852941176470589
+    },
+    "teste_do_sinal": {
+      "celulas_com_d_positivo": 15,
+      "n": 16,
+      "p": 0.000518798828125
+    },
+    "bootstrap_percentil": {
+      "reamostragens": 10000,
+      "semente": 42,
+      "ic95_db": [
+        0.4677816391395338,
+        1.0589146355720263
+      ]
+    },
+    "cohen_dz": 1.1869646050615215,
+    "celulas_em_que_a_gnn_perde": [
+      "campinas_Q2"
+    ]
+  },
+  "veredito_pelo_criterio_pre_registrado": {
+    "veredito": "SUPORTA",
+    "media_d_positiva": true,
+    "tres_testes_p_menor_0_05": true,
+    "ambos_ic95_acima_de_zero": true,
+    "n_celulas_em_que_a_gnn_perde": 1
+  },
+  "secundarias": {
+    "A_coluna_publicada": {
+      "rotulo": "secundaria A: coluna publicada 'Best empirical / RSSI, all' (9 analiticos + preditor constante)",
+      "n": 16,
+      "celulas": [
+        "bauru_Q1",
+        "bauru_Q2",
+        "bauru_Q3",
+        "bauru_Q4",
+        "campinas_Q1",
+        "campinas_Q2",
+        "campinas_Q3",
+        "campinas_Q4",
+        "lins_Q1",
+        "lins_Q2",
+        "lins_Q3",
+        "lins_Q4",
+        "sorocaba_Q1",
+        "sorocaba_Q2",
+        "sorocaba_Q3",
+        "sorocaba_Q4"
+      ],
+      "d_db": [
+        1.2994929119358305,
+        0.6126394678086469,
+        0.6274970103474067,
+        0.5701365729785701,
+        1.4986008737613887,
+        -0.009360902856495212,
+        1.2230517148138211,
+        0.5651500751235626,
+        0.6829380691051483,
+        0.009954491036912483,
+        0.18176183229667686,
+        0.5876516262656506,
+        1.0116122782230377,
+        0.010665647140390977,
+        2.2641673099149258,
+        0.42499934633355074
+      ],
+      "media_d_db": 0.722559895264314,
+      "dp_d_db": 0.6145947789284749,
+      "erro_padrao_db": 0.15364869473211873,
+      "ic95_t_db": [
+        0.3950654547016868,
+        1.0500543358269412
+      ],
+      "mediana_d_db": 0.6001455470371487,
+      "t_pareado": {
+        "estatistica": 4.702675128637263,
+        "gl": 15,
+        "p": 0.00028322331624267856,
+        "nota": "ttest_1samp sobre as diferencas = ttest_rel sobre os dois vetores pareados"
+      },
+      "wilcoxon": {
+        "estatistica": 1.0,
+        "p": 6.103515625e-05,
+        "zeros": 0,
+        "w_mais": 135.0,
+        "w_menos": 1.0,
+        "r_biserial_pareado": 0.9852941176470589
+      },
+      "teste_do_sinal": {
+        "celulas_com_d_positivo": 15,
+        "n": 16,
+        "p": 0.000518798828125
+      },
+      "bootstrap_percentil": {
+        "reamostragens": 10000,
+        "semente": 42,
+        "ic95_db": [
+          0.45144751862376475,
+          1.0307666139349723
+        ]
+      },
+      "cohen_dz": 1.1756687821593157,
+      "celulas_em_que_a_gnn_perde": [
+        "campinas_Q2"
+      ]
+    },
+    "B_por_familia": {
+      "fspl": {
+        "rotulo": "secundaria B: familia fspl (melhor variante por celula), populacao todos os nos",
+        "n": 16,
+        "celulas": [
+          "bauru_Q1",
+          "bauru_Q2",
+          "bauru_Q3",
+          "bauru_Q4",
+          "campinas_Q1",
+          "campinas_Q2",
+          "campinas_Q3",
+          "campinas_Q4",
+          "lins_Q1",
+          "lins_Q2",
+          "lins_Q3",
+          "lins_Q4",
+          "sorocaba_Q1",
+          "sorocaba_Q2",
+          "sorocaba_Q3",
+          "sorocaba_Q4"
+        ],
+        "d_db": [
+          2.1552792595225867,
+          0.8126717746257782,
+          1.283418744802475,
+          0.9777458518743515,
+          1.8637925148010255,
+          0.3861109852790833,
+          1.649435806274414,
+          0.8292799741029739,
+          0.7530141332569453,
+          1.6576100629056605,
+          0.7479950517416001,
+          1.0672763194280057,
+          2.170795138093482,
+          0.612557566165924,
+          2.6692648231983185,
+          0.5667334705591202
+        ],
+        "media_d_db": 1.262686342289484,
+        "dp_d_db": 0.6820044231613613,
+        "erro_padrao_db": 0.17050110579034033,
+        "ic95_t_db": [
+          0.899271837835224,
+          1.626100846743744
+        ],
+        "mediana_d_db": 1.0225110856511785,
+        "t_pareado": {
+          "estatistica": 7.405736968311328,
+          "gl": 15,
+          "p": 2.198251345898379e-06,
+          "nota": "ttest_1samp sobre as diferencas = ttest_rel sobre os dois vetores pareados"
+        },
+        "wilcoxon": {
+          "estatistica": 0.0,
+          "p": 3.0517578125e-05,
+          "zeros": 0,
+          "w_mais": 136.0,
+          "w_menos": 0.0,
+          "r_biserial_pareado": 1.0
+        },
+        "teste_do_sinal": {
+          "celulas_com_d_positivo": 16,
+          "n": 16,
+          "p": 3.0517578125e-05
+        },
+        "bootstrap_percentil": {
+          "reamostragens": 10000,
+          "semente": 42,
+          "ic95_db": [
+            0.9566587214469522,
+            1.595409785498342
+          ]
+        },
+        "cohen_dz": 1.851434242077832,
+        "celulas_em_que_a_gnn_perde": [],
+        "holm": {
+          "posicao": 1,
+          "p_bruto": 2.198251345898379e-06,
+          "p_ajustado": 6.594754037695137e-06,
+          "metodo": "Holm-Bonferroni sobre os p do t pareado das 3 familias"
+        }
+      },
+      "hata_rural": {
+        "rotulo": "secundaria B: familia hata_rural (melhor variante por celula), populacao todos os nos",
+        "n": 16,
+        "celulas": [
+          "bauru_Q1",
+          "bauru_Q2",
+          "bauru_Q3",
+          "bauru_Q4",
+          "campinas_Q1",
+          "campinas_Q2",
+          "campinas_Q3",
+          "campinas_Q4",
+          "lins_Q1",
+          "lins_Q2",
+          "lins_Q3",
+          "lins_Q4",
+          "sorocaba_Q1",
+          "sorocaba_Q2",
+          "sorocaba_Q3",
+          "sorocaba_Q4"
+        ],
+        "d_db": [
+          1.2994929119358605,
+          0.6476644057101072,
+          0.7158784769822688,
+          0.6069333149486636,
+          1.57841794729223,
+          -0.009360902856495212,
+          1.267089632144523,
+          0.6070646628355855,
+          0.9146941700284956,
+          0.009958832337117807,
+          0.2502425166035785,
+          0.587651626265678,
+          1.4367560156748953,
+          0.044587209377418724,
+          2.3017148389405295,
+          0.45708080778119786
+        ],
+        "media_d_db": 0.7947416541251036,
+        "dp_d_db": 0.6411706519803742,
+        "erro_padrao_db": 0.16029266299509354,
+        "ic95_t_db": [
+          0.45308593042764517,
+          1.136397377822562
+        ],
+        "mediana_d_db": 0.6273645342728463,
+        "t_pareado": {
+          "estatistica": 4.95806632240822,
+          "gl": 15,
+          "p": 0.0001717932076079702,
+          "nota": "ttest_1samp sobre as diferencas = ttest_rel sobre os dois vetores pareados"
+        },
+        "wilcoxon": {
+          "estatistica": 1.0,
+          "p": 6.103515625e-05,
+          "zeros": 0,
+          "w_mais": 135.0,
+          "w_menos": 1.0,
+          "r_biserial_pareado": 0.9852941176470589
+        },
+        "teste_do_sinal": {
+          "celulas_com_d_positivo": 15,
+          "n": 16,
+          "p": 0.000518798828125
+        },
+        "bootstrap_percentil": {
+          "reamostragens": 10000,
+          "semente": 42,
+          "ic95_db": [
+            0.5076907151974506,
+            1.113776685034127
+          ]
+        },
+        "cohen_dz": 1.239516580602055,
+        "celulas_em_que_a_gnn_perde": [
+          "campinas_Q2"
+        ],
+        "holm": {
+          "posicao": 2,
+          "p_bruto": 0.0001717932076079702,
+          "p_ajustado": 0.0003435864152159404,
+          "metodo": "Holm-Bonferroni sobre os p do t pareado das 3 familias"
+        }
+      },
+      "cost231_sub": {
+        "rotulo": "secundaria B: familia cost231_sub (melhor variante por celula), populacao todos os nos",
+        "n": 16,
+        "celulas": [
+          "bauru_Q1",
+          "bauru_Q2",
+          "bauru_Q3",
+          "bauru_Q4",
+          "campinas_Q1",
+          "campinas_Q2",
+          "campinas_Q3",
+          "campinas_Q4",
+          "lins_Q1",
+          "lins_Q2",
+          "lins_Q3",
+          "lins_Q4",
+          "sorocaba_Q1",
+          "sorocaba_Q2",
+          "sorocaba_Q3",
+          "sorocaba_Q4"
+        ],
+        "d_db": [
+          1.2994929119358305,
+          0.6126394678086469,
+          0.6274970103474067,
+          0.5701365729785701,
+          1.4986008737613887,
+          -0.009360902856492381,
+          1.2230517148138211,
+          0.5651500751235626,
+          0.9146941700285767,
+          0.009954491036912483,
+          0.18176183229667686,
+          0.5876516262656506,
+          1.311678818876575,
+          0.010665647140390977,
+          2.2641673099149258,
+          0.42499934633355074
+        ],
+        "media_d_db": 0.7557988103628746,
+        "dp_d_db": 0.6296601963575906,
+        "erro_padrao_db": 0.15741504908939766,
+        "ic95_t_db": [
+          0.42027657551700814,
+          1.091321045208741
+        ],
+        "mediana_d_db": 0.6001455470371487,
+        "t_pareado": {
+          "estatistica": 4.801312293424045,
+          "gl": 15,
+          "p": 0.00023328595634371672,
+          "nota": "ttest_1samp sobre as diferencas = ttest_rel sobre os dois vetores pareados"
+        },
+        "wilcoxon": {
+          "estatistica": 1.0,
+          "p": 6.103515625e-05,
+          "zeros": 0,
+          "w_mais": 135.0,
+          "w_menos": 1.0,
+          "r_biserial_pareado": 0.9852941176470589
+        },
+        "teste_do_sinal": {
+          "celulas_com_d_positivo": 15,
+          "n": 16,
+          "p": 0.000518798828125
+        },
+        "bootstrap_percentil": {
+          "reamostragens": 10000,
+          "semente": 42,
+          "ic95_db": [
+            0.47663227819743675,
+            1.072379172398225
+          ]
+        },
+        "cohen_dz": 1.2003280733560113,
+        "celulas_em_que_a_gnn_perde": [
+          "campinas_Q2"
+        ],
+        "holm": {
+          "posicao": 3,
+          "p_bruto": 0.00023328595634371672,
+          "p_ajustado": 0.00023328595634371672,
+          "metodo": "Holm-Bonferroni sobre os p do t pareado das 3 familias"
+        }
+      }
+    },
+    "C_nos_cobertos": {
+      "rotulo": "secundaria C: populacao de nos cobertos (rf_targets[:,0] < 299 dB), melhor analitico na mesma populacao",
+      "n": 16,
+      "celulas": [
+        "bauru_Q1",
+        "bauru_Q2",
+        "bauru_Q3",
+        "bauru_Q4",
+        "campinas_Q1",
+        "campinas_Q2",
+        "campinas_Q3",
+        "campinas_Q4",
+        "lins_Q1",
+        "lins_Q2",
+        "lins_Q3",
+        "lins_Q4",
+        "sorocaba_Q1",
+        "sorocaba_Q2",
+        "sorocaba_Q3",
+        "sorocaba_Q4"
+      ],
+      "d_db": [
+        2.3184167589167473,
+        2.709396644595381,
+        2.286046324456394,
+        2.5224599518399793,
+        5.753908079091618,
+        -0.40498174370950046,
+        4.4849565889919445,
+        1.8600006631453216,
+        -5.960363108086322,
+        -0.9865881237503606,
+        2.07473023260445,
+        1.8962651682626408,
+        6.4824026437362186,
+        -0.7246750520139815,
+        10.665282349878858,
+        2.6258697545761494
+      ],
+      "media_d_db": 2.350195445783471,
+      "dp_d_db": 3.6548201593243856,
+      "erro_padrao_db": 0.9137050398310964,
+      "ic95_t_db": [
+        0.40267925385980385,
+        4.297711637707138
+      ],
+      "mediana_d_db": 2.3022315416865706,
+      "t_pareado": {
+        "estatistica": 2.5721598801927565,
+        "gl": 15,
+        "p": 0.021243011313174746,
+        "nota": "ttest_1samp sobre as diferencas = ttest_rel sobre os dois vetores pareados"
+      },
+      "wilcoxon": {
+        "estatistica": 20.0,
+        "p": 0.010986328125,
+        "zeros": 0,
+        "w_mais": 116.0,
+        "w_menos": 20.0,
+        "r_biserial_pareado": 0.7058823529411765
+      },
+      "teste_do_sinal": {
+        "celulas_com_d_positivo": 12,
+        "n": 16,
+        "p": 0.076812744140625
+      },
+      "bootstrap_percentil": {
+        "reamostragens": 10000,
+        "semente": 42,
+        "ic95_db": [
+          0.6286691816760701,
+          4.126331785751257
+        ]
+      },
+      "cohen_dz": 0.6430399700481891,
+      "celulas_em_que_a_gnn_perde": [
+        "campinas_Q2",
+        "lins_Q1",
+        "lins_Q2",
+        "sorocaba_Q2"
+      ]
+    },
+    "unidade_cidade_n4": {
+      "rotulo": "secundaria: unidade = cidade (media dos 4 quadrantes), n=4",
+      "n": 4,
+      "celulas": [
+        "bauru",
+        "campinas",
+        "lins",
+        "sorocaba"
+      ],
+      "d_db": [
+        0.7774414907676135,
+        0.8193604402105693,
+        0.3830955207140463,
+        1.0028777805663607
+      ],
+      "media_d_db": 0.7456938080646474,
+      "dp_d_db": 0.26080375876003137,
+      "erro_padrao_db": 0.13040187938001568,
+      "ic95_t_db": [
+        0.3306968288296647,
+        1.16069078729963
+      ],
+      "mediana_d_db": 0.7984009654890913,
+      "t_pareado": {
+        "estatistica": 5.718428381630567,
+        "gl": 3,
+        "p": 0.010611621865650836,
+        "nota": "ttest_1samp sobre as diferencas = ttest_rel sobre os dois vetores pareados"
+      },
+      "wilcoxon": {
+        "estatistica": 0.0,
+        "p": 0.125,
+        "zeros": 0,
+        "w_mais": 10.0,
+        "w_menos": 0.0,
+        "r_biserial_pareado": 1.0
+      },
+      "teste_do_sinal": {
+        "celulas_com_d_positivo": 4,
+        "n": 4,
+        "p": 0.125
+      },
+      "bootstrap_percentil": {
+        "reamostragens": 10000,
+        "semente": 42,
+        "ic95_db": [
+          0.492161750588177,
+          0.9465187081166739
+        ]
+      },
+      "cohen_dz": 2.859214190815283,
+      "celulas_em_que_a_gnn_perde": []
+    }
+  },
+  "robustez": {
+    "pior_semente": {
+      "rotulo": "robustez: primaria com a PIOR semente da GNN por celula, nao a media",
+      "n": 16,
+      "celulas": [
+        "bauru_Q1",
+        "bauru_Q2",
+        "bauru_Q3",
+        "bauru_Q4",
+        "campinas_Q1",
+        "campinas_Q2",
+        "campinas_Q3",
+        "campinas_Q4",
+        "lins_Q1",
+        "lins_Q2",
+        "lins_Q3",
+        "lins_Q4",
+        "sorocaba_Q1",
+        "sorocaba_Q2",
+        "sorocaba_Q3",
+        "sorocaba_Q4"
+      ],
+      "d_db": [
+        1.1749883338222746,
+        0.5122582484215924,
+        0.5717863966198371,
+        0.4532110443330547,
+        1.3264812801410886,
+        -0.3758394294487499,
+        0.956121921455972,
+        0.4293500264146469,
+        0.6805764594498012,
+        -0.05804772101066441,
+        0.09887218302471185,
+        0.541126267111903,
+        1.2786357800315127,
+        -0.19195388163005578,
+        2.1779395054925472,
+        0.39347454805951054
+      ],
+      "media_d_db": 0.6230613101430614,
+      "dp_d_db": 0.648203866623254,
+      "erro_padrao_db": 0.1620509666558135,
+      "ic95_t_db": [
+        0.2776578509070054,
+        0.9684647693791175
+      ],
+      "mediana_d_db": 0.5266922577667477,
+      "t_pareado": {
+        "estatistica": 3.844847846334704,
+        "gl": 15,
+        "p": 0.001590571441297093,
+        "nota": "ttest_1samp sobre as diferencas = ttest_rel sobre os dois vetores pareados"
+      },
+      "wilcoxon": {
+        "estatistica": 8.0,
+        "p": 0.000762939453125,
+        "zeros": 0,
+        "w_mais": 128.0,
+        "w_menos": 8.0,
+        "r_biserial_pareado": 0.8823529411764706
+      },
+      "teste_do_sinal": {
+        "celulas_com_d_positivo": 13,
+        "n": 16,
+        "p": 0.021270751953125
+      },
+      "bootstrap_percentil": {
+        "reamostragens": 10000,
+        "semente": 42,
+        "ic95_db": [
+          0.3325684522008839,
+          0.9467961491467785
+        ]
+      },
+      "cohen_dz": 0.961211961583676,
+      "celulas_em_que_a_gnn_perde": [
+        "campinas_Q2",
+        "lins_Q2",
+        "sorocaba_Q2"
+      ]
+    },
+    "log_razao": {
+      "rotulo": "complemento: log10(MAE_baseline / MAE_GNN) da primaria (adimensional, nao dB)",
+      "n": 16,
+      "celulas": [
+        "bauru_Q1",
+        "bauru_Q2",
+        "bauru_Q3",
+        "bauru_Q4",
+        "campinas_Q1",
+        "campinas_Q2",
+        "campinas_Q3",
+        "campinas_Q4",
+        "lins_Q1",
+        "lins_Q2",
+        "lins_Q3",
+        "lins_Q4",
+        "sorocaba_Q1",
+        "sorocaba_Q2",
+        "sorocaba_Q3",
+        "sorocaba_Q4"
+      ],
+      "d_db": [
+        0.48504958332587333,
+        0.42456428026969123,
+        0.41568419364048104,
+        0.5333660464022749,
+        0.604961148064787,
+        -0.011762921080281956,
+        0.3990567503362396,
+        0.5497776803016832,
+        0.4285936740611919,
+        0.009027556964421606,
+        0.23441085595131256,
+        0.5725199572608599,
+        0.6495264472655713,
+        0.011696683213119487,
+        0.8064632399008934,
+        0.45843391902141417
+      ],
+      "media_d_db": 0.4107105684312208,
+      "dp_d_db": 0.23812540696707957,
+      "erro_padrao_db": 0.05953135174176989,
+      "ic95_t_db": [
+        0.28382249581466623,
+        0.5375986410477753
+      ],
+      "mediana_d_db": 0.4435137965413031,
+      "t_pareado": {
+        "estatistica": 6.899063374417679,
+        "gl": 15,
+        "p": 5.06910236981462e-06,
+        "nota": "ttest_1samp sobre as diferencas = ttest_rel sobre os dois vetores pareados"
+      },
+      "wilcoxon": {
+        "estatistica": 3.0,
+        "p": 0.000152587890625,
+        "zeros": 0,
+        "w_mais": 133.0,
+        "w_menos": 3.0,
+        "r_biserial_pareado": 0.9558823529411765
+      },
+      "teste_do_sinal": {
+        "celulas_com_d_positivo": 15,
+        "n": 16,
+        "p": 0.000518798828125
+      },
+      "bootstrap_percentil": {
+        "reamostragens": 10000,
+        "semente": 42,
+        "ic95_db": [
+          0.29397659797937115,
+          0.5194350089720199
+        ]
+      },
+      "cohen_dz": 1.7247658436044198,
+      "celulas_em_que_a_gnn_perde": [
+        "campinas_Q2"
+      ]
+    }
+  },
+  "reducao_relativa_primaria": {
+    "por_celula": {
+      "bauru_Q1": 0.672696675418351,
+      "bauru_Q2": 0.6237853356833047,
+      "bauru_Q3": 0.6160136322477756,
+      "bauru_Q4": 0.7071576026119971,
+      "campinas_Q1": 0.7516644743961141,
+      "campinas_Q2": -0.02745526294710232,
+      "campinas_Q3": 0.6010272358041462,
+      "campinas_Q4": 0.7180173940919468,
+      "lins_Q1": 0.6272597210096829,
+      "lins_Q2": 0.02057216346833657,
+      "lins_Q3": 0.4171065917566463,
+      "lins_Q4": 0.7324037378916111,
+      "sorocaba_Q1": 0.7758836438688845,
+      "sorocaba_Q2": 0.026573159897743226,
+      "sorocaba_Q3": 0.8438518798770395,
+      "sorocaba_Q4": 0.6520105473213125
+    },
+    "mediana": 0.6396351341654977,
+    "min": -0.02745526294710232,
+    "max": 0.8438518798770395
+  },
+  "limitacoes_declaradas": [
+    "as 16 celulas nao sao estritamente independentes: quadrantes da mesma cidade sao tiles adjacentes (bordas coladas) e do mesmo contexto geografico; por isso a secundaria com n=4 cidades",
+    "o lado da GNN e media de 5 sementes; a incerteza entre sementes nao entra no teste pareado (entra na robustez com a pior semente)",
+    "o melhor empirico e escolhido POR CELULA, o que e um envelope otimista para o baseline e portanto conservador contra o claim",
+    "pre-registro nao cego: as margens por celula ja estavam visiveis em ca-t5-baselines-v3.json antes de este desenho ser escrito (declarado no pre-registro)"
+  ],
+  "fontes": {
+    "gnn_por_seed": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t15_tres_populacoes\\t15_tres_populacoes.json",
+      "sha256": "10a984152ca1576da5f2fb3b662e1d0ed53f2adbc651dbe6b7b1ee6588606042"
+    },
+    "plano_t15_v2": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\planos\\plano_T15_tres_populacoes_2026-09-13_v2.json",
+      "sha256": "7b61deb395843a895cd5146939f4468117c05729cef2edf0635413417fbdc064"
+    },
+    "tabela_publicada": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\REVISAO_R3\\novas\\tab_blocked_16_tres_pop.tex",
+      "sha256": "abf0aaf7553e298b6ee25cf4595fb670c2e914deb62b6eee2c90cd4167531ba6"
+    },
+    "rastro_da_tabela": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_inventario_revisores_2026-09-13\\novas\\tres_pop_rastro.json",
+      "sha256": "9a6cc394fd12407713930877d8095ae018c46b1c2e7802bf7a0cc00c6a7ff382"
+    },
+    "gerador_da_tabela": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_inventario_revisores_2026-09-13\\gerar_tabela_tres_populacoes.py",
+      "sha256": "dee778416e09e95f04904e043df5b25b64bb4fcc1f913dc55c8b5d5d397c70bb"
+    },
+    "baselines_v3_bauru_Q1": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_bauru_Q1.json",
+      "sha256": "3a8c2dc9f9a17a6aaf228e0c3325806672ca051beba99a55aad7ce0d24fdce1c"
+    },
+    "baselines_v3_bauru_Q2": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_bauru_Q2.json",
+      "sha256": "3df70e47ff76be6d456cb85f6419a2f04efbcf7e5521e0393bcb4035fd192cab"
+    },
+    "baselines_v3_bauru_Q3": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_bauru_Q3.json",
+      "sha256": "a6f77064409e2d2d9c4ef084cddeb997e27587275a0062ab5f0d670a2b1a9da2"
+    },
+    "baselines_v3_bauru_Q4": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_bauru_Q4.json",
+      "sha256": "ed147ac212648125187fb224ae4bfa139f688a9b77dc286b422012f5c78aa622"
+    },
+    "baselines_v3_campinas_Q1": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_campinas_Q1.json",
+      "sha256": "0fa1000dbb4475df1c3120a751fe7dfe1c1da915e8dd91b4ebba0fd385950d30"
+    },
+    "baselines_v3_campinas_Q2": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_campinas_Q2.json",
+      "sha256": "49fa8a6c40f48c65370d942ef115f1d95d576c0fe89fd27abe2e6991a256b36a"
+    },
+    "baselines_v3_campinas_Q3": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_campinas_Q3.json",
+      "sha256": "e6aae33013689d21528ace0734034a6b2995195446442a7e06b8a431558011d6"
+    },
+    "baselines_v3_campinas_Q4": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_campinas_Q4.json",
+      "sha256": "fda050c506a579ec8cc13d8be9878cad768fab42608e21475e83b4344180c944"
+    },
+    "baselines_v3_lins_Q1": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_lins_Q1.json",
+      "sha256": "e4092e4c0e5798c36631b34dc94585e99117ddea4f35e1a24425fdb23220d078"
+    },
+    "baselines_v3_lins_Q2": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_lins_Q2.json",
+      "sha256": "9d048dba766a12030eae7bc0163303653787dd248f5cb3363547dce8da82dfd3"
+    },
+    "baselines_v3_lins_Q3": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_lins_Q3.json",
+      "sha256": "6aaedb941e7cddb689858915f3330669d5451ac9c0760c4ef4d69d5815286604"
+    },
+    "baselines_v3_lins_Q4": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_lins_Q4.json",
+      "sha256": "a017c6bced9ce7617aec1e3bb776047bdd395a958bc8afe9f17e1ec5b7501088"
+    },
+    "baselines_v3_sorocaba_Q1": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_sorocaba_Q1.json",
+      "sha256": "58bdfb2e7c941df5aab610c06502a8d20de6835b324831b62779d6bbbca81502"
+    },
+    "baselines_v3_sorocaba_Q2": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_sorocaba_Q2.json",
+      "sha256": "4cc76666963323f6b0fad10032e4f501a64bfc04a40fb67f4e99beb580ed55d0"
+    },
+    "baselines_v3_sorocaba_Q3": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_sorocaba_Q3.json",
+      "sha256": "16f8e7c1999564487e118e5d54e07c30aa6f442d687336e9e9e4567a60684e3b"
+    },
+    "baselines_v3_sorocaba_Q4": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\_campanha_2026-09-13\\t5_baselines_v3\\baselines_v3_sorocaba_Q4.json",
+      "sha256": "ff6db9a5ae810659e9c3fa9387a8b2216c2ca23af0a4918c608f7275d9b32a1d"
+    }
+  },
+  "timestamp_utc": "2026-09-16T01:24:14.502345+00:00"
+}

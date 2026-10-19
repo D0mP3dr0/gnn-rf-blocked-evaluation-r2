@@ -1,0 +1,3535 @@
+{
+ "etapa": "BA_inferencia",
+ "versao": "BA1 oficial (copia adaptada de C_inferencia_v2.py)",
+ "protocolo": "configuration fixed before the runs (protocol sections 7-8)",
+ "n_runs": {
+  "gnn": 80,
+  "ba1": 80,
+  "mlp": 80
+ },
+ "metricas_completas": true,
+ "parametros": {
+  "B": 20000,
+  "rng_bootstrap": "numpy default_rng(20261018); indices comuns a todas as metricas e contrastes",
+  "unidade": "bootstrap hierarquico cidade -> cadeia (cadeia = cidade x seed, os 4 Q juntos); estatistica = media das medias de cadeia",
+  "nivel_superior_multiconjuntos_de_cidade": 35,
+  "declaracao_nivel_superior": "o nivel superior (4 cidades reamostradas com reposicao) tem so 35 multiconjuntos de cidade distintos",
+  "delta_MAE_RSSI": {
+   "ALL": 0.045,
+   "VALID": 0.35
+  },
+  "IC": "percentil 2,5-97,5",
+  "confirmacao": "t sobre as 4 medias de cidade (df = 3, descritivo: cidades parcialmente sobrepostas); MixedLM REML no primario",
+  "sinal": "Delta = BA1 - comparador; Delta > 0 => BA1 com MAE maior (baseline pior)"
+ },
+ "comparadores": {
+  "gnn": "GNN-RF (C0 = c0c1cf)",
+  "mlp": "MLP sem grafo (mlpcf)",
+  "empirico": "melhor empirico da celula (B1_empiricos.json)"
+ },
+ "contrastes": {
+  "BA1_menos_C0": {
+   "mae_rssi_ALL": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.33747966683027464,
+    "media_comparador_runs_pareados": 0.3946231501233049,
+    "delta": -0.05714348329303023,
+    "ic95": [
+     -0.1182514280210459,
+     0.0025120967515121786
+    ],
+    "ep_bootstrap": 0.030996942346889038,
+    "B_validas": 20000,
+    "ic_exclui_zero": false,
+    "delta_por_cidade": {
+     "bauru": -0.054854251114661745,
+     "campinas": -0.02067018610518811,
+     "lins": -0.1340629412348848,
+     "sorocaba": -0.018986554717386212
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.06771350559253948,
+     "bauru_Q2": 0.07227812743063831,
+     "bauru_Q3": -0.16115752729614263,
+     "bauru_Q4": -0.06282409900060319,
+     "campinas_Q1": 0.22919833900391798,
+     "campinas_Q2": -0.09639174672087293,
+     "campinas_Q3": -0.15408717036907094,
+     "campinas_Q4": -0.06140016633472652,
+     "lins_Q1": -0.19926717197531113,
+     "lins_Q2": -0.2715364136956311,
+     "lins_Q3": -0.023094975103838056,
+     "lins_Q4": -0.042353204164758934,
+     "sorocaba_Q1": 0.0948434162919555,
+     "sorocaba_Q2": -0.17348614121659586,
+     "sorocaba_Q3": -0.02673176519322378,
+     "sorocaba_Q4": 0.02942827124831931
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.05485425111466176,
+      "campinas": -0.02067018610518811,
+      "lins": -0.1340629412348848,
+      "sorocaba": -0.018986554717386216
+     },
+     "n_cidades": 4,
+     "media": -0.05714348329303022,
+     "ic95_t": [
+      -0.1428733346943722,
+      0.028586368108311735
+     ],
+     "t": -2.1212688964733077,
+     "p_bilateral": 0.12403311387692106,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.057143483293030206,
+     "ic95": [
+      -0.11003044233473432,
+      -0.014982616079026664
+     ]
+    },
+    "modelo_misto": {
+     "ajustado": true,
+     "convergiu": true,
+     "intercepto": -0.057143483293030206,
+     "ep": 0.03644139340413264,
+     "ic95_wald": [
+      -0.12856730191158566,
+      0.01428033532552525
+     ],
+     "var_cidade": 2.245886459773076e-11,
+     "var_componentes": {
+      "cadeia": 0.007449464451020235,
+      "celula": 0.013636670061706106
+     },
+     "var_residual": 0.00825680369699225,
+     "n_obs": 80,
+     "avisos": [
+      "ConvergenceWarning: The MLE may be on the boundary of the parameter space."
+     ]
+    },
+    "papel": "endpoint primario (secao 7)",
+    "delta_margem": 0.045,
+    "destino": "IC cruza +-delta: inconclusivo",
+    "destino_sensibilidade": "IC cruza +-delta: inconclusivo"
+   },
+   "mae_rssi_VALID": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 1.2327295492042778,
+    "media_comparador_runs_pareados": 2.0121759999681847,
+    "delta": -0.7794464507639071,
+    "ic95": [
+     -1.8483671007506572,
+     -0.11631434384529607
+    ],
+    "ep_bootstrap": 0.46848742854510156,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.3116194181725714,
+     "campinas": -0.25040858789521275,
+     "lins": -2.3294821412940765,
+     "sorocaba": -0.22627565569376826
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.25495015677189264,
+     "bauru_Q2": 0.5123386246348792,
+     "bauru_Q3": -0.9658614584602944,
+     "bauru_Q4": -0.5380046820929776,
+     "campinas_Q1": 0.9970033703427159,
+     "campinas_Q2": -0.7059539335252527,
+     "campinas_Q3": -0.6288978694348439,
+     "campinas_Q4": -0.6637859189634703,
+     "lins_Q1": -6.237851560970755,
+     "lins_Q2": -2.0943357679413994,
+     "lins_Q3": -0.3994797716068668,
+     "lins_Q4": -0.5862614646572817,
+     "sorocaba_Q1": 0.3123419760062792,
+     "sorocaba_Q2": -1.307347817740987,
+     "sorocaba_Q3": -0.21337239162568383,
+     "sorocaba_Q4": 0.3032756105853186
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.3116194181725714,
+      "campinas": -0.2504085878952128,
+      "lins": -2.3294821412940765,
+      "sorocaba": -0.22627565569376823
+     },
+     "n_cidades": 4,
+     "media": -0.7794464507639073,
+     "ic95_t": [
+      -2.4247413775151956,
+      0.8658484759873809
+     ],
+     "t": -1.507660685672964,
+     "p_bilateral": 0.2287530655638409,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.7794464507639071,
+     "ic95": [
+      -1.8232135741838535,
+      -0.20431283321890334
+     ]
+    },
+    "modelo_misto": {
+     "ajustado": true,
+     "convergiu": true,
+     "intercepto": -0.7794464507639095,
+     "ep": 0.5169833576555818,
+     "ic95_wald": [
+      -1.7927152123754393,
+      0.2338223108476204
+     ],
+     "var_cidade": 0.473205274732116,
+     "var_componentes": {
+      "cadeia": 0.159344856307857,
+      "celula": 2.0945495932791998
+     },
+     "var_residual": 0.8075104811574317,
+     "n_obs": 80,
+     "avisos": []
+    },
+    "papel": "endpoint primario (secao 7)",
+    "delta_margem": 0.35,
+    "destino": "IC cruza +-delta: inconclusivo",
+    "destino_sensibilidade": "IC cruza +-delta: inconclusivo"
+   },
+   "mae_rssi_COV85": {
+    "n_pares": 35,
+    "n_celulas": 7,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 2.6308654070326782,
+    "media_comparador_runs_pareados": 7.9307461467530675,
+    "delta": -4.919978217372611,
+    "ic95": [
+     -7.386049028302525,
+     -2.842129876179267
+    ],
+    "ep_bootstrap": 1.182183240840623,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -4.5436704383396895,
+     "campinas": -8.533205356822503,
+     "lins": -4.342376513390102,
+     "sorocaba": -2.26066056093815
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -7.54427308374881,
+     "bauru_Q3": -1.54306779293057,
+     "campinas_Q1": -10.443872178156207,
+     "campinas_Q3": -6.622538535488796,
+     "lins_Q1": -6.482968280822919,
+     "lins_Q2": -2.201784745957284,
+     "sorocaba_Q3": -2.26066056093815
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -4.54367043833969,
+      "campinas": -8.533205356822501,
+      "lins": -4.342376513390102,
+      "sorocaba": -2.26066056093815
+     },
+     "n_cidades": 4,
+     "media": -4.919978217372611,
+     "ic95_t": [
+      -9.089935481143279,
+      -0.7500209536019433
+     ],
+     "t": -3.754850591872852,
+     "p_bilateral": 0.033006309241221644,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -4.91997821737261,
+     "ic95": [
+      -7.465691532491767,
+      -2.839342573756849
+     ]
+    },
+    "celulas_elegiveis_n_ge_1000": [
+     "bauru_Q1",
+     "bauru_Q3",
+     "campinas_Q1",
+     "campinas_Q3",
+     "lins_Q1",
+     "lins_Q2",
+     "sorocaba_Q3"
+    ],
+    "n_COV85_por_celula": {
+     "bauru_Q1": 7801,
+     "bauru_Q2": 0,
+     "bauru_Q3": 1151,
+     "bauru_Q4": 0,
+     "campinas_Q1": 6268,
+     "campinas_Q2": 0,
+     "campinas_Q3": 29223,
+     "campinas_Q4": 12,
+     "lins_Q1": 23249,
+     "lins_Q2": 109989,
+     "lins_Q3": 4,
+     "lins_Q4": 0,
+     "sorocaba_Q1": 0,
+     "sorocaba_Q2": 0,
+     "sorocaba_Q3": 4505,
+     "sorocaba_Q4": 0
+    },
+    "tabela_por_celula": [
+     {
+      "celula": "bauru_Q1",
+      "n_COV85": 7801,
+      "delta_media_5_seeds": -7.54427308374881
+     },
+     {
+      "celula": "bauru_Q2",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "bauru_Q3",
+      "n_COV85": 1151,
+      "delta_media_5_seeds": -1.54306779293057
+     },
+     {
+      "celula": "bauru_Q4",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "campinas_Q1",
+      "n_COV85": 6268,
+      "delta_media_5_seeds": -10.443872178156207
+     },
+     {
+      "celula": "campinas_Q2",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "campinas_Q3",
+      "n_COV85": 29223,
+      "delta_media_5_seeds": -6.622538535488796
+     },
+     {
+      "celula": "campinas_Q4",
+      "n_COV85": 12,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "lins_Q1",
+      "n_COV85": 23249,
+      "delta_media_5_seeds": -6.482968280822919
+     },
+     {
+      "celula": "lins_Q2",
+      "n_COV85": 109989,
+      "delta_media_5_seeds": -2.201784745957284
+     },
+     {
+      "celula": "lins_Q3",
+      "n_COV85": 4,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "lins_Q4",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "sorocaba_Q1",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "sorocaba_Q2",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "sorocaba_Q3",
+      "n_COV85": 4505,
+      "delta_media_5_seeds": -2.26066056093815
+     },
+     {
+      "celula": "sorocaba_Q4",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     }
+    ],
+    "papel": "secundaria descritiva (sem margem)",
+    "destino": null
+   },
+   "mae_pl_VALID": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 1.769590208989029,
+    "media_comparador_runs_pareados": 2.800740571904418,
+    "delta": -1.031150362915389,
+    "ic95": [
+     -1.9267160653042894,
+     -0.17175601290269188
+    ],
+    "ep_bootstrap": 0.44967530534359335,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.9419498264535635,
+     "campinas": -1.1658937531835216,
+     "lins": -2.087287935696027,
+     "sorocaba": 0.07053006367155645
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.8910315752713591,
+     "bauru_Q2": -0.6345617200267121,
+     "bauru_Q3": -1.096886035017406,
+     "bauru_Q4": -1.1453199754987762,
+     "campinas_Q1": -0.8681833470609792,
+     "campinas_Q2": -1.323905300955815,
+     "campinas_Q3": -1.4994970152646334,
+     "campinas_Q4": -0.9719893494526584,
+     "lins_Q1": -5.422861212758891,
+     "lins_Q2": -1.3030228231608032,
+     "lins_Q3": -0.5078646078822009,
+     "lins_Q4": -1.1154030989822155,
+     "sorocaba_Q1": 0.6293053428501549,
+     "sorocaba_Q2": -0.3899236055744447,
+     "sorocaba_Q3": -0.2299633208748663,
+     "sorocaba_Q4": 0.27270183828538197
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.9419498264535633,
+      "campinas": -1.1658937531835216,
+      "lins": -2.0872879356960268,
+      "sorocaba": 0.07053006367155645
+     },
+     "n_cidades": 4,
+     "media": -1.0311503629153886,
+     "ic95_t": [
+      -2.44104916093897,
+      0.3787484351081931
+     ],
+     "t": -2.3275292292270935,
+     "p_bilateral": 0.10237820090387299,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -1.031150362915389,
+     "ic95": [
+      -1.8067699079227206,
+      -0.24357300467500753
+     ]
+    },
+    "papel": "secundaria descritiva (sem margem)",
+    "destino": null
+   },
+   "mae_pl_VALID_ate200": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 1.68241787923916,
+    "media_comparador_runs_pareados": 2.718304612463719,
+    "delta": -1.0358867332245592,
+    "ic95": [
+     -1.9266758664629728,
+     -0.1832170307055865
+    ],
+    "ep_bootstrap": 0.44717490563665113,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.9419498264535635,
+     "campinas": -1.1651361490258656,
+     "lins": -2.087287935696027,
+     "sorocaba": 0.050826978277219624
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.8910315752713591,
+     "bauru_Q2": -0.6345617200267121,
+     "bauru_Q3": -1.096886035017406,
+     "bauru_Q4": -1.1453199754987762,
+     "campinas_Q1": -0.8681833470609792,
+     "campinas_Q2": -1.323905300955815,
+     "campinas_Q3": -1.4964665986340102,
+     "campinas_Q4": -0.9719893494526584,
+     "lins_Q1": -5.422861212758891,
+     "lins_Q2": -1.3030228231608032,
+     "lins_Q3": -0.5078646078822009,
+     "lins_Q4": -1.1154030989822155,
+     "sorocaba_Q1": 0.6293053428501549,
+     "sorocaba_Q2": -0.3899236055744447,
+     "sorocaba_Q3": -0.3087756624522134,
+     "sorocaba_Q4": 0.27270183828538197
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.9419498264535633,
+      "campinas": -1.1651361490258658,
+      "lins": -2.0872879356960268,
+      "sorocaba": 0.05082697827721967
+     },
+     "n_cidades": 4,
+     "media": -1.035886733224559,
+     "ic95_t": [
+      -2.4327597613653884,
+      0.3609862949162703
+     ],
+     "t": -2.3600240253980673,
+     "p_bilateral": 0.0993977638877627,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -1.0358867332245594,
+     "ic95": [
+      -1.8067699079227206,
+      -0.25819566598239446
+     ]
+    },
+    "papel": "secundaria descritiva (sem margem)",
+    "destino": null
+   },
+   "mae_rssi_VALID_ate200": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 1.2232175705756565,
+    "media_comparador_runs_pareados": 2.011834726436666,
+    "delta": -0.7886171558610097,
+    "ic95": [
+     -1.8512587399082676,
+     -0.12879394841405634
+    ],
+    "ep_bootstrap": 0.4659255083420693,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.3116194181725714,
+     "campinas": -0.2511623516648156,
+     "lins": -2.3294821412940765,
+     "sorocaba": -0.2622047123125754
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.25495015677189264,
+     "bauru_Q2": 0.5123386246348792,
+     "bauru_Q3": -0.9658614584602944,
+     "bauru_Q4": -0.5380046820929776,
+     "campinas_Q1": 0.9970033703427159,
+     "campinas_Q2": -0.7059539335252527,
+     "campinas_Q3": -0.6319129245132553,
+     "campinas_Q4": -0.6637859189634703,
+     "lins_Q1": -6.237851560970755,
+     "lins_Q2": -2.0943357679413994,
+     "lins_Q3": -0.3994797716068668,
+     "lins_Q4": -0.5862614646572817,
+     "sorocaba_Q1": 0.3123419760062792,
+     "sorocaba_Q2": -1.307347817740987,
+     "sorocaba_Q3": -0.35708861810091264,
+     "sorocaba_Q4": 0.3032756105853186
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.3116194181725714,
+      "campinas": -0.25116235166481554,
+      "lins": -2.3294821412940765,
+      "sorocaba": -0.2622047123125754
+     },
+     "n_cidades": 4,
+     "media": -0.7886171558610097,
+     "ic95_t": [
+      -2.4237255986560355,
+      0.8464912869340161
+     ],
+     "t": -1.5349023271283002,
+     "p_bilateral": 0.22237116751037628,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.7886171558610096,
+     "ic95": [
+      -1.8278526996222466,
+      -0.217009812982749
+     ]
+    },
+    "papel": "secundaria descritiva (sem margem)",
+    "destino": null
+   },
+   "mae_rssi_SENT": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.15014546254746414,
+    "media_comparador_runs_pareados": 0.1338980277044287,
+    "delta": 0.016247434843035417,
+    "ic95": [
+     0.0012002446404211472,
+     0.02988333918515675
+    ],
+    "ep_bootstrap": 0.00736175759028873,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": 0.005240804631572274,
+     "campinas": 0.01910879710920913,
+     "lins": 0.021508244925191284,
+     "sorocaba": 0.01913189270616898
+    },
+    "delta_por_celula": {
+     "bauru_Q1": 0.023750069640260867,
+     "bauru_Q2": -0.0050867576181316074,
+     "bauru_Q3": -0.008850662781953251,
+     "bauru_Q4": 0.011150569286113094,
+     "campinas_Q1": -0.014828744428006144,
+     "campinas_Q2": 0.012369211553003398,
+     "campinas_Q3": 0.046319814944798074,
+     "campinas_Q4": 0.032574906367041204,
+     "lins_Q1": -0.012990216385868763,
+     "lins_Q2": 0.0449020079207419,
+     "lins_Q3": 0.018926183656276335,
+     "lins_Q4": 0.035195004509615664,
+     "sorocaba_Q1": 0.033054533295282774,
+     "sorocaba_Q2": 0.030781021450754058,
+     "sorocaba_Q3": 0.02605500260087109,
+     "sorocaba_Q4": -0.013362986522232011
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": 0.005240804631572276,
+      "campinas": 0.01910879710920913,
+      "lins": 0.021508244925191284,
+      "sorocaba": 0.019131892706168975
+     },
+     "n_cidades": 4,
+     "media": 0.016247434843035417,
+     "ic95_t": [
+      0.004434830231433871,
+      0.028060039454636962
+     ],
+     "t": 4.377238609660489,
+     "p_bilateral": 0.022067126340389515,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": 0.016247434843035417,
+     "ic95": [
+      0.004308434211083993,
+      0.02662171007773372
+     ]
+    },
+    "papel": "secundaria descritiva (sem margem)",
+    "destino": null
+   },
+   "contrib_mae_rssi_ALL_VALID": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.2135221758953477,
+    "media_comparador_runs_pareados": 0.28365912075237315,
+    "delta": -0.07013694485702547,
+    "ic95": [
+     -0.13192352446753636,
+     -0.011833254489093413
+    ],
+    "ep_bootstrap": 0.030969505914581648,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.05831325809423231,
+     "campinas": -0.03566887342955562,
+     "lins": -0.1524347341761679,
+     "sorocaba": -0.03413091372814604
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.08366929996689582,
+     "bauru_Q2": 0.07660431853638869,
+     "bauru_Q3": -0.15371543451494496,
+     "bauru_Q4": -0.07247261643147719,
+     "campinas_Q1": 0.24045078337097606,
+     "campinas_Q2": -0.10688814196437206,
+     "campinas_Q3": -0.18665910120459564,
+     "campinas_Q4": -0.0895790339202308,
+     "lins_Q1": -0.18666568359908914,
+     "lins_Q2": -0.30979646686306406,
+     "lins_Q3": -0.040120372793424945,
+     "lins_Q4": -0.07315641344909349,
+     "sorocaba_Q1": 0.06910178854826712,
+     "sorocaba_Q2": -0.19956839844405871,
+     "sorocaba_Q3": -0.04704239849746668,
+     "sorocaba_Q4": 0.04098535348067411
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.05831325809423232,
+      "campinas": -0.03566887342955562,
+      "lins": -0.15243473417616793,
+      "sorocaba": -0.03413091372814604
+     },
+     "n_cidades": 4,
+     "media": -0.07013694485702547,
+     "ic95_t": [
+      -0.15919431779354,
+      0.01892042807948907
+     ],
+     "t": -2.5063288267355843,
+     "p_bilateral": 0.08721895312036769,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.07013694485702547,
+     "ic95": [
+      -0.12646748322629942,
+      -0.02812488466447924
+     ]
+    },
+    "papel": "parcela da decomposicao do Delta MAE RSSI ALL (V2-h), descritiva",
+    "destino": null
+   },
+   "contrib_mae_rssi_ALL_SENT": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.12395749093492699,
+    "media_comparador_runs_pareados": 0.11096402937093171,
+    "delta": 0.012993461563995256,
+    "ic95": [
+     0.0005500914110066512,
+     0.024583687470864493
+    ],
+    "ep_bootstrap": 0.0061519976441786585,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": 0.0034590069795705663,
+     "campinas": 0.014998687324367498,
+     "lins": 0.01837179294128313,
+     "sorocaba": 0.015144359010759828
+    },
+    "delta_por_celula": {
+     "bauru_Q1": 0.01595579437435632,
+     "bauru_Q2": -0.004326191105750351,
+     "bauru_Q3": -0.007442092781197685,
+     "bauru_Q4": 0.009648517430873985,
+     "campinas_Q1": -0.011252444367058084,
+     "campinas_Q2": 0.010496395243499141,
+     "campinas_Q3": 0.03257193083552464,
+     "campinas_Q4": 0.028178867585504298,
+     "lins_Q1": -0.012601488376221968,
+     "lins_Q2": 0.03826005316743303,
+     "lins_Q3": 0.017025397689586906,
+     "lins_Q4": 0.03080320928433456,
+     "sorocaba_Q1": 0.025741627743688378,
+     "sorocaba_Q2": 0.026082257227462834,
+     "sorocaba_Q3": 0.020310633304242882,
+     "sorocaba_Q4": -0.011557082232354781
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": 0.0034590069795705667,
+      "campinas": 0.014998687324367498,
+      "lins": 0.018371792941283133,
+      "sorocaba": 0.015144359010759828
+     },
+     "n_cidades": 4,
+     "media": 0.012993461563995256,
+     "ic95_t": [
+      0.0025801829846735565,
+      0.023406740143316958
+     ],
+     "t": 3.9709869886027858,
+     "p_bilateral": 0.028546729011600692,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": 0.012993461563995255,
+     "ic95": [
+      0.003103319859199581,
+      0.02177080475349
+     ]
+    },
+    "papel": "parcela da decomposicao do Delta MAE RSSI ALL (V2-h), descritiva",
+    "destino": null
+   },
+   "contrib_mae_rssi_ALL_SENT_abaixo_110": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.07730760308748261,
+    "media_comparador_runs_pareados": 0.06103587162711055,
+    "delta": 0.016271731460372058,
+    "ic95": [
+     0.0021147956370916408,
+     0.029950277212998484
+    ],
+    "ep_bootstrap": 0.007146193730527369,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": 0.0021606150958150064,
+     "campinas": 0.01582574741382619,
+     "lins": 0.02593728174106478,
+     "sorocaba": 0.021163281590782252
+    },
+    "delta_por_celula": {
+     "bauru_Q1": 0.001693268159223802,
+     "bauru_Q2": -0.019026405897786033,
+     "bauru_Q3": 0.012384647279051761,
+     "bauru_Q4": 0.0135909508427705,
+     "campinas_Q1": 0.017698739522401728,
+     "campinas_Q2": -0.007809265703612423,
+     "campinas_Q3": 0.02917868705178096,
+     "campinas_Q4": 0.024234828784734503,
+     "lins_Q1": -0.00573146907423647,
+     "lins_Q2": 0.028515009722970323,
+     "lins_Q3": 0.05268886845050509,
+     "lins_Q4": 0.028276717865020166,
+     "sorocaba_Q1": 0.045475058766065266,
+     "sorocaba_Q2": 0.02173080562933113,
+     "sorocaba_Q3": 0.03155028269376719,
+     "sorocaba_Q4": -0.014103020726034582
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": 0.0021606150958150072,
+      "campinas": 0.01582574741382619,
+      "lins": 0.02593728174106478,
+      "sorocaba": 0.021163281590782252
+     },
+     "n_cidades": 4,
+     "media": 0.016271731460372058,
+     "ic95_t": [
+      -7.668632204571937e-05,
+      0.03262014924278983
+     ],
+     "t": 3.167518248911019,
+     "p_bilateral": 0.05057723175972606,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": 0.016271731460372058,
+     "ic95": [
+      0.004476686560667217,
+      0.02855620247692244
+     ]
+    },
+    "papel": "parcela da decomposicao do Delta MAE RSSI ALL (V2-h), descritiva",
+    "destino": null
+   },
+   "contrib_mae_rssi_ALL_SENT_acima_110": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.04664988784744435,
+    "media_comparador_runs_pareados": 0.04992815774382116,
+    "delta": -0.003278269896376802,
+    "ic95": [
+     -0.01117561017601993,
+     0.004981551624290808
+    ],
+    "ep_bootstrap": 0.0040778201271581315,
+    "B_validas": 20000,
+    "ic_exclui_zero": false,
+    "delta_por_cidade": {
+     "bauru": 0.0012983918837555584,
+     "campinas": -0.0008270600894586914,
+     "lins": -0.00756548879978165,
+     "sorocaba": -0.006018922580022427
+    },
+    "delta_por_celula": {
+     "bauru_Q1": 0.01426252621513251,
+     "bauru_Q2": 0.014700214792035671,
+     "bauru_Q3": -0.019826740060249436,
+     "bauru_Q4": -0.00394243341189651,
+     "campinas_Q1": -0.02895118388945982,
+     "campinas_Q2": 0.018305660947111564,
+     "campinas_Q3": 0.0033932437837436965,
+     "campinas_Q4": 0.003944038800769789,
+     "lins_Q1": -0.006870019301985504,
+     "lins_Q2": 0.009745043444462708,
+     "lins_Q3": -0.0356634707609182,
+     "lins_Q4": 0.0025264914193143936,
+     "sorocaba_Q1": -0.019733431022376898,
+     "sorocaba_Q2": 0.0043514515981316945,
+     "sorocaba_Q3": -0.011239649389524292,
+     "sorocaba_Q4": 0.002545938493679788
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": 0.0012983918837555588,
+      "campinas": -0.0008270600894586911,
+      "lins": -0.00756548879978165,
+      "sorocaba": -0.006018922580022427
+     },
+     "n_cidades": 4,
+     "media": -0.003278269896376802,
+     "ic95_t": [
+      -0.009956712998705597,
+      0.0034001732059519936
+     ],
+     "t": -1.5621781543379718,
+     "p_bilateral": 0.21617783346027897,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.0032782698963768043,
+     "ic95": [
+      -0.010052034509927683,
+      0.0030749952837833745
+     ]
+    },
+    "papel": "parcela da decomposicao do Delta MAE RSSI ALL (V2-h), descritiva",
+    "destino": null
+   },
+   "resto_mae_rssi_ALL": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": -7.806255641895632e-19,
+    "media_comparador_runs_pareados": -1.994931997373328e-18,
+    "delta": 1.2143064331837649e-18,
+    "ic95": [
+     -1.1535911115245768e-17,
+     1.5178830414797062e-17
+    ],
+    "ep_bootstrap": 6.8441903940807195e-18,
+    "B_validas": 20000,
+    "ic_exclui_zero": false,
+    "delta_por_cidade": {
+     "bauru": 4.163336342344337e-18,
+     "campinas": 1.2490009027033011e-17,
+     "lins": -1.214306433183765e-17,
+     "sorocaba": 3.4694469519536144e-19
+    },
+    "delta_por_celula": {
+     "bauru_Q1": 1.6653345369377347e-17,
+     "bauru_Q2": -8.326672684688674e-18,
+     "bauru_Q3": -2.7755575615628915e-18,
+     "bauru_Q4": 1.1102230246251566e-17,
+     "campinas_Q1": 1.8041124150158794e-17,
+     "campinas_Q2": -1.3877787807814458e-18,
+     "campinas_Q3": 5.551115123125783e-17,
+     "campinas_Q4": -2.2204460492503132e-17,
+     "lins_Q1": -1.6653345369377347e-17,
+     "lins_Q2": -1.2490009027033011e-17,
+     "lins_Q3": -2.2204460492503132e-17,
+     "lins_Q4": 2.7755575615628915e-18,
+     "sorocaba_Q1": 8.326672684688674e-18,
+     "sorocaba_Q2": 2.7755575615628915e-18,
+     "sorocaba_Q3": 2.7755575615628915e-18,
+     "sorocaba_Q4": -1.2490009027033011e-17
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": 4.163336342344337e-18,
+      "campinas": 1.2490009027033011e-17,
+      "lins": -1.214306433183765e-17,
+      "sorocaba": 3.4694469519536144e-19
+     },
+     "n_cidades": 4,
+     "media": 1.2143064331837649e-18,
+     "ic95_t": [
+      -1.5091135519699824e-17,
+      1.7519748386067352e-17
+     ],
+     "t": 0.23700461679816573,
+     "p_bilateral": 0.8279154099751811,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": 1.2143064331837649e-18,
+     "ic95": [
+      -8.849258131826688e-18,
+      1.214306433183765e-17
+     ]
+    },
+    "papel": "parcela da decomposicao do Delta MAE RSSI ALL (V2-h), descritiva",
+    "destino": null
+   },
+   "so_Q1": {
+    "mae_rssi_ALL": {
+     "n_pares": 20,
+     "n_celulas": 4,
+     "n_cadeias": 20,
+     "media_BA1_runs_pareados": 0.5027080809484317,
+     "media_comparador_runs_pareados": 0.48844281151642577,
+     "delta": 0.014265269432005715,
+     "ic95": [
+      -0.15157333680883092,
+      0.18574486794774733
+     ],
+     "ep_bootstrap": 0.086762163238469,
+     "B_validas": 20000,
+     "ic_exclui_zero": false,
+     "delta_por_cidade": {
+      "bauru": -0.06771350559253948,
+      "campinas": 0.22919833900391798,
+      "lins": -0.19926717197531113,
+      "sorocaba": 0.0948434162919555
+     },
+     "delta_por_celula": {
+      "bauru_Q1": -0.06771350559253948,
+      "campinas_Q1": 0.22919833900391798,
+      "lins_Q1": -0.19926717197531113,
+      "sorocaba_Q1": 0.0948434162919555
+     },
+     "t_4_medias_cidade": {
+      "medias_cidade": {
+       "bauru": -0.06771350559253948,
+       "campinas": 0.22919833900391798,
+       "lins": -0.19926717197531113,
+       "sorocaba": 0.0948434162919555
+      },
+      "n_cidades": 4,
+      "media": 0.014265269432005713,
+      "ic95_t": [
+       -0.28343338285590275,
+       0.3119639217199142
+      ],
+      "t": 0.15249801653068193,
+      "p_bilateral": 0.8884732384930478,
+      "gl": 3
+     },
+     "sensibilidade_vs_media_5_seeds_comparador": {
+      "delta": 0.014265269432005729,
+      "ic95": [
+       -0.14806609354758593,
+       0.18160387711462067
+      ]
+     },
+     "papel": "leitura so Q1 (sem cadeia), descritiva",
+     "destino": null
+    },
+    "mae_rssi_VALID": {
+     "n_pares": 20,
+     "n_celulas": 4,
+     "n_cadeias": 20,
+     "media_BA1_runs_pareados": 2.2305086997238535,
+     "media_comparador_runs_pareados": 3.5263727925722663,
+     "delta": -1.2958640928484133,
+     "ic95": [
+      -4.73438592119435,
+      0.7895107798693856
+     ],
+     "ep_bootstrap": 1.493637554769231,
+     "B_validas": 20000,
+     "ic_exclui_zero": false,
+     "delta_por_cidade": {
+      "bauru": -0.25495015677189264,
+      "campinas": 0.9970033703427159,
+      "lins": -6.237851560970755,
+      "sorocaba": 0.3123419760062792
+     },
+     "delta_por_celula": {
+      "bauru_Q1": -0.25495015677189264,
+      "campinas_Q1": 0.9970033703427159,
+      "lins_Q1": -6.237851560970755,
+      "sorocaba_Q1": 0.3123419760062792
+     },
+     "t_4_medias_cidade": {
+      "medias_cidade": {
+       "bauru": -0.25495015677189264,
+       "campinas": 0.9970033703427159,
+       "lins": -6.237851560970755,
+       "sorocaba": 0.3123419760062792
+      },
+      "n_cidades": 4,
+      "media": -1.295864092848413,
+      "ic95_t": [
+       -6.601291773362925,
+       4.009563587666098
+      ],
+      "t": -0.7773205371513642,
+      "p_bilateral": 0.4936364694004529,
+      "gl": 3
+     },
+     "sensibilidade_vs_media_5_seeds_comparador": {
+      "delta": -1.2958640928484135,
+      "ic95": [
+       -4.65924485591045,
+       0.7647281537029196
+      ]
+     },
+     "papel": "leitura so Q1 (sem cadeia), descritiva",
+     "destino": null
+    }
+   }
+  },
+  "BA1_menos_MLP": {
+   "mae_rssi_ALL": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.33747966683027464,
+    "media_comparador_runs_pareados": 0.6421145028570505,
+    "delta": -0.304634836026776,
+    "ic95": [
+     -0.5291773817807814,
+     -0.07807426401625522
+    ],
+    "ep_bootstrap": 0.11312680507598356,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.13217323625978633,
+     "campinas": -0.534690818749181,
+     "lins": -0.035242152809707925,
+     "sorocaba": -0.5164331362884287
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.3624006509717842,
+     "bauru_Q2": 0.0691692417950182,
+     "bauru_Q3": -0.2039445429145088,
+     "bauru_Q4": -0.031516992947870505,
+     "campinas_Q1": -1.0997803889026985,
+     "campinas_Q2": -0.06079615187642984,
+     "campinas_Q3": -0.5708384726345687,
+     "campinas_Q4": -0.4073482615830268,
+     "lins_Q1": -0.11792222845912484,
+     "lins_Q2": 0.030331809184430004,
+     "lins_Q3": 0.004314869214632644,
+     "lins_Q4": -0.05769306117876951,
+     "sorocaba_Q1": -0.7100364186344892,
+     "sorocaba_Q2": -0.046643691611806,
+     "sorocaba_Q3": -0.9092696555022318,
+     "sorocaba_Q4": -0.3997827794051875
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.13217323625978633,
+      "campinas": -0.534690818749181,
+      "lins": -0.03524215280970792,
+      "sorocaba": -0.5164331362884287
+     },
+     "n_cidades": 4,
+     "media": -0.304634836026776,
+     "ic95_t": [
+      -0.7155892757406094,
+      0.1063196036870574
+     ],
+     "t": -2.3591033815067632,
+     "p_bilateral": 0.09948074348596557,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.304634836026776,
+     "ic95": [
+      -0.5276714907131584,
+      -0.07745423601624939
+     ]
+    },
+    "modelo_misto": {
+     "ajustado": true,
+     "convergiu": false,
+     "intercepto": -0.30463483602677743,
+     "ep": 0.10876315176843089,
+     "ic95_wald": [
+      -0.5178066963379658,
+      -0.091462975715589
+     ],
+     "var_cidade": 0.02165741698006634,
+     "var_componentes": {
+      "cadeia": 0.0003356136584099771,
+      "celula": 0.10057031725692205
+     },
+     "var_residual": 0.009011474088637669,
+     "n_obs": 80,
+     "avisos": [
+      "ConvergenceWarning: Gradient optimization failed, |grad| = 0.774174",
+      "ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals",
+      "ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.",
+      "ConvergenceWarning: Retrying MixedLM optimization with cg",
+      "ConvergenceWarning: Retrying MixedLM optimization with lbfgs",
+      "ConvergenceWarning: The MLE may be on the boundary of the parameter space."
+     ]
+    },
+    "papel": "descritiva",
+    "destino": null
+   },
+   "mae_rssi_VALID": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 1.2327295492042778,
+    "media_comparador_runs_pareados": 2.738726523524156,
+    "delta": -1.5059969743198778,
+    "ic95": [
+     -2.458034888816614,
+     -0.5541706422480372
+    ],
+    "ep_bootstrap": 0.47533783838448657,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.4754286516591762,
+     "campinas": -2.33867536615829,
+     "lins": -0.6752124308892482,
+     "sorocaba": -2.534671448572797
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.9276348721278808,
+     "bauru_Q2": 0.491472854309915,
+     "bauru_Q3": -1.2296374479822112,
+     "bauru_Q4": -0.23591514083652818,
+     "campinas_Q1": -4.156901732601871,
+     "campinas_Q2": -0.33930908514316,
+     "campinas_Q3": -1.8678933512825213,
+     "campinas_Q4": -2.9905972956056077,
+     "lins_Q1": -2.1704718054891656,
+     "lins_Q2": 0.0580954804589928,
+     "lins_Q3": -0.03955881056459615,
+     "lins_Q4": -0.5489145879622231,
+     "sorocaba_Q1": -2.9275820006416327,
+     "sorocaba_Q2": -0.31041874772576794,
+     "sorocaba_Q3": -3.9003123041114085,
+     "sorocaba_Q4": -3.0003727418123796
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.4754286516591761,
+      "campinas": -2.33867536615829,
+      "lins": -0.6752124308892482,
+      "sorocaba": -2.534671448572797
+     },
+     "n_cidades": 4,
+     "media": -1.5059969743198778,
+     "ic95_t": [
+      -3.2256468129373674,
+      0.21365286429761166
+     ],
+     "t": -2.787052572601564,
+     "p_bilateral": 0.06858678383118165,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -1.5059969743198778,
+     "ic95": [
+      -2.45377355561455,
+      -0.5536579442053088
+     ]
+    },
+    "modelo_misto": {
+     "ajustado": true,
+     "convergiu": true,
+     "intercepto": -1.5059969743198622,
+     "ep": 0.5403672102946896,
+     "ic95_wald": [
+      -2.5650972449238356,
+      -0.4468967037158891
+     ],
+     "var_cidade": 0.7444736492938863,
+     "var_componentes": {
+      "cadeia": 0.024548931772984783,
+      "celula": 1.61355258929415
+     },
+     "var_residual": 0.30430609749279547,
+     "n_obs": 80,
+     "avisos": []
+    },
+    "papel": "descritiva",
+    "destino": null
+   },
+   "mae_rssi_COV85": {
+    "n_pares": 35,
+    "n_celulas": 7,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 2.6308654070326782,
+    "media_comparador_runs_pareados": 4.616616567154799,
+    "delta": -2.0347357043600076,
+    "ic95": [
+     -2.6650104412737488,
+     -1.3692030234439092
+    ],
+    "ep_bootstrap": 0.3372327492330705,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -2.8193667919103396,
+     "campinas": -1.8008927091779996,
+     "lins": -1.141055802326476,
+     "sorocaba": -2.377627514025215
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -5.405996052067549,
+     "bauru_Q3": -0.2327375317531291,
+     "campinas_Q1": -3.943117087193181,
+     "campinas_Q3": 0.34133166883718163,
+     "lins_Q1": -2.3356358392730145,
+     "lins_Q2": 0.053524234620061784,
+     "sorocaba_Q3": -2.377627514025215
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -2.8193667919103396,
+      "campinas": -1.8008927091779998,
+      "lins": -1.1410558023264763,
+      "sorocaba": -2.377627514025215
+     },
+     "n_cidades": 4,
+     "media": -2.0347357043600076,
+     "ic95_t": [
+      -3.1919123957419195,
+      -0.8775590129780959
+     ],
+     "t": -5.595893153392434,
+     "p_bilateral": 0.011273487904959582,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -2.0347357043600076,
+     "ic95": [
+      -2.632315270464907,
+      -1.3876021508275935
+     ]
+    },
+    "celulas_elegiveis_n_ge_1000": [
+     "bauru_Q1",
+     "bauru_Q3",
+     "campinas_Q1",
+     "campinas_Q3",
+     "lins_Q1",
+     "lins_Q2",
+     "sorocaba_Q3"
+    ],
+    "n_COV85_por_celula": {
+     "bauru_Q1": 7801,
+     "bauru_Q2": 0,
+     "bauru_Q3": 1151,
+     "bauru_Q4": 0,
+     "campinas_Q1": 6268,
+     "campinas_Q2": 0,
+     "campinas_Q3": 29223,
+     "campinas_Q4": 12,
+     "lins_Q1": 23249,
+     "lins_Q2": 109989,
+     "lins_Q3": 4,
+     "lins_Q4": 0,
+     "sorocaba_Q1": 0,
+     "sorocaba_Q2": 0,
+     "sorocaba_Q3": 4505,
+     "sorocaba_Q4": 0
+    },
+    "tabela_por_celula": [
+     {
+      "celula": "bauru_Q1",
+      "n_COV85": 7801,
+      "delta_media_5_seeds": -5.405996052067549
+     },
+     {
+      "celula": "bauru_Q2",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "bauru_Q3",
+      "n_COV85": 1151,
+      "delta_media_5_seeds": -0.2327375317531291
+     },
+     {
+      "celula": "bauru_Q4",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "campinas_Q1",
+      "n_COV85": 6268,
+      "delta_media_5_seeds": -3.943117087193181
+     },
+     {
+      "celula": "campinas_Q2",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "campinas_Q3",
+      "n_COV85": 29223,
+      "delta_media_5_seeds": 0.34133166883718163
+     },
+     {
+      "celula": "campinas_Q4",
+      "n_COV85": 12,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "lins_Q1",
+      "n_COV85": 23249,
+      "delta_media_5_seeds": -2.3356358392730145
+     },
+     {
+      "celula": "lins_Q2",
+      "n_COV85": 109989,
+      "delta_media_5_seeds": 0.053524234620061784
+     },
+     {
+      "celula": "lins_Q3",
+      "n_COV85": 4,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "lins_Q4",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "sorocaba_Q1",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "sorocaba_Q2",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "sorocaba_Q3",
+      "n_COV85": 4505,
+      "delta_media_5_seeds": -2.377627514025215
+     },
+     {
+      "celula": "sorocaba_Q4",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     }
+    ],
+    "papel": "descritiva",
+    "destino": null
+   },
+   "mae_pl_VALID": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 1.769590208989029,
+    "media_comparador_runs_pareados": 3.537779585474225,
+    "delta": -1.7681893764851964,
+    "ic95": [
+     -2.5728324372317015,
+     -1.020053233594452
+    ],
+    "ep_bootstrap": 0.396724499887895,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -1.093691278472194,
+     "campinas": -2.859784132049968,
+     "lins": -0.9844469472347697,
+     "sorocaba": -2.1348351481838543
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -1.7467510312927648,
+     "bauru_Q2": -0.73279044473007,
+     "bauru_Q3": -1.6634588154447727,
+     "bauru_Q4": -0.23176482242116778,
+     "campinas_Q1": -7.254297619026782,
+     "campinas_Q2": -0.14474641923418413,
+     "campinas_Q3": -1.8307157157813045,
+     "campinas_Q4": -2.2093767741576014,
+     "lins_Q1": -3.3760661508296765,
+     "lins_Q2": 0.3913840094852155,
+     "lins_Q3": 0.14507851433806354,
+     "lins_Q4": -1.0981841619326809,
+     "sorocaba_Q1": -3.7286789442804027,
+     "sorocaba_Q2": -0.010160582172957433,
+     "sorocaba_Q3": -1.9592850849315138,
+     "sorocaba_Q4": -2.8412159813505418
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -1.093691278472194,
+      "campinas": -2.8597841320499686,
+      "lins": -0.9844469472347696,
+      "sorocaba": -2.134835148183854
+     },
+     "n_cidades": 4,
+     "media": -1.7681893764851964,
+     "ic95_t": [
+      -3.1900010932176577,
+      -0.34637765975273505
+     ],
+     "t": -3.957744673232332,
+     "p_bilateral": 0.028796834646369045,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -1.7681893764851968,
+     "ic95": [
+      -2.5726003388484684,
+      -1.025836123015484
+     ]
+    },
+    "papel": "descritiva",
+    "destino": null
+   },
+   "mae_pl_VALID_ate200": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 1.68241787923916,
+    "media_comparador_runs_pareados": 3.4460996036337592,
+    "delta": -1.7636817243945988,
+    "ic95": [
+     -2.5685860454327045,
+     -1.020053233594452
+    ],
+    "ep_bootstrap": 0.39609549083803336,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -1.093691278472194,
+     "campinas": -2.8603115456637664,
+     "lins": -0.9844469472347697,
+     "sorocaba": -2.1162771262076645
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -1.7467510312927648,
+     "bauru_Q2": -0.73279044473007,
+     "bauru_Q3": -1.6634588154447727,
+     "bauru_Q4": -0.23176482242116778,
+     "campinas_Q1": -7.254297619026782,
+     "campinas_Q2": -0.14474641923418413,
+     "campinas_Q3": -1.8328253702364976,
+     "campinas_Q4": -2.2093767741576014,
+     "lins_Q1": -3.3760661508296765,
+     "lins_Q2": 0.3913840094852155,
+     "lins_Q3": 0.14507851433806354,
+     "lins_Q4": -1.0981841619326809,
+     "sorocaba_Q1": -3.7286789442804027,
+     "sorocaba_Q2": -0.010160582172957433,
+     "sorocaba_Q3": -1.8850529970267556,
+     "sorocaba_Q4": -2.8412159813505418
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -1.093691278472194,
+      "campinas": -2.860311545663767,
+      "lins": -0.9844469472347696,
+      "sorocaba": -2.116277126207664
+     },
+     "n_cidades": 4,
+     "media": -1.7636817243945986,
+     "ic95_t": [
+      -3.1818697234016344,
+      -0.3454937253875625
+     ],
+     "t": -3.9577421268730832,
+     "p_bilateral": 0.028796883009527843,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -1.7636817243945984,
+     "ic95": [
+      -2.5651464299990243,
+      -1.025836123015484
+     ]
+    },
+    "papel": "descritiva",
+    "destino": null
+   },
+   "mae_rssi_VALID_ate200": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 1.2232175705756565,
+    "media_comparador_runs_pareados": 2.5629310246278245,
+    "delta": -1.3397134540521678,
+    "ic95": [
+     -2.1375699644189106,
+     -0.5541706422480372
+    ],
+    "ep_bootstrap": 0.398505111918949,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.4754286516591762,
+     "campinas": -2.337285126276587,
+     "lins": -0.6752124308892482,
+     "sorocaba": -1.870927607383661
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.9276348721278808,
+     "bauru_Q2": 0.491472854309915,
+     "bauru_Q3": -1.2296374479822112,
+     "bauru_Q4": -0.23591514083652818,
+     "campinas_Q1": -4.156901732601871,
+     "campinas_Q2": -0.33930908514316,
+     "campinas_Q3": -1.862332391755708,
+     "campinas_Q4": -2.9905972956056077,
+     "lins_Q1": -2.1704718054891656,
+     "lins_Q2": 0.0580954804589928,
+     "lins_Q3": -0.03955881056459615,
+     "lins_Q4": -0.5489145879622231,
+     "sorocaba_Q1": -2.9275820006416327,
+     "sorocaba_Q2": -0.31041874772576794,
+     "sorocaba_Q3": -1.2453369393548646,
+     "sorocaba_Q4": -3.0003727418123796
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.4754286516591761,
+      "campinas": -2.337285126276587,
+      "lins": -0.6752124308892482,
+      "sorocaba": -1.870927607383661
+     },
+     "n_cidades": 4,
+     "media": -1.339713454052168,
+     "ic95_t": [
+      -2.782350550545062,
+      0.10292364244072627
+     ],
+     "t": -2.9553975440892852,
+     "p_bilateral": 0.0597646084623648,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -1.339713454052168,
+     "ic95": [
+      -2.1351527683340956,
+      -0.5536579442053088
+     ]
+    },
+    "papel": "descritiva",
+    "destino": null
+   },
+   "mae_rssi_SENT": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.15014546254746414,
+    "media_comparador_runs_pareados": 0.17585265372643546,
+    "delta": -0.02570719117897135,
+    "ic95": [
+     -0.04438463994680468,
+     -0.005160579953714394
+    ],
+    "ep_bootstrap": 0.0101254066288933,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.025217524034145365,
+     "campinas": -0.041746285582360515,
+     "lins": -0.00188429819038968,
+     "sorocaba": -0.033980656908989826
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.08628834931914289,
+     "bauru_Q2": -0.005073892150112497,
+     "bauru_Q3": -0.009810943866085031,
+     "bauru_Q4": 0.00030308919875895177,
+     "campinas_Q1": -0.12815299034348196,
+     "campinas_Q2": -0.011102561674321701,
+     "campinas_Q3": -0.023380594099117958,
+     "campinas_Q4": -0.004348996212520467,
+     "lins_Q1": -0.054605619503170735,
+     "lins_Q2": 0.02551202894041423,
+     "lins_Q3": 0.009213108677337822,
+     "lins_Q4": 0.012343289123859952,
+     "sorocaba_Q1": -0.08005677791227883,
+     "sorocaba_Q2": 0.0008758457447958334,
+     "sorocaba_Q3": -0.06332589303044185,
+     "sorocaba_Q4": 0.0065841975619655435
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.025217524034145365,
+      "campinas": -0.04174628558236052,
+      "lins": -0.001884298190389682,
+      "sorocaba": -0.03398065690898982
+     },
+     "n_cidades": 4,
+     "media": -0.02570719117897135,
+     "ic95_t": [
+      -0.05316786104428986,
+      0.001753478686347159
+     ],
+     "t": -2.9792337910177333,
+     "p_bilateral": 0.058632956772179404,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.025707191178971345,
+     "ic95": [
+      -0.041797630563241095,
+      -0.007341482231868642
+     ]
+    },
+    "papel": "descritiva",
+    "destino": null
+   },
+   "contrib_mae_rssi_ALL_VALID": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.2135221758953477,
+    "media_comparador_runs_pareados": 0.49849707422244727,
+    "delta": -0.28497489832709966,
+    "ic95": [
+     -0.5011849242127044,
+     -0.06979590693991142
+    ],
+    "ep_bootstrap": 0.1082069973816397,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.11460502237484191,
+     "campinas": -0.5029731543061745,
+     "lins": -0.03220654172994507,
+     "sorocaba": -0.49011487489743705
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.30443033006354836,
+     "bauru_Q2": 0.0734844910636507,
+     "bauru_Q3": -0.19569499637530446,
+     "bauru_Q4": -0.03177925412416554,
+     "campinas_Q1": -1.002534502623299,
+     "campinas_Q2": -0.05137462366910368,
+     "campinas_Q3": -0.5543973211576569,
+     "campinas_Q4": -0.4035861697746381,
+     "lins_Q1": -0.06495066439848611,
+     "lins_Q2": 0.008593547826669087,
+     "lins_Q3": -0.003972952674755144,
+     "lins_Q4": -0.06849609767320809,
+     "sorocaba_Q1": -0.6476912099767977,
+     "sorocaba_Q2": -0.047385838328538314,
+     "sorocaba_Q3": -0.8599052777008644,
+     "sorocaba_Q4": -0.40547717358354785
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.11460502237484191,
+      "campinas": -0.5029731543061745,
+      "lins": -0.03220654172994507,
+      "sorocaba": -0.49011487489743705
+     },
+     "n_cidades": 4,
+     "media": -0.28497489832709966,
+     "ic95_t": [
+      -0.6774659146337192,
+      0.10751611797951982
+     ],
+     "t": -2.3106702436500663,
+     "p_bilateral": 0.1039672106089884,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.28497489832709966,
+     "ic95": [
+      -0.49880869149554113,
+      -0.06780745051723547
+     ]
+    },
+    "papel": "parcela da decomposicao do Delta MAE RSSI ALL (V2-h), descritiva",
+    "destino": null
+   },
+   "contrib_mae_rssi_ALL_SENT": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.12395749093492699,
+    "media_comparador_runs_pareados": 0.14361742863460333,
+    "delta": -0.019659937699676337,
+    "ic95": [
+     -0.03417602468728155,
+     -0.0037551810674532693
+    ],
+    "ep_bootstrap": 0.007839788551321752,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.017568213884944416,
+     "campinas": -0.031717664443006485,
+     "lins": -0.0030356110797628544,
+     "sorocaba": -0.026318261390991592
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.05797032090823586,
+     "bauru_Q2": -0.004315249268632501,
+     "bauru_Q3": -0.00824954653920434,
+     "bauru_Q4": 0.0002622611762950422,
+     "campinas_Q1": -0.09724588627939938,
+     "campinas_Q2": -0.009421528207326158,
+     "campinas_Q3": -0.016441151476911754,
+     "campinas_Q4": -0.003762091808388679,
+     "lins_Q1": -0.05297156406063871,
+     "lins_Q2": 0.021738261357760923,
+     "lins_Q3": 0.008287821889387792,
+     "lins_Q4": 0.010803036494438584,
+     "sorocaba_Q1": -0.06234520865769146,
+     "sorocaba_Q2": 0.0007421467167323004,
+     "sorocaba_Q3": -0.04936437780136753,
+     "sorocaba_Q4": 0.0056943941783603414
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.017568213884944416,
+      "campinas": -0.03171766444300649,
+      "lins": -0.003035611079762851,
+      "sorocaba": -0.02631826139099159
+     },
+     "n_cidades": 4,
+     "media": -0.019659937699676337,
+     "ic95_t": [
+      -0.03958659240832507,
+      0.00026671700897239886
+     ],
+     "t": -3.1398494634067755,
+     "p_bilateral": 0.05166953948119945,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.019659937699676337,
+     "ic95": [
+      -0.031742167935254535,
+      -0.005836290074856509
+     ]
+    },
+    "papel": "parcela da decomposicao do Delta MAE RSSI ALL (V2-h), descritiva",
+    "destino": null
+   },
+   "contrib_mae_rssi_ALL_SENT_abaixo_110": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.07730760308748261,
+    "media_comparador_runs_pareados": 0.0960411020884875,
+    "delta": -0.01873349900100487,
+    "ic95": [
+     -0.03717999303758129,
+     0.003097993866508461
+    ],
+    "ep_bootstrap": 0.010416347256551607,
+    "B_validas": 20000,
+    "ic_exclui_zero": false,
+    "delta_por_cidade": {
+     "bauru": -0.018741466347651524,
+     "campinas": -0.03354550218423073,
+     "lins": 0.005836000694045394,
+     "sorocaba": -0.028483028166182634
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.09119800891767273,
+     "bauru_Q2": -0.02057219318485034,
+     "bauru_Q3": 0.00933019284467607,
+     "bauru_Q4": 0.027474143867240876,
+     "campinas_Q1": -0.1277979175088521,
+     "campinas_Q2": -0.01574277404916253,
+     "campinas_Q3": 0.0033567115387187043,
+     "campinas_Q4": 0.006001971282372981,
+     "lins_Q1": -0.04111381393557768,
+     "lins_Q2": 0.025195299144786486,
+     "lins_Q3": -0.002846122412850227,
+     "lins_Q4": 0.04210863997982299,
+     "sorocaba_Q1": -0.08318614341972709,
+     "sorocaba_Q2": 0.020222669963671884,
+     "sorocaba_Q3": -0.0687459980463809,
+     "sorocaba_Q4": 0.017777358837705575
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.01874146634765153,
+      "campinas": -0.03354550218423073,
+      "lins": 0.005836000694045396,
+      "sorocaba": -0.028483028166182634
+     },
+     "n_cidades": 4,
+     "media": -0.018733499001004874,
+     "ic95_t": [
+      -0.04657019050034541,
+      0.00910319249833566
+     ],
+     "t": -2.1417184108318468,
+     "p_bilateral": 0.12165536089458373,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.01873349900100487,
+     "ic95": [
+      -0.03419952654342078,
+      -0.0001539651870333059
+     ]
+    },
+    "papel": "parcela da decomposicao do Delta MAE RSSI ALL (V2-h), descritiva",
+    "destino": null
+   },
+   "contrib_mae_rssi_ALL_SENT_acima_110": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.04664988784744435,
+    "media_comparador_runs_pareados": 0.04757632654611582,
+    "delta": -0.0009264386986714658,
+    "ic95": [
+     -0.01028284375727662,
+     0.007190101365305683
+    ],
+    "ep_bootstrap": 0.004437262894414356,
+    "B_validas": 20000,
+    "ic_exclui_zero": false,
+    "delta_por_cidade": {
+     "bauru": 0.001173252462707109,
+     "campinas": 0.0018278377412242392,
+     "lins": -0.008871611773808245,
+     "sorocaba": 0.0021647667751910358
+    },
+    "delta_por_celula": {
+     "bauru_Q1": 0.03322768800943684,
+     "bauru_Q2": 0.016256943916217823,
+     "bauru_Q3": -0.0175797393838804,
+     "bauru_Q4": -0.027211882690945828,
+     "campinas_Q1": 0.030552031229452704,
+     "campinas_Q2": 0.006321245841836362,
+     "campinas_Q3": -0.019797863015630458,
+     "campinas_Q4": -0.009764063090761657,
+     "lins_Q1": -0.011857750125061028,
+     "lins_Q2": -0.0034570377870255637,
+     "lins_Q3": 0.011133944302238019,
+     "lins_Q4": -0.0313056034853844,
+     "sorocaba_Q1": 0.0208409347620356,
+     "sorocaba_Q2": -0.01948052324693958,
+     "sorocaba_Q3": 0.01938162024501337,
+     "sorocaba_Q4": -0.012082964659345238
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": 0.0011732524627071077,
+      "campinas": 0.0018278377412242384,
+      "lins": -0.008871611773808245,
+      "sorocaba": 0.002164766775191037
+     },
+     "n_cidades": 4,
+     "media": -0.0009264386986714653,
+     "ic95_t": [
+      -0.009380216015645353,
+      0.007527338618302422
+     ],
+     "t": -0.3487602409089998,
+     "p_bilateral": 0.7503108170492859,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.0009264386986714661,
+     "ic95": [
+      -0.008879815696501845,
+      0.005480281256220443
+     ]
+    },
+    "papel": "parcela da decomposicao do Delta MAE RSSI ALL (V2-h), descritiva",
+    "destino": null
+   },
+   "resto_mae_rssi_ALL": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": -7.806255641895632e-19,
+    "media_comparador_runs_pareados": -1.0234868508263162e-17,
+    "delta": 9.454242944073599e-18,
+    "ic95": [
+     -5.551115123125783e-18,
+     3.096481404618601e-17
+    ],
+    "ep_bootstrap": 9.444282696917072e-18,
+    "B_validas": 20000,
+    "ic_exclui_zero": false,
+    "delta_por_cidade": {
+     "bauru": 2.7755575615628915e-18,
+     "campinas": 3.053113317719181e-17,
+     "lins": -5.551115123125783e-18,
+     "sorocaba": 1.0061396160665481e-17
+    },
+    "delta_por_celula": {
+     "bauru_Q1": 5.551115123125783e-18,
+     "bauru_Q2": 8.326672684688674e-18,
+     "bauru_Q3": 5.551115123125783e-18,
+     "bauru_Q4": -8.326672684688674e-18,
+     "campinas_Q1": 7.632783294297951e-17,
+     "campinas_Q2": 1.3877787807814458e-18,
+     "campinas_Q3": 7.771561172376095e-17,
+     "campinas_Q4": -3.3306690738754695e-17,
+     "lins_Q1": -5.551115123125783e-18,
+     "lins_Q2": -8.326672684688674e-18,
+     "lins_Q3": -5.551115123125783e-18,
+     "lins_Q4": -2.7755575615628915e-18,
+     "sorocaba_Q1": -5.551115123125783e-18,
+     "sorocaba_Q2": 1.1102230246251566e-17,
+     "sorocaba_Q3": 8.326672684688674e-18,
+     "sorocaba_Q4": 2.6367796834847467e-17
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": 2.7755575615628915e-18,
+      "campinas": 3.053113317719181e-17,
+      "lins": -5.551115123125783e-18,
+      "sorocaba": 1.0061396160665481e-17
+     },
+     "n_cidades": 4,
+     "media": 9.4542429440736e-18,
+     "ic95_t": [
+      -1.5100304144495517e-17,
+      3.400879003264272e-17
+     ],
+     "t": 1.2253380369059337,
+     "p_bilateral": 0.30787427667899253,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": 9.4542429440736e-18,
+     "ic95": [
+      -2.949029909160572e-18,
+      2.5068922632209655e-17
+     ]
+    },
+    "papel": "parcela da decomposicao do Delta MAE RSSI ALL (V2-h), descritiva",
+    "destino": null
+   },
+   "so_Q1": {
+    "mae_rssi_ALL": {
+     "n_pares": 20,
+     "n_celulas": 4,
+     "n_cadeias": 20,
+     "media_BA1_runs_pareados": 0.5027080809484317,
+     "media_comparador_runs_pareados": 1.0752430026904558,
+     "delta": -0.5725349217420241,
+     "ic95": [
+      -0.9458272316779964,
+      -0.22369803027733326
+     ],
+     "ep_bootstrap": 0.1876102553513544,
+     "B_validas": 20000,
+     "ic_exclui_zero": true,
+     "delta_por_cidade": {
+      "bauru": -0.3624006509717842,
+      "campinas": -1.0997803889026985,
+      "lins": -0.11792222845912484,
+      "sorocaba": -0.7100364186344892
+     },
+     "delta_por_celula": {
+      "bauru_Q1": -0.3624006509717842,
+      "campinas_Q1": -1.0997803889026985,
+      "lins_Q1": -0.11792222845912484,
+      "sorocaba_Q1": -0.7100364186344892
+     },
+     "t_4_medias_cidade": {
+      "medias_cidade": {
+       "bauru": -0.3624006509717842,
+       "campinas": -1.0997803889026985,
+       "lins": -0.11792222845912484,
+       "sorocaba": -0.7100364186344892
+      },
+      "n_cidades": 4,
+      "media": -0.5725349217420241,
+      "ic95_t": [
+       -1.2524445194578477,
+       0.10737467597379946
+      ],
+      "t": -2.679858693663204,
+      "p_bilateral": 0.0750579354444087,
+      "gl": 3
+     },
+     "sensibilidade_vs_media_5_seeds_comparador": {
+      "delta": -0.5725349217420244,
+      "ic95": [
+       -0.9434545291830393,
+       -0.2210680106480794
+      ]
+     },
+     "papel": "leitura so Q1 (sem cadeia), descritiva",
+     "destino": null
+    },
+    "mae_rssi_VALID": {
+     "n_pares": 20,
+     "n_celulas": 4,
+     "n_cadeias": 20,
+     "media_BA1_runs_pareados": 2.2305086997238535,
+     "media_comparador_runs_pareados": 4.776156302438991,
+     "delta": -2.5456476027151376,
+     "ic95": [
+      -3.7420943768279282,
+      -1.3697245665171291
+     ],
+     "ep_bootstrap": 0.6078286734432647,
+     "B_validas": 20000,
+     "ic_exclui_zero": true,
+     "delta_por_cidade": {
+      "bauru": -0.9276348721278808,
+      "campinas": -4.156901732601871,
+      "lins": -2.1704718054891656,
+      "sorocaba": -2.9275820006416327
+     },
+     "delta_por_celula": {
+      "bauru_Q1": -0.9276348721278808,
+      "campinas_Q1": -4.156901732601871,
+      "lins_Q1": -2.1704718054891656,
+      "sorocaba_Q1": -2.9275820006416327
+     },
+     "t_4_medias_cidade": {
+      "medias_cidade": {
+       "bauru": -0.9276348721278808,
+       "campinas": -4.156901732601871,
+       "lins": -2.1704718054891656,
+       "sorocaba": -2.9275820006416327
+      },
+      "n_cidades": 4,
+      "media": -2.545647602715137,
+      "ic95_t": [
+       -4.700318055841079,
+       -0.3909771495891956
+      ],
+      "t": -3.759919200665619,
+      "p_bilateral": 0.032891869164887934,
+      "gl": 3
+     },
+     "sensibilidade_vs_media_5_seeds_comparador": {
+      "delta": -2.5456476027151376,
+      "ic95": [
+       -3.739662868982473,
+       -1.370164626165037
+      ]
+     },
+     "papel": "leitura so Q1 (sem cadeia), descritiva",
+     "destino": null
+    }
+   }
+  },
+  "BA1_menos_empirico": {
+   "mae_rssi_ALL": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.33747966683027464,
+    "media_comparador_runs_pareados": 1.154739129356214,
+    "delta": -0.8172594625259393,
+    "ic95": [
+     -0.9741169901852768,
+     -0.6375209378941288
+    ],
+    "ep_bootstrap": 0.08224721419372455,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -0.8369204367726677,
+     "campinas": -0.8431781010003896,
+     "lins": -0.5671045479494761,
+     "sorocaba": -1.021834764381224
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -1.3857298927988022,
+     "bauru_Q2": -0.5403439299366521,
+     "bauru_Q3": -0.7886693325981637,
+     "bauru_Q4": -0.6329385917570527,
+     "campinas_Q1": -1.269405473459188,
+     "campinas_Q2": -0.09968446861613382,
+     "campinas_Q3": -1.3770443595346633,
+     "campinas_Q4": -0.6265781023915735,
+     "lins_Q1": -1.1336637651742718,
+     "lins_Q2": -0.28145122770296993,
+     "lins_Q3": -0.2048655288605535,
+     "lins_Q4": -0.6484376700601093,
+     "sorocaba_Q1": -1.2168217489143403,
+     "sorocaba_Q2": -0.18409553137715576,
+     "sorocaba_Q3": -2.2908922978110744,
+     "sorocaba_Q4": -0.3955294794223254
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.8369204367726677,
+      "campinas": -0.8431781010003897,
+      "lins": -0.5671045479494761,
+      "sorocaba": -1.021834764381224
+     },
+     "n_cidades": 4,
+     "media": -0.8172594625259393,
+     "ic95_t": [
+      -1.1156394249795525,
+      -0.5188795000723261
+     ],
+     "t": -8.71668571705167,
+     "p_bilateral": 0.0031784324524208427,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -0.8172594625259393,
+     "ic95": [
+      -0.9741169901852768,
+      -0.6375209378941288
+     ]
+    },
+    "modelo_misto": {
+     "ajustado": true,
+     "convergiu": false,
+     "intercepto": -0.8172594625259327,
+     "ep": 0.0978684183584121,
+     "ic95_wald": [
+      -1.0090780377323192,
+      -0.6254408873195464
+     ],
+     "var_cidade": 0.006630172817902683,
+     "var_componentes": {
+      "cadeia": 0.0012338746166355812,
+      "celula": 0.12430669785588844
+     },
+     "var_residual": 0.007185740854141533,
+     "n_obs": 80,
+     "avisos": [
+      "ConvergenceWarning: Gradient optimization failed, |grad| = 10.523489",
+      "ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals",
+      "ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.",
+      "ConvergenceWarning: Retrying MixedLM optimization with cg",
+      "ConvergenceWarning: Retrying MixedLM optimization with lbfgs",
+      "ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite.",
+      "ConvergenceWarning: The MLE may be on the boundary of the parameter space."
+     ]
+    },
+    "papel": "descritiva",
+    "destino": null
+   },
+   "mae_rssi_VALID": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 1.2327295492042778,
+    "media_comparador_runs_pareados": 5.500608934537839,
+    "delta": -4.267879385333561,
+    "ic95": [
+     -5.338257080198641,
+     -3.1449923342820743
+    ],
+    "ep_bootstrap": 0.5414571290949526,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -4.505069028676768,
+     "campinas": -4.146305744323071,
+     "lins": -2.708745345584839,
+     "sorocaba": -5.711397422749568
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -3.852714800776637,
+     "bauru_Q2": -4.4391865991256525,
+     "bauru_Q3": -4.290986843816567,
+     "bauru_Q4": -5.437387870988216,
+     "campinas_Q1": -4.757020981372329,
+     "campinas_Q2": -1.3337603169079277,
+     "campinas_Q3": -5.113560145749724,
+     "campinas_Q4": -5.380881533262302,
+     "lins_Q1": -0.278460025223141,
+     "lins_Q2": -2.3381938940105726,
+     "lins_Q3": -2.4744302947051784,
+     "lins_Q4": -5.743897168400463,
+     "sorocaba_Q1": -6.169989779219636,
+     "sorocaba_Q2": -2.0934159909850196,
+     "sorocaba_Q3": -10.87860102537969,
+     "sorocaba_Q4": -3.7035828954139225
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -4.505069028676767,
+      "campinas": -4.1463057443230715,
+      "lins": -2.708745345584839,
+      "sorocaba": -5.711397422749566
+     },
+     "n_cidades": 4,
+     "media": -4.267879385333561,
+     "ic95_t": [
+      -6.235187784286483,
+      -2.30057098638064
+     ],
+     "t": -6.903999895735881,
+     "p_bilateral": 0.006227344182528356,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -4.267879385333562,
+     "ic95": [
+      -5.338257080198641,
+      -3.1449923342820747
+     ]
+    },
+    "modelo_misto": {
+     "ajustado": true,
+     "convergiu": false,
+     "intercepto": -4.2678793853335595,
+     "ep": 0.4855044690864526,
+     "ic95_wald": [
+      -5.219450659076246,
+      -3.3163081115908724
+     ],
+     "var_cidade": 0.27141895344929157,
+     "var_componentes": {
+      "cadeia": 0.008335725126324571,
+      "celula": 2.6341005168739158
+     },
+     "var_residual": 0.22494260637252905,
+     "n_obs": 80,
+     "avisos": [
+      "ConvergenceWarning: Gradient optimization failed, |grad| = 6.684797",
+      "ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals",
+      "ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.",
+      "ConvergenceWarning: Retrying MixedLM optimization with cg",
+      "ConvergenceWarning: Retrying MixedLM optimization with lbfgs",
+      "ConvergenceWarning: The MLE may be on the boundary of the parameter space."
+     ]
+    },
+    "papel": "descritiva",
+    "destino": null
+   },
+   "mae_rssi_COV85": {
+    "n_pares": 35,
+    "n_celulas": 7,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 2.6308654070326782,
+    "media_comparador_runs_pareados": 5.605012032476454,
+    "delta": -2.6733288478445565,
+    "ic95": [
+     -4.443083146242867,
+     -0.89029921270982
+    ],
+    "ep_bootstrap": 0.9302621769320105,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -5.257928220088264,
+     "campinas": -3.5503749091403627,
+     "lins": -1.3174078574995847,
+     "sorocaba": -0.5676044046500142
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -6.9102336308319465,
+     "bauru_Q3": -3.6056228093445823,
+     "campinas_Q1": -5.060059371224254,
+     "campinas_Q3": -2.0406904470564715,
+     "lins_Q1": -0.31572536905038867,
+     "lins_Q2": -2.319090345948781,
+     "sorocaba_Q3": -0.5676044046500142
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -5.257928220088265,
+      "campinas": -3.550374909140362,
+      "lins": -1.3174078574995847,
+      "sorocaba": -0.5676044046500142
+     },
+     "n_cidades": 4,
+     "media": -2.6733288478445565,
+     "ic95_t": [
+      -6.076458931356255,
+      0.7298012356671424
+     ],
+     "t": -2.4999707051609725,
+     "p_bilateral": 0.08770891220793683,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -2.6733288478445565,
+     "ic95": [
+      -4.443083146242867,
+      -0.89029921270982
+     ]
+    },
+    "celulas_elegiveis_n_ge_1000": [
+     "bauru_Q1",
+     "bauru_Q3",
+     "campinas_Q1",
+     "campinas_Q3",
+     "lins_Q1",
+     "lins_Q2",
+     "sorocaba_Q3"
+    ],
+    "n_COV85_por_celula": {
+     "bauru_Q1": 7801,
+     "bauru_Q2": 0,
+     "bauru_Q3": 1151,
+     "bauru_Q4": 0,
+     "campinas_Q1": 6268,
+     "campinas_Q2": 0,
+     "campinas_Q3": 29223,
+     "campinas_Q4": 12,
+     "lins_Q1": 23249,
+     "lins_Q2": 109989,
+     "lins_Q3": 4,
+     "lins_Q4": 0,
+     "sorocaba_Q1": 0,
+     "sorocaba_Q2": 0,
+     "sorocaba_Q3": 4505,
+     "sorocaba_Q4": 0
+    },
+    "tabela_por_celula": [
+     {
+      "celula": "bauru_Q1",
+      "n_COV85": 7801,
+      "delta_media_5_seeds": -6.9102336308319465
+     },
+     {
+      "celula": "bauru_Q2",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "bauru_Q3",
+      "n_COV85": 1151,
+      "delta_media_5_seeds": -3.6056228093445823
+     },
+     {
+      "celula": "bauru_Q4",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "campinas_Q1",
+      "n_COV85": 6268,
+      "delta_media_5_seeds": -5.060059371224254
+     },
+     {
+      "celula": "campinas_Q2",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "campinas_Q3",
+      "n_COV85": 29223,
+      "delta_media_5_seeds": -2.0406904470564715
+     },
+     {
+      "celula": "campinas_Q4",
+      "n_COV85": 12,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "lins_Q1",
+      "n_COV85": 23249,
+      "delta_media_5_seeds": -0.31572536905038867
+     },
+     {
+      "celula": "lins_Q2",
+      "n_COV85": 109989,
+      "delta_media_5_seeds": -2.319090345948781
+     },
+     {
+      "celula": "lins_Q3",
+      "n_COV85": 4,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "lins_Q4",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "sorocaba_Q1",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "sorocaba_Q2",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     },
+     {
+      "celula": "sorocaba_Q3",
+      "n_COV85": 4505,
+      "delta_media_5_seeds": -0.5676044046500142
+     },
+     {
+      "celula": "sorocaba_Q4",
+      "n_COV85": 0,
+      "delta_media_5_seeds": null
+     }
+    ],
+    "papel": "descritiva",
+    "destino": null
+   },
+   "mae_pl_VALID": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 1.769590208989029,
+    "media_comparador_runs_pareados": 11.95185639906116,
+    "delta": -10.182266190072133,
+    "ic95": [
+     -12.495678936204722,
+     -7.455027377871607
+    ],
+    "ep_bootstrap": 1.355360033795289,
+    "B_validas": 20000,
+    "ic_exclui_zero": true,
+    "delta_por_cidade": {
+     "bauru": -12.378344552646041,
+     "campinas": -9.860393669827541,
+     "lins": -12.578006004433243,
+     "sorocaba": -5.9123205333817115
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -13.685072197942214,
+     "bauru_Q2": -8.84478981695839,
+     "bauru_Q3": -14.194556678718646,
+     "bauru_Q4": -12.788959516964912,
+     "campinas_Q1": -4.804111515166251,
+     "campinas_Q2": -22.461023687169718,
+     "campinas_Q3": -3.278336689941278,
+     "campinas_Q4": -8.898102787032919,
+     "lins_Q1": -9.930185473463446,
+     "lins_Q2": -14.76461308536416,
+     "lins_Q3": -17.062753463466894,
+     "lins_Q4": -8.554471995438469,
+     "sorocaba_Q1": 0.3895526270245664,
+     "sorocaba_Q2": -7.47103962854065,
+     "sorocaba_Q3": -7.432336320680834,
+     "sorocaba_Q4": -9.13545881132993
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -12.378344552646041,
+      "campinas": -9.860393669827543,
+      "lins": -12.578006004433243,
+      "sorocaba": -5.9123205333817115
+     },
+     "n_cidades": 4,
+     "media": -10.182266190072134,
+     "ic95_t": [
+      -15.120903294105677,
+      -5.243629086038591
+     ],
+     "t": -6.5614287369980016,
+     "p_bilateral": 0.007199492939096116,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": -10.182266190072133,
+     "ic95": [
+      -12.495678936204722,
+      -7.455027377871607
+     ]
+    },
+    "papel": "descritiva",
+    "destino": null
+   },
+   "mae_pl_VALID_ate200": {
+    "n_pares": 0,
+    "motivo": "sem pares disponiveis"
+   },
+   "mae_rssi_VALID_ate200": {
+    "n_pares": 0,
+    "motivo": "sem pares disponiveis"
+   },
+   "mae_rssi_SENT": {
+    "n_pares": 80,
+    "n_celulas": 16,
+    "n_cadeias": 20,
+    "media_BA1_runs_pareados": 0.15014546254746414,
+    "media_comparador_runs_pareados": 0.1279635890543638,
+    "delta": 0.02218187349310033,
+    "ic95": [
+     -0.08024080856605798,
+     0.11699130852876506
+    ],
+    "ep_bootstrap": 0.05204530979503783,
+    "B_validas": 20000,
+    "ic_exclui_zero": false,
+    "delta_por_cidade": {
+     "bauru": -0.005343459617925364,
+     "campinas": 0.068680030248421,
+     "lins": -0.12715888750383672,
+     "sorocaba": 0.1525498108457424
+    },
+    "delta_por_celula": {
+     "bauru_Q1": -0.15943538133442697,
+     "bauru_Q2": 0.14509254264237192,
+     "bauru_Q3": -0.12203446284849084,
+     "bauru_Q4": 0.11500346306884439,
+     "campinas_Q1": -0.1609565758998636,
+     "campinas_Q2": 0.12050516051178961,
+     "campinas_Q3": 0.2000554525934352,
+     "campinas_Q4": 0.11511608378832276,
+     "lins_Q1": -0.8053121097494899,
+     "lins_Q2": 0.0901569179754765,
+     "lins_Q3": 0.10572639103882472,
+     "lins_Q4": 0.1007932507198418,
+     "sorocaba_Q1": 0.19031731577362845,
+     "sorocaba_Q2": 0.15987188632613503,
+     "sorocaba_Q3": 0.13862463380115547,
+     "sorocaba_Q4": 0.12138540748205062
+    },
+    "t_4_medias_cidade": {
+     "medias_cidade": {
+      "bauru": -0.005343459617925359,
+      "campinas": 0.06868003024842101,
+      "lins": -0.12715888750383672,
+      "sorocaba": 0.1525498108457424
+     },
+     "n_cidades": 4,
+     "media": 0.022181873493100333,
+     "ic95_t": [
+      -0.16658259031831757,
+      0.21094633730451823
+     ],
+     "t": 0.3739719856005958,
+     "p_bilateral": 0.7332918674059004,
+     "gl": 3
+    },
+    "sensibilidade_vs_media_5_seeds_comparador": {
+     "delta": 0.02218187349310033,
+     "ic95": [
+      -0.08024080856605798,
+      0.11699130852876506
+     ]
+    },
+    "papel": "descritiva",
+    "destino": null
+   },
+   "so_Q1": {
+    "mae_rssi_ALL": {
+     "n_pares": 20,
+     "n_celulas": 4,
+     "n_cadeias": 20,
+     "media_BA1_runs_pareados": 0.5027080809484317,
+     "media_comparador_runs_pareados": 1.7541133010350822,
+     "delta": -1.2514052200866508,
+     "ic95": [
+      -1.3564994990117496,
+      -1.157612528872893
+     ],
+     "ep_bootstrap": 0.05142587357153271,
+     "B_validas": 20000,
+     "ic_exclui_zero": true,
+     "delta_por_cidade": {
+      "bauru": -1.3857298927988022,
+      "campinas": -1.269405473459188,
+      "lins": -1.1336637651742718,
+      "sorocaba": -1.2168217489143403
+     },
+     "delta_por_celula": {
+      "bauru_Q1": -1.3857298927988022,
+      "campinas_Q1": -1.269405473459188,
+      "lins_Q1": -1.1336637651742718,
+      "sorocaba_Q1": -1.2168217489143403
+     },
+     "t_4_medias_cidade": {
+      "medias_cidade": {
+       "bauru": -1.3857298927988022,
+       "campinas": -1.269405473459188,
+       "lins": -1.1336637651742718,
+       "sorocaba": -1.2168217489143403
+      },
+      "n_cidades": 4,
+      "media": -1.2514052200866506,
+      "ic95_t": [
+       -1.4193683362536258,
+       -1.0834421039196753
+      ],
+      "t": -23.710740845736645,
+      "p_bilateral": 0.00016438469294615608,
+      "gl": 3
+     },
+     "sensibilidade_vs_media_5_seeds_comparador": {
+      "delta": -1.2514052200866503,
+      "ic95": [
+       -1.3564994990117496,
+       -1.1576125288728925
+      ]
+     },
+     "papel": "leitura so Q1 (sem cadeia), descritiva",
+     "destino": null
+    },
+    "mae_rssi_VALID": {
+     "n_pares": 20,
+     "n_celulas": 4,
+     "n_cadeias": 20,
+     "media_BA1_runs_pareados": 2.2305086997238535,
+     "media_comparador_runs_pareados": 5.9950550963717895,
+     "delta": -3.764546396647936,
+     "ic95": [
+      -5.648039611009499,
+      -1.3607413162949842
+     ],
+     "ep_bootstrap": 1.1065976258733858,
+     "B_validas": 20000,
+     "ic_exclui_zero": true,
+     "delta_por_cidade": {
+      "bauru": -3.852714800776637,
+      "campinas": -4.757020981372329,
+      "lins": -0.278460025223141,
+      "sorocaba": -6.169989779219636
+     },
+     "delta_por_celula": {
+      "bauru_Q1": -3.852714800776637,
+      "campinas_Q1": -4.757020981372329,
+      "lins_Q1": -0.278460025223141,
+      "sorocaba_Q1": -6.169989779219636
+     },
+     "t_4_medias_cidade": {
+      "medias_cidade": {
+       "bauru": -3.852714800776637,
+       "campinas": -4.757020981372329,
+       "lins": -0.278460025223141,
+       "sorocaba": -6.169989779219636
+      },
+      "n_cidades": 4,
+      "media": -3.764546396647936,
+      "ic95_t": [
+       -7.761836573044301,
+       0.23274377974842864
+      ],
+      "t": -2.997147127777935,
+      "p_bilateral": 0.05780014537095851,
+      "gl": 3
+     },
+     "sensibilidade_vs_media_5_seeds_comparador": {
+      "delta": -3.764546396647936,
+      "ic95": [
+       -5.6480396110095,
+       -1.3607413162949844
+      ]
+     },
+     "papel": "leitura so Q1 (sem cadeia), descritiva",
+     "destino": null
+    }
+   }
+  }
+ },
+ "tabela": [
+  {
+   "contraste": "BA1_menos_C0",
+   "metrica": "mae_rssi_ALL",
+   "populacao_leitura": "todas as Q",
+   "delta": -0.05714348329303023,
+   "ic95": [
+    -0.1182514280210459,
+    0.0025120967515121786
+   ],
+   "n_pares": 80,
+   "media_BA1": 0.33747966683027464,
+   "media_comparador": 0.3946231501233049,
+   "destino": "IC cruza +-delta: inconclusivo",
+   "sensibilidade_delta": -0.057143483293030206,
+   "sensibilidade_ic95": [
+    -0.11003044233473432,
+    -0.014982616079026664
+   ],
+   "destino_sensibilidade": "IC cruza +-delta: inconclusivo"
+  },
+  {
+   "contraste": "BA1_menos_C0",
+   "metrica": "mae_rssi_VALID",
+   "populacao_leitura": "todas as Q",
+   "delta": -0.7794464507639071,
+   "ic95": [
+    -1.8483671007506572,
+    -0.11631434384529607
+   ],
+   "n_pares": 80,
+   "media_BA1": 1.2327295492042778,
+   "media_comparador": 2.0121759999681847,
+   "destino": "IC cruza +-delta: inconclusivo",
+   "sensibilidade_delta": -0.7794464507639071,
+   "sensibilidade_ic95": [
+    -1.8232135741838535,
+    -0.20431283321890334
+   ],
+   "destino_sensibilidade": "IC cruza +-delta: inconclusivo"
+  },
+  {
+   "contraste": "BA1_menos_C0",
+   "metrica": "mae_rssi_COV85",
+   "populacao_leitura": "todas as Q",
+   "delta": -4.919978217372611,
+   "ic95": [
+    -7.386049028302525,
+    -2.842129876179267
+   ],
+   "n_pares": 35,
+   "media_BA1": 2.6308654070326782,
+   "media_comparador": 7.9307461467530675,
+   "destino": null,
+   "sensibilidade_delta": -4.91997821737261,
+   "sensibilidade_ic95": [
+    -7.465691532491767,
+    -2.839342573756849
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_C0",
+   "metrica": "mae_pl_VALID",
+   "populacao_leitura": "todas as Q",
+   "delta": -1.031150362915389,
+   "ic95": [
+    -1.9267160653042894,
+    -0.17175601290269188
+   ],
+   "n_pares": 80,
+   "media_BA1": 1.769590208989029,
+   "media_comparador": 2.800740571904418,
+   "destino": null,
+   "sensibilidade_delta": -1.031150362915389,
+   "sensibilidade_ic95": [
+    -1.8067699079227206,
+    -0.24357300467500753
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_C0",
+   "metrica": "mae_pl_VALID_ate200",
+   "populacao_leitura": "todas as Q",
+   "delta": -1.0358867332245592,
+   "ic95": [
+    -1.9266758664629728,
+    -0.1832170307055865
+   ],
+   "n_pares": 80,
+   "media_BA1": 1.68241787923916,
+   "media_comparador": 2.718304612463719,
+   "destino": null,
+   "sensibilidade_delta": -1.0358867332245594,
+   "sensibilidade_ic95": [
+    -1.8067699079227206,
+    -0.25819566598239446
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_C0",
+   "metrica": "mae_rssi_VALID_ate200",
+   "populacao_leitura": "todas as Q",
+   "delta": -0.7886171558610097,
+   "ic95": [
+    -1.8512587399082676,
+    -0.12879394841405634
+   ],
+   "n_pares": 80,
+   "media_BA1": 1.2232175705756565,
+   "media_comparador": 2.011834726436666,
+   "destino": null,
+   "sensibilidade_delta": -0.7886171558610096,
+   "sensibilidade_ic95": [
+    -1.8278526996222466,
+    -0.217009812982749
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_C0",
+   "metrica": "mae_rssi_SENT",
+   "populacao_leitura": "todas as Q",
+   "delta": 0.016247434843035417,
+   "ic95": [
+    0.0012002446404211472,
+    0.02988333918515675
+   ],
+   "n_pares": 80,
+   "media_BA1": 0.15014546254746414,
+   "media_comparador": 0.1338980277044287,
+   "destino": null,
+   "sensibilidade_delta": 0.016247434843035417,
+   "sensibilidade_ic95": [
+    0.004308434211083993,
+    0.02662171007773372
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_C0",
+   "metrica": "mae_rssi_ALL",
+   "populacao_leitura": "so Q1",
+   "delta": 0.014265269432005715,
+   "ic95": [
+    -0.15157333680883092,
+    0.18574486794774733
+   ],
+   "n_pares": 20,
+   "media_BA1": 0.5027080809484317,
+   "media_comparador": 0.48844281151642577,
+   "destino": null
+  },
+  {
+   "contraste": "BA1_menos_C0",
+   "metrica": "mae_rssi_VALID",
+   "populacao_leitura": "so Q1",
+   "delta": -1.2958640928484133,
+   "ic95": [
+    -4.73438592119435,
+    0.7895107798693856
+   ],
+   "n_pares": 20,
+   "media_BA1": 2.2305086997238535,
+   "media_comparador": 3.5263727925722663,
+   "destino": null
+  },
+  {
+   "contraste": "BA1_menos_MLP",
+   "metrica": "mae_rssi_ALL",
+   "populacao_leitura": "todas as Q",
+   "delta": -0.304634836026776,
+   "ic95": [
+    -0.5291773817807814,
+    -0.07807426401625522
+   ],
+   "n_pares": 80,
+   "media_BA1": 0.33747966683027464,
+   "media_comparador": 0.6421145028570505,
+   "destino": null,
+   "sensibilidade_delta": -0.304634836026776,
+   "sensibilidade_ic95": [
+    -0.5276714907131584,
+    -0.07745423601624939
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_MLP",
+   "metrica": "mae_rssi_VALID",
+   "populacao_leitura": "todas as Q",
+   "delta": -1.5059969743198778,
+   "ic95": [
+    -2.458034888816614,
+    -0.5541706422480372
+   ],
+   "n_pares": 80,
+   "media_BA1": 1.2327295492042778,
+   "media_comparador": 2.738726523524156,
+   "destino": null,
+   "sensibilidade_delta": -1.5059969743198778,
+   "sensibilidade_ic95": [
+    -2.45377355561455,
+    -0.5536579442053088
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_MLP",
+   "metrica": "mae_rssi_COV85",
+   "populacao_leitura": "todas as Q",
+   "delta": -2.0347357043600076,
+   "ic95": [
+    -2.6650104412737488,
+    -1.3692030234439092
+   ],
+   "n_pares": 35,
+   "media_BA1": 2.6308654070326782,
+   "media_comparador": 4.616616567154799,
+   "destino": null,
+   "sensibilidade_delta": -2.0347357043600076,
+   "sensibilidade_ic95": [
+    -2.632315270464907,
+    -1.3876021508275935
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_MLP",
+   "metrica": "mae_pl_VALID",
+   "populacao_leitura": "todas as Q",
+   "delta": -1.7681893764851964,
+   "ic95": [
+    -2.5728324372317015,
+    -1.020053233594452
+   ],
+   "n_pares": 80,
+   "media_BA1": 1.769590208989029,
+   "media_comparador": 3.537779585474225,
+   "destino": null,
+   "sensibilidade_delta": -1.7681893764851968,
+   "sensibilidade_ic95": [
+    -2.5726003388484684,
+    -1.025836123015484
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_MLP",
+   "metrica": "mae_pl_VALID_ate200",
+   "populacao_leitura": "todas as Q",
+   "delta": -1.7636817243945988,
+   "ic95": [
+    -2.5685860454327045,
+    -1.020053233594452
+   ],
+   "n_pares": 80,
+   "media_BA1": 1.68241787923916,
+   "media_comparador": 3.4460996036337592,
+   "destino": null,
+   "sensibilidade_delta": -1.7636817243945984,
+   "sensibilidade_ic95": [
+    -2.5651464299990243,
+    -1.025836123015484
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_MLP",
+   "metrica": "mae_rssi_VALID_ate200",
+   "populacao_leitura": "todas as Q",
+   "delta": -1.3397134540521678,
+   "ic95": [
+    -2.1375699644189106,
+    -0.5541706422480372
+   ],
+   "n_pares": 80,
+   "media_BA1": 1.2232175705756565,
+   "media_comparador": 2.5629310246278245,
+   "destino": null,
+   "sensibilidade_delta": -1.339713454052168,
+   "sensibilidade_ic95": [
+    -2.1351527683340956,
+    -0.5536579442053088
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_MLP",
+   "metrica": "mae_rssi_SENT",
+   "populacao_leitura": "todas as Q",
+   "delta": -0.02570719117897135,
+   "ic95": [
+    -0.04438463994680468,
+    -0.005160579953714394
+   ],
+   "n_pares": 80,
+   "media_BA1": 0.15014546254746414,
+   "media_comparador": 0.17585265372643546,
+   "destino": null,
+   "sensibilidade_delta": -0.025707191178971345,
+   "sensibilidade_ic95": [
+    -0.041797630563241095,
+    -0.007341482231868642
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_MLP",
+   "metrica": "mae_rssi_ALL",
+   "populacao_leitura": "so Q1",
+   "delta": -0.5725349217420241,
+   "ic95": [
+    -0.9458272316779964,
+    -0.22369803027733326
+   ],
+   "n_pares": 20,
+   "media_BA1": 0.5027080809484317,
+   "media_comparador": 1.0752430026904558,
+   "destino": null
+  },
+  {
+   "contraste": "BA1_menos_MLP",
+   "metrica": "mae_rssi_VALID",
+   "populacao_leitura": "so Q1",
+   "delta": -2.5456476027151376,
+   "ic95": [
+    -3.7420943768279282,
+    -1.3697245665171291
+   ],
+   "n_pares": 20,
+   "media_BA1": 2.2305086997238535,
+   "media_comparador": 4.776156302438991,
+   "destino": null
+  },
+  {
+   "contraste": "BA1_menos_empirico",
+   "metrica": "mae_rssi_ALL",
+   "populacao_leitura": "todas as Q",
+   "delta": -0.8172594625259393,
+   "ic95": [
+    -0.9741169901852768,
+    -0.6375209378941288
+   ],
+   "n_pares": 80,
+   "media_BA1": 0.33747966683027464,
+   "media_comparador": 1.154739129356214,
+   "destino": null,
+   "sensibilidade_delta": -0.8172594625259393,
+   "sensibilidade_ic95": [
+    -0.9741169901852768,
+    -0.6375209378941288
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_empirico",
+   "metrica": "mae_rssi_VALID",
+   "populacao_leitura": "todas as Q",
+   "delta": -4.267879385333561,
+   "ic95": [
+    -5.338257080198641,
+    -3.1449923342820743
+   ],
+   "n_pares": 80,
+   "media_BA1": 1.2327295492042778,
+   "media_comparador": 5.500608934537839,
+   "destino": null,
+   "sensibilidade_delta": -4.267879385333562,
+   "sensibilidade_ic95": [
+    -5.338257080198641,
+    -3.1449923342820747
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_empirico",
+   "metrica": "mae_rssi_COV85",
+   "populacao_leitura": "todas as Q",
+   "delta": -2.6733288478445565,
+   "ic95": [
+    -4.443083146242867,
+    -0.89029921270982
+   ],
+   "n_pares": 35,
+   "media_BA1": 2.6308654070326782,
+   "media_comparador": 5.605012032476454,
+   "destino": null,
+   "sensibilidade_delta": -2.6733288478445565,
+   "sensibilidade_ic95": [
+    -4.443083146242867,
+    -0.89029921270982
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_empirico",
+   "metrica": "mae_pl_VALID",
+   "populacao_leitura": "todas as Q",
+   "delta": -10.182266190072133,
+   "ic95": [
+    -12.495678936204722,
+    -7.455027377871607
+   ],
+   "n_pares": 80,
+   "media_BA1": 1.769590208989029,
+   "media_comparador": 11.95185639906116,
+   "destino": null,
+   "sensibilidade_delta": -10.182266190072133,
+   "sensibilidade_ic95": [
+    -12.495678936204722,
+    -7.455027377871607
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_empirico",
+   "metrica": "mae_rssi_SENT",
+   "populacao_leitura": "todas as Q",
+   "delta": 0.02218187349310033,
+   "ic95": [
+    -0.08024080856605798,
+    0.11699130852876506
+   ],
+   "n_pares": 80,
+   "media_BA1": 0.15014546254746414,
+   "media_comparador": 0.1279635890543638,
+   "destino": null,
+   "sensibilidade_delta": 0.02218187349310033,
+   "sensibilidade_ic95": [
+    -0.08024080856605798,
+    0.11699130852876506
+   ],
+   "destino_sensibilidade": null
+  },
+  {
+   "contraste": "BA1_menos_empirico",
+   "metrica": "mae_rssi_ALL",
+   "populacao_leitura": "so Q1",
+   "delta": -1.2514052200866508,
+   "ic95": [
+    -1.3564994990117496,
+    -1.157612528872893
+   ],
+   "n_pares": 20,
+   "media_BA1": 0.5027080809484317,
+   "media_comparador": 1.7541133010350822,
+   "destino": null
+  },
+  {
+   "contraste": "BA1_menos_empirico",
+   "metrica": "mae_rssi_VALID",
+   "populacao_leitura": "so Q1",
+   "delta": -3.764546396647936,
+   "ic95": [
+    -5.648039611009499,
+    -1.3607413162949842
+   ],
+   "n_pares": 20,
+   "media_BA1": 2.2305086997238535,
+   "media_comparador": 5.9950550963717895,
+   "destino": null
+  }
+ ],
+ "endpoint_primario": {
+  "mae_rssi_ALL": {
+   "delta": -0.05714348329303023,
+   "ic95": [
+    -0.1182514280210459,
+    0.0025120967515121786
+   ],
+   "delta_margem": 0.045,
+   "destino": "IC cruza +-delta: inconclusivo",
+   "n_pares": 80,
+   "media_BA1_runs_pareados": 0.33747966683027464,
+   "media_comparador_runs_pareados": 0.3946231501233049,
+   "t_4_medias_cidade": {
+    "medias_cidade": {
+     "bauru": -0.05485425111466176,
+     "campinas": -0.02067018610518811,
+     "lins": -0.1340629412348848,
+     "sorocaba": -0.018986554717386216
+    },
+    "n_cidades": 4,
+    "media": -0.05714348329303022,
+    "ic95_t": [
+     -0.1428733346943722,
+     0.028586368108311735
+    ],
+    "t": -2.1212688964733077,
+    "p_bilateral": 0.12403311387692106,
+    "gl": 3
+   }
+  },
+  "mae_rssi_VALID": {
+   "delta": -0.7794464507639071,
+   "ic95": [
+    -1.8483671007506572,
+    -0.11631434384529607
+   ],
+   "delta_margem": 0.35,
+   "destino": "IC cruza +-delta: inconclusivo",
+   "n_pares": 80,
+   "media_BA1_runs_pareados": 1.2327295492042778,
+   "media_comparador_runs_pareados": 2.0121759999681847,
+   "t_4_medias_cidade": {
+    "medias_cidade": {
+     "bauru": -0.3116194181725714,
+     "campinas": -0.2504085878952128,
+     "lins": -2.3294821412940765,
+     "sorocaba": -0.22627565569376823
+    },
+    "n_cidades": 4,
+    "media": -0.7794464507639073,
+    "ic95_t": [
+     -2.4247413775151956,
+     0.8658484759873809
+    ],
+    "t": -1.507660685672964,
+    "p_bilateral": 0.2287530655638409,
+    "gl": 3
+   }
+  }
+ },
+ "decomposicao_delta_mae_rssi_ALL": {
+  "BA1_menos_C0": {
+   "delta_mae_rssi_ALL": -0.05714348329303023,
+   "ic95_ALL": [
+    -0.1182514280210459,
+    0.0025120967515121786
+   ],
+   "contrib_VALID": {
+    "delta": -0.07013694485702547,
+    "ic95": [
+     -0.13192352446753636,
+     -0.011833254489093413
+    ]
+   },
+   "contrib_SENT": {
+    "delta": 0.012993461563995256,
+    "ic95": [
+     0.0005500914110066512,
+     0.024583687470864493
+    ]
+   },
+   "contrib_SENT_abaixo_110": {
+    "delta": 0.016271731460372058,
+    "ic95": [
+     0.0021147956370916408,
+     0.029950277212998484
+    ]
+   },
+   "contrib_SENT_acima_110": {
+    "delta": -0.003278269896376802,
+    "ic95": [
+     -0.01117561017601993,
+     0.004981551624290808
+    ]
+   },
+   "resto": {
+    "delta": 1.2143064331837649e-18,
+    "ic95": [
+     -1.1535911115245768e-17,
+     1.5178830414797062e-17
+    ]
+   },
+   "residuo_identidade_na_media": -1.3357370765021415e-17,
+   "residuo_identidade_max_abs_por_corrida": 2.498001805406602e-16,
+   "n_pares": 80,
+   "fracao_do_delta_ALL_vinda_de_SENT": -0.2273830857906428,
+   "definicao": "contrib_pop = (n_pop / n_ALL) * MAE RSSI pop; ALL = VALID u SENT (V2-b)"
+  },
+  "BA1_menos_MLP": {
+   "delta_mae_rssi_ALL": -0.304634836026776,
+   "ic95_ALL": [
+    -0.5291773817807814,
+    -0.07807426401625522
+   ],
+   "contrib_VALID": {
+    "delta": -0.28497489832709966,
+    "ic95": [
+     -0.5011849242127044,
+     -0.06979590693991142
+    ]
+   },
+   "contrib_SENT": {
+    "delta": -0.019659937699676337,
+    "ic95": [
+     -0.03417602468728155,
+     -0.0037551810674532693
+    ]
+   },
+   "contrib_SENT_abaixo_110": {
+    "delta": -0.01873349900100487,
+    "ic95": [
+     -0.03717999303758129,
+     0.003097993866508461
+    ]
+   },
+   "contrib_SENT_acima_110": {
+    "delta": -0.0009264386986714658,
+    "ic95": [
+     -0.01028284375727662,
+     0.007190101365305683
+    ]
+   },
+   "resto": {
+    "delta": 9.454242944073599e-18,
+    "ic95": [
+     -5.551115123125783e-18,
+     3.096481404618601e-17
+    ]
+   },
+   "residuo_identidade_na_media": -5.984795992119985e-18,
+   "residuo_identidade_max_abs_por_corrida": 3.608224830031759e-16,
+   "n_pares": 80,
+   "fracao_do_delta_ALL_vinda_de_SENT": 0.06453607852631903,
+   "definicao": "contrib_pop = (n_pop / n_ALL) * MAE RSSI pop; ALL = VALID u SENT (V2-b)"
+  }
+ },
+ "parametros_e_tempos": {
+  "ba1": {
+   "n_corridas": 80,
+   "n_params_nominal_valores": [
+    369827
+   ],
+   "n_params_treinaveis_valores": [
+    369827
+   ],
+   "n_params_com_gradiente_1o_lote_valores": [
+    369797
+   ],
+   "tempo_treino_s": {
+    "n": 80,
+    "mediana": 257.15,
+    "min": 248.4,
+    "max": 447.6,
+    "soma": 23614.9,
+    "soma_h": 6.559694444444445
+   },
+   "vram_peak_mb": {
+    "n": 80,
+    "mediana": 224.2,
+    "min": 219.8,
+    "max": 224.2,
+    "soma": 17848.0
+   },
+   "n_epocas_rodadas_valores": [
+    20,
+    35
+   ],
+   "tempo_inferencia_parede_s": {
+    "n": 80,
+    "mediana": 55.4,
+    "min": 47.9,
+    "max": 95.2,
+    "soma": 4544.599999999999,
+    "soma_h": 1.2623888888888888
+   },
+   "tempo_inferencia_forward_s": {
+    "n": 80,
+    "mediana": 0.4,
+    "min": 0.3,
+    "max": 0.5,
+    "soma": 29.9,
+    "soma_h": 0.008305555555555556
+   },
+   "plataformas_treino": [
+    "Linux-7.0.0-38-generic-x86_64-with-glibc2.39"
+   ],
+   "gpus_treino": [
+    "NVIDIA GeForce RTX 5070 Ti"
+   ],
+   "plataformas_inferencia": [
+    "Linux-7.0.0-38-generic-x86_64-with-glibc2.39"
+   ],
+   "fontes": {
+    "n_params": "run JSON modelo.n_params / modelo.n_params_treinaveis",
+    "efetivos": "run JSON censo_gradiente_1o_lote.n_params_com_gradiente",
+    "tempo_treino_s": "run JSON custo.tempo_total_s",
+    "tempo_inferencia": "sidecar .json custo.tempo_parede_total_s / tempo_forward_s"
+   },
+   "dt_lote_inferencia_s": {
+    "n": 80,
+    "mediana": 57.0,
+    "min": 50.0,
+    "max": 97.0,
+    "soma": 4693.0,
+    "soma_h": 1.303611111111111
+   },
+   "dt_lote_logs": [
+    "inferir_concluidas.log",
+    "lote_inferencia_ba1.log"
+   ],
+   "conferencia_nominal": {
+    "pedido": 369827,
+    "lido": [
+     369827
+    ],
+    "ok": true
+   }
+  },
+  "gnn": {
+   "n_corridas": 80,
+   "n_params_nominal_valores": [
+    1812515
+   ],
+   "n_params_treinaveis_valores": [
+    1812515
+   ],
+   "n_params_com_gradiente_1o_lote_valores": [],
+   "tempo_treino_s": {
+    "n": 80,
+    "mediana": 2292.45,
+    "min": 2180.7,
+    "max": 4032.3,
+    "soma": 215885.4,
+    "soma_h": 59.96816666666666
+   },
+   "vram_peak_mb": {
+    "n": 80,
+    "mediana": 7467.3,
+    "min": 7430.3,
+    "max": 7511.6,
+    "soma": 597458.0
+   },
+   "n_epocas_rodadas_valores": [
+    20,
+    35
+   ],
+   "tempo_inferencia_parede_s": {
+    "n": 80,
+    "mediana": 49.8,
+    "min": 45.4,
+    "max": 80.2,
+    "soma": 4281.1,
+    "soma_h": 1.1891944444444444
+   },
+   "tempo_inferencia_forward_s": {
+    "n": 80,
+    "mediana": 12.3,
+    "min": 9.6,
+    "max": 26.8,
+    "soma": 1007.9,
+    "soma_h": 0.27997222222222223
+   },
+   "plataformas_treino": [
+    "Windows-10-10.0.26200-SP0"
+   ],
+   "gpus_treino": [
+    "NVIDIA GeForce RTX 5070 Ti"
+   ],
+   "plataformas_inferencia": [
+    "Linux-7.0.0-34-generic-x86_64-with-glibc2.39"
+   ],
+   "fontes": {
+    "n_params": "run JSON modelo.n_params / modelo.n_params_treinaveis",
+    "efetivos": "run JSON censo_gradiente_1o_lote.n_params_com_gradiente",
+    "tempo_treino_s": "run JSON custo.tempo_total_s",
+    "tempo_inferencia": "sidecar .json custo.tempo_parede_total_s / tempo_forward_s"
+   },
+   "conferencia_nominal": {
+    "pedido": 1812515,
+    "lido": [
+     1812515
+    ],
+    "ok": true
+   }
+  },
+  "mlp": {
+   "n_corridas": 80,
+   "n_params_nominal_valores": [
+    1812515
+   ],
+   "n_params_treinaveis_valores": [
+    1812515
+   ],
+   "n_params_com_gradiente_1o_lote_valores": [],
+   "tempo_treino_s": {
+    "n": 80,
+    "mediana": 372.6,
+    "min": 339.0,
+    "max": 635.1,
+    "soma": 33851.8,
+    "soma_h": 9.40327777777778
+   },
+   "vram_peak_mb": {
+    "n": 80,
+    "mediana": 675.5,
+    "min": 652.6,
+    "max": 675.7,
+    "soma": 53588.6
+   },
+   "n_epocas_rodadas_valores": [
+    20,
+    35
+   ],
+   "tempo_inferencia_parede_s": {
+    "n": 80,
+    "mediana": 49.1,
+    "min": 35.9,
+    "max": 59.5,
+    "soma": 3959.8,
+    "soma_h": 1.0999444444444444
+   },
+   "tempo_inferencia_forward_s": {
+    "n": 80,
+    "mediana": 0.4,
+    "min": 0.4,
+    "max": 0.5,
+    "soma": 33.0,
+    "soma_h": 0.009166666666666667
+   },
+   "plataformas_treino": [
+    "Windows-10-10.0.26200-SP0"
+   ],
+   "gpus_treino": [
+    "NVIDIA GeForce RTX 5070 Ti"
+   ],
+   "plataformas_inferencia": [
+    "Linux-7.0.0-34-generic-x86_64-with-glibc2.39"
+   ],
+   "fontes": {
+    "n_params": "run JSON modelo.n_params / modelo.n_params_treinaveis",
+    "efetivos": "run JSON censo_gradiente_1o_lote.n_params_com_gradiente",
+    "tempo_treino_s": "run JSON custo.tempo_total_s",
+    "tempo_inferencia": "sidecar .json custo.tempo_parede_total_s / tempo_forward_s"
+   }
+  }
+ },
+ "carimbo": {
+  "script": "/trabalho/ARPIA_RF/TOPO_RF_PROJETO/GNN_RF/gnn_rf_ieee_access/_revisao_2026-10-14/fase_BA1/avaliacao/metricas/BA_inferencia.py",
+  "script_sha256": "58bb697bf061a45bc06b29f8c505517e1dea92525b1f050842eaee569dfbd33f",
+  "insumos_sha256": {
+   "BA_metricas_por_corrida.json": "0467d28cd5b99d746637962d167c45cc69698bc4c7a44c43e31417f02b6b51d7",
+   "common.py": "b71a71a3022744b132934cfdb05b39ac1b26f44df0f8915383c718d3d0bc811a",
+   "C_inferencia_v2.py": "8f24ea146bed9d95a7197438379d75172583cdf882f91b39e317ac150da917ac"
+  },
+  "data": "2026-10-19",
+  "timestamp": "2026-10-19T10:40:45",
+  "provisorio": true
+ }
+}

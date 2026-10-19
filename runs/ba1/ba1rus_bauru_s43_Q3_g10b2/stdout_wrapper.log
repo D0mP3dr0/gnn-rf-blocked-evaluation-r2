@@ -1,0 +1,257 @@
+# wrapper 2026-10-19T00:59:36.666943+00:00 ba1rus_bauru_s43_Q3_g10b2
+========================================================================
+BA1 — RadioUNet-style in-house adaptation, regua c0c1cf [ba1rus_bauru_s43_Q3_g10b2]
+========================================================================
+[2026-10-18 21:59:36] (+   0.0s) base_dir (LEITURA)  : /trabalho/ARPIA_RF/TOPO_RF_PROJETO/GNN_RF_V2
+[2026-10-18 21:59:36] (+   0.0s) saida (ESCRITA)     : /trabalho/ARPIA_RF/TOPO_RF_PROJETO/GNN_RF/gnn_rf_ieee_access/_revisao_2026-10-14/fase_BA1/treinos/ba1rus_bauru_s43_Q3_g10b2
+[2026-10-18 21:59:36] (+   0.0s) Device: cuda | NVIDIA GeForce RTX 5070 Ti | 15.5 GB
+[2026-10-18 21:59:36] (+   0.0s) Carregando RF targets: /trabalho/TOPO_RF_DOWNLOAD_DRIVE/graph_data_v3/transfer_dataset_bauru_v19_Q3_enriched_cftudo.pt  (28.2 GB)
+[2026-10-18 21:59:59] (+  23.3s) Calculando sha256 do dataset (lento)...
+[2026-10-18 22:00:13] (+  36.7s) Nos terrain no dataset: 12,960,000
+[2026-10-18 22:00:13] (+  36.7s)   dist_nearest_m embutido: mean=74137m std=30755m
+[2026-10-18 22:00:13] (+  36.7s) Features embutidas no rf_data: (12960000, 17)
+[2026-10-18 22:00:13] (+  36.9s) [BA2] bloco de enlaces: K=5, desempate=freq_eirp_altura_indice, preench_altura=0.0
+[2026-10-18 22:00:17] (+  41.0s)   [BA2] hist n_enlaces/no [11687807, 0, 0, 3037, 0, 1269156] | empates adjacentes 0.8095560664828011
+[2026-10-18 22:00:17] (+  41.0s)   [M2] ter->ter ignorado; gpu.pt NAO carregado para arestas
+[2026-10-18 22:00:19] (+  42.7s) Dados por no: 12,960,000 terrain | 794 antenas | 6,354,891 arestas ant->ter (so p/ guarda [M3], fora do modelo)
+[2026-10-18 22:00:19] (+  43.0s) Extensao: 102.65 x 110.97 km (lon -50.0638..-49.0640, lat -23.3243..-22.3246)
+[2026-10-18 22:00:20] (+  43.8s) dist_to_antenna: min=7m max=145024m mean=74137m
+[2026-10-18 22:00:20] (+  43.8s) Split espacial por blocos (logica de spatial_cv.SpatialKFold)...
+[2026-10-18 22:00:20] (+  44.3s)   Blocos 10.000 km: 132 total -> train 92 | val 20 | test 20
+[2026-10-18 22:00:20] (+  44.3s)   Nos por bloco (antes do buffer): train 9,188,528 | val 1,988,868 | test 1,782,604
+[2026-10-18 22:00:24] (+  47.9s)   [SPLIT] train x val: intersecao=0 | dist_min=2.000 km (OK)
+[2026-10-18 22:00:25] (+  49.1s)   [SPLIT] train x test: intersecao=0 | dist_min=2.000 km (OK)
+[2026-10-18 22:00:25] (+  49.2s)   [SPLIT] val x test: intersecao=0 | dist_min=2.000 km (OK)
+[2026-10-18 22:00:26] (+  49.5s)   [SPLIT] validate_spatial_cv(train~20000, val~20000) = True
+[2026-10-18 22:00:26] (+  49.6s)   [SPLIT] validate_spatial_cv(train~20000, test~20000) = True
+[2026-10-18 22:00:26] (+  50.1s)   train: 9,188,528 nos (70.9%) | PL alvo valido: 771,191 (8.4%)
+[2026-10-18 22:00:26] (+  50.1s)   val: 1,034,037 nos (8.0%) | PL alvo valido: 61,744 (6.0%)
+[2026-10-18 22:00:26] (+  50.2s)   test: 817,601 nos (6.3%) | PL alvo valido: 130,120 (15.9%)
+[2026-10-18 22:00:29] (+  52.8s) [D1] col17 normalizada com estatistica de treino (mean=76230m std=29744m; todos: 74137/30755)
+[2026-10-18 22:00:29] (+  52.8s) Contando arestas ant->ter por particao (guarda [M3], fora do modelo)...
+[2026-10-18 22:00:29] (+  53.0s)   [train] 9,188,528 nos terrain | ant->ter na particao 3,853,305 (contagem p/ guarda; NENHUMA aresta alimenta o MLP)
+[2026-10-18 22:00:29] (+  53.0s)   [val] 1,034,037 nos terrain | ant->ter na particao 308,720 (contagem p/ guarda; NENHUMA aresta alimenta o MLP)
+[2026-10-18 22:00:29] (+  53.0s)   [test] 817,601 nos terrain | ant->ter na particao 649,616 (contagem p/ guarda; NENHUMA aresta alimenta o MLP)
+[2026-10-18 22:00:29] (+  53.1s) Lotes [M4]: train 374 batches (bs=24576) | val 43 | test 34 (bs=24576) — sem NeighborLoader, sem vizinhanca
+[2026-10-18 22:00:29] (+  53.2s) Baselines analiticos (freq=900.0 MHz, calibracao SO no treino)...
+[2026-10-18 22:00:30] (+  53.9s)   train: FSPL 2.61 | Hata 4.57 | COST231 4.57 dB
+[2026-10-18 22:00:30] (+  53.9s)   val: FSPL 3.46 | Hata 4.74 | COST231 4.74 dB
+[2026-10-18 22:00:30] (+  53.9s)   test: FSPL 2.97 | Hata 4.72 | COST231 4.72 dB
+[2026-10-18 22:00:30] (+  54.0s) Modelo: 369,827 parametros (369,827 treinaveis; decoder 99,363) | VRAM 0.00GB/0.00GB
+[2026-10-18 22:00:30] (+  54.0s) [TRANSFER] pesos carregados de /trabalho/ARPIA_RF/TOPO_RF_PROJETO/GNN_RF/gnn_rf_ieee_access/_revisao_2026-10-14/fase_BA1/treinos/ba1rus_bauru_s43_Q2_g10b2/checkpoints/checkpoint_best.pt
+[2026-10-18 22:00:30] (+  54.0s) Iniciando treino: 20 epocas x 374 batches
+------------------------------------------------------------------------
+[2026-10-18 22:00:31] (+  54.6s)   [BA6] gradiente no 1o lote: 369,797 de 369,827 | None=['decoder.path_loss_head.weight', 'decoder.path_loss_head.bias', 'decoder.rssi_head.weight', 'decoder.rssi_head.bias', 'decoder.coverage_head.weight', 'decoder.coverage_head.bias'] zero=[]
+[2026-10-18 22:00:31] (+  55.3s)   Epoch 1/20 | batch 74/374 | loss=90.995 | VRAM 0.04GB/0.28GB
+[2026-10-18 22:00:32] (+  55.9s)   Epoch 1/20 | batch 148/374 | loss=90.738 | VRAM 0.04GB/0.28GB
+[2026-10-18 22:00:33] (+  56.5s)   Epoch 1/20 | batch 222/374 | loss=90.627 | VRAM 0.04GB/0.28GB
+[2026-10-18 22:00:33] (+  57.1s)   Epoch 1/20 | batch 296/374 | loss=90.574 | VRAM 0.04GB/0.28GB
+[2026-10-18 22:00:34] (+  57.8s)   Epoch 1/20 | batch 370/374 | loss=90.537 | VRAM 0.04GB/0.28GB
+[2026-10-18 22:00:34] (+  57.8s)   Epoch 1/20 | batch 374/374 | loss=90.535 | VRAM 0.04GB/0.28GB
+/trabalho/ARPIA_RF/TOPO_RF_PROJETO/GNN_RF/gnn_rf_ieee_access/_revisao_2026-10-14/fase_BA1/train_ba1_radiounet_style.py:1887: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  "loss_componentes": {k: float(v) for k, v in ldict.items()
+[2026-10-18 22:00:41] (+  65.0s) Epoch 01 | loss=90.535 | MAE_RSSI train=0.901 val=0.434 test=0.372 dB
+[2026-10-18 22:00:41] (+  65.0s)           MAE_PL(alvo<299) train=7.501143455505371 val=1.5297369956970215 test=0.7653981447219849
+[2026-10-18 22:00:41] (+  65.0s)           dist_gradient train=0.5387659668922424 val=0.5373472571372986 | cobertura da epoca train=1.000 | 11s
+[2026-10-18 22:00:41] (+  65.0s)   CKPT best (val MAE_RSSI=0.4336 dB)
+------------------------------------------------------------------------
+[2026-10-18 22:00:42] (+  65.7s)   Epoch 2/20 | batch 74/374 | loss=90.384 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:00:43] (+  66.4s)   Epoch 2/20 | batch 148/374 | loss=90.369 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:00:43] (+  67.0s)   Epoch 2/20 | batch 222/374 | loss=90.398 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:00:44] (+  67.6s)   Epoch 2/20 | batch 296/374 | loss=90.393 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:00:44] (+  68.2s)   Epoch 2/20 | batch 370/374 | loss=90.394 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:00:44] (+  68.3s)   Epoch 2/20 | batch 374/374 | loss=90.393 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:00:51] (+  75.2s) Epoch 02 | loss=90.393 | MAE_RSSI train=0.805 val=0.530 test=0.473 dB
+[2026-10-18 22:00:51] (+  75.2s)           MAE_PL(alvo<299) train=7.308897495269775 val=0.9861294627189636 test=1.0529065132141113
+[2026-10-18 22:00:51] (+  75.2s)           dist_gradient train=0.5409432053565979 val=0.5367317795753479 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:00:52] (+  75.9s)   Epoch 3/20 | batch 74/374 | loss=90.347 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:00:53] (+  76.5s)   Epoch 3/20 | batch 148/374 | loss=90.354 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:00:53] (+  77.1s)   Epoch 3/20 | batch 222/374 | loss=90.357 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:00:54] (+  77.7s)   Epoch 3/20 | batch 296/374 | loss=90.366 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:00:55] (+  78.4s)   Epoch 3/20 | batch 370/374 | loss=90.370 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:00:55] (+  78.4s)   Epoch 3/20 | batch 374/374 | loss=90.373 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:01] (+  85.2s) Epoch 03 | loss=90.373 | MAE_RSSI train=0.808 val=0.366 test=0.346 dB
+[2026-10-18 22:01:01] (+  85.2s)           MAE_PL(alvo<299) train=7.278774738311768 val=0.931121826171875 test=1.8041836023330688
+[2026-10-18 22:01:01] (+  85.2s)           dist_gradient train=0.5407195687294006 val=0.5372394919395447 | cobertura da epoca train=1.000 | 10s
+[2026-10-18 22:01:01] (+  85.2s)   CKPT best (val MAE_RSSI=0.3663 dB)
+------------------------------------------------------------------------
+[2026-10-18 22:01:02] (+  86.0s)   Epoch 4/20 | batch 74/374 | loss=90.352 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:03] (+  86.6s)   Epoch 4/20 | batch 148/374 | loss=90.356 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:03] (+  87.2s)   Epoch 4/20 | batch 222/374 | loss=90.366 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:04] (+  87.8s)   Epoch 4/20 | batch 296/374 | loss=90.359 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:05] (+  88.4s)   Epoch 4/20 | batch 370/374 | loss=90.356 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:05] (+  88.4s)   Epoch 4/20 | batch 374/374 | loss=90.355 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:11] (+  95.3s) Epoch 04 | loss=90.355 | MAE_RSSI train=0.777 val=0.483 test=0.478 dB
+[2026-10-18 22:01:11] (+  95.3s)           MAE_PL(alvo<299) train=7.236234664916992 val=0.8405850529670715 test=1.1581796407699585
+[2026-10-18 22:01:11] (+  95.3s)           dist_gradient train=0.5413525104522705 val=0.5385594367980957 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:01:12] (+  96.1s)   Epoch 5/20 | batch 74/374 | loss=90.328 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:13] (+  96.7s)   Epoch 5/20 | batch 148/374 | loss=90.331 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:13] (+  97.3s)   Epoch 5/20 | batch 222/374 | loss=90.332 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:14] (+  97.9s)   Epoch 5/20 | batch 296/374 | loss=90.330 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:15] (+  98.5s)   Epoch 5/20 | batch 370/374 | loss=90.331 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:15] (+  98.6s)   Epoch 5/20 | batch 374/374 | loss=90.330 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:22] (+ 105.5s) Epoch 05 | loss=90.330 | MAE_RSSI train=0.746 val=0.374 test=0.318 dB
+[2026-10-18 22:01:22] (+ 105.5s)           MAE_PL(alvo<299) train=7.196256637573242 val=0.7841715812683105 test=1.425075650215149
+[2026-10-18 22:01:22] (+ 105.5s)           dist_gradient train=0.5419731140136719 val=0.5386109948158264 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:01:22] (+ 106.2s)   Epoch 6/20 | batch 74/374 | loss=90.303 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:23] (+ 106.8s)   Epoch 6/20 | batch 148/374 | loss=90.296 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:24] (+ 107.4s)   Epoch 6/20 | batch 222/374 | loss=90.309 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:24] (+ 108.0s)   Epoch 6/20 | batch 296/374 | loss=90.308 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:25] (+ 108.6s)   Epoch 6/20 | batch 370/374 | loss=90.309 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:25] (+ 108.6s)   Epoch 6/20 | batch 374/374 | loss=90.308 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:32] (+ 115.6s) Epoch 06 | loss=90.308 | MAE_RSSI train=0.716 val=0.315 test=0.269 dB
+[2026-10-18 22:01:32] (+ 115.6s)           MAE_PL(alvo<299) train=7.164536952972412 val=0.8699279427528381 test=0.8787733316421509
+[2026-10-18 22:01:32] (+ 115.6s)           dist_gradient train=0.54232257604599 val=0.5377803444862366 | cobertura da epoca train=1.000 | 10s
+[2026-10-18 22:01:32] (+ 115.6s)   CKPT best (val MAE_RSSI=0.3147 dB)
+------------------------------------------------------------------------
+[2026-10-18 22:01:33] (+ 116.4s)   Epoch 7/20 | batch 74/374 | loss=90.312 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:33] (+ 117.0s)   Epoch 7/20 | batch 148/374 | loss=90.298 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:34] (+ 117.6s)   Epoch 7/20 | batch 222/374 | loss=90.297 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:34] (+ 118.3s)   Epoch 7/20 | batch 296/374 | loss=90.298 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:35] (+ 118.9s)   Epoch 7/20 | batch 370/374 | loss=90.301 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:35] (+ 118.9s)   Epoch 7/20 | batch 374/374 | loss=90.302 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:42] (+ 125.8s) Epoch 07 | loss=90.302 | MAE_RSSI train=0.683 val=0.289 test=0.277 dB
+[2026-10-18 22:01:42] (+ 125.8s)           MAE_PL(alvo<299) train=7.148925304412842 val=0.9069294929504395 test=1.0681167840957642
+[2026-10-18 22:01:42] (+ 125.8s)           dist_gradient train=0.542624831199646 val=0.539557933807373 | cobertura da epoca train=1.000 | 10s
+[2026-10-18 22:01:42] (+ 125.8s)   CKPT best (val MAE_RSSI=0.2891 dB)
+------------------------------------------------------------------------
+[2026-10-18 22:01:43] (+ 126.5s)   Epoch 8/20 | batch 74/374 | loss=90.292 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:43] (+ 127.2s)   Epoch 8/20 | batch 148/374 | loss=90.263 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:44] (+ 127.8s)   Epoch 8/20 | batch 222/374 | loss=90.258 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:45] (+ 128.4s)   Epoch 8/20 | batch 296/374 | loss=90.267 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:45] (+ 129.1s)   Epoch 8/20 | batch 370/374 | loss=90.273 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:45] (+ 129.1s)   Epoch 8/20 | batch 374/374 | loss=90.274 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:52] (+ 136.1s) Epoch 08 | loss=90.274 | MAE_RSSI train=0.665 val=0.297 test=0.249 dB
+[2026-10-18 22:01:52] (+ 136.1s)           MAE_PL(alvo<299) train=7.112149715423584 val=1.017616868019104 test=0.5736212730407715
+[2026-10-18 22:01:52] (+ 136.1s)           dist_gradient train=0.5431168675422668 val=0.5397331714630127 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:01:53] (+ 136.8s)   Epoch 9/20 | batch 74/374 | loss=90.287 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:54] (+ 137.5s)   Epoch 9/20 | batch 148/374 | loss=90.265 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:54] (+ 138.1s)   Epoch 9/20 | batch 222/374 | loss=90.263 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:55] (+ 138.8s)   Epoch 9/20 | batch 296/374 | loss=90.258 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:56] (+ 139.4s)   Epoch 9/20 | batch 370/374 | loss=90.262 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:01:56] (+ 139.5s)   Epoch 9/20 | batch 374/374 | loss=90.262 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:02] (+ 146.3s) Epoch 09 | loss=90.262 | MAE_RSSI train=0.647 val=0.237 test=0.247 dB
+[2026-10-18 22:02:02] (+ 146.3s)           MAE_PL(alvo<299) train=7.090035915374756 val=0.7218269109725952 test=0.9245747923851013
+[2026-10-18 22:02:02] (+ 146.3s)           dist_gradient train=0.5436169505119324 val=0.539164662361145 | cobertura da epoca train=1.000 | 10s
+[2026-10-18 22:02:02] (+ 146.3s)   CKPT best (val MAE_RSSI=0.2370 dB)
+------------------------------------------------------------------------
+[2026-10-18 22:02:03] (+ 147.0s)   Epoch 10/20 | batch 74/374 | loss=90.247 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:04] (+ 147.6s)   Epoch 10/20 | batch 148/374 | loss=90.268 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:04] (+ 148.2s)   Epoch 10/20 | batch 222/374 | loss=90.264 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:05] (+ 148.8s)   Epoch 10/20 | batch 296/374 | loss=90.265 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:06] (+ 149.5s)   Epoch 10/20 | batch 370/374 | loss=90.256 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:06] (+ 149.5s)   Epoch 10/20 | batch 374/374 | loss=90.255 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:13] (+ 156.5s) Epoch 10 | loss=90.255 | MAE_RSSI train=0.637 val=0.242 test=0.242 dB
+[2026-10-18 22:02:13] (+ 156.5s)           MAE_PL(alvo<299) train=7.078680992126465 val=0.8269391655921936 test=0.7755458950996399
+[2026-10-18 22:02:13] (+ 156.5s)           dist_gradient train=0.5435224175453186 val=0.539330780506134 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:02:13] (+ 157.3s)   Epoch 11/20 | batch 74/374 | loss=90.397 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:14] (+ 157.9s)   Epoch 11/20 | batch 148/374 | loss=90.335 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:15] (+ 158.5s)   Epoch 11/20 | batch 222/374 | loss=90.313 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:15] (+ 159.0s)   Epoch 11/20 | batch 296/374 | loss=90.299 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:16] (+ 159.6s)   Epoch 11/20 | batch 370/374 | loss=90.294 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:16] (+ 159.7s)   Epoch 11/20 | batch 374/374 | loss=90.294 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:23] (+ 166.5s) Epoch 11 | loss=90.294 | MAE_RSSI train=0.675 val=0.356 test=0.399 dB
+[2026-10-18 22:02:23] (+ 166.5s)           MAE_PL(alvo<299) train=7.090830326080322 val=0.7712332010269165 test=0.8600432872772217
+[2026-10-18 22:02:23] (+ 166.5s)           dist_gradient train=0.5436640977859497 val=0.5393356084823608 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:02:23] (+ 167.3s)   Epoch 12/20 | batch 74/374 | loss=90.261 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:24] (+ 167.9s)   Epoch 12/20 | batch 148/374 | loss=90.249 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:25] (+ 168.5s)   Epoch 12/20 | batch 222/374 | loss=90.240 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:25] (+ 169.1s)   Epoch 12/20 | batch 296/374 | loss=90.248 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:26] (+ 169.7s)   Epoch 12/20 | batch 370/374 | loss=90.250 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:26] (+ 169.8s)   Epoch 12/20 | batch 374/374 | loss=90.249 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:33] (+ 176.7s) Epoch 12 | loss=90.249 | MAE_RSSI train=0.643 val=0.336 test=0.289 dB
+[2026-10-18 22:02:33] (+ 176.7s)           MAE_PL(alvo<299) train=7.060379505157471 val=0.8640370965003967 test=1.0120012760162354
+[2026-10-18 22:02:33] (+ 176.7s)           dist_gradient train=0.5436390042304993 val=0.5392342805862427 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:02:34] (+ 177.4s)   Epoch 13/20 | batch 74/374 | loss=90.254 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:34] (+ 178.0s)   Epoch 13/20 | batch 148/374 | loss=90.249 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:35] (+ 178.6s)   Epoch 13/20 | batch 222/374 | loss=90.240 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:35] (+ 179.2s)   Epoch 13/20 | batch 296/374 | loss=90.234 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:36] (+ 179.8s)   Epoch 13/20 | batch 370/374 | loss=90.244 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:36] (+ 179.9s)   Epoch 13/20 | batch 374/374 | loss=90.242 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:43] (+ 186.7s) Epoch 13 | loss=90.242 | MAE_RSSI train=0.628 val=0.357 test=0.393 dB
+[2026-10-18 22:02:43] (+ 186.7s)           MAE_PL(alvo<299) train=7.052639961242676 val=0.7799739241600037 test=1.025650143623352
+[2026-10-18 22:02:43] (+ 186.7s)           dist_gradient train=0.5440221428871155 val=0.5387271046638489 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:02:44] (+ 187.5s)   Epoch 14/20 | batch 74/374 | loss=90.220 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:44] (+ 188.1s)   Epoch 14/20 | batch 148/374 | loss=90.222 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:45] (+ 188.7s)   Epoch 14/20 | batch 222/374 | loss=90.222 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:46] (+ 189.4s)   Epoch 14/20 | batch 296/374 | loss=90.232 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:46] (+ 190.0s)   Epoch 14/20 | batch 370/374 | loss=90.239 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:46] (+ 190.0s)   Epoch 14/20 | batch 374/374 | loss=90.238 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:53] (+ 197.0s) Epoch 14 | loss=90.238 | MAE_RSSI train=0.613 val=0.317 test=0.280 dB
+[2026-10-18 22:02:53] (+ 197.0s)           MAE_PL(alvo<299) train=7.030855655670166 val=0.825563371181488 test=0.9320889115333557
+[2026-10-18 22:02:53] (+ 197.0s)           dist_gradient train=0.5444544553756714 val=0.5398601293563843 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:02:54] (+ 197.8s)   Epoch 15/20 | batch 74/374 | loss=90.221 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:55] (+ 198.5s)   Epoch 15/20 | batch 148/374 | loss=90.229 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:55] (+ 199.1s)   Epoch 15/20 | batch 222/374 | loss=90.223 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:56] (+ 199.8s)   Epoch 15/20 | batch 296/374 | loss=90.220 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:57] (+ 200.4s)   Epoch 15/20 | batch 370/374 | loss=90.220 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:02:57] (+ 200.5s)   Epoch 15/20 | batch 374/374 | loss=90.220 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:03] (+ 207.3s) Epoch 15 | loss=90.220 | MAE_RSSI train=0.597 val=0.372 test=0.405 dB
+[2026-10-18 22:03:03] (+ 207.3s)           MAE_PL(alvo<299) train=7.005499839782715 val=0.7393389344215393 test=0.925420343875885
+[2026-10-18 22:03:03] (+ 207.3s)           dist_gradient train=0.5448442697525024 val=0.5392053127288818 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:03:04] (+ 208.0s)   Epoch 16/20 | batch 74/374 | loss=90.218 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:05] (+ 208.6s)   Epoch 16/20 | batch 148/374 | loss=90.212 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:05] (+ 209.2s)   Epoch 16/20 | batch 222/374 | loss=90.210 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:06] (+ 209.8s)   Epoch 16/20 | batch 296/374 | loss=90.213 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:07] (+ 210.4s)   Epoch 16/20 | batch 370/374 | loss=90.209 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:07] (+ 210.4s)   Epoch 16/20 | batch 374/374 | loss=90.208 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:13] (+ 217.3s) Epoch 16 | loss=90.208 | MAE_RSSI train=0.583 val=0.315 test=0.288 dB
+[2026-10-18 22:03:13] (+ 217.3s)           MAE_PL(alvo<299) train=6.976137638092041 val=0.7402909398078918 test=1.0031367540359497
+[2026-10-18 22:03:13] (+ 217.3s)           dist_gradient train=0.5453299283981323 val=0.5393956303596497 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:03:14] (+ 218.1s)   Epoch 17/20 | batch 74/374 | loss=90.198 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:15] (+ 218.7s)   Epoch 17/20 | batch 148/374 | loss=90.190 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:15] (+ 219.3s)   Epoch 17/20 | batch 222/374 | loss=90.198 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:16] (+ 219.9s)   Epoch 17/20 | batch 296/374 | loss=90.194 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:17] (+ 220.5s)   Epoch 17/20 | batch 370/374 | loss=90.199 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:17] (+ 220.5s)   Epoch 17/20 | batch 374/374 | loss=90.200 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:24] (+ 227.4s) Epoch 17 | loss=90.200 | MAE_RSSI train=0.569 val=0.353 test=0.397 dB
+[2026-10-18 22:03:24] (+ 227.4s)           MAE_PL(alvo<299) train=6.952991485595703 val=0.7613577842712402 test=1.0722185373306274
+[2026-10-18 22:03:24] (+ 227.4s)           dist_gradient train=0.5458020567893982 val=0.5384086966514587 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:03:24] (+ 228.2s)   Epoch 18/20 | batch 74/374 | loss=90.186 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:25] (+ 228.8s)   Epoch 18/20 | batch 148/374 | loss=90.197 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:26] (+ 229.4s)   Epoch 18/20 | batch 222/374 | loss=90.192 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:26] (+ 230.0s)   Epoch 18/20 | batch 296/374 | loss=90.194 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:27] (+ 230.6s)   Epoch 18/20 | batch 370/374 | loss=90.186 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:27] (+ 230.7s)   Epoch 18/20 | batch 374/374 | loss=90.185 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:34] (+ 237.6s) Epoch 18 | loss=90.185 | MAE_RSSI train=0.555 val=0.282 test=0.264 dB
+[2026-10-18 22:03:34] (+ 237.6s)           MAE_PL(alvo<299) train=6.915332317352295 val=0.7178494930267334 test=0.8722885847091675
+[2026-10-18 22:03:34] (+ 237.6s)           dist_gradient train=0.5461628437042236 val=0.5401781797409058 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:03:34] (+ 238.3s)   Epoch 19/20 | batch 74/374 | loss=90.204 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:35] (+ 238.8s)   Epoch 19/20 | batch 148/374 | loss=90.192 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:36] (+ 239.4s)   Epoch 19/20 | batch 222/374 | loss=90.207 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:36] (+ 240.0s)   Epoch 19/20 | batch 296/374 | loss=90.202 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:37] (+ 240.6s)   Epoch 19/20 | batch 370/374 | loss=90.208 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:37] (+ 240.6s)   Epoch 19/20 | batch 374/374 | loss=90.208 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:44] (+ 247.5s) Epoch 19 | loss=90.208 | MAE_RSSI train=0.610 val=0.725 test=0.714 dB
+[2026-10-18 22:03:44] (+ 247.5s)           MAE_PL(alvo<299) train=6.9066081047058105 val=0.7536810040473938 test=1.1388237476348877
+[2026-10-18 22:03:44] (+ 247.5s)           dist_gradient train=0.5452154278755188 val=0.5389968156814575 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:03:44] (+ 248.2s)   Epoch 20/20 | batch 74/374 | loss=90.195 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:45] (+ 248.9s)   Epoch 20/20 | batch 148/374 | loss=90.214 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:46] (+ 249.5s)   Epoch 20/20 | batch 222/374 | loss=90.232 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:46] (+ 250.1s)   Epoch 20/20 | batch 296/374 | loss=90.230 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:47] (+ 250.7s)   Epoch 20/20 | batch 370/374 | loss=90.220 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:47] (+ 250.8s)   Epoch 20/20 | batch 374/374 | loss=90.220 | VRAM 0.04GB/0.29GB
+[2026-10-18 22:03:54] (+ 257.8s) Epoch 20 | loss=90.220 | MAE_RSSI train=0.576 val=0.323 test=0.291 dB
+[2026-10-18 22:03:54] (+ 257.8s)           MAE_PL(alvo<299) train=6.892229080200195 val=0.6849561333656311 test=0.6886594891548157
+[2026-10-18 22:03:54] (+ 257.8s)           dist_gradient train=0.546115517616272 val=0.5401023030281067 | cobertura da epoca train=1.000 | 10s
+------------------------------------------------------------------------
+[2026-10-18 22:03:54] (+ 257.8s) [FINAL] recarregado checkpoint best (epoca 9) — avaliando test
+[2026-10-18 22:03:54] (+ 258.1s) [FINAL] test  MAE_RSSI=0.2473 dB | RMSE=0.3635 | MAE_PL=0.9245747923851013
+[2026-10-18 22:03:54] (+ 258.1s) JSON gravado: /trabalho/ARPIA_RF/TOPO_RF_PROJETO/GNN_RF/gnn_rf_ieee_access/_revisao_2026-10-14/fase_BA1/treinos/ba1rus_bauru_s43_Q3_g10b2/run_ba1rus_bauru_s43_Q3_g10b2.json
+[2026-10-18 22:03:54] (+ 258.1s) CSV  gravado: /trabalho/ARPIA_RF/TOPO_RF_PROJETO/GNN_RF/gnn_rf_ieee_access/_revisao_2026-10-14/fase_BA1/treinos/ba1rus_bauru_s43_Q3_g10b2/training_log.csv
+========================================================================

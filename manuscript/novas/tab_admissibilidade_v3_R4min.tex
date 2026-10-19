@@ -1,0 +1,22 @@
+\begin{table}[!t]
+\centering
+\caption{Free-space-floor admissibility of GNN-RF over the 80 blocked runs, all test nodes, with the floor at the distance to the nearest transmitter and 1800~MHz (Section~\ref{sec:physics_consistency}). Node counts are recovered from the recorded per-run fraction and number of test nodes. The last block repeats the test on the valid-target nodes with the distance and carrier of the transmitter that serves each node.}
+\label{tab:physics_compliance}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+City & Runs with no node & Nodes below & Test nodes \\
+ & below the floor & the floor & evaluated \\
+\midrule
+Bauru & 18 of 20 & \num{115} & \num{16458440} \\
+Campinas & 13 of 20 & \num{2118} & \num{16438370} \\
+Lins & 18 of 20 & \num{303} & \num{16582940} \\
+Sorocaba & 20 of 20 & \num{0} & \num{16450840} \\
+\midrule
+Total & 69 of 80 & \num{2536} & \num{65930590} \\
+\midrule
+\multicolumn{4}{l}{Serving transmitter, valid-target nodes} \\
+Total & 71 of 80 & \num{1235} & \num{11237185} \\
+\bottomrule
+\end{tabular}
+\end{table}

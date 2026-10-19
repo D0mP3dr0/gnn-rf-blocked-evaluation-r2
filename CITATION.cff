@@ -1,32 +1,34 @@
 cff-version: 1.2.0
-message: "If you use this software or data, please cite the article below."
-type: software
-title: "GNN-RF under spatially blocked evaluation — reproducibility package (R3)"
+message: "If you use this code or data, please cite it as below."
+type: dataset
+title: "Physics-Informed Multi-Target RF Field Reconstruction over Heterogeneous Terrain Graphs under Spatially Blocked Evaluation — code and data"
 authors:
   - family-names: "Seelig"
     given-names: "L. F. C."
+    affiliation: "Military Institute of Engineering (IME)"
   - family-names: "Salles"
     given-names: "R. M."
+    affiliation: "Military Institute of Engineering (IME)"
+doi: "10.5281/zenodo.23377937"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23377937"
+license:
+  - MIT
+  - CC-BY-4.0
+repository-code: "https://github.com/D0mP3dr0/gnn-rf-blocked-evaluation-r2"
+version: "1.0.0"
+keywords:
+  - graph neural networks
+  - radio propagation
+  - spatial cross-validation
+  - terrain
 preferred-citation:
   type: article
-  title: "Physics-Consistent Multi-Target RF Field Reconstruction over Heterogeneous Terrain Graphs under Spatially Blocked Evaluation"
+  title: "Physics-Informed Multi-Target RF Field Reconstruction over Heterogeneous Terrain Graphs under Spatially Blocked Evaluation"
   authors:
     - family-names: "Seelig"
       given-names: "L. F. C."
     - family-names: "Salles"
       given-names: "R. M."
-  journal: "IEEE Access"
   year: 2026
-  identifiers:
-    - type: other
-      value: "Access-2026-29524"
-      description: "IEEE Access manuscript number (revision R3)"
-  doi: "[DOI]"
-identifiers:
-  - type: doi
-    value: "[DOI]"
-license: "MIT"
-license-url: "https://opensource.org/licenses/MIT"
-date-released: "2026-09-16"
-repository-code: "https://github.com/D0mP3dr0/gnn-rf-blocked-evaluation-r2"
-version: "R3"

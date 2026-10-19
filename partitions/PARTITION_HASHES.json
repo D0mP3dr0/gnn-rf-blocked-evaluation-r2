@@ -1,0 +1,293 @@
+{
+ "definition": "idx_sha256 = SHA-256 of the sorted int64 node indices of the split (little-endian bytes); masks are stored with numpy.packbits over n_nodes terrain nodes of the tile",
+ "cells": {
+  "bauru_Q1": {
+   "file": "partitions/partition_bauru_Q1.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9188831,
+   "n_val": 1033370,
+   "n_test": 828243,
+   "idx_sha256_train": "7ce69f2153a11e0b3019823367d32ee8f1d32832be8e62378a09bbd33e6f7a17",
+   "idx_sha256_val": "2c0c847ebf26a317df1ee2d11f19c899480a6848b3e3acee89efd0b715a0eeb7",
+   "idx_sha256_test": "f070b3e31cec5b7e10810b0b093d1149b7a7fe3fd9ef26e1643d9e29d7cc449d",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "bauru_Q2": {
+   "file": "partitions/partition_bauru_Q2.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9188829,
+   "n_val": 1033369,
+   "n_test": 828243,
+   "idx_sha256_train": "c8ff5e72549a5c4ad405452eb7da93c935937a6bd6a5405ca614ff7a976eeb32",
+   "idx_sha256_val": "43c41930904045c175d8a48f9df9dbbbf2f87dc1020b077f6e3c27e4d13ab135",
+   "idx_sha256_test": "f070b3e31cec5b7e10810b0b093d1149b7a7fe3fd9ef26e1643d9e29d7cc449d",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "bauru_Q3": {
+   "file": "partitions/partition_bauru_Q3.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9188528,
+   "n_val": 1034037,
+   "n_test": 817601,
+   "idx_sha256_train": "656caa03af953d51ab94e17e74170947466f7c3e7db8266f61d3ce5baefedf84",
+   "idx_sha256_val": "936dcc7d9b9f5d06bd41403c58013579e3df551c2ad6205273f11ac0f5cb7193",
+   "idx_sha256_test": "9faaea122e57bb4a8f2f602a9138caa1eb17ea3cae54bb5d95595c6d5f8742f7",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "bauru_Q4": {
+   "file": "partitions/partition_bauru_Q4.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9188530,
+   "n_val": 1034035,
+   "n_test": 817601,
+   "idx_sha256_train": "d1db695dbce9ea542a4415f786a085c0a5dc616e859abd962bb8208017f19318",
+   "idx_sha256_val": "0f5a7946aa3fee79ae657834f18446f6d25f2512452b3b0c0fec3f4d1a264c41",
+   "idx_sha256_test": "9faaea122e57bb4a8f2f602a9138caa1eb17ea3cae54bb5d95595c6d5f8742f7",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "campinas_Q1": {
+   "file": "partitions/partition_campinas_Q1.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9188776,
+   "n_val": 1033211,
+   "n_test": 821276,
+   "idx_sha256_train": "5fbb4173644ede4f21dd4c7396368fb2f2ce3ac02877907ddcc78ce43cdeb3ef",
+   "idx_sha256_val": "91ac6abe762d9c1b7243727085b8a9fc15de5393464e61a1db92abaaa1cb5008",
+   "idx_sha256_test": "f2e230c569a7d6d0f867607f12ca0582474ef7dbd61839218d0b5eed05a7b617",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "campinas_Q2": {
+   "file": "partitions/partition_campinas_Q2.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9188780,
+   "n_val": 1033207,
+   "n_test": 821276,
+   "idx_sha256_train": "7b770c8bde187bbad51cad761aa1aa091731c3f15dd7321110caf8214de4e5da",
+   "idx_sha256_val": "372d85d30560e380c3a0d0a2113e7872c4fe07114654f37784fcd4b8d9ffcc6f",
+   "idx_sha256_test": "f2e230c569a7d6d0f867607f12ca0582474ef7dbd61839218d0b5eed05a7b617",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "campinas_Q3": {
+   "file": "partitions/partition_campinas_Q3.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9187817,
+   "n_val": 1038048,
+   "n_test": 822561,
+   "idx_sha256_train": "5bf011d5f11f216099a3425dda17d0ce728c9ef16c0d0d579e3760ee0c7ad72c",
+   "idx_sha256_val": "be5422227cb111a48d64a6cb1e4dd82c6186837064529f579e8a2b33d4bf3714",
+   "idx_sha256_test": "11ef172422c555b6e745b0d51c0e50301475f6723df5a84bf575152ccd270056",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "campinas_Q4": {
+   "file": "partitions/partition_campinas_Q4.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9187819,
+   "n_val": 1038048,
+   "n_test": 822561,
+   "idx_sha256_train": "9559a58d6a214ee23e53c7c1eafde9e2eab47467e2f9caf8f1aefe73ee6c4764",
+   "idx_sha256_val": "be5422227cb111a48d64a6cb1e4dd82c6186837064529f579e8a2b33d4bf3714",
+   "idx_sha256_test": "11ef172422c555b6e745b0d51c0e50301475f6723df5a84bf575152ccd270056",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "lins_Q1": {
+   "file": "partitions/partition_lins_Q1.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9189821,
+   "n_val": 1031207,
+   "n_test": 833593,
+   "idx_sha256_train": "d4a122f2582a3609a9dc13e97adcaed991c2a32589fd3f7586c6f3c7fd8f807d",
+   "idx_sha256_val": "b4ac444ba0de4323496d94844ef860f61a07ee66c3555b8eb6248c61f8d8cd45",
+   "idx_sha256_test": "3cdac4e6c3c76e6ce4fe66f19904442bc85fd02aaa9d28866df86d7377a754c6",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "lins_Q2": {
+   "file": "partitions/partition_lins_Q2.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9189821,
+   "n_val": 1031207,
+   "n_test": 833593,
+   "idx_sha256_train": "d4a122f2582a3609a9dc13e97adcaed991c2a32589fd3f7586c6f3c7fd8f807d",
+   "idx_sha256_val": "b4ac444ba0de4323496d94844ef860f61a07ee66c3555b8eb6248c61f8d8cd45",
+   "idx_sha256_test": "3cdac4e6c3c76e6ce4fe66f19904442bc85fd02aaa9d28866df86d7377a754c6",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "lins_Q3": {
+   "file": "partitions/partition_lins_Q3.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9189022,
+   "n_val": 1032790,
+   "n_test": 824701,
+   "idx_sha256_train": "1285a86419643708d8f6285a9ee351182c1a291b6a19490b02986ed231dfbdb2",
+   "idx_sha256_val": "04520a7f06b17eed051d2e38458ebdc1ca1772eb78d3bc83f18a88880f72d0a4",
+   "idx_sha256_test": "b36bf1a98e708823b4a89f51ee497d3d3d5bea72df77f6e4b7a45059603978f7",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "lins_Q4": {
+   "file": "partitions/partition_lins_Q4.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9189022,
+   "n_val": 1032790,
+   "n_test": 824701,
+   "idx_sha256_train": "1285a86419643708d8f6285a9ee351182c1a291b6a19490b02986ed231dfbdb2",
+   "idx_sha256_val": "04520a7f06b17eed051d2e38458ebdc1ca1772eb78d3bc83f18a88880f72d0a4",
+   "idx_sha256_test": "b36bf1a98e708823b4a89f51ee497d3d3d5bea72df77f6e4b7a45059603978f7",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "sorocaba_Q1": {
+   "file": "partitions/partition_sorocaba_Q1.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9188187,
+   "n_val": 1035070,
+   "n_test": 818925,
+   "idx_sha256_train": "9dd5eb07bd981fa125adf5db6e8ce723e6403643a9ef13c46140f3c3acfe4413",
+   "idx_sha256_val": "7dfbd1b7a6e0b37ba00aad086ae84a946f9aa2c2b1498afe489eabc40b4e670c",
+   "idx_sha256_test": "a30d0ddb4e3896af487adc2b8709e27290dfd58415c359b1bcb4316e146fd347",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "sorocaba_Q2": {
+   "file": "partitions/partition_sorocaba_Q2.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9188187,
+   "n_val": 1035070,
+   "n_test": 818925,
+   "idx_sha256_train": "9dd5eb07bd981fa125adf5db6e8ce723e6403643a9ef13c46140f3c3acfe4413",
+   "idx_sha256_val": "7dfbd1b7a6e0b37ba00aad086ae84a946f9aa2c2b1498afe489eabc40b4e670c",
+   "idx_sha256_test": "a30d0ddb4e3896af487adc2b8709e27290dfd58415c359b1bcb4316e146fd347",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "sorocaba_Q3": {
+   "file": "partitions/partition_sorocaba_Q3.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9187682,
+   "n_val": 1041517,
+   "n_test": 826159,
+   "idx_sha256_train": "7405a18a5955199e6697c0d1b6ed9a56877a712e78ca6fbcf22344de31bcad56",
+   "idx_sha256_val": "9e533ea30f4bdb563109c13e0062c67f10b9533889b6361bcfdc0471018fd276",
+   "idx_sha256_test": "07451f5893c08d800d571ab423754590845e1303fb2e13c816c4842bbf6de2eb",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  },
+  "sorocaba_Q4": {
+   "file": "partitions/partition_sorocaba_Q4.npz",
+   "n_nodes": 12960000,
+   "split": {
+    "grid_km": 10.0,
+    "buffer_km": 2.0,
+    "split_frac": "0.70,0.15,0.15",
+    "split_seed": 42
+   },
+   "n_train": 9187684,
+   "n_val": 1041519,
+   "n_test": 826159,
+   "idx_sha256_train": "c57a66132a2d189d6cfbe29789635191969f750270c275f17ea21e0209324dcd",
+   "idx_sha256_val": "feffe980e8d5864b09b1832bba95e590a01f579a8a74117c12b166de66e89aae",
+   "idx_sha256_test": "07451f5893c08d800d571ab423754590845e1303fb2e13c816c4842bbf6de2eb",
+   "run_logs_matching": 25,
+   "prediction_files_matching_test": 25
+  }
+ }
+}

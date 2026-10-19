@@ -1,0 +1,684 @@
+{
+ "etapa": "D_tost_aninhado",
+ "versao": "fase D minima (R2-8c)",
+ "aprovacao": "nested TOST (cities as the top level), specified before the analysis was run",
+ "carimbo": {
+  "script": "/trabalho/ARPIA_RF/TOPO_RF_PROJETO/GNN_RF/gnn_rf_ieee_access/_revisao_2026-10-14/fase_D/D_tost_aninhado.py",
+  "script_sha256": "c1ca0c82adae2efc9d7f3625a4428644531f8432cb7f6a0c4badb6a48c5667bf",
+  "insumos_sha256": {
+   "agregado_controles_c1v2.json": "55bed950dc55b7990ab1e7fc57ffc0ad0c3933ae0dcfa3a07f6a9739b08c92e1",
+   "agregar_controles_c1v2.py": "3d8c885021f8ee870f503965462dec543dbee68326f280cd4afd360a50de8524",
+   "BA_inferencia.py": "58bb697bf061a45bc06b29f8c505517e1dea92525b1f050842eaee569dfbd33f",
+   "fase_B_common.py": "b71a71a3022744b132934cfdb05b39ac1b26f44df0f8915383c718d3d0bc811a",
+   "FOLHA_DE_FATOS_R4.md": "1d9e2d669828120bd1c4937e14a2646b65c8fd141768066c54de8fb238bea220",
+   "tab_controles_24.tex_R3": "67e852d2420e2c2c98bb10eb14cd493daf46164c7244595b80f70aa93859f4e3",
+   "c0c1cfsc_bauru_s42_Q2_g10b2": "efddb82261ab7ffdc40e26f84f87a4c907f0f31cd06c82f9c3053213cd8311c0",
+   "c0c1cf_bauru_s42_Q2_g10b2": "42256b79ed7914b9776aaccc24ff1139236c59ce6662e653e8684419c436f7d2",
+   "c0c1cfsc_bauru_s42_Q3_g10b2": "371d5bf332a4bc2489b5f8265f3debf2285196887f0bca3e63522c8a8208b72b",
+   "c0c1cf_bauru_s42_Q3_g10b2": "a2519b94caf880d98995ea8066a99357a3e6780ec1ab35ebfca9d144fbe89909",
+   "c0c1cfsc_bauru_s42_Q4_g10b2": "e0a7d829007574140906a06413b782410de370b7e9658d2c7a34377f9a5b7e26",
+   "c0c1cf_bauru_s42_Q4_g10b2": "adddf2211d473a592fc18722c12eb4ec980b1d5da7512f18611ede57d7fec885",
+   "c0c1cfsc_bauru_s43_Q2_g10b2": "366923b13d7a450c001195aa9c30e3d5257326b14dff2411c82167ce556c5bcd",
+   "c0c1cf_bauru_s43_Q2_g10b2": "aab330ee465de0f14c612ba957ab56071acb2b2d5fa0d7ab641ca03b1312c7f8",
+   "c0c1cfsc_bauru_s43_Q3_g10b2": "2cc077951353d9d87b8148ccdc228830530ced8c21ce227ac5b3f38b15f46c26",
+   "c0c1cf_bauru_s43_Q3_g10b2": "ac0549c72e8349b786017e95aae3ea5328d4bb05d230c7fe4ec5cc0c33085aa4",
+   "c0c1cfsc_bauru_s43_Q4_g10b2": "873792822ca5f8520fefd64182546006eb6c088989e3b7868081b9fe63f45e4a",
+   "c0c1cf_bauru_s43_Q4_g10b2": "71ae1a17f02a4e2751c28f01de1bfefd39c74718e0d9ea8ca1eefd0dd7cb6d0a",
+   "c0c1cfsc_campinas_s42_Q2_g10b2": "659dc3818a1888164e134ed7c5b9c5ff46342d4f29d52d69206ec5e98438ab45",
+   "c0c1cf_campinas_s42_Q2_g10b2": "3f4137ec7c2f7c1dcf23ba3d8c5eecac69038d75948c89d3d65785fe176a9df5",
+   "c0c1cfsc_campinas_s42_Q3_g10b2": "7721a2e867aeddec2c66aa23269f319669c5dfb84c2f4232866d01f2a28934eb",
+   "c0c1cf_campinas_s42_Q3_g10b2": "2549ce770a5fce6fc95929a2ddfe42801f63e27dc435a8fe77c60bcc4c32477e",
+   "c0c1cfsc_campinas_s42_Q4_g10b2": "ccb5caec2beaa372d22986f18ff7c317ee29ac75ef247b26fc5701b2a9774f6b",
+   "c0c1cf_campinas_s42_Q4_g10b2": "3760ce316e13e52a7ff614880b9fe3efe0524f5b55402d41f75948181ec07224",
+   "c0c1cfsc_campinas_s43_Q2_g10b2": "6989abb3ebdc2acbef83d3abfcf2d42bb7812ab95f715f0fcac5a120709e5776",
+   "c0c1cf_campinas_s43_Q2_g10b2": "87c28c80b5be1916212d18745611fa25a061d23412ac0151284a38826dca725e",
+   "c0c1cfsc_campinas_s43_Q3_g10b2": "87d8e7cf4e93ce328409b648313f9ee8954b7b5114a9ad0f1cf1234132ed8a58",
+   "c0c1cf_campinas_s43_Q3_g10b2": "729864f4dfd8ab58cd6c5539fc9b87b2c57ec6f22d1fae4b9bca6dc0eec365b9",
+   "c0c1cfsc_campinas_s43_Q4_g10b2": "99d2e41fed58d851786be9417d1ef4d88f118d595e304486fa748b8490f5e7fd",
+   "c0c1cf_campinas_s43_Q4_g10b2": "b82da5a801a98dddaf4d3fb2563f15f108d8240ccc33bfb440401f241ccf8d9e",
+   "c0c1cfsc_lins_s42_Q2_g10b2": "ee3b49f45041902032c6a9f4fe141c4fe9b22216841ab7c40b7f2e3e6c1ad6b7",
+   "c0c1cf_lins_s42_Q2_g10b2": "2c60de023b73a63d642a6023a4159bfe28bcbf85643be3f1c5b92f76f47fa0e9",
+   "c0c1cfsc_lins_s42_Q3_g10b2": "1e350ce39a0b9573005efd8e6efdc82995501098dc3a7f63a71b3360742cbb5e",
+   "c0c1cf_lins_s42_Q3_g10b2": "0d25f361abecab655e17e28d5a82c9e7d2833d80bcf59367e31e3de5b61a4a77",
+   "c0c1cfsc_lins_s42_Q4_g10b2": "5817feb2b65e95349b998d0f02664acfcb372d346e1a83e46300d0de21f1dc38",
+   "c0c1cf_lins_s42_Q4_g10b2": "f732d6e97c4146b4c053fad63023ba8ba131845e923a47eb1b0e1f5fd9d9d873",
+   "c0c1cfsc_lins_s43_Q2_g10b2": "a46e89a6878908253bd4b1c371706f2f03f8bafacd0892cf5004ec817f2ea376",
+   "c0c1cf_lins_s43_Q2_g10b2": "56a07cabb500e3634fa83738efcb224129ca885d83dcdcc1bf6bbef9f8648c3e",
+   "c0c1cfsc_lins_s43_Q3_g10b2": "96b7ea5706972207a69f5e99872de38baf3f34b0edb9426dbee785c9db2b2d76",
+   "c0c1cf_lins_s43_Q3_g10b2": "7d6c0e8b85671deb6477fd80ed650a449acf2fc453a0d780bd7bd3b260269cb2",
+   "c0c1cfsc_lins_s43_Q4_g10b2": "802caca33777f29ec6ea25a89ec4fe8e615abbfae72c0051eca83d93aa2b0942",
+   "c0c1cf_lins_s43_Q4_g10b2": "75fbb87b97369dd05ccc293be92d1c0ad45645f529d987591d3597afdcd9f5db",
+   "c0c1cfsc_sorocaba_s42_Q2_g10b2": "40d2ae195153127f76a4e84b510a329d3147694d205749faabdc132117969e1e",
+   "c0c1cf_sorocaba_s42_Q2_g10b2": "bafed7e36b1096e3e3bb064181357298d09212edf6e875f59f0997d10b0bf368",
+   "c0c1cfsc_sorocaba_s42_Q3_g10b2": "bd70505d8f452b07ffdd9bc1ecf696fc4d20001292a3c2db2aa7b873de2f2733",
+   "c0c1cf_sorocaba_s42_Q3_g10b2": "dca25aaaa504d33a766859231164f49d2a825c3461fa9a47f9b3e9e9058c9069",
+   "c0c1cfsc_sorocaba_s42_Q4_g10b2": "ef43f748528316b67426475ef720122b07303d0f152ece9596dccad4db166534",
+   "c0c1cf_sorocaba_s42_Q4_g10b2": "2eaa5abd38fb24ff466b77501ba3ea0c1e4a2bb39a646701a441cb4856eba2d4",
+   "c0c1cfsc_sorocaba_s43_Q2_g10b2": "38e8ca41b75856b611e9e01c84a0caafa452e3d9776d9570b33ec2aeee650df6",
+   "c0c1cf_sorocaba_s43_Q2_g10b2": "65047098d597a266bf755448abea97902652faf75ee796c508541eb1fcbe737c",
+   "c0c1cfsc_sorocaba_s43_Q3_g10b2": "6c879e63faf7deea8be99868fcbd868cb2be49a278aec4ee545b6f844df95fc2",
+   "c0c1cf_sorocaba_s43_Q3_g10b2": "5d670eebfd7eaf49ca0bfff31f2ad2590f21b912ec4bc0d6f72729494300073d",
+   "c0c1cfsc_sorocaba_s43_Q4_g10b2": "b2718642b7af01e2a9f1e9797b8f261ad967c99bc4807bfcf02145dd59a56661",
+   "c0c1cf_sorocaba_s43_Q4_g10b2": "d3d88d39f14744aebafad52c68dfcd0e7edf17fa827718bb97b75407bb7c6bf4"
+  },
+  "data": "2026-10-19",
+  "timestamp": "2026-10-19T14:46:45",
+  "provisorio": true
+ },
+ "sinal": "Delta = MAE RSSI(cadeia c0c1cf) - MAE RSSI(do zero c0c1cfsc), mesma celula/seed/split; Delta < 0 => cadeia com MAE menor",
+ "populacao": "ALL (todos os nos de teste; selecao.test_no_melhor_ckpt.mae_rssi_db)",
+ "nota_regime": null,
+ "margem_db": 0.1,
+ "alfa": 0.05,
+ "regra_destino": {
+  "dentro": "equivalencia na unidade cidade",
+  "cruza": "no systematic difference detectable at the city unit",
+  "fora": "diferenca",
+  "proibido_no_cruza": [
+   "parity",
+   "equivalent"
+  ]
+ },
+ "passo1_reproducao": {
+  "reproduz": true,
+  "unidade": "cluster (cidade, seed)",
+  "n": 8,
+  "n_pares": 24,
+  "recalculado": {
+   "n": 8,
+   "media_db": -0.01358363466958205,
+   "dp_db": 0.07025233052006655,
+   "ep_db": 0.024837949652448853,
+   "ic95_db": [
+    -0.07231605277760317,
+    0.045148783438439075
+   ],
+   "t": -0.5468903375542029,
+   "p_bicaudal": 0.6014445394491659,
+   "tost": {
+    "margem_db": 0.1,
+    "n": 8,
+    "t_inferior": 3.479206880584762,
+    "p_inferior": 0.005138631406710515,
+    "t_superior": -4.572987555693168,
+    "p_superior": 0.0012825083032134144,
+    "p_tost": 0.005138631406710515
+   }
+  },
+  "clusters_recalculados": {
+   "bauru_s42": -0.00200405220190684,
+   "bauru_s43": 0.017772992451985676,
+   "campinas_s42": -0.09758023420969646,
+   "campinas_s43": -0.0991936723391215,
+   "lins_s42": 0.0980155070622762,
+   "lins_s43": -0.02736610174179077,
+   "sorocaba_s42": 0.0555483748515447,
+   "sorocaba_s43": -0.05386189122994741
+  },
+  "diff_abs_vs_agregado_json": {
+   "media_db": 0.0,
+   "dp_db": 0.0,
+   "ic95_lo": 0.0,
+   "ic95_hi": 0.0,
+   "p_bicaudal": 0.0,
+   "p_inferior": 8.673617379884035e-19,
+   "p_superior": 0.0,
+   "p_tost": 8.673617379884035e-19
+  },
+  "diff_abs_clusters_vs_agregado": 0.0,
+  "diff_abs_pares_run_json_vs_agregado": 0.0,
+  "arredondado_como_publicado": {
+   "media_db": -0.014,
+   "ic95_db": [
+    -0.072,
+    0.045
+   ],
+   "p_bicaudal": 0.6,
+   "p_tost": 0.0051,
+   "n": 8,
+   "n_pares": 24
+  },
+  "publicado_R3_tab9": {
+   "media_db": -0.014,
+   "ic95_db": [
+    -0.072,
+    0.045
+   ],
+   "p_bicaudal": 0.6,
+   "p_tost": 0.0051,
+   "n": 8,
+   "n_pares": 24
+  },
+  "diff_vs_publicado": {
+   "media_db": 0.0,
+   "ic95_lo": 0.0,
+   "ic95_hi": 0.0,
+   "p_bicaudal": 0.0,
+   "p_tost": 0.0,
+   "n": 0,
+   "n_pares": 0
+  },
+  "formulas": "identicas a agregar_controles_c1v2.py (statistics.mean/stdev, scipy.stats.t)",
+  "criterio": "dados/media/dp/IC: diff 0 exato; p-valores: diff <= 1e-15 (ULP entre versoes do scipy)",
+  "scipy_versao_aqui": "1.17.0"
+ },
+ "pares_24": [
+  {
+   "cidade": "bauru",
+   "seed": 42,
+   "Q": "Q2",
+   "zero_db": 0.3161599040031433,
+   "cadeia_db": 0.4700026214122772,
+   "delta_db": 0.1538427174091339,
+   "n_nos_teste": 828243,
+   "chave_sc": "c0c1cfsc_bauru_s42_Q2_g10b2",
+   "chave_ch": "c0c1cf_bauru_s42_Q2_g10b2"
+  },
+  {
+   "cidade": "bauru",
+   "seed": 42,
+   "Q": "Q3",
+   "zero_db": 0.4170244038105011,
+   "cadeia_db": 0.373127281665802,
+   "delta_db": -0.0438971221446991,
+   "n_nos_teste": 817601,
+   "chave_sc": "c0c1cfsc_bauru_s42_Q3_g10b2",
+   "chave_ch": "c0c1cf_bauru_s42_Q3_g10b2"
+  },
+  {
+   "cidade": "bauru",
+   "seed": 42,
+   "Q": "Q4",
+   "zero_db": 0.3639490604400635,
+   "cadeia_db": 0.24799130856990814,
+   "delta_db": -0.11595775187015533,
+   "n_nos_teste": 817601,
+   "chave_sc": "c0c1cfsc_bauru_s42_Q4_g10b2",
+   "chave_ch": "c0c1cf_bauru_s42_Q4_g10b2"
+  },
+  {
+   "cidade": "bauru",
+   "seed": 43,
+   "Q": "Q2",
+   "zero_db": 0.2716222107410431,
+   "cadeia_db": 0.3152998983860016,
+   "delta_db": 0.043677687644958496,
+   "n_nos_teste": 828243,
+   "chave_sc": "c0c1cfsc_bauru_s43_Q2_g10b2",
+   "chave_ch": "c0c1cf_bauru_s43_Q2_g10b2"
+  },
+  {
+   "cidade": "bauru",
+   "seed": 43,
+   "Q": "Q3",
+   "zero_db": 0.41130146384239197,
+   "cadeia_db": 0.41911688446998596,
+   "delta_db": 0.007815420627593994,
+   "n_nos_teste": 817601,
+   "chave_sc": "c0c1cfsc_bauru_s43_Q3_g10b2",
+   "chave_ch": "c0c1cf_bauru_s43_Q3_g10b2"
+  },
+  {
+   "cidade": "bauru",
+   "seed": 43,
+   "Q": "Q4",
+   "zero_db": 0.3512754738330841,
+   "cadeia_db": 0.35310134291648865,
+   "delta_db": 0.001825869083404541,
+   "n_nos_teste": 817601,
+   "chave_sc": "c0c1cfsc_bauru_s43_Q4_g10b2",
+   "chave_ch": "c0c1cf_bauru_s43_Q4_g10b2"
+  },
+  {
+   "cidade": "campinas",
+   "seed": 42,
+   "Q": "Q2",
+   "zero_db": 0.34839147329330444,
+   "cadeia_db": 0.26717692613601685,
+   "delta_db": -0.0812145471572876,
+   "n_nos_teste": 821276,
+   "chave_sc": "c0c1cfsc_campinas_s42_Q2_g10b2",
+   "chave_ch": "c0c1cf_campinas_s42_Q2_g10b2"
+  },
+  {
+   "cidade": "campinas",
+   "seed": 42,
+   "Q": "Q3",
+   "zero_db": 0.8500824570655823,
+   "cadeia_db": 0.6476114392280579,
+   "delta_db": -0.20247101783752441,
+   "n_nos_teste": 822561,
+   "chave_sc": "c0c1cfsc_campinas_s42_Q3_g10b2",
+   "chave_ch": "c0c1cf_campinas_s42_Q3_g10b2"
+  },
+  {
+   "cidade": "campinas",
+   "seed": 42,
+   "Q": "Q4",
+   "zero_db": 0.19403661787509918,
+   "cadeia_db": 0.18498148024082184,
+   "delta_db": -0.009055137634277344,
+   "n_nos_teste": 822561,
+   "chave_sc": "c0c1cfsc_campinas_s42_Q4_g10b2",
+   "chave_ch": "c0c1cf_campinas_s42_Q4_g10b2"
+  },
+  {
+   "cidade": "campinas",
+   "seed": 43,
+   "Q": "Q2",
+   "zero_db": 0.33242732286453247,
+   "cadeia_db": 0.24144937098026276,
+   "delta_db": -0.09097795188426971,
+   "n_nos_teste": 821276,
+   "chave_sc": "c0c1cfsc_campinas_s43_Q2_g10b2",
+   "chave_ch": "c0c1cf_campinas_s43_Q2_g10b2"
+  },
+  {
+   "cidade": "campinas",
+   "seed": 43,
+   "Q": "Q3",
+   "zero_db": 0.9740759134292603,
+   "cadeia_db": 0.8695249557495117,
+   "delta_db": -0.10455095767974854,
+   "n_nos_teste": 822561,
+   "chave_sc": "c0c1cfsc_campinas_s43_Q3_g10b2",
+   "chave_ch": "c0c1cf_campinas_s43_Q3_g10b2"
+  },
+  {
+   "cidade": "campinas",
+   "seed": 43,
+   "Q": "Q4",
+   "zero_db": 0.29067641496658325,
+   "cadeia_db": 0.188624307513237,
+   "delta_db": -0.10205210745334625,
+   "n_nos_teste": 822561,
+   "chave_sc": "c0c1cfsc_campinas_s43_Q4_g10b2",
+   "chave_ch": "c0c1cf_campinas_s43_Q4_g10b2"
+  },
+  {
+   "cidade": "lins",
+   "seed": 42,
+   "Q": "Q2",
+   "zero_db": 0.31655535101890564,
+   "cadeia_db": 0.49571287631988525,
+   "delta_db": 0.17915752530097961,
+   "n_nos_teste": 833593,
+   "chave_sc": "c0c1cfsc_lins_s42_Q2_g10b2",
+   "chave_ch": "c0c1cf_lins_s42_Q2_g10b2"
+  },
+  {
+   "cidade": "lins",
+   "seed": 42,
+   "Q": "Q3",
+   "zero_db": 0.21226325631141663,
+   "cadeia_db": 0.33692893385887146,
+   "delta_db": 0.12466567754745483,
+   "n_nos_teste": 824701,
+   "chave_sc": "c0c1cfsc_lins_s42_Q3_g10b2",
+   "chave_ch": "c0c1cf_lins_s42_Q3_g10b2"
+  },
+  {
+   "cidade": "lins",
+   "seed": 42,
+   "Q": "Q4",
+   "zero_db": 0.27087587118148804,
+   "cadeia_db": 0.2610991895198822,
+   "delta_db": -0.009776681661605835,
+   "n_nos_teste": 824701,
+   "chave_sc": "c0c1cfsc_lins_s42_Q4_g10b2",
+   "chave_ch": "c0c1cf_lins_s42_Q4_g10b2"
+  },
+  {
+   "cidade": "lins",
+   "seed": 43,
+   "Q": "Q2",
+   "zero_db": 0.4960255026817322,
+   "cadeia_db": 0.44850054383277893,
+   "delta_db": -0.04752495884895325,
+   "n_nos_teste": 833593,
+   "chave_sc": "c0c1cfsc_lins_s43_Q2_g10b2",
+   "chave_ch": "c0c1cf_lins_s43_Q2_g10b2"
+  },
+  {
+   "cidade": "lins",
+   "seed": 43,
+   "Q": "Q3",
+   "zero_db": 0.2532525658607483,
+   "cadeia_db": 0.22970378398895264,
+   "delta_db": -0.023548781871795654,
+   "n_nos_teste": 824701,
+   "chave_sc": "c0c1cfsc_lins_s43_Q3_g10b2",
+   "chave_ch": "c0c1cf_lins_s43_Q3_g10b2"
+  },
+  {
+   "cidade": "lins",
+   "seed": 43,
+   "Q": "Q4",
+   "zero_db": 0.17898592352867126,
+   "cadeia_db": 0.16796135902404785,
+   "delta_db": -0.011024564504623413,
+   "n_nos_teste": 824701,
+   "chave_sc": "c0c1cfsc_lins_s43_Q4_g10b2",
+   "chave_ch": "c0c1cf_lins_s43_Q4_g10b2"
+  },
+  {
+   "cidade": "sorocaba",
+   "seed": 42,
+   "Q": "Q2",
+   "zero_db": 0.4842570424079895,
+   "cadeia_db": 0.5934473872184753,
+   "delta_db": 0.10919034481048584,
+   "n_nos_teste": 818925,
+   "chave_sc": "c0c1cfsc_sorocaba_s42_Q2_g10b2",
+   "chave_ch": "c0c1cf_sorocaba_s42_Q2_g10b2"
+  },
+  {
+   "cidade": "sorocaba",
+   "seed": 42,
+   "Q": "Q3",
+   "zero_db": 0.46762850880622864,
+   "cadeia_db": 0.5051820874214172,
+   "delta_db": 0.0375535786151886,
+   "n_nos_teste": 826159,
+   "chave_sc": "c0c1cfsc_sorocaba_s42_Q3_g10b2",
+   "chave_ch": "c0c1cf_sorocaba_s42_Q3_g10b2"
+  },
+  {
+   "cidade": "sorocaba",
+   "seed": 42,
+   "Q": "Q4",
+   "zero_db": 0.23849935829639435,
+   "cadeia_db": 0.258400559425354,
+   "delta_db": 0.019901201128959656,
+   "n_nos_teste": 826159,
+   "chave_sc": "c0c1cfsc_sorocaba_s42_Q4_g10b2",
+   "chave_ch": "c0c1cf_sorocaba_s42_Q4_g10b2"
+  },
+  {
+   "cidade": "sorocaba",
+   "seed": 43,
+   "Q": "Q2",
+   "zero_db": 0.3647719621658325,
+   "cadeia_db": 0.36040881276130676,
+   "delta_db": -0.004363149404525757,
+   "n_nos_teste": 818925,
+   "chave_sc": "c0c1cfsc_sorocaba_s43_Q2_g10b2",
+   "chave_ch": "c0c1cf_sorocaba_s43_Q2_g10b2"
+  },
+  {
+   "cidade": "sorocaba",
+   "seed": 43,
+   "Q": "Q3",
+   "zero_db": 0.46848350763320923,
+   "cadeia_db": 0.4305950701236725,
+   "delta_db": -0.03788843750953674,
+   "n_nos_teste": 826159,
+   "chave_sc": "c0c1cfsc_sorocaba_s43_Q3_g10b2",
+   "chave_ch": "c0c1cf_sorocaba_s43_Q3_g10b2"
+  },
+  {
+   "cidade": "sorocaba",
+   "seed": 43,
+   "Q": "Q4",
+   "zero_db": 0.28918951749801636,
+   "cadeia_db": 0.16985543072223663,
+   "delta_db": -0.11933408677577972,
+   "n_nos_teste": 826159,
+   "chave_sc": "c0c1cfsc_sorocaba_s43_Q4_g10b2",
+   "chave_ch": "c0c1cf_sorocaba_s43_Q4_g10b2"
+  }
+ ],
+ "a_unidade_cidade": {
+  "unidade": "cidade (media das 6 Delta: 2 seeds x Q2-Q4)",
+  "n": 4,
+  "gl": 3,
+  "medias_cidade_db": {
+   "bauru": 0.007884470125039419,
+   "campinas": -0.09838695327440898,
+   "lins": 0.035324702660242714,
+   "sorocaba": 0.000843241810798645
+  },
+  "media_db": -0.013583634669582052,
+  "dp_db": 0.05845979414723914,
+  "ep_db": 0.02922989707361957,
+  "ic95_t": [
+   -0.10660621261534571,
+   0.0794389432761816
+  ],
+  "t": -0.4647171570727662,
+  "p_bilateral": 0.6737845636366486,
+  "destino_ic95_t": "no systematic difference detectable at the city unit (IC cruza +-0,1 dB)",
+  "ic95_exclui_zero": false,
+  "tost": {
+   "margem_db": 0.1,
+   "n": 4,
+   "gl": 3,
+   "media_db": -0.013583634669582052,
+   "dp_db": 0.05845979414723914,
+   "ep_db": 0.02922989707361957,
+   "t_inferior": 2.956437551345675,
+   "p_inferior": 0.029857332365254938,
+   "t_superior": -3.8858718654912074,
+   "p_superior": 0.01510228331105183,
+   "p_tost": 0.029857332365254938,
+   "rejeita_ao_nivel_0_05": true,
+   "ic90_t_equivalente_ao_tost": [
+    -0.08237220564565917,
+    0.05520493630649506
+   ]
+  },
+  "conferencia_formula_propria_vs_BA_t_cidades_max_abs": 0.0,
+  "funcao_reaproveitada": "BA_inferencia.t_cidades"
+ },
+ "b_bootstrap_hierarquico": {
+  "B": 20000,
+  "rng": "numpy default_rng(20261018)",
+  "ordem_indices": "IC_ (B,4), IS_ (B,4,2) [b1 e b2]; IQ_ (B,4,2,3) [b2]; IC3 (B,4), ICel (B,4,3), ISd (B,4,3,2) [b3]",
+  "IC": "percentil 2,5-97,5",
+  "nivel_superior_multiconjuntos_de_cidade": 35,
+  "nivel_cadeia_multiconjuntos_por_cidade": 3,
+  "b1_cidade_cadeia_funcao_BA": {
+   "estimativa": -0.013583634669582052,
+   "ic95": [
+    -0.07337772473692894,
+    0.0416652150452137
+   ],
+   "B_validas": 20000,
+   "ep_bootstrap": 0.029449869901809225,
+   "destino": "equivalencia na unidade cidade (IC inteiro dentro de +-0,1 dB)",
+   "ic_exclui_zero": false,
+   "funcao_reaproveitada": "BA_inferencia.bootstrap + matriz_cadeias",
+   "niveis": "cidade -> (cidade, seed); Q2-Q4 medidos dentro da cadeia"
+  },
+  "b2_cidade_cadeia_quadrante": {
+   "estimativa": -0.013583634669582048,
+   "ic95": [
+    -0.07679483766357105,
+    0.04807485647809998
+   ],
+   "B_validas": 20000,
+   "ep_bootstrap": 0.032038732806382954,
+   "destino": "equivalencia na unidade cidade (IC inteiro dentro de +-0,1 dB)",
+   "ic_exclui_zero": false,
+   "niveis": "cidade -> (cidade, seed) -> Q (com reposicao)"
+  },
+  "b3_cidade_celula_seed_folha": {
+   "estimativa": -0.013583634669582048,
+   "ic95": [
+    -0.07625241276497642,
+    0.043659510463476145
+   ],
+   "B_validas": 20000,
+   "ep_bootstrap": 0.031063449522529214,
+   "destino": "equivalencia na unidade cidade (IC inteiro dentro de +-0,1 dB)",
+   "ic_exclui_zero": false,
+   "niveis": "cidade -> celula (cidade, Q) -> seed (redacao F-R2.8.09)"
+  }
+ },
+ "c_modelo_misto": {
+  "formula": "delta ~ 1 + (1|cidade) + (1|cidade:seed)",
+  "implementacao": "statsmodels MixedLM(groups=cidade, re_formula='1', vc_formula={'cadeia': '0 + C(cadeia)'}), REML",
+  "n_obs": 24,
+  "n_cidades": 4,
+  "n_cadeias": 8,
+  "satterthwaite": "indisponivel no statsmodels; IC Wald (z) e IC t com gl = 3 so como sensibilidade",
+  "ajustes": {
+   "default": {
+    "ajustado": true,
+    "convergiu": true,
+    "intercepto_db": -0.013583634669582045,
+    "ep_db": 0.029229920468960776,
+    "ic95_wald_z": [
+     -0.07087322605971529,
+     0.0437059567205512
+    ],
+    "destino_wald": "equivalencia na unidade cidade (IC inteiro dentro de +-0,1 dB)",
+    "ic95_t_gl3_sensibilidade": [
+     -0.10660628706976288,
+     0.0794390177305988
+    ],
+    "destino_t_gl3": "no systematic difference detectable at the city unit (IC cruza +-0,1 dB)",
+    "p_wald_z": 0.6421342865340576,
+    "var_cidade": 0.001662248795958474,
+    "var_cidade_seed": 0.001628744584648846,
+    "var_residual_Q": 0.005645591485225153,
+    "componentes_que_zeram": [],
+    "criterio_zera": "variancia <= 1e-6 x variancia total",
+    "llf_reml": 22.127743051348716,
+    "avisos": [
+     "ConvergenceWarning: The MLE may be on the boundary of the parameter space."
+    ]
+   },
+   "lbfgs": {
+    "ajustado": true,
+    "convergiu": true,
+    "intercepto_db": -0.013583634669582055,
+    "ep_db": 0.02923029529466947,
+    "ic95_wald_z": [
+     -0.07087396070460482,
+     0.04370669136544071
+    ],
+    "destino_wald": "equivalencia na unidade cidade (IC inteiro dentro de +-0,1 dB)",
+    "ic95_t_gl3_sensibilidade": [
+     -0.10660747993245466,
+     0.07944021059329055
+    ],
+    "destino_t_gl3": "no systematic difference detectable at the city unit (IC cruza +-0,1 dB)",
+    "p_wald_z": 0.6421385545860836,
+    "var_cidade": 0.0016623483721199474,
+    "var_cidade_seed": 0.0016287265840290988,
+    "var_residual_Q": 0.005645573927518843,
+    "componentes_que_zeram": [],
+    "criterio_zera": "variancia <= 1e-6 x variancia total",
+    "llf_reml": 22.127743050695855,
+    "avisos": [
+     "ConvergenceWarning: The MLE may be on the boundary of the parameter space."
+    ]
+   },
+   "powell": {
+    "ajustado": true,
+    "convergiu": true,
+    "intercepto_db": -0.013583634669582036,
+    "ep_db": 0.02920963492041576,
+    "ic95_wald_z": [
+     -0.0708334671151604,
+     0.04366619777599634
+    ],
+    "destino_wald": "equivalencia na unidade cidade (IC inteiro dentro de +-0,1 dB)",
+    "ic95_t_gl3_sensibilidade": [
+     -0.10654172940074515,
+     0.07937446006158107
+    ],
+    "destino_t_gl3": "no systematic difference detectable at the city unit (IC cruza +-0,1 dB)",
+    "p_wald_z": 0.6419031540497762,
+    "var_cidade": 0.0016565520679024711,
+    "var_cidade_seed": 0.0016304196953378946,
+    "var_residual_Q": 0.005646295038986818,
+    "componentes_que_zeram": [],
+    "criterio_zera": "variancia <= 1e-6 x variancia total",
+    "llf_reml": 22.127741251260304,
+    "avisos": [
+     "ConvergenceWarning: The MLE may be on the boundary of the parameter space."
+    ]
+   },
+   "nm": {
+    "ajustado": true,
+    "convergiu": true,
+    "intercepto_db": -0.01358363466958206,
+    "ep_db": 0.029228957195439345,
+    "ic95_wald_z": [
+     -0.07087133807830603,
+     0.04370406873914192
+    ],
+    "destino_wald": "equivalencia na unidade cidade (IC inteiro dentro de +-0,1 dB)",
+    "ic95_t_gl3_sensibilidade": [
+     -0.10660322150350365,
+     0.07943595216433952
+    ],
+    "destino_t_gl3": "no systematic difference detectable at the city unit (IC cruza +-0,1 dB)",
+    "p_wald_z": 0.6421233175175243,
+    "var_cidade": 0.0016619881923557117,
+    "var_cidade_seed": 0.0016288015153183707,
+    "var_residual_Q": 0.005645632829498423,
+    "componentes_que_zeram": [],
+    "criterio_zera": "variancia <= 1e-6 x variancia total",
+    "llf_reml": 22.127743047665703,
+    "avisos": [
+     "ConvergenceWarning: The MLE may be on the boundary of the parameter space."
+    ]
+   }
+  },
+  "primario": "default",
+  "secundario_BA_misto_com_celula": {
+   "ajustado": true,
+   "convergiu": true,
+   "intercepto": -0.013583634669582055,
+   "ep": 0.02923079504344505,
+   "ic95_wald": [
+    -0.07087494019420627,
+    0.043707670855042166
+   ],
+   "var_cidade": 0.0013241752300691709,
+   "var_componentes": {
+    "cadeia": 0.0019669932961772977,
+    "celula": 0.0010149755109110825
+   },
+   "var_residual": 0.004630562802156317,
+   "n_obs": 24,
+   "avisos": [
+    "ConvergenceWarning: The MLE may be on the boundary of the parameter space."
+   ],
+   "formula": "delta ~ 1 + (1|cidade) + vc celula(cidade,Q) + vc cadeia(cidade,seed) [BA_inferencia.misto]",
+   "ic95": [
+    -0.07087494019420627,
+    0.043707670855042166
+   ],
+   "destino": "equivalencia na unidade cidade (IC inteiro dentro de +-0,1 dB)",
+   "ic_exclui_zero": false
+  }
+ },
+ "d_valid": {
+  "disponivel": false,
+  "motivo": "os run JSON c0c1cfsc_* trazem so mae_rssi_db (todos os nos de teste) e mae_pl_db (alvo valido, canal PL); o MAE RSSI VALID existe so para a cadeia c0c1cf_* (t15_tres_populacoes.json); nao ha predicao por no dos 24 checkpoints do zero em fase_B/fase_C/fase_BA1, logo o Delta VALID exige inferencia nova (fora do escopo: CPU, nenhum treino/inferencia)"
+ },
+ "e_mde_poder_unidade_cidade": {
+  "sigma_observado_medias_cidade_db": 0.05845979414723914,
+  "n": 4,
+  "gl": 3,
+  "alfa": 0.05,
+  "poder_alvo": 0.8,
+  "mde80_t_pareado_bilateral_db": 0.12162322292552959,
+  "mde80_z_db": 0.0818900475684161,
+  "formula_mde": "(t_0,975;3 + t_0,80;3) * sigma / sqrt(4) (convencao de critico-verificador_mde_margens.md, com n = 4)",
+  "poder_tost_margem_0_1_sob_delta_0_exato": 0.6809168778055581,
+  "poder_tost_margem_0_1_sob_delta_0_simulado_200k": 0.67839,
+  "menor_margem_com_poder_80_tost_db": 0.11314698603382588,
+  "menor_n_cidades_com_poder_80_tost_margem_0_1": 5,
+  "nota": "poder exato por integracao sobre a distribuicao de s (qui-quadrado), media normal; simulacao so confere"
+ },
+ "referencia_poder_n8": {
+  "sigma_clusters_db": 0.07025233052006655,
+  "poder_tost_margem_0_1_exato_n8": 0.9495788695564273,
+  "poder_publicado_por_simulacao_no_agregado": 0.94905
+ }
+}

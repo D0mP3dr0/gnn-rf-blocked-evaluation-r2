@@ -1,165 +1,104 @@
-# GNN-RF under spatially blocked evaluation — reproducibility package (R3)
+# Physics-Informed Multi-Target RF Field Reconstruction over Heterogeneous Terrain Graphs under Spatially Blocked Evaluation — code and data
 
-Code, results, and the 16 seed-42 checkpoints for the manuscript
-*Physics-Consistent Multi-Target RF Field Reconstruction over Heterogeneous
-Terrain Graphs under Spatially Blocked Evaluation* (IEEE Access, manuscript
-Access-2026-29524, revision R3).
+L. F. C. Seelig and R. M. Salles (Military Institute of Engineering, IME, Brazil).
+DOI: https://doi.org/10.5281/zenodo.23377937
 
-## What is here
+Code is released under the MIT License (`LICENSE`); data (run logs, checkpoints,
+prediction files, partition masks, reference-field hashes and evaluation outputs)
+under CC BY 4.0 (`LICENSE-DATA`). Every file is listed with its SHA-256 digest in
+`SHA256SUMS.txt`; verify with `sha256sum -c SHA256SUMS.txt` from this folder.
 
-- `generator/` — the deterministic reference-field generator
-  (`generate_realistic_coverage.py`, `enrich_rf_targets.py`), the ETL that
-  builds the graph tensors (`prepare_transfer_dataset_v19.py`), the
-  generator self-consistency check (`contrafactual_alvo_completo.py`, the
-  script behind the 3.02e-4 dB recomputation figure), and the target
-  corrector that replaced the placeholder slope draw with the DEM slope
-  (`contrafactual_slope_real_construir.py` / `..._medir.py`).
-- `model/` — GNN-RF encoders, the heterogeneous GATv2 stack, the
-  physics-constrained decoder, the physics-informed loss, and the
-  FSPL/Okumura-Hata/COST-231 analytical models.
-- `training/` — the spatial block partition (`spatial_cv.py`), diagnostic
-  metrics (`rf_diagnostic_metrics.py`), and `training/frozen/`: the two
-  frozen training scripts behind every reported run
-  (`train_gnn_c0_spatial.py` for GNN-RF, `train_mlp_c0_spatial.py` for the
-  capacity-matched graph-free control), and the PowerShell queues used to
-  launch the training runs.
-- `evaluation/` — analytical baselines, the paired statistical test, the
-  nearest-valid-neighbor contrast, blocked cross-city transfer,
-  FSPL-floor admissibility and parameter recount, spatial error analysis,
-  aggregators, integrity checks, and the blocked MC Dropout uncertainty
-  evaluation (`evaluation/t14_mc_dropout/`, including the 16 per-cell
-  `.npz` files with the raw stochastic-pass samples).
-- `tables_figures/` — the generators and the ten new/updated LaTeX tables and
-  five figures the R3 manuscript reads via `\input`/`\includegraphics`.
-- `manuscript/` — the Supplementary Material appendix that documents the
-  generator equation by equation.
-- `results/` — the run JSON of every blocked training run
-  (`c0c1cf_*` GNN-RF, `mlpcf_*` graph-free control, plus the
-  from-scratch `c0c1cfsc_*` and reversed-chain `c0c1cfinv_*` control runs), their aggregates, the
-  graph census, the geographic-split and label-shuffle controls of the earlier campaign, the MC Dropout
-  per-cell JSONs and raw samples, the blocked-transfer result, the artifact
-  manifest (`manifest.jsonl`, file name and SHA-256 per artifact), and the
-  SHA-256 of the 16 reference fields.
-- `checkpoints/` — the 16 seed-42 GNN-RF checkpoints (`checkpoint_best.pt`
-  of every city x quadrant cell), renamed to
-  `checkpoint_c0c1cf_<city>_s42_Q<n>_g10b2.pt`. The SHA-256 published in
-  `results/manifest.jsonl` for each checkpoint identifies that exact binary;
-  it is the first time this hash was computed and recorded, not a check
-  against a pre-existing value.
-- `LICENSE` (MIT, code) and `LICENSE-DATA` (CC BY 4.0, results and
-  checkpoints).
+## Items listed in the Data Availability statement
 
-## What is not here
+| Item | Where |
+|---|---|
+| Target generator (SHA-256 95ea0423…) | `code/generate_realistic_coverage.py`, with `code/01_data/prepare_transfer_dataset_v19.py` (45c16d43…) and `code/data_raw/enrich_rf_targets.py` (5d38012e…) |
+| Target corrector (ebeaf759…) | `code/corrector/contrafactual_alvo_completo.py` (plus the slope-correction scripts in the same folder) |
+| 16 reference fields with their hashes | `reference_fields/hash_16_reference_fields.json` (file name, size and SHA-256 of each field; the fields themselves, about 452 GB in total, are not in this deposit) |
+| Partition indices with their hashes | `partitions/` (16 cells x train/validation/test masks, `PARTITION_HASHES.json`, `verify_partitions.py`) |
+| Evaluation and baseline scripts | `code/evaluation/`, `code/04_baselines/empirical_models.py`, `code/ba1/` |
+| Training scripts | `code/03_training/train_gnn_c0_spatial.py`, `code/03_training/train_mlp_c0_spatial.py`, `code/retrained_arms/`, `code/ba1/` |
+| 160 run logs, 160 checkpoints, 160 prediction files | `runs/c0_gnn/`, `runs/c0_mlp/`; `checkpoints/c0_gnn/`, `checkpoints/c0_mlp/`; `predictions/c0_gnn/`, `predictions/c0_mlp/` |
+| Run logs of the two retrained arms and of the node-wise adaptation | `runs/c1_noreg/`, `runs/c2_nomono/`, `runs/ba1/` (their checkpoints and prediction files are also included) |
+| Generator specification | `manuscript/supplementary/appendix_target_generator.tex`, `manuscript/pdf/Supplementary_Material.pdf` |
 
-The 16 reference fields (`*_cftudo.pt`, ~28 GB each) and the graph tensors
-(`*_gpu.pt`) exceed repository limits and are **available from the
-corresponding author upon request** (Google Drive). Their SHA-256 digests
-and file names are listed in `results/hash_16_reference_fields.json`
-(computed by `results/hash_16_reference_fields_compute.py`) and in
-`results/manifest.jsonl`, so any externally obtained copy can be verified.
+## What is where
 
-## Environment
+Arms: `c0_gnn` = GNN-RF (run label `c0c1cf_*`); `c0_mlp` = capacity-matched graph-free MLP (`mlpcf_*`);
+`c1_noreg` = GNN-RF retrained without the four physics regularizers (`c1noreg_*`); `c2_nomono` = GNN-RF
+retrained without the distance-monotonicity term (`c2nomono_*`); `ba1` = RadioUNet-style node-wise
+encoder-decoder (in-house adaptation, `ba1rus_*`). Each arm has 4 cities x 4 quadrants x 5 seeds (42-46) = 80 runs.
 
-Read from the provenance block of the run JSONs (`run_*.json` ->
-`ambiente`): Python 3.11.9, PyTorch 2.10.0+cu128, CUDA 12.8, a single NVIDIA
-RTX 5070 Ti (16 GB VRAM). PyTorch Geometric 2.8.0 (dev build) as installed in
-the authors' reproduction environment; the exact PyG build is not recorded
-per-run in the JSON provenance. Paths inside the scripts point to the
-authors' machines and must be adapted.
+| Folder | Content | Count |
+|---|---|---|
+| `runs/<arm>/<run_label>/` | `run_<run_label>.json` (configuration, environment, partition hashes, per-epoch and test metrics) and `training_log.csv`; for `c1_noreg`, `c2_nomono` and `ba1` also `stdout_wrapper.log` and `sidecar_<run_label>.json` (library versions, wrapper/guard/trainer hashes) | 80 run logs per arm (C0 GNN-RF 80, MLP 80, C1 80, C2 80, BA1 80) |
+| `runs/c0_controls/` | run logs of the from-scratch (`c0c1cfsc_*`) and reversed-chain (`c0c1cfinv_*`) control runs | 28 |
+| `checkpoints/<arm>/<run_label>.pt` | best-validation checkpoint of every run | 80 per arm, 400 in total |
+| `predictions/<arm>/<arm>_<city>_Q<n>_s<seed>.npz` | test-partition predictions: `idx_global`, `target` (N x 5), `pred` (N x 5), `sentinela` | 80 per arm, 400 in total |
+| `predictions/PREDICTIONS_INDEX.csv` | prediction file -> run label, checkpoint file and SHA-256, run-log SHA-256 | 400 rows |
+| `partitions/` | `partition_<city>_Q<n>.npz` (`numpy.packbits` masks), `PARTITION_HASHES.json`, `verify_partitions.py` | 16 cells x 3 splits |
+| `reference_fields/` | SHA-256 of the 16 reference fields and the script that computed them | 16 fields |
+| `code/` | same layout as the original project folder, so the trainers run with `--base-dir code` | |
+| `results/blocked/` | blocked-evaluation results: paired test, nearest-valid-neighbour contrast, admissibility, blocked transfer, MC Dropout uncertainty (per-cell JSON and raw samples), graph census, spatial error export, aggregates | |
+| `results/retrained_arms/`, `results/ba1/`, `results/nested_tost/` | metrics of the retrained arms, of the node-wise adaptation, and the nested equivalence test | |
+| `manuscript/` | LaTeX source, bibliography, tables/figures read by the source, supplementary material, PDFs | |
 
-## How to reproduce each table and figure
+## Provenance notes
 
-All commands assume the CUDA virtual environment
-(`F:\S33_dslm\s33_amb_virtual\.venv\Scripts\python.exe` in the authors'
-setup) and that the 16 reference fields and graph tensors have been obtained
-separately (see "What is not here") and placed where `--rf-data-file` /
-`--graph-file` point.
+- The generator, data preparation, enrichment, corrector, the two frozen trainers, the model modules
+  (`code/02_models/`), `code/03_training/spatial_cv.py`, `code/03_training/rf_diagnostic_metrics.py`, the
+  retrained-arm wrapper and guard, and the BA1 trainer, wrapper, guard and configuration are byte-identical to the
+  files that produced the runs; their SHA-256 matches the digests recorded in the run logs, wrapper records and
+  Supplementary Material. Their comments are therefore left as they were written.
+- Every run log records `dataset.rf_data_sha256`; all 400 match one of the 16 digests in `reference_fields/`.
+- Every run log records `particoes.{train,val,test}.idx_sha256_global`; `partitions/verify_partitions.py`
+  checks all 400 run logs and all 400 prediction files against the masks.
+- Prediction files of `c0_gnn` and `c0_mlp` were written by the preceding version of
+  `code/evaluation/inference/e3_inferencia_faseC.py` (SHA-256 c8e4356f…); the version here adds the arm prefix,
+  default paths and the default inference seed. Inference used fp16 autocast.
+- Library versions are recorded per run (`ambiente` in the run logs; `versoes` in the wrapper records, including
+  `torch_geometric` 2.8.0.post1 for the retrained arms and BA1). The run logs of `c0_gnn`/`c0_mlp` do not record
+  the PyTorch Geometric version.
+- Absolute paths inside scripts point to the authors' machines and must be adapted.
 
-1. **Generate and correct a reference field** (one city/quadrant):
-   `python generator/generate_realistic_coverage.py ...` then
-   `python generator/enrich_rf_targets.py ...` then
-   `python generator/contrafactual_slope_real_construir.py ...`.
-   Verify with `python generator/contrafactual_alvo_completo.py ...`
-   (reproduces the 3.02e-4 dB self-consistency figure).
+## Known limitations of this package
 
-2. **Train one GNN-RF cell** (produces one `run_c0c1cf_<city>_s42_<Q>_g10b2.json`
-   and one `checkpoints/checkpoint_best.pt`):
-   ```
-   python training/frozen/train_gnn_c0_spatial.py \
-     --run-label c0c1cf_bauru_s42_Q1_g10b2 \
-     --rf-data-file transfer_dataset_bauru_v19_Q1_enriched_cftudo.pt \
-     --graph-file  bauru_v19_Q1_gpu.pt \
-     --epochs 35 --lr 1e-3 --seed 42 --split-seed 42 \
-     --grid-km 10.0 --buffer-km 2.0 --split-frac 0.70,0.15,0.15 \
-     --freq-mhz 900 --diag-freq-mhz 1800 --hash
-   ```
-   Repeat for Q2-Q4 with `--transfer-from` the previous quadrant's
-   checkpoint, 20 epochs, `lr=2e-4` (Algorithm 1). Repeat the full chain for
-   seeds 42-46 and for `train_mlp_c0_spatial.py` (graph-free control) to
-   reproduce all 160 runs behind `results/runs_blocked/`.
+- The 16 reference fields (about 452 GB in total) are given only by file name, size and SHA-256
+  (`reference_fields/`). They can be regenerated with the generator, data-preparation, enrichment and corrector
+  scripts in `code/` from the public inputs described in the Supplementary Material, and checked against those digests.
+- The antenna records are public ANATEL licensing data (base stations of three mobile operators). The extract used,
+  `antenas_interior_sp_final.csv` (17,763,282 bytes, SHA-256 ad9addb0c515a0b4…), is not redistributed here. Its
+  download date is not recorded in the run logs or in the Supplementary Material.
+- Run logs, wrapper records and scripts contain absolute paths of the authors' machines. Two evaluation scripts do not
+  run outside those machines without adaptation: `code/evaluation/nested_tost/D_tost_aninhado.py` (hashes an
+  input file that is not part of this package) and `code/evaluation/ba1/BA_fisica.py` (its final cross-check block
+  reads files that are not part of this package; the metrics are computed before that block).
+- The LaTeX source in `manuscript/` does not compile without the journal class file and the author photographs;
+  the compiled PDFs are included in `manuscript/pdf/`.
 
-3. **Calibrated analytical baselines**:
-   `python evaluation/scripts/baselines_v3_por_particao.py` (reads the same
-   antenna parameters and test partitions as the trained runs).
+## Reproduction outline
 
-4. **Paired test (0.746 dB, p=2.59e-4)**:
-   `python evaluation/scripts/teste_pareado_empiricos_c1v2.py`.
-
-5. **Nearest-valid-neighbor contrast (Table 7)**:
-   `python evaluation/scripts/contraste_1nn_vizinho_valido.py`.
-
-6. **Blocked cross-city transfer (Sec. Cross-city transfer)**:
-   `python evaluation/scripts/medir_transferencia_bloqueada.py`.
-
-7. **FSPL-floor admissibility and parameter recount (Tables
-   10 and 11)**:
-   `python evaluation/scripts/medir_admissibilidade_e_params_2026-09-15.py`
-   and `python evaluation/scripts/recontar_params_baselines.py`.
-
-8. **Spatial error analysis (Sec. Spatial error analysis)**:
-   `python evaluation/scripts/exportar_spatial_npz.py` (per-node signed error
-   and coordinates).
-
-9. **MC Dropout uncertainty (Table 13, Fig. 6)**:
-   `python evaluation/t14_mc_dropout/t14_mc_dropout_bloqueado.py` (T=50
-   stochastic passes, dropout layers only, on each of the 16 seed-42
-   checkpoints).
-
-10. **Capacity-matched control aggregation (Sec. Robustness and ablation)**:
-    `python evaluation/scripts/agregar_t11_mlp_vs_gnn_4cidades_2026-09-15.py`.
-
-11. **Cost table (Table 15)**: training time and peak VRAM are read from the
-    `custo` block of the Bauru seed-42 run JSONs by
-    `tables_figures/gerar_tabelas_rodada_escrita_2026-09-16.py`.
-
-12. **Render the manuscript tables/figures**:
-    `python tables_figures/gerar_tabela_figura_novas.py`,
-    `gerar_tabela_tres_populacoes.py`, `gerar_tabelas_restantes.py`,
-    `gerar_fig_arquitetura.py` (base set), then `gerar_tab_censo_r3.py` and
-    `gerar_tabelas_rodada_escrita_2026-09-16.py` (patches the R3 `_v2`/`_v3`
-    tables: `tab_blocked_16_tres_pop_v2`, `tab_ablacao_estrutural_v2`,
-    `tab_ood_bloqueada`, `tab_contraste_1nn`, `tab_custo_v2`/`_v3`,
-    `tab_arquitetura_v2`, `tab_admissibilidade_v2`/`_v3`), and
-    `gerar_figs_R3_ajuste_seta_legenda_2026-09-15.py` for the figure legend
-    adjustments. Outputs land in `tables_figures/novas/`.
-
-Every script above reports the SHA-256 of its own source and of the inputs
-it reads inside its output JSON (`script_sha256`, `origem_script_sha256`,
-`*_sha256` fields), so a rerun can be checked artifact by artifact against
-`results/manifest.jsonl`.
-
-## Data availability
-
-The 16 reference fields (`*_cftudo.pt`, ~28 GB each) and the graph tensors
-(`*_gpu.pt`) are available from the corresponding author upon request. Their
-file names and SHA-256 digests are in `results/hash_16_reference_fields.json`
-and in `results/manifest.jsonl`.
-
-## License
-
-Code is released under the MIT License (`LICENSE`). Results, run records,
-and checkpoints are released under CC BY 4.0 (`LICENSE-DATA`).
+1. Reference fields: `generate_realistic_coverage.py` -> `01_data/prepare_transfer_dataset_v19.py` ->
+   `data_raw/enrich_rf_targets.py` -> `corrector/contrafactual_alvo_completo.py` (requires the antenna licensing
+   extract and the terrain graphs, not included; see the Supplementary Material).
+2. GNN-RF and MLP runs: `code/03_training/train_gnn_c0_spatial.py --base-dir code --run-label c0c1cf_bauru_s42_Q1_g10b2 --rf-data-file <field> --graph-file <graph> --epochs 35 --lr 1e-3 --seed 42 --split-seed 42 --grid-km 10 --buffer-km 2 --split-frac 0.70,0.15,0.15 --freq-mhz 900 --diag-freq-mhz 1800 --hash`;
+   Q2-Q4 use `--transfer-from` the previous quadrant's checkpoint, 20 epochs, `--lr 2e-4`. The exact arguments of
+   every run are in its run log (`config`). Same for `train_mlp_c0_spatial.py`.
+3. Retrained arms: `code/retrained_arms/wrapper_ablacao.py --braco c1noreg|c2nomono --cidade <city> --seed <s> --q <n>`.
+   BA1: `code/ba1/wrapper_ba1.py --cidade <city> --seed <s> --q <n>` (configuration in `code/ba1/config_ba1.json`).
+4. Predictions: `code/evaluation/inference/e3_inferencia_faseC.py --celula <city>_Q<n> --braco gnn --seed <s> --prefixo-run c0c1cf|c1noreg|c2nomono`
+   (batch: `lote_inferencia.sh`); BA1: `e3_inferencia_ba1.py` (batch: `lote_inferencia_ba1.sh`).
+5. Metrics: `code/evaluation/retrained_arms/C_metricas_v2.py`, `C_inferencia_v2.py`, `C_custodia_v2.py`;
+   `code/evaluation/ba1/BA_metricas.py`, `BA_inferencia.py`, `BA_custodia.py`, `BA_fisica.py`;
+   `code/evaluation/nested_tost/D_tost_aninhado.py`; all import `code/evaluation/common/common.py`.
+6. Blocked-evaluation scripts behind the remaining tables: `code/evaluation/blocked/` and `code/tables_figures/`.
 
 ## Citation
 
 See `CITATION.cff`.
+
+## Large artifacts (Zenodo only)
+
+This repository mirrors the code, run logs, results, partitions, manuscript and the 16 seed-42 GNN checkpoints. The full set of
+400 checkpoints and 400 prediction files (five arms x 80 runs, 10.5 GB) is published only in the Zenodo record
+https://doi.org/10.5281/zenodo.23377937, together with MANIFEST_SHA256.txt covering every file.

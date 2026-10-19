@@ -2,9 +2,10 @@ Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 Copyright (c) 2026 L. F. C. Seelig and R. M. Salles
 
-This license covers the results and checkpoints in this repository
-(results/, checkpoints/, tables_figures/novas/), including run records,
-aggregates, evaluation outputs, and the 16 seed-42 GNN-RF checkpoints.
+This license covers the data in this package (runs/, checkpoints/,
+predictions/, partitions/, reference_fields/, results/), including run
+records, training logs, model checkpoints, prediction files, partition
+masks, aggregates and evaluation outputs.
 
 You are free to:
   - Share: copy and redistribute the material in any medium or format.
@@ -22,6 +23,6 @@ Under the following terms:
 
 Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
 
-Code in this repository (generator/, model/, training/, evaluation/,
-tables_figures/ generator scripts) is licensed separately under LICENSE
-(MIT).
+Code in this package (code/) is licensed separately under LICENSE (MIT).
+The manuscript sources in manuscript/ are provided for reference and are
+not covered by either license.

@@ -1,0 +1,18 @@
+\begin{table}[!t]
+\centering
+\caption{Physical admissibility of the outputs under the blocked protocol, for the two quantities of Section~\ref{sec:robustness}. Floor: mean of 80 runs per model. Monotonicity: pairs of valid-target nodes whose distances to their shared serving transmitter differ by a factor of at least 2, mean of 40 runs per model over the 8 of 16 cells that have such pairs. The reference-field row scores the target itself (floor: mean of the 16 cells; monotonicity: mean of the 8 cells, with the maximum of a single cell in parentheses). The 95\% intervals of the paired differences of C1 and C2 against the reference contain zero for both quantities.}
+\label{tab:admissibility_blocked}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.4cm}>{\centering\arraybackslash}p{2.2cm}>{\centering\arraybackslash}p{2.2cm}@{}}
+\toprule
+Model & Below floor (fraction, 80 runs) & Monotonicity violations (fraction, 40 runs) \\
+\midrule
+GNN-RF (reference) & $1.39\times10^{-4}$ & 0.0446 \\
+No-penalty retraining (C1) & $9.21\times10^{-5}$ & 0.0378 \\
+No-monotonicity retraining (C2) & $1.14\times10^{-5}$ & 0.0304 \\
+Node-wise adaptation & $2.04\times10^{-5}$ & 0.0017 \\
+Graph-free control & 0 & 0.0252 \\
+Reference field & $2.43\times10^{-4}$ & $4.14\times10^{-4}$ (0.0033) \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,690 @@
+{
+  "artefato_tipo": "linhagem_mae_e_opcoes_de_correcao_custo",
+  "citavel": false,
+  "timestamp_utc": "2026-09-16T02:11:12.323170+00:00",
+  "linhagem_dos_mae_publicados": {
+    "rem_gnn": {
+      "mae_rssi_db_publicado": 0.19,
+      "mae_rssi_db_no_artefato": 0.19040840864181519,
+      "artefato_do_mae": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\fase0\\fase0_metrics_bauru_s42_Q2.json",
+      "campo_do_mae": "modelos.rem_gnn.todos_os_nos.mae_rssi_db",
+      "checkpoint": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\rem_gnn_bauru_s42_Q2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_sha256": "548b8516fa3bd7db2adee685e759719a47b5738d0039e072f4f852022ef77bc6",
+      "checkpoint_data_treino": "2026-03-16T12:49:09",
+      "conjunto_de_treinos": "version_20.1",
+      "tem_tt_msg": false,
+      "linhagem": "SEM tt_msg",
+      "params_no_state_dict": {
+        "model_state_dict": 72450
+      },
+      "n_params_declarado_pelo_fase0": 73554,
+      "nota_divergencia_fase0": "fase0_eval.py:271 grava a contagem da CLASSE INSTANCIADA (com tt_msg), nao a do checkpoint carregado com strict=False (fase0_eval.py:168-182)"
+    },
+    "radiounet": {
+      "mae_rssi_db_publicado": 0.251,
+      "mae_rssi_db_no_artefato": 0.2506358325481415,
+      "artefato_do_mae": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\fase0\\fase0_metrics_bauru_s42_Q2.json",
+      "campo_do_mae": "modelos.radiounet.todos_os_nos.mae_rssi_db",
+      "checkpoint": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\radiounet_bauru_s42_Q2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_sha256": "a54545a835d0c6da3e465d895d34bd2b966955c92cdc17f354fabe8e3e061dce",
+      "checkpoint_data_treino": "2026-03-16T12:54:00",
+      "conjunto_de_treinos": "version_20.1",
+      "tem_tt_msg": false,
+      "linhagem": "SEM tt_msg",
+      "params_no_state_dict": {
+        "model_state_dict": 265602
+      },
+      "n_params_declarado_pelo_fase0": 397186,
+      "nota_divergencia_fase0": "fase0_eval.py:271 grava a contagem da CLASSE INSTANCIADA (com tt_msg), nao a do checkpoint carregado com strict=False (fase0_eval.py:168-182)"
+    },
+    "rme_gan": {
+      "mae_rssi_db_publicado": 0.218,
+      "mae_rssi_db_no_artefato": 0.2178153693675995,
+      "artefato_do_mae": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\fase0\\fase0_metrics_bauru_s42_Q2.json",
+      "campo_do_mae": "modelos.rme_gan.todos_os_nos.mae_rssi_db",
+      "checkpoint": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\rme_gan_bauru_s42_Q2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_sha256": "7d445fe31e405e27fbc224a94bddac80e18ba7cb6dccd48e3aa00f363c249032",
+      "checkpoint_data_treino": "2026-03-16T14:47:26",
+      "conjunto_de_treinos": "version_20.1",
+      "tem_tt_msg": false,
+      "linhagem": "SEM tt_msg",
+      "params_no_state_dict": {
+        "generator_state_dict": 72194,
+        "discriminator_state_dict": 19841
+      },
+      "n_params_declarado_pelo_fase0": 73206,
+      "nota_divergencia_fase0": "fase0_eval.py:271 grava a contagem da CLASSE INSTANCIADA (com tt_msg), nao a do checkpoint carregado com strict=False (fase0_eval.py:168-182)"
+    },
+    "radiogat": {
+      "mae_rssi_db_publicado": 0.961,
+      "mae_rssi_db_no_artefato": 0.9607641696929932,
+      "artefato_do_mae": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\fase0\\fase0_metrics_bauru_s42_Q2.json",
+      "campo_do_mae": "modelos.radiogat.todos_os_nos.mae_rssi_db",
+      "checkpoint": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\radiogat_bauru_s42_Q2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_sha256": "e0480b06bce938b1c70033475320450a8a983ea940af881a0f1ebff5eeffe1c8",
+      "checkpoint_data_treino": "2026-03-16T15:10:23",
+      "conjunto_de_treinos": "version_20.1",
+      "tem_tt_msg": false,
+      "linhagem": "SEM tt_msg",
+      "params_no_state_dict": {
+        "model_state_dict": 301826
+      },
+      "n_params_declarado_pelo_fase0": 375938,
+      "nota_divergencia_fase0": "fase0_eval.py:271 grava a contagem da CLASSE INSTANCIADA (com tt_msg), nao a do checkpoint carregado com strict=False (fase0_eval.py:168-182)"
+    },
+    "gnn": {
+      "mae_rssi_db_publicado": 0.349,
+      "mae_rssi_db_no_artefato": 0.3491819500923157,
+      "artefato_do_mae": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\fase0\\fase0_metrics_bauru_s42_Q2.json",
+      "campo_do_mae": "modelos.gnn.todos_os_nos.mae_rssi_db",
+      "checkpoint": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\logs\\version_20\\multiseed_bauru_s42_Q2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_sha256": "9bdff5a698bef60be7968baf69272e3e97a77298624d083ef8728f41615d5868",
+      "checkpoint_data_treino": "2026-03-14T02:34:41",
+      "conjunto_de_treinos": "GNN_RF_V2/logs/version_20 (GNN-RF, campanha v20)",
+      "tem_tt_msg": false,
+      "linhagem": "SEM tt_msg",
+      "params_no_state_dict": {
+        "model_state_dict": 1814311
+      },
+      "n_params_declarado_pelo_fase0": 1812515,
+      "nota_divergencia_fase0": "fase0_eval.py:271 grava a contagem da CLASSE INSTANCIADA (com tt_msg), nao a do checkpoint carregado com strict=False (fase0_eval.py:168-182)"
+    }
+  },
+  "linhagem_unica_dos_baselines": [
+    "SEM tt_msg"
+  ],
+  "conjunto_de_onde_vem_cada_tempo_publicado": {
+    "radiounet": [
+      "version_20.3"
+    ],
+    "rem_gnn": [
+      "version_20.3"
+    ],
+    "radiogat": [
+      "version_20.3"
+    ],
+    "rme_gan": [
+      "version_20.3"
+    ]
+  },
+  "matriz_custo_por_conjunto": {
+    "linhas": [
+      {
+        "conjunto": "version_20",
+        "modelo": "radiounet",
+        "quadrante": "Q1",
+        "n_params": 265602,
+        "total_training_s": 649.3,
+        "model_size_mb": 1.01,
+        "best_mae_rssi": 0.6885,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20\\radiounet_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "6391d073c776ccf99b09524ffe4a34732d6869602ea22eba3dd80b6c4a75f53c"
+      },
+      {
+        "conjunto": "version_20",
+        "modelo": "radiounet",
+        "quadrante": "Q4",
+        "n_params": 265602,
+        "total_training_s": 676.0,
+        "model_size_mb": 1.01,
+        "best_mae_rssi": 0.1947,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20\\radiounet_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "610f14ed8108e670eef1254a38db7a0b6f947e1e67beac1d34f003d43652e44d"
+      },
+      {
+        "conjunto": "version_20",
+        "modelo": "rem_gnn",
+        "quadrante": "Q1",
+        "n_params": 72450,
+        "total_training_s": 637.6,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.2915,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20\\rem_gnn_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "eadf857cb5bb0abd72b0d7a8df54f65942e6b1daa5db28af9446f3fc5f57755c"
+      },
+      {
+        "conjunto": "version_20",
+        "modelo": "rem_gnn",
+        "quadrante": "Q4",
+        "n_params": 72450,
+        "total_training_s": 700.1,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.1539,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20\\rem_gnn_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "79df62f41b81ac4d74696e0a1e8a5d708e4341c9bf008237d33fa8604f0a2c83"
+      },
+      {
+        "conjunto": "version_20",
+        "modelo": "radiogat",
+        "quadrante": "Q1",
+        "n_params": 301826,
+        "total_training_s": 1844.0,
+        "model_size_mb": 1.15,
+        "best_mae_rssi": 0.4174,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20\\radiogat_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "174524f2da09b176c8732415df3cb2531083b38018ea2e65035ab35ec417a952"
+      },
+      {
+        "conjunto": "version_20",
+        "modelo": "radiogat",
+        "quadrante": "Q4",
+        "n_params": 301826,
+        "total_training_s": 1293.2,
+        "model_size_mb": 1.15,
+        "best_mae_rssi": 0.1241,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20\\radiogat_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "fdf64ebe2bde2d1eba1e019e75809ec8bb3d40a63167f2b6110e916d40cfece0"
+      },
+      {
+        "conjunto": "version_20",
+        "modelo": "rme_gan",
+        "quadrante": "Q1",
+        "n_params": 72194,
+        "total_training_s": 575.9,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.7378,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20\\rme_gan_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "2a74f861c417f1be8a18fa6af876b7cca18281d976ed75472121e9771751639d"
+      },
+      {
+        "conjunto": "version_20",
+        "modelo": "rme_gan",
+        "quadrante": "Q4",
+        "n_params": 72194,
+        "total_training_s": 494.6,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.2109,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20\\rme_gan_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "a4910d5806c2b476c961c8ce2d6ab1a59661466161d3746f86663ff8f4b2bb51"
+      },
+      {
+        "conjunto": "version_20.1",
+        "modelo": "radiounet",
+        "quadrante": "Q1",
+        "n_params": 265602,
+        "total_training_s": 883.5,
+        "model_size_mb": 1.01,
+        "best_mae_rssi": 0.6885,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\radiounet_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "b3c2cb41fe93265ff7909cd5d76e8319ac41996f9b8050c5d13736e11b92c716"
+      },
+      {
+        "conjunto": "version_20.1",
+        "modelo": "radiounet",
+        "quadrante": "Q4",
+        "n_params": 265602,
+        "total_training_s": 1159.0,
+        "model_size_mb": 1.01,
+        "best_mae_rssi": 0.1947,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\radiounet_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "32489c07def79cee9d6f5338b5645d42e09422bd2c951dfef4aed54982537616"
+      },
+      {
+        "conjunto": "version_20.1",
+        "modelo": "rem_gnn",
+        "quadrante": "Q1",
+        "n_params": 72450,
+        "total_training_s": 574.9,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.2915,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\rem_gnn_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "c6841b024bfb11c1afab497112a22bbeae889f778924634840c7b695ab81c054"
+      },
+      {
+        "conjunto": "version_20.1",
+        "modelo": "rem_gnn",
+        "quadrante": "Q4",
+        "n_params": 72450,
+        "total_training_s": 648.3,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.155,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\rem_gnn_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "085a2b2dbc9caf1322e5b830a1c5818a9787365ff1cbfb12cad96b578386b4ad"
+      },
+      {
+        "conjunto": "version_20.1",
+        "modelo": "radiogat",
+        "quadrante": "Q1",
+        "n_params": 301826,
+        "total_training_s": 1820.1,
+        "model_size_mb": 1.15,
+        "best_mae_rssi": 0.4174,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\radiogat_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "6fc47b2bdf7abe0011521c5c904a93af1f5493da9a6876c86375ddc868f6b76f"
+      },
+      {
+        "conjunto": "version_20.1",
+        "modelo": "radiogat",
+        "quadrante": "Q4",
+        "n_params": 301826,
+        "total_training_s": 1285.2,
+        "model_size_mb": 1.15,
+        "best_mae_rssi": 0.1241,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\radiogat_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "e948dcad4831a76cfb7a6f61af9354221ad640c8d69b93b3776e304a9d3130f1"
+      },
+      {
+        "conjunto": "version_20.1",
+        "modelo": "rme_gan",
+        "quadrante": "Q1",
+        "n_params": 72194,
+        "total_training_s": 1166.6,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.7378,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\rme_gan_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "50b48f5f68143fad2803838ec19d1a32bd5e331a2dd9abe380ab57f2b09fad77"
+      },
+      {
+        "conjunto": "version_20.1",
+        "modelo": "rme_gan",
+        "quadrante": "Q4",
+        "n_params": 72194,
+        "total_training_s": 915.3,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.2109,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.1\\logs\\version_20\\rme_gan_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "81e09c04f17e1a124a0817169d32658de0cd3da0b9216ebbbedd895f8b763258"
+      },
+      {
+        "conjunto": "version_20.2",
+        "modelo": "radiounet",
+        "quadrante": "Q1",
+        "n_params": 397186,
+        "total_training_s": 767.1,
+        "model_size_mb": 1.52,
+        "best_mae_rssi": 0.5945,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.2\\radiounet_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "3fa8cc074b2538743af7d1385dd76f8aea6839f29363c0a9785e86e40bf3ee1d"
+      },
+      {
+        "conjunto": "version_20.2",
+        "modelo": "radiounet",
+        "quadrante": "Q4",
+        "n_params": 397186,
+        "total_training_s": 804.3,
+        "model_size_mb": 1.52,
+        "best_mae_rssi": 0.2702,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.2\\radiounet_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "b5716b9ee64cf489796ed5dc90abb7847792da8774726bdd72c8216c5e17cb52"
+      },
+      {
+        "conjunto": "version_20.2",
+        "modelo": "rem_gnn",
+        "quadrante": "Q1",
+        "n_params": 73554,
+        "total_training_s": 711.4,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.5787,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.2\\rem_gnn_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "4ae1b59aeedfe017752faab98f47b31d94a7577b2d42d0452fb7b65205cf3608"
+      },
+      {
+        "conjunto": "version_20.2",
+        "modelo": "rem_gnn",
+        "quadrante": "Q4",
+        "n_params": 73554,
+        "total_training_s": 717.5,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.8003,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.2\\rem_gnn_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "510c476f742eec3b0914988648b3d8193b57fb60684a3253c5a0317776299c25"
+      },
+      {
+        "conjunto": "version_20.2",
+        "modelo": "radiogat",
+        "quadrante": "Q1",
+        "ausente": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.2\\radiogat_bauru_s42_Q1\\computational_cost.json"
+      },
+      {
+        "conjunto": "version_20.2",
+        "modelo": "radiogat",
+        "quadrante": "Q4",
+        "ausente": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.2\\radiogat_bauru_s42_Q4\\computational_cost.json"
+      },
+      {
+        "conjunto": "version_20.2",
+        "modelo": "rme_gan",
+        "quadrante": "Q1",
+        "ausente": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.2\\rme_gan_bauru_s42_Q1\\computational_cost.json"
+      },
+      {
+        "conjunto": "version_20.2",
+        "modelo": "rme_gan",
+        "quadrante": "Q4",
+        "ausente": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.2\\rme_gan_bauru_s42_Q4\\computational_cost.json"
+      },
+      {
+        "conjunto": "version_20.3",
+        "modelo": "radiounet",
+        "quadrante": "Q1",
+        "n_params": 397186,
+        "total_training_s": 443.7,
+        "model_size_mb": 1.52,
+        "best_mae_rssi": 0.5945,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.3\\version_20\\radiounet_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "ee3dddf668b36e752263462ea696d678428046b96a0e00f19b09132fdbd3ba49"
+      },
+      {
+        "conjunto": "version_20.3",
+        "modelo": "radiounet",
+        "quadrante": "Q4",
+        "n_params": 397186,
+        "total_training_s": 740.0,
+        "model_size_mb": 1.52,
+        "best_mae_rssi": 0.2702,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.3\\version_20\\radiounet_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "9f8c717214921ef179659ac5120c83b00b376d88d16a4e8c9216cbbde3280900"
+      },
+      {
+        "conjunto": "version_20.3",
+        "modelo": "rem_gnn",
+        "quadrante": "Q1",
+        "n_params": 73554,
+        "total_training_s": 383.0,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.5787,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.3\\version_20\\rem_gnn_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "f5a83932f026115b422f521e7484afb2b7fa2bd8bca292823a4e70b8b38540b5"
+      },
+      {
+        "conjunto": "version_20.3",
+        "modelo": "rem_gnn",
+        "quadrante": "Q4",
+        "n_params": 73554,
+        "total_training_s": 1079.8,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.8987,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.3\\version_20\\rem_gnn_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "6193ecbc3a85f0778ed4cc6490ea0edd0a284f8764225ed36a6f2a1491ceff95"
+      },
+      {
+        "conjunto": "version_20.3",
+        "modelo": "radiogat",
+        "quadrante": "Q1",
+        "n_params": 375938,
+        "total_training_s": 2347.0,
+        "model_size_mb": 1.43,
+        "best_mae_rssi": 0.5174,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.3\\version_20\\radiogat_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "43993218a60fcc8ec8de5019d0b389d6018e03e98aa6a6b7bc2822728b0566f4"
+      },
+      {
+        "conjunto": "version_20.3",
+        "modelo": "radiogat",
+        "quadrante": "Q4",
+        "n_params": 375938,
+        "total_training_s": 1510.5,
+        "model_size_mb": 1.43,
+        "best_mae_rssi": 0.197,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.3\\version_20\\radiogat_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "121ca84c23ff2f90d79ccb0d927a133470846979f4f88f35b924913067899899"
+      },
+      {
+        "conjunto": "version_20.3",
+        "modelo": "rme_gan",
+        "quadrante": "Q1",
+        "n_params": 73206,
+        "total_training_s": 878.8,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.7731,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.3\\version_20\\rme_gan_bauru_s42_Q1\\computational_cost.json",
+        "sha256": "bfbacacf3b0a5bfd412010989260600a543c7d186220247402b850de51a9f175"
+      },
+      {
+        "conjunto": "version_20.3",
+        "modelo": "rme_gan",
+        "quadrante": "Q4",
+        "n_params": 73206,
+        "total_training_s": 762.0,
+        "model_size_mb": 0.28,
+        "best_mae_rssi": 0.2295,
+        "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\baseline_colab_\\logs\\version_20.3\\version_20\\rme_gan_bauru_s42_Q4\\computational_cost.json",
+        "sha256": "aa15135b6d10f2c9be7793dd7357b1a095242aee7e3c19333284bebffe16db11"
+      }
+    ],
+    "nota": "cada computational_cost.json carrega o n_params da PROPRIA linhagem: o par publicado (parametro da linhagem sem tt_msg com tempo da linhagem com tt_msg) nao existe em nenhum artefato isolado"
+  },
+  "opcao_A_manter_tempos_trocar_parametros": {
+    "radiounet": {
+      "params": 397186,
+      "size_mb": 1.52,
+      "Q1_s": 443.7,
+      "Q4_s": 740.0,
+      "linhagem": "COM tt_msg (version_20.3)"
+    },
+    "rem_gnn": {
+      "params": 73554,
+      "size_mb": 0.28,
+      "Q1_s": 383.0,
+      "Q4_s": 1079.8,
+      "linhagem": "COM tt_msg (version_20.3)"
+    },
+    "radiogat": {
+      "params": 375938,
+      "size_mb": 1.43,
+      "Q1_s": 2347.0,
+      "Q4_s": 1510.5,
+      "linhagem": "COM tt_msg (version_20.3)"
+    },
+    "rme_gan": {
+      "params": 73206,
+      "size_mb": 0.28,
+      "Q1_s": 878.8,
+      "Q4_s": 762.0,
+      "linhagem": "COM tt_msg (version_20.3)"
+    }
+  },
+  "opcao_B_manter_parametros_trocar_tempos": {
+    "radiounet": {
+      "params": 265602,
+      "size_mb": 1.01,
+      "Q1_s": 883.5,
+      "Q4_s": 1159.0,
+      "linhagem": "SEM tt_msg (version_20.1)"
+    },
+    "rem_gnn": {
+      "params": 72450,
+      "size_mb": 0.28,
+      "Q1_s": 574.9,
+      "Q4_s": 648.3,
+      "linhagem": "SEM tt_msg (version_20.1)"
+    },
+    "radiogat": {
+      "params": 301826,
+      "size_mb": 1.15,
+      "Q1_s": 1820.1,
+      "Q4_s": 1285.2,
+      "linhagem": "SEM tt_msg (version_20.1)"
+    },
+    "rme_gan": {
+      "params": 72194,
+      "size_mb": 0.28,
+      "Q1_s": 1166.6,
+      "Q4_s": 915.3,
+      "linhagem": "SEM tt_msg (version_20.1)"
+    }
+  },
+  "criterio_de_decisao": "a linha da tabela tem de descrever o modelo que produziu o numero de ERRO publicado. Os MAE de Bauru Q2 (0,251 / 0,218 / 0,190 / 0,961) saem dos checkpoints version_20.1, linhagem SEM tt_msg, cujos parametros sao os publicados. Logo a opcao B (manter parametros, trocar tempos pelos da mesma arvore) e a unica que mantem tabela de custo, tabela de arquitetura e secao de resultados descrevendo o MESMO modelo",
+  "inventario_no_manuscrito": {
+    "arquivo": {
+      "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\REVISAO_R3\\main.tex",
+      "bytes": 71269,
+      "sha256": "d2077627ac46be1ff29341c29947b9273e70293e3cf9ab0bb866c32fe71e8ef3",
+      "mtime_utc": "2026-09-16T01:50:15.468962+00:00"
+    },
+    "ocorrencias": [
+      {
+        "linha": 55,
+        "tokens": [
+          "1812515"
+        ],
+        "trecho": "Classical empirical models FSPL, Okumura--Hata, and COST\\,231 lose accuracy where elevation gradients, vegetation density, and urban fabric shape sub-kilometer RF propagation beyond coarse terrain categories. We propose GNN-RF, a heterogeneous graph neural network that couples GATv2 message passing with a physics-constrained decoder whose loss penalizes departures from free-space bounds, distance--attenuation monotonicity, variance preservation, and NDVI sign consistency. The model is trained on $12.96 \\times 10^6$-node terrain graphs with 18 topographic and spectral features from four S\\~{a}o"
+      },
+      {
+        "linha": 287,
+        "tokens": [
+          "1812515"
+        ],
+        "trecho": "Total parameters & \\num{1812515} \\\\"
+      },
+      {
+        "linha": 412,
+        "tokens": [
+          "265602",
+          "72450",
+          "301826",
+          "72194",
+          "397186",
+          "73554",
+          "375938",
+          "73206",
+          "1812515",
+          "72k",
+          "397k"
+        ],
+        "trecho": "Four neural baselines cover the dominant radio-map families under an identical-treatment fairness contract (Table~\\ref{tab:baseline_arch}). RadioUNet~\\cite{levie2021radiounet} stands in for the convolutional family with a U-Net encoder--bottleneck--decoder, skip connections ($256 \\to 128 \\to 64 \\to 128 \\to 256$), and \\num{265602}~parameters. REM-GNN is an in-house baseline implemented for this study, a lightweight MLP over the shared node features with two 256-unit hidden layers (\\num{72450}~parameters). RadioGAT~\\cite{li2024radiogat} brings attention via a dual terrain-plus-link encoder proje"
+      },
+      {
+        "linha": 419,
+        "tokens": [
+          "1812515"
+        ],
+        "trecho": "The ablation asks whether the message-passing graph, rather than parameter capacity, carries the accuracy of GNN-RF. A capacity-matched control replaces the architecture with a multilayer perceptron holding exactly \\num{1812515} trainable parameters and no message passing, trained with the same loss, partition, checkpoint rule, and epoch budget on the eight cells of Lins and Bauru with five seeds each (40~paired runs). A second arm keeps the trained seed-42 models and damages the graph at test time on the same eight cells, with three shuffling seeds per arm: antenna-to-terrain edges are permut"
+      },
+      {
+        "linha": 516,
+        "tokens": [
+          "Size"
+        ],
+        "trecho": "\\caption{Modern baseline architectures under the identical-treatment protocol of the earlier campaign (96~runs). Parameters counted on the trained Bauru checkpoints; the other cities add a terrain-to-terrain message-passing step. Size assumes 4 bytes per parameter.}"
+      },
+      {
+        "linha": 520,
+        "tokens": [
+          "Params",
+          "Size"
+        ],
+        "trecho": "Model & Params & Size & Family & Key mechanism \\\\"
+      },
+      {
+        "linha": 522,
+        "tokens": [
+          "265602"
+        ],
+        "trecho": "RadioUNet & \\num{265602} & \\SI{1.01}{\\mega\\byte} & U-Net & Skip connections \\\\"
+      },
+      {
+        "linha": 523,
+        "tokens": [
+          "72450"
+        ],
+        "trecho": "REM-GNN   & \\num{72450}  & \\SI{0.28}{\\mega\\byte} & MLP & Feed-forward \\\\"
+      },
+      {
+        "linha": 524,
+        "tokens": [
+          "301826"
+        ],
+        "trecho": "RadioGAT  & \\num{301826} & \\SI{1.15}{\\mega\\byte} & Attention & Multi-head att. \\\\"
+      },
+      {
+        "linha": 525,
+        "tokens": [
+          "72194"
+        ],
+        "trecho": "RME-GAN   & \\num{72194}  & \\SI{0.28}{\\mega\\byte} & GAN & Adversarial \\\\"
+      },
+      {
+        "linha": 546,
+        "tokens": [
+          "1812515"
+        ],
+        "trecho": "The capacity-matched control answers the complementary question. Trained on the same cells with five seeds, the multilayer perceptron with \\num{1812515} parameters and no message passing yields a paired difference, GNN-RF minus MLP, of $+$0.011\\,dB (95\\% CI [$-$0.126, $+$0.148], $n{=}8$, $p{=}0.86$), and equivalence within $\\pm$0.1\\,dB is not established either (TOST $p{=}0.083$); GNN-RF is better in four cells and worse in four. The trained model uses its graph, but at this sample size a graph-free network of equal capacity is not distinguishable from it. In Bauru~Q1, the cell with the larges"
+      },
+      {
+        "linha": 620,
+        "tokens": [
+          "1812515",
+          "72k",
+          "302k"
+        ],
+        "trecho": "GNN-RF trains \\num{1812515} parameters, above the 72k--302k of the learned baselines (Table~\\ref{tab:cost}), and each blocked run completes in 2181--4032~s with peak VRAM of 7430--7512~MB on a single 16~GB consumer GPU, because neighbor sampling bounds the cost of each batch by its fan-out rather than by the size of the graph."
+      },
+      {
+        "linha": 624,
+        "tokens": [
+          "Size"
+        ],
+        "trecho": "\\caption{Computational cost per model (Bauru, seed~42; baselines from the earlier campaign, GNN-RF from the blocked campaign). Q1 trains from scratch; Q4 transfers. Size assumes 4 bytes per parameter.}"
+      },
+      {
+        "linha": 628,
+        "tokens": [
+          "Params",
+          "Size"
+        ],
+        "trecho": "Model & Params & Size (MB) & Q1 (s) & Q4 (s) \\\\"
+      },
+      {
+        "linha": 630,
+        "tokens": [
+          "265602"
+        ],
+        "trecho": "RadioUNet & \\num{265602} & 1.01 & 444 & 740 \\\\"
+      },
+      {
+        "linha": 631,
+        "tokens": [
+          "72450"
+        ],
+        "trecho": "REM-GNN   & \\num{72450}  & 0.28 & 383 & 1080 \\\\"
+      },
+      {
+        "linha": 632,
+        "tokens": [
+          "301826"
+        ],
+        "trecho": "RadioGAT  & \\num{301826} & 1.15 & 2347 & 1511 \\\\"
+      },
+      {
+        "linha": 633,
+        "tokens": [
+          "72194"
+        ],
+        "trecho": "RME-GAN   & \\num{72194}  & 0.28 & 879 & 762 \\\\"
+      },
+      {
+        "linha": 634,
+        "tokens": [
+          "1812515"
+        ],
+        "trecho": "GNN-RF    & \\num{1812515} & 6.91 & 3987 & 2323 \\\\"
+      },
+      {
+        "linha": 677,
+        "tokens": [
+          "1812515"
+        ],
+        "trecho": "A complementary methodological finding is that, on this reference, terrain features and distance carry the accuracy the learned models share. Damaging the graph degrades the trained model, by up to 1.72\\,dB when all edges are removed, yet a graph-free network with the same \\num{1812515} parameters is not distinguishable from GNN-RF over eight cells, and the learned baselines reach parity with it on a common cell. Training each quadrant from scratch shows no systematic advantage for the transfer chain. The uncertainty evaluation is a negative result: under spatial blocking, neither MC Dropout n"
+      }
+    ],
+    "nota": "leitura apenas; main.tex nao foi escrito por este script"
+  },
+  "preregistro": {
+    "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\planos\\preregistro_admissibilidade_e_params_2026-09-15.json",
+    "bytes": 11236,
+    "sha256": "6a2ab20cd5496a2c9ca2924fd07f5e0f48a98314bb352ef068c54e0456b32b6a",
+    "mtime_utc": "2026-09-16T01:51:05.221921+00:00"
+  },
+  "script": {
+    "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\scripts\\linhagem_mae_e_custo_2026-09-15.py",
+    "bytes": 11517,
+    "sha256": "1bb1435926bcdd53b6ccff890bcd99d50af58a7c2442ef7d8e9345a8033629b0",
+    "mtime_utc": "2026-09-16T02:07:16.380920+00:00"
+  },
+  "ambiente": {
+    "python": "3.11.9",
+    "executavel": "F:\\S33_dslm\\s33_amb_virtual\\.venv\\Scripts\\python.exe",
+    "cuda_usada": false
+  }
+}

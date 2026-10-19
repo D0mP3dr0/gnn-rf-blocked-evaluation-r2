@@ -1,0 +1,538 @@
+{
+  "timestamp_utc": "2026-09-01T21:18:18.630094+00:00",
+  "cidade": "bauru",
+  "quadrantes": {
+    "Q1": {
+      "quadrante": "Q1",
+      "transfer_dataset": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\graph_data\\transfer_dataset_bauru_v19_Q1_enriched.pt",
+      "transfer_dataset_bytes": 28309701501,
+      "node_types": {
+        "terrain": {
+          "num_nodes": 12960000,
+          "x": {
+            "shape": [
+              12960000,
+              512
+            ],
+            "dtype": "torch.float32",
+            "bytes": 26542080000
+          },
+          "features_raw": {
+            "shape": [
+              12960000,
+              17
+            ],
+            "dtype": "torch.float32",
+            "bytes": 881280000
+          },
+          "y": {
+            "shape": [
+              12960000,
+              5
+            ],
+            "dtype": "torch.float32",
+            "bytes": 259200000
+          },
+          "pos": {
+            "shape": [
+              12960000,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 103680000
+          },
+          "dist_nearest_m": {
+            "shape": [
+              12960000
+            ],
+            "dtype": "torch.float32",
+            "bytes": 51840000
+          }
+        },
+        "antenna": {
+          "num_nodes": 794,
+          "x": {
+            "shape": [
+              794,
+              6
+            ],
+            "dtype": "torch.float32",
+            "bytes": 19056
+          },
+          "pos": {
+            "shape": [
+              794,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 6352
+          }
+        }
+      },
+      "edge_types": {
+        "('antenna', 'propagates_to', 'terrain')": {
+          "num_edges": 10503434,
+          "edge_index": {
+            "shape": [
+              2,
+              10503434
+            ],
+            "dtype": "torch.int32",
+            "bytes": 84027472
+          },
+          "edge_attr": {
+            "shape": [
+              10503434,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 84027472
+          },
+          "links_por_no_terreno": {
+            "min": 0,
+            "mediana": 0.0,
+            "max": 5,
+            "nos_sem_enlace": 10858456
+          },
+          "nos_terreno_por_antena": {
+            "min": 0,
+            "mediana": 0.0,
+            "max": 1711430
+          },
+          "dist_enlace_m": {
+            "min": 2.87345552444458,
+            "p50": 20808.46484375,
+            "p99": 29903.48828125,
+            "max": 29999.9921875
+          }
+        },
+        "('terrain','connects_to','terrain') [de gpu.pt dem-adjacent_to-dem]": {
+          "num_edges": 116596804,
+          "edge_index": {
+            "shape": [
+              2,
+              116596804
+            ],
+            "dtype": "torch.int64",
+            "bytes": 1865548864
+          },
+          "edge_attr": {
+            "shape": [
+              116596804,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 932774432
+          },
+          "grau_medio": 8.996666975308642
+        }
+      },
+      "gpu_pt": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\graph_data\\bauru_v19_Q1_gpu.pt",
+      "gpu_pt_bytes": 15606464953,
+      "gpu_pt_node_types": {
+        "dem": 12960000,
+        "sentinel": 116640000,
+        "lidar": 322858
+      }
+    },
+    "Q2": {
+      "quadrante": "Q2",
+      "transfer_dataset": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\graph_data\\transfer_dataset_bauru_v19_Q2_enriched.pt",
+      "transfer_dataset_bytes": 28130759293,
+      "node_types": {
+        "terrain": {
+          "num_nodes": 12960000,
+          "x": {
+            "shape": [
+              12960000,
+              512
+            ],
+            "dtype": "torch.float32",
+            "bytes": 26542080000
+          },
+          "features_raw": {
+            "shape": [
+              12960000,
+              17
+            ],
+            "dtype": "torch.float32",
+            "bytes": 881280000
+          },
+          "y": {
+            "shape": [
+              12960000,
+              5
+            ],
+            "dtype": "torch.float32",
+            "bytes": 259200000
+          },
+          "pos": {
+            "shape": [
+              12960000,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 103680000
+          },
+          "dist_nearest_m": {
+            "shape": [
+              12960000
+            ],
+            "dtype": "torch.float32",
+            "bytes": 51840000
+          }
+        },
+        "antenna": {
+          "num_nodes": 794,
+          "x": {
+            "shape": [
+              794,
+              6
+            ],
+            "dtype": "torch.float32",
+            "bytes": 19056
+          },
+          "pos": {
+            "shape": [
+              794,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 6352
+          }
+        }
+      },
+      "edge_types": {
+        "('antenna', 'propagates_to', 'terrain')": {
+          "num_edges": 6125773,
+          "edge_index": {
+            "shape": [
+              2,
+              6125773
+            ],
+            "dtype": "torch.int32",
+            "bytes": 49006184
+          },
+          "edge_attr": {
+            "shape": [
+              6125773,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 49006184
+          },
+          "links_por_no_terreno": {
+            "min": 0,
+            "mediana": 0.0,
+            "max": 5,
+            "nos_sem_enlace": 11734153
+          },
+          "nos_terreno_por_antena": {
+            "min": 0,
+            "mediana": 0.0,
+            "max": 735265
+          },
+          "dist_enlace_m": {
+            "min": 2.246466875076294,
+            "p50": 24989.74609375,
+            "p99": 29943.46484375,
+            "max": 30000.0
+          }
+        },
+        "('terrain','connects_to','terrain') [de gpu.pt dem-adjacent_to-dem]": {
+          "num_edges": 116596804,
+          "edge_index": {
+            "shape": [
+              2,
+              116596804
+            ],
+            "dtype": "torch.int64",
+            "bytes": 1865548864
+          },
+          "edge_attr": {
+            "shape": [
+              116596804,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 932774432
+          },
+          "grau_medio": 8.996666975308642
+        }
+      },
+      "gpu_pt": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\graph_data\\bauru_v19_Q2_gpu.pt",
+      "gpu_pt_bytes": 15574575289,
+      "gpu_pt_node_types": {
+        "dem": 12960000,
+        "sentinel": 116640000,
+        "lidar": 254564
+      }
+    },
+    "Q3": {
+      "quadrante": "Q3",
+      "transfer_dataset": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\graph_data\\transfer_dataset_bauru_v19_Q3_enriched.pt",
+      "transfer_dataset_bytes": 28196992765,
+      "node_types": {
+        "terrain": {
+          "num_nodes": 12960000,
+          "x": {
+            "shape": [
+              12960000,
+              512
+            ],
+            "dtype": "torch.float32",
+            "bytes": 26542080000
+          },
+          "features_raw": {
+            "shape": [
+              12960000,
+              17
+            ],
+            "dtype": "torch.float32",
+            "bytes": 881280000
+          },
+          "y": {
+            "shape": [
+              12960000,
+              5
+            ],
+            "dtype": "torch.float32",
+            "bytes": 259200000
+          },
+          "pos": {
+            "shape": [
+              12960000,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 103680000
+          },
+          "dist_nearest_m": {
+            "shape": [
+              12960000
+            ],
+            "dtype": "torch.float32",
+            "bytes": 51840000
+          }
+        },
+        "antenna": {
+          "num_nodes": 794,
+          "x": {
+            "shape": [
+              794,
+              6
+            ],
+            "dtype": "torch.float32",
+            "bytes": 19056
+          },
+          "pos": {
+            "shape": [
+              794,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 6352
+          }
+        }
+      },
+      "edge_types": {
+        "('antenna', 'propagates_to', 'terrain')": {
+          "num_edges": 6354695,
+          "edge_index": {
+            "shape": [
+              2,
+              6354695
+            ],
+            "dtype": "torch.int32",
+            "bytes": 50837560
+          },
+          "edge_attr": {
+            "shape": [
+              6354695,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 50837560
+          },
+          "links_por_no_terreno": {
+            "min": 0,
+            "mediana": 0.0,
+            "max": 5,
+            "nos_sem_enlace": 11687807
+          },
+          "nos_terreno_por_antena": {
+            "min": 0,
+            "mediana": 0.0,
+            "max": 1057988
+          },
+          "dist_enlace_m": {
+            "min": 7.249850273132324,
+            "p50": 21911.76953125,
+            "p99": 29910.583984375,
+            "max": 29999.99609375
+          }
+        },
+        "('terrain','connects_to','terrain') [de gpu.pt dem-adjacent_to-dem]": {
+          "num_edges": 116596804,
+          "edge_index": {
+            "shape": [
+              2,
+              116596804
+            ],
+            "dtype": "torch.int64",
+            "bytes": 1865548864
+          },
+          "edge_attr": {
+            "shape": [
+              116596804,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 932774432
+          },
+          "grau_medio": 8.996666975308642
+        }
+      },
+      "gpu_pt": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\graph_data\\bauru_v19_Q3_gpu.pt",
+      "gpu_pt_bytes": 15605964345,
+      "gpu_pt_node_types": {
+        "dem": 12960000,
+        "sentinel": 116640000,
+        "lidar": 297398
+      }
+    },
+    "Q4": {
+      "quadrante": "Q4",
+      "transfer_dataset": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\graph_data\\transfer_dataset_bauru_v19_Q4_enriched.pt",
+      "transfer_dataset_bytes": 28190840701,
+      "node_types": {
+        "terrain": {
+          "num_nodes": 12960000,
+          "x": {
+            "shape": [
+              12960000,
+              512
+            ],
+            "dtype": "torch.float32",
+            "bytes": 26542080000
+          },
+          "features_raw": {
+            "shape": [
+              12960000,
+              17
+            ],
+            "dtype": "torch.float32",
+            "bytes": 881280000
+          },
+          "y": {
+            "shape": [
+              12960000,
+              5
+            ],
+            "dtype": "torch.float32",
+            "bytes": 259200000
+          },
+          "pos": {
+            "shape": [
+              12960000,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 103680000
+          },
+          "dist_nearest_m": {
+            "shape": [
+              12960000
+            ],
+            "dtype": "torch.float32",
+            "bytes": 51840000
+          }
+        },
+        "antenna": {
+          "num_nodes": 794,
+          "x": {
+            "shape": [
+              794,
+              6
+            ],
+            "dtype": "torch.float32",
+            "bytes": 19056
+          },
+          "pos": {
+            "shape": [
+              794,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 6352
+          }
+        }
+      },
+      "edge_types": {
+        "('antenna', 'propagates_to', 'terrain')": {
+          "num_edges": 6181155,
+          "edge_index": {
+            "shape": [
+              2,
+              6181155
+            ],
+            "dtype": "torch.int32",
+            "bytes": 49449240
+          },
+          "edge_attr": {
+            "shape": [
+              6181155,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 49449240
+          },
+          "links_por_no_terreno": {
+            "min": 0,
+            "mediana": 0.0,
+            "max": 5,
+            "nos_sem_enlace": 11723769
+          },
+          "nos_terreno_por_antena": {
+            "min": 0,
+            "mediana": 0.0,
+            "max": 906070
+          },
+          "dist_enlace_m": {
+            "min": 5.049485206604004,
+            "p50": 24161.962890625,
+            "p99": 29945.7421875,
+            "max": 30000.0
+          }
+        },
+        "('terrain','connects_to','terrain') [de gpu.pt dem-adjacent_to-dem]": {
+          "num_edges": 116596804,
+          "edge_index": {
+            "shape": [
+              2,
+              116596804
+            ],
+            "dtype": "torch.int64",
+            "bytes": 1865548864
+          },
+          "edge_attr": {
+            "shape": [
+              116596804,
+              2
+            ],
+            "dtype": "torch.float32",
+            "bytes": 932774432
+          },
+          "grau_medio": 8.996666975308642
+        }
+      },
+      "gpu_pt": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF_V2\\graph_data\\bauru_v19_Q4_gpu.pt",
+      "gpu_pt_bytes": 15589972665,
+      "gpu_pt_node_types": {
+        "dem": 12960000,
+        "sentinel": 116640000,
+        "lidar": 286405
+      }
+    }
+  }
+}

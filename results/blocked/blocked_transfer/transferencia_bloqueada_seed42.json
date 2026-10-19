@@ -1,0 +1,1028 @@
+{
+  "artefato_tipo": "transferencia_bloqueada_ood_crosscity",
+  "citavel": false,
+  "seed": 42,
+  "pre_registro": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\planos\\preregistro_transferencia_bloqueada_2026-09-15.json",
+  "pre_registro_sha256": "6924cdbf2240cd19c65da9c067dc720d71556c02d54630050cb4a70f56a35611",
+  "script_sha256": "3efa8b80171d783d0cee5c3a1745886ecd166a3bb91a17bd67278d3ee35ef47e",
+  "ambiente": {
+    "python": "3.11.9",
+    "executavel": "F:\\S33_dslm\\s33_amb_virtual\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "torch": "2.10.0+cu128",
+    "cuda_disponivel": true,
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "pip_freeze_sha256": "1546ed0f476eb13ecb0718feed615b7e9713b44d2fa0cba48173f0eec0d8ed6c"
+  },
+  "resultado_antigo_a_substituir": {
+    "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\evidencia_projeto\\ood_crosscity_s42.json",
+    "sha256": "4ea8bdcb7aff1403b5e55c431f61da1abb1cb3ca5ff95d03fac4f5bed3056aed"
+  },
+  "registros": [
+    {
+      "cidade_alvo": "campinas",
+      "quadrante": 1,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q1_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q1_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "3560eed82a48b3f3a2c6f2b70fc28b3788c385329d43f7904a04302aaf011a55",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_campinas_s42_Q1_g10b2\\run_c0c1cf_campinas_s42_Q1_g10b2.json",
+      "idx_sha256_global_test_recomputado": "f2e230c569a7d6d0f867607f12ca0582474ef7dbd61839218d0b5eed05a7b617",
+      "idx_sha256_global_test_ref": "f2e230c569a7d6d0f867607f12ca0582474ef7dbd61839218d0b5eed05a7b617",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_campinas_v19_Q1_enriched_cftudo.pt",
+      "rf_data_sha256": "d3787cd087c1ded417da788a83bd048bcaafa347dcd6adc0e64a9fe1e405fe00",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\campinas_v19_Q1_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 75.43963509999958,
+      "populacoes": {
+        "full": {
+          "n": 821276,
+          "n_valido": 198070,
+          "n_sentinela": 623206,
+          "frac_valido": 0.24117349100667743,
+          "mae_rssi_total_db": 1.579217553138733,
+          "mae_rssi_valido_db": 5.921993255615234,
+          "mae_rssi_sentinela_db": 0.19897794723510742,
+          "mae_pl_valido_db": 6.827695846557617,
+          "identidade_reconstruida_db": 1.5792175282417993,
+          "residuo_identidade_db": 2.489693362583978e-08,
+          "elapsed_s": 2.601285500000813
+        },
+        "no_topo": {
+          "n": 821276,
+          "n_valido": 198070,
+          "n_sentinela": 623206,
+          "frac_valido": 0.24117349100667743,
+          "mae_rssi_total_db": 1.7422364950180054,
+          "mae_rssi_valido_db": 6.520841121673584,
+          "mae_rssi_sentinela_db": 0.2234799712896347,
+          "mae_pl_valido_db": 8.09931755065918,
+          "identidade_reconstruida_db": 1.742236544057558,
+          "residuo_identidade_db": 4.903955264090598e-08,
+          "elapsed_s": 1.9573440999993181
+        }
+      }
+    },
+    {
+      "cidade_alvo": "campinas",
+      "quadrante": 2,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q2_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q2_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "1b51e711327099f3f8512029ff2d194bebb10d8024a42ea0f7081fabaa190534",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_campinas_s42_Q2_g10b2\\run_c0c1cf_campinas_s42_Q2_g10b2.json",
+      "idx_sha256_global_test_recomputado": "f2e230c569a7d6d0f867607f12ca0582474ef7dbd61839218d0b5eed05a7b617",
+      "idx_sha256_global_test_ref": "f2e230c569a7d6d0f867607f12ca0582474ef7dbd61839218d0b5eed05a7b617",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_campinas_v19_Q2_enriched_cftudo.pt",
+      "rf_data_sha256": "c952a61cfcbeda2a042a6ba80f17ff73aabea5e42511a5614b0a7954321ef16c",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\campinas_v19_Q2_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 63.32444400000168,
+      "populacoes": {
+        "full": {
+          "n": 821276,
+          "n_valido": 124349,
+          "n_sentinela": 696927,
+          "frac_valido": 0.15140951397581326,
+          "mae_rssi_total_db": 1.1684831380844116,
+          "mae_rssi_valido_db": 6.839807510375977,
+          "mae_rssi_sentinela_db": 0.15657863020896912,
+          "mae_pl_valido_db": 12.026970863342285,
+          "identidade_reconstruida_db": 1.1684830667441743,
+          "residuo_identidade_db": 7.13402372731764e-08,
+          "elapsed_s": 2.1470387000008486
+        },
+        "no_topo": {
+          "n": 821276,
+          "n_valido": 124349,
+          "n_sentinela": 696927,
+          "frac_valido": 0.15140951397581326,
+          "mae_rssi_total_db": 5.884098529815674,
+          "mae_rssi_valido_db": 38.198829650878906,
+          "mae_rssi_sentinela_db": 0.11835215240716934,
+          "mae_pl_valido_db": 50.24924087524414,
+          "identidade_reconstruida_db": 5.884098742417668,
+          "residuo_identidade_db": 2.126019937875867e-07,
+          "elapsed_s": 1.8630811999973957
+        }
+      }
+    },
+    {
+      "cidade_alvo": "campinas",
+      "quadrante": 3,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q3_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q3_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "4ef47c99ff669a2b56731b4cdb8259f613fdf502231a3e9efeaf4ed099e79ec6",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_campinas_s42_Q3_g10b2\\run_c0c1cf_campinas_s42_Q3_g10b2.json",
+      "idx_sha256_global_test_recomputado": "11ef172422c555b6e745b0d51c0e50301475f6723df5a84bf575152ccd270056",
+      "idx_sha256_global_test_ref": "11ef172422c555b6e745b0d51c0e50301475f6723df5a84bf575152ccd270056",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_campinas_v19_Q3_enriched_cftudo.pt",
+      "rf_data_sha256": "8b7bacbcdb7d34bc8c0234554a1f1afd954a05773a61d1b79e53191687330bb5",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\campinas_v19_Q3_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 62.55168350000167,
+      "populacoes": {
+        "full": {
+          "n": 822561,
+          "n_valido": 244139,
+          "n_sentinela": 578422,
+          "frac_valido": 0.29680351973896163,
+          "mae_rssi_total_db": 2.1013553142547607,
+          "mae_rssi_valido_db": 6.70060396194458,
+          "mae_rssi_sentinela_db": 0.16011525690555573,
+          "mae_pl_valido_db": 5.619906902313232,
+          "identidade_reconstruida_db": 2.1013553253740613,
+          "residuo_identidade_db": 1.1119300591388992e-08,
+          "elapsed_s": 2.0336529000014707
+        },
+        "no_topo": {
+          "n": 822561,
+          "n_valido": 244139,
+          "n_sentinela": 578422,
+          "frac_valido": 0.29680351973896163,
+          "mae_rssi_total_db": 3.715926170349121,
+          "mae_rssi_valido_db": 12.119650840759277,
+          "mae_rssi_sentinela_db": 0.16890209913253784,
+          "mae_pl_valido_db": 19.135061264038086,
+          "identidade_reconstruida_db": 3.7159263891633203,
+          "residuo_identidade_db": 2.1881419920433132e-07,
+          "elapsed_s": 1.98361670000304
+        }
+      }
+    },
+    {
+      "cidade_alvo": "campinas",
+      "quadrante": 4,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q4_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q4_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "3ae7cdee8bb5c96a1ea787f2c563e42a76f41eb008876cfa8a22e74403b8c1f0",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_campinas_s42_Q4_g10b2\\run_c0c1cf_campinas_s42_Q4_g10b2.json",
+      "idx_sha256_global_test_recomputado": "11ef172422c555b6e745b0d51c0e50301475f6723df5a84bf575152ccd270056",
+      "idx_sha256_global_test_ref": "11ef172422c555b6e745b0d51c0e50301475f6723df5a84bf575152ccd270056",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_campinas_v19_Q4_enriched_cftudo.pt",
+      "rf_data_sha256": "7e9c4e41fc10078813afe081a436b88323532ff41282555232938f17913916dc",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\campinas_v19_Q4_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 64.12340549999863,
+      "populacoes": {
+        "full": {
+          "n": 822561,
+          "n_valido": 111006,
+          "n_sentinela": 711555,
+          "frac_valido": 0.1349516935522107,
+          "mae_rssi_total_db": 0.5634666681289673,
+          "mae_rssi_valido_db": 3.4546258449554443,
+          "mae_rssi_sentinela_db": 0.11243192851543427,
+          "mae_pl_valido_db": 5.674641132354736,
+          "identidade_reconstruida_db": 0.5634666577189094,
+          "residuo_identidade_db": 1.0410057926790728e-08,
+          "elapsed_s": 1.9731721000025573
+        },
+        "no_topo": {
+          "n": 822561,
+          "n_valido": 111006,
+          "n_sentinela": 711555,
+          "frac_valido": 0.1349516935522107,
+          "mae_rssi_total_db": 1.8720459938049316,
+          "mae_rssi_valido_db": 13.301016807556152,
+          "mae_rssi_sentinela_db": 0.08907138556241989,
+          "mae_pl_valido_db": 22.59395408630371,
+          "identidade_reconstruida_db": 1.8720457953798513,
+          "residuo_identidade_db": 1.9842508036660433e-07,
+          "elapsed_s": 1.9088905000025989
+        }
+      }
+    },
+    {
+      "cidade_alvo": "sorocaba",
+      "quadrante": 1,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q1_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q1_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "3560eed82a48b3f3a2c6f2b70fc28b3788c385329d43f7904a04302aaf011a55",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_sorocaba_s42_Q1_g10b2\\run_c0c1cf_sorocaba_s42_Q1_g10b2.json",
+      "idx_sha256_global_test_recomputado": "a30d0ddb4e3896af487adc2b8709e27290dfd58415c359b1bcb4316e146fd347",
+      "idx_sha256_global_test_ref": "a30d0ddb4e3896af487adc2b8709e27290dfd58415c359b1bcb4316e146fd347",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_sorocaba_v19_Q1_enriched_cftudo.pt",
+      "rf_data_sha256": "858293a658cddbf2b45ddf2673d46153108698b0d04c7b48f8d39d3bf8527919",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\sorocaba_v19_Q1_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 64.29290259999834,
+      "populacoes": {
+        "full": {
+          "n": 818925,
+          "n_valido": 181177,
+          "n_sentinela": 637748,
+          "frac_valido": 0.2212375980706414,
+          "mae_rssi_total_db": 2.7516419887542725,
+          "mae_rssi_valido_db": 11.682398796081543,
+          "mae_rssi_sentinela_db": 0.21451567113399506,
+          "mae_pl_valido_db": 9.418904304504395,
+          "identidade_reconstruida_db": 2.7516425886522313,
+          "residuo_identidade_db": 5.998979588639486e-07,
+          "elapsed_s": 1.9852458000023034
+        },
+        "no_topo": {
+          "n": 818925,
+          "n_valido": 181177,
+          "n_sentinela": 637748,
+          "frac_valido": 0.2212375980706414,
+          "mae_rssi_total_db": 4.001727104187012,
+          "mae_rssi_valido_db": 17.26683807373047,
+          "mae_rssi_sentinela_db": 0.2332591563463211,
+          "mae_pl_valido_db": 20.034748077392578,
+          "identidade_reconstruida_db": 4.0017272425751065,
+          "residuo_identidade_db": 1.3838809476141023e-07,
+          "elapsed_s": 1.9694134000019403
+        }
+      }
+    },
+    {
+      "cidade_alvo": "sorocaba",
+      "quadrante": 2,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q2_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q2_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "1b51e711327099f3f8512029ff2d194bebb10d8024a42ea0f7081fabaa190534",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_sorocaba_s42_Q2_g10b2\\run_c0c1cf_sorocaba_s42_Q2_g10b2.json",
+      "idx_sha256_global_test_recomputado": "a30d0ddb4e3896af487adc2b8709e27290dfd58415c359b1bcb4316e146fd347",
+      "idx_sha256_global_test_ref": "a30d0ddb4e3896af487adc2b8709e27290dfd58415c359b1bcb4316e146fd347",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_sorocaba_v19_Q2_enriched_cftudo.pt",
+      "rf_data_sha256": "5741e2b87fee80b15907aebee1122a5f12c992a66555a4b8b17282d384ab991d",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\sorocaba_v19_Q2_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 64.09824859999935,
+      "populacoes": {
+        "full": {
+          "n": 818925,
+          "n_valido": 125010,
+          "n_sentinela": 693915,
+          "frac_valido": 0.1526513416979577,
+          "mae_rssi_total_db": 0.7964712977409363,
+          "mae_rssi_valido_db": 4.643591403961182,
+          "mae_rssi_sentinela_db": 0.10340585559606552,
+          "mae_pl_valido_db": 8.441123008728027,
+          "identidade_reconstruida_db": 0.7964712711116783,
+          "residuo_identidade_db": 2.6629258020882673e-08,
+          "elapsed_s": 1.9814925999999105
+        },
+        "no_topo": {
+          "n": 818925,
+          "n_valido": 125010,
+          "n_sentinela": 693915,
+          "frac_valido": 0.1526513416979577,
+          "mae_rssi_total_db": 4.193526744842529,
+          "mae_rssi_valido_db": 26.901859283447266,
+          "mae_rssi_sentinela_db": 0.10258109867572784,
+          "mae_pl_valido_db": 34.71933364868164,
+          "identidade_reconstruida_db": 4.1935268701179105,
+          "residuo_identidade_db": 1.252753811797902e-07,
+          "elapsed_s": 1.9351578999994672
+        }
+      }
+    },
+    {
+      "cidade_alvo": "sorocaba",
+      "quadrante": 3,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q3_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q3_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "4ef47c99ff669a2b56731b4cdb8259f613fdf502231a3e9efeaf4ed099e79ec6",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_sorocaba_s42_Q3_g10b2\\run_c0c1cf_sorocaba_s42_Q3_g10b2.json",
+      "idx_sha256_global_test_recomputado": "07451f5893c08d800d571ab423754590845e1303fb2e13c816c4842bbf6de2eb",
+      "idx_sha256_global_test_ref": "07451f5893c08d800d571ab423754590845e1303fb2e13c816c4842bbf6de2eb",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_sorocaba_v19_Q3_enriched_cftudo.pt",
+      "rf_data_sha256": "aed5e373e11bc94650b1d944e03153cf58af07b1224884f2f011a14609db8f2a",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\sorocaba_v19_Q3_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 63.68455229999745,
+      "populacoes": {
+        "full": {
+          "n": 826159,
+          "n_valido": 182144,
+          "n_sentinela": 644015,
+          "frac_valido": 0.2204708778818605,
+          "mae_rssi_total_db": 2.296679973602295,
+          "mae_rssi_valido_db": 9.78684139251709,
+          "mae_rssi_sentinela_db": 0.178269624710083,
+          "mae_pl_valido_db": 9.29638957977295,
+          "identidade_reconstruida_db": 2.296679877549354,
+          "residuo_identidade_db": 9.605294071235448e-08,
+          "elapsed_s": 2.0044406000015442
+        },
+        "no_topo": {
+          "n": 826159,
+          "n_valido": 182144,
+          "n_sentinela": 644015,
+          "frac_valido": 0.2204708778818605,
+          "mae_rssi_total_db": 5.297447204589844,
+          "mae_rssi_valido_db": 23.227582931518555,
+          "mae_rssi_sentinela_db": 0.22634439170360565,
+          "mae_pl_valido_db": 33.330387115478516,
+          "identidade_reconstruida_db": 5.297447644946692,
+          "residuo_identidade_db": 4.4035684787502305e-07,
+          "elapsed_s": 1.9518581000011181
+        }
+      }
+    },
+    {
+      "cidade_alvo": "sorocaba",
+      "quadrante": 4,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q4_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q4_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "3ae7cdee8bb5c96a1ea787f2c563e42a76f41eb008876cfa8a22e74403b8c1f0",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_sorocaba_s42_Q4_g10b2\\run_c0c1cf_sorocaba_s42_Q4_g10b2.json",
+      "idx_sha256_global_test_recomputado": "07451f5893c08d800d571ab423754590845e1303fb2e13c816c4842bbf6de2eb",
+      "idx_sha256_global_test_ref": "07451f5893c08d800d571ab423754590845e1303fb2e13c816c4842bbf6de2eb",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_sorocaba_v19_Q4_enriched_cftudo.pt",
+      "rf_data_sha256": "467a03166acd932abea979a48dded6ce51cf1c3d13992aa45ae4949c3737177a",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\sorocaba_v19_Q4_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 62.72938059999797,
+      "populacoes": {
+        "full": {
+          "n": 826159,
+          "n_valido": 111649,
+          "n_sentinela": 714510,
+          "frac_valido": 0.13514226680336353,
+          "mae_rssi_total_db": 0.6430416107177734,
+          "mae_rssi_valido_db": 3.868443727493286,
+          "mae_rssi_sentinela_db": 0.13904179632663727,
+          "mae_pl_valido_db": 7.733742713928223,
+          "identidade_reconstruida_db": 0.6430416271253396,
+          "residuo_identidade_db": 1.6407566194587275e-08,
+          "elapsed_s": 2.015406600003189
+        },
+        "no_topo": {
+          "n": 826159,
+          "n_valido": 111649,
+          "n_sentinela": 714510,
+          "frac_valido": 0.13514226680336353,
+          "mae_rssi_total_db": 2.231705904006958,
+          "mae_rssi_valido_db": 15.612655639648438,
+          "mae_rssi_sentinela_db": 0.14080506563186646,
+          "mae_pl_valido_db": 21.700315475463867,
+          "identidade_reconstruida_db": 2.231706023847387,
+          "residuo_identidade_db": 1.1984042913582016e-07,
+          "elapsed_s": 1.956473599999299
+        }
+      }
+    },
+    {
+      "cidade_alvo": "lins",
+      "quadrante": 1,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q1_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q1_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "3560eed82a48b3f3a2c6f2b70fc28b3788c385329d43f7904a04302aaf011a55",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q1_g10b2\\run_c0c1cf_lins_s42_Q1_g10b2.json",
+      "idx_sha256_global_test_recomputado": "3cdac4e6c3c76e6ce4fe66f19904442bc85fd02aaa9d28866df86d7377a754c6",
+      "idx_sha256_global_test_ref": "3cdac4e6c3c76e6ce4fe66f19904442bc85fd02aaa9d28866df86d7377a754c6",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_lins_v19_Q1_enriched_cftudo.pt",
+      "rf_data_sha256": "f23d15852f1d132eeb5412e194cb0d4251f88c6a0d32097cef08588835742cfc",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\lins_v19_Q1_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 63.12151470000026,
+      "populacoes": {
+        "full": {
+          "n": 833593,
+          "n_valido": 24945,
+          "n_sentinela": 808648,
+          "frac_valido": 0.029924675471123197,
+          "mae_rssi_total_db": 0.5013182163238525,
+          "mae_rssi_valido_db": 10.069893836975098,
+          "mae_rssi_sentinela_db": 0.2061488777399063,
+          "mae_pl_valido_db": 9.47254753112793,
+          "identidade_reconstruida_db": 0.5013182445749467,
+          "residuo_identidade_db": 2.8251094130737897e-08,
+          "elapsed_s": 1.9743492000015976
+        },
+        "no_topo": {
+          "n": 833593,
+          "n_valido": 24945,
+          "n_sentinela": 808648,
+          "frac_valido": 0.029924675471123197,
+          "mae_rssi_total_db": 1.0169482231140137,
+          "mae_rssi_valido_db": 21.56609535217285,
+          "mae_rssi_sentinela_db": 0.3830525577068329,
+          "mae_pl_valido_db": 32.754093170166016,
+          "identidade_reconstruida_db": 1.0169482388221431,
+          "residuo_identidade_db": 1.570812946383171e-08,
+          "elapsed_s": 1.9287501999970118
+        }
+      }
+    },
+    {
+      "cidade_alvo": "lins",
+      "quadrante": 2,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q2_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q2_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "1b51e711327099f3f8512029ff2d194bebb10d8024a42ea0f7081fabaa190534",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q2_g10b2\\run_c0c1cf_lins_s42_Q2_g10b2.json",
+      "idx_sha256_global_test_recomputado": "3cdac4e6c3c76e6ce4fe66f19904442bc85fd02aaa9d28866df86d7377a754c6",
+      "idx_sha256_global_test_ref": "3cdac4e6c3c76e6ce4fe66f19904442bc85fd02aaa9d28866df86d7377a754c6",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_lins_v19_Q2_enriched_cftudo.pt",
+      "rf_data_sha256": "64a48e1cb48287cf0753c04bb4934d65bf21144a084e1afe058161640a428249",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\lins_v19_Q2_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 63.35129980000056,
+      "populacoes": {
+        "full": {
+          "n": 833593,
+          "n_valido": 123306,
+          "n_sentinela": 710287,
+          "frac_valido": 0.14792110778281486,
+          "mae_rssi_total_db": 0.49585431814193726,
+          "mae_rssi_valido_db": 2.6831769943237305,
+          "mae_rssi_sentinela_db": 0.11613456904888153,
+          "mae_pl_valido_db": 2.202824115753174,
+          "identidade_reconstruida_db": 0.49585432832102094,
+          "residuo_identidade_db": 1.0179083687056334e-08,
+          "elapsed_s": 1.9787671999984013
+        },
+        "no_topo": {
+          "n": 833593,
+          "n_valido": 123306,
+          "n_sentinela": 710287,
+          "frac_valido": 0.14792110778281486,
+          "mae_rssi_total_db": 4.112643241882324,
+          "mae_rssi_valido_db": 27.1373291015625,
+          "mae_rssi_sentinela_db": 0.11555232107639313,
+          "mae_pl_valido_db": 34.7973518371582,
+          "identidade_reconstruida_db": 4.112643476705842,
+          "residuo_identidade_db": 2.3482351796388912e-07,
+          "elapsed_s": 1.952081100000214
+        }
+      }
+    },
+    {
+      "cidade_alvo": "lins",
+      "quadrante": 3,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q3_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q3_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "4ef47c99ff669a2b56731b4cdb8259f613fdf502231a3e9efeaf4ed099e79ec6",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q3_g10b2\\run_c0c1cf_lins_s42_Q3_g10b2.json",
+      "idx_sha256_global_test_recomputado": "b36bf1a98e708823b4a89f51ee497d3d3d5bea72df77f6e4b7a45059603978f7",
+      "idx_sha256_global_test_ref": "b36bf1a98e708823b4a89f51ee497d3d3d5bea72df77f6e4b7a45059603978f7",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_lins_v19_Q3_enriched_cftudo.pt",
+      "rf_data_sha256": "845b287a7b3d33e1b08670c0dad745c2b9f50628e2d38540553de73ed234a4f2",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\lins_v19_Q3_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 63.16835220000212,
+      "populacoes": {
+        "full": {
+          "n": 824701,
+          "n_valido": 82826,
+          "n_sentinela": 741875,
+          "frac_valido": 0.10043155034370033,
+          "mae_rssi_total_db": 0.3368915617465973,
+          "mae_rssi_valido_db": 1.6502482891082764,
+          "mae_rssi_sentinela_db": 0.19026292860507965,
+          "mae_pl_valido_db": 1.3890753984451294,
+          "identidade_reconstruida_db": 0.3368915218395219,
+          "residuo_identidade_db": 3.9907075366496514e-08,
+          "elapsed_s": 1.923322200000257
+        },
+        "no_topo": {
+          "n": 824701,
+          "n_valido": 82826,
+          "n_sentinela": 741875,
+          "frac_valido": 0.10043155034370033,
+          "mae_rssi_total_db": 3.884056806564331,
+          "mae_rssi_valido_db": 30.047760009765625,
+          "mae_rssi_sentinela_db": 0.9630321860313416,
+          "mae_pl_valido_db": 33.886966705322266,
+          "identidade_reconstruida_db": 3.884056492693533,
+          "residuo_identidade_db": 3.138707982408562e-07,
+          "elapsed_s": 1.9277726000000257
+        }
+      }
+    },
+    {
+      "cidade_alvo": "lins",
+      "quadrante": 4,
+      "checkpoint_origem_run_label": "c0c1cf_lins_s42_Q4_g10b2",
+      "checkpoint_origem_caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q4_g10b2\\checkpoints\\checkpoint_best.pt",
+      "checkpoint_origem_sha256": "3ae7cdee8bb5c96a1ea787f2c563e42a76f41eb008876cfa8a22e74403b8c1f0",
+      "run_json_alvo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\treinos\\c0c1cf_lins_s42_Q4_g10b2\\run_c0c1cf_lins_s42_Q4_g10b2.json",
+      "idx_sha256_global_test_recomputado": "b36bf1a98e708823b4a89f51ee497d3d3d5bea72df77f6e4b7a45059603978f7",
+      "idx_sha256_global_test_ref": "b36bf1a98e708823b4a89f51ee497d3d3d5bea72df77f6e4b7a45059603978f7",
+      "idx_sha256_global_test_ok": true,
+      "rf_data_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\transfer_dataset_lins_v19_Q4_enriched_cftudo.pt",
+      "rf_data_sha256": "eb2974f829c149378d1025fca8fa51e3191e8a06ba0821cf8f1adc2712754744",
+      "graph_file": "F:\\TOPO_RF_DOWNLOAD_DRIVE\\graph_data_v3\\lins_v19_Q4_gpu.pt",
+      "n_terrain_cols": 18,
+      "colunas_zeradas_no_topo": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tempo_preparar_celula_s": 63.035936799999035,
+      "populacoes": {
+        "full": {
+          "n": 824701,
+          "n_valido": 102910,
+          "n_sentinela": 721791,
+          "frac_valido": 0.12478461891036872,
+          "mae_rssi_total_db": 0.2612358331680298,
+          "mae_rssi_valido_db": 1.2581182718276978,
+          "mae_rssi_sentinela_db": 0.11910442262887955,
+          "mae_pl_valido_db": 1.5149028301239014,
+          "identidade_reconstruida_db": 0.26123583173478626,
+          "residuo_identidade_db": 1.4332435238628705e-09,
+          "elapsed_s": 1.9840726000002178
+        },
+        "no_topo": {
+          "n": 824701,
+          "n_valido": 102910,
+          "n_sentinela": 721791,
+          "frac_valido": 0.12478461891036872,
+          "mae_rssi_total_db": 2.0128517150878906,
+          "mae_rssi_valido_db": 15.282700538635254,
+          "mae_rssi_sentinela_db": 0.12089112401008606,
+          "mae_pl_valido_db": 18.494762420654297,
+          "identidade_reconstruida_db": 2.0128517338057286,
+          "residuo_identidade_db": 1.8717837946269356e-08,
+          "elapsed_s": 1.9317929000026197
+        }
+      }
+    }
+  ],
+  "custo_medido": [
+    {
+      "cidade_alvo": "campinas",
+      "quadrante": 1,
+      "segundos": 81.01378950000071
+    },
+    {
+      "cidade_alvo": "campinas",
+      "quadrante": 2,
+      "segundos": 68.08060639999894
+    },
+    {
+      "cidade_alvo": "campinas",
+      "quadrante": 3,
+      "segundos": 67.06200750000062
+    },
+    {
+      "cidade_alvo": "campinas",
+      "quadrante": 4,
+      "segundos": 68.51725179999994
+    },
+    {
+      "cidade_alvo": "sorocaba",
+      "quadrante": 1,
+      "segundos": 68.80258899999899
+    },
+    {
+      "cidade_alvo": "sorocaba",
+      "quadrante": 2,
+      "segundos": 68.58901909999986
+    },
+    {
+      "cidade_alvo": "sorocaba",
+      "quadrante": 3,
+      "segundos": 68.16104130000167
+    },
+    {
+      "cidade_alvo": "sorocaba",
+      "quadrante": 4,
+      "segundos": 67.20869239999956
+    },
+    {
+      "cidade_alvo": "lins",
+      "quadrante": 1,
+      "segundos": 67.5951516999994
+    },
+    {
+      "cidade_alvo": "lins",
+      "quadrante": 2,
+      "segundos": 67.72928339999999
+    },
+    {
+      "cidade_alvo": "lins",
+      "quadrante": 3,
+      "segundos": 67.4994607999979
+    },
+    {
+      "cidade_alvo": "lins",
+      "quadrante": 4,
+      "segundos": 67.46488900000259
+    }
+  ],
+  "agregados_por_cidade": {
+    "campinas": {
+      "n_quadrantes": 4,
+      "n_por_quadrante_todos_iguais": false,
+      "por_braco": {
+        "full": {
+          "mae_rssi_total_db": {
+            "media_q1_q4": 1.3531306684017181,
+            "dp_q1_q4": 0.6502869479163392,
+            "por_quadrante": [
+              1.579217553138733,
+              1.1684831380844116,
+              2.1013553142547607,
+              0.5634666681289673
+            ]
+          },
+          "mae_rssi_valido_db": {
+            "media_q1_q4": 5.729257643222809,
+            "dp_q1_q4": 1.5692813123955354,
+            "por_quadrante": [
+              5.921993255615234,
+              6.839807510375977,
+              6.70060396194458,
+              3.4546258449554443
+            ]
+          },
+          "mae_pl_valido_db": {
+            "media_q1_q4": 7.537303686141968,
+            "dp_q1_q4": 3.0444800795290363,
+            "por_quadrante": [
+              6.827695846557617,
+              12.026970863342285,
+              5.619906902313232,
+              5.674641132354736
+            ]
+          }
+        },
+        "no_topo": {
+          "mae_rssi_total_db": {
+            "media_q1_q4": 3.303576797246933,
+            "dp_q1_q4": 1.94217990913346,
+            "por_quadrante": [
+              1.7422364950180054,
+              5.884098529815674,
+              3.715926170349121,
+              1.8720459938049316
+            ]
+          },
+          "mae_rssi_valido_db": {
+            "media_q1_q4": 17.53508460521698,
+            "dp_q1_q4": 14.089690933436792,
+            "por_quadrante": [
+              6.520841121673584,
+              38.198829650878906,
+              12.119650840759277,
+              13.301016807556152
+            ]
+          },
+          "mae_pl_valido_db": {
+            "media_q1_q4": 25.01939344406128,
+            "dp_q1_q4": 17.919656720319423,
+            "por_quadrante": [
+              8.09931755065918,
+              50.24924087524414,
+              19.135061264038086,
+              22.59395408630371
+            ]
+          }
+        }
+      },
+      "delta_e_percentual": {
+        "mae_rssi_total_db": {
+          "mae_full_dB": 1.3531306684017181,
+          "mae_no_topo_dB": 3.303576797246933,
+          "delta_dB": 1.9504461288452148,
+          "pct_den_full": 144.1432209314293,
+          "pct_den_no_topo": 59.04043552039225,
+          "denominador_correto_para_o_verbo_raises_lowers": "full"
+        },
+        "mae_rssi_valido_db": {
+          "mae_full_dB": 5.729257643222809,
+          "mae_no_topo_dB": 17.53508460521698,
+          "delta_dB": 11.805826961994171,
+          "pct_den_full": 206.0620711648287,
+          "pct_den_no_topo": 67.3268890786061,
+          "denominador_correto_para_o_verbo_raises_lowers": "full"
+        },
+        "mae_pl_valido_db": {
+          "mae_full_dB": 7.537303686141968,
+          "mae_no_topo_dB": 25.01939344406128,
+          "delta_dB": 17.48208975791931,
+          "pct_den_full": 231.94089671697526,
+          "pct_den_no_topo": 69.87415501101583,
+          "denominador_correto_para_o_verbo_raises_lowers": "full"
+        }
+      }
+    },
+    "sorocaba": {
+      "n_quadrantes": 4,
+      "n_por_quadrante_todos_iguais": false,
+      "por_braco": {
+        "full": {
+          "mae_rssi_total_db": {
+            "media_q1_q4": 1.6219587177038193,
+            "dp_q1_q4": 1.0600536541325591,
+            "por_quadrante": [
+              2.7516419887542725,
+              0.7964712977409363,
+              2.296679973602295,
+              0.6430416107177734
+            ]
+          },
+          "mae_rssi_valido_db": {
+            "media_q1_q4": 7.495318830013275,
+            "dp_q1_q4": 3.8327225579428252,
+            "por_quadrante": [
+              11.682398796081543,
+              4.643591403961182,
+              9.78684139251709,
+              3.868443727493286
+            ]
+          },
+          "mae_pl_valido_db": {
+            "media_q1_q4": 8.722539901733398,
+            "dp_q1_q4": 0.789755696552827,
+            "por_quadrante": [
+              9.418904304504395,
+              8.441123008728027,
+              9.29638957977295,
+              7.733742713928223
+            ]
+          }
+        },
+        "no_topo": {
+          "mae_rssi_total_db": {
+            "media_q1_q4": 3.9311017394065857,
+            "dp_q1_q4": 1.2686871115749114,
+            "por_quadrante": [
+              4.001727104187012,
+              4.193526744842529,
+              5.297447204589844,
+              2.231705904006958
+            ]
+          },
+          "mae_rssi_valido_db": {
+            "media_q1_q4": 20.75223398208618,
+            "dp_q1_q4": 5.244314189184137,
+            "por_quadrante": [
+              17.26683807373047,
+              26.901859283447266,
+              23.227582931518555,
+              15.612655639648438
+            ]
+          },
+          "mae_pl_valido_db": {
+            "media_q1_q4": 27.44619607925415,
+            "dp_q1_q4": 7.64780882893726,
+            "por_quadrante": [
+              20.034748077392578,
+              34.71933364868164,
+              33.330387115478516,
+              21.700315475463867
+            ]
+          }
+        }
+      },
+      "delta_e_percentual": {
+        "mae_rssi_total_db": {
+          "mae_full_dB": 1.6219587177038193,
+          "mae_no_topo_dB": 3.9311017394065857,
+          "delta_dB": 2.3091430217027664,
+          "pct_den_full": 142.3675582182377,
+          "pct_den_no_topo": 58.74035257228779,
+          "denominador_correto_para_o_verbo_raises_lowers": "full"
+        },
+        "mae_rssi_valido_db": {
+          "mae_full_dB": 7.495318830013275,
+          "mae_no_topo_dB": 20.75223398208618,
+          "delta_dB": 13.256915152072906,
+          "pct_den_full": 176.86926270552559,
+          "pct_den_no_topo": 63.88187008452482,
+          "denominador_correto_para_o_verbo_raises_lowers": "full"
+        },
+        "mae_pl_valido_db": {
+          "mae_full_dB": 8.722539901733398,
+          "mae_no_topo_dB": 27.44619607925415,
+          "delta_dB": 18.723656177520752,
+          "pct_den_full": 214.65830352693334,
+          "pct_den_no_topo": 68.21949432793518,
+          "denominador_correto_para_o_verbo_raises_lowers": "full"
+        }
+      }
+    },
+    "lins": {
+      "n_quadrantes": 4,
+      "n_por_quadrante_todos_iguais": false,
+      "por_braco": {
+        "full": {
+          "mae_rssi_total_db": {
+            "media_q1_q4": 0.3988249823451042,
+            "dp_q1_q4": 0.11928408328426142,
+            "por_quadrante": [
+              0.5013182163238525,
+              0.49585431814193726,
+              0.3368915617465973,
+              0.2612358331680298
+            ]
+          },
+          "mae_rssi_valido_db": {
+            "media_q1_q4": 3.9153593480587006,
+            "dp_q1_q4": 4.1468150981488625,
+            "por_quadrante": [
+              10.069893836975098,
+              2.6831769943237305,
+              1.6502482891082764,
+              1.2581182718276978
+            ]
+          },
+          "mae_pl_valido_db": {
+            "media_q1_q4": 3.6448374688625336,
+            "dp_q1_q4": 3.901567683380939,
+            "por_quadrante": [
+              9.47254753112793,
+              2.202824115753174,
+              1.3890753984451294,
+              1.5149028301239014
+            ]
+          }
+        },
+        "no_topo": {
+          "mae_rssi_total_db": {
+            "media_q1_q4": 2.75662499666214,
+            "dp_q1_q4": 1.4932695601884147,
+            "por_quadrante": [
+              1.0169482231140137,
+              4.112643241882324,
+              3.884056806564331,
+              2.0128517150878906
+            ]
+          },
+          "mae_rssi_valido_db": {
+            "media_q1_q4": 23.508471250534058,
+            "dp_q1_q4": 6.515802194533168,
+            "por_quadrante": [
+              21.56609535217285,
+              27.1373291015625,
+              30.047760009765625,
+              15.282700538635254
+            ]
+          },
+          "mae_pl_valido_db": {
+            "media_q1_q4": 29.983293533325195,
+            "dp_q1_q4": 7.704490018614636,
+            "por_quadrante": [
+              32.754093170166016,
+              34.7973518371582,
+              33.886966705322266,
+              18.494762420654297
+            ]
+          }
+        }
+      },
+      "delta_e_percentual": {
+        "mae_rssi_total_db": {
+          "mae_full_dB": 0.3988249823451042,
+          "mae_no_topo_dB": 2.75662499666214,
+          "delta_dB": 2.3578000143170357,
+          "pct_den_full": 591.1866404288651,
+          "pct_den_no_topo": 85.53212777116867,
+          "denominador_correto_para_o_verbo_raises_lowers": "full"
+        },
+        "mae_rssi_valido_db": {
+          "mae_full_dB": 3.9153593480587006,
+          "mae_no_topo_dB": 23.508471250534058,
+          "delta_dB": 19.593111902475357,
+          "pct_den_full": 500.41669641868106,
+          "pct_den_no_topo": 83.34490020073189,
+          "denominador_correto_para_o_verbo_raises_lowers": "full"
+        },
+        "mae_pl_valido_db": {
+          "mae_full_dB": 3.6448374688625336,
+          "mae_no_topo_dB": 29.983293533325195,
+          "delta_dB": 26.33845606446266,
+          "pct_den_full": 722.6236091312534,
+          "pct_den_no_topo": 87.84377218329452,
+          "denominador_correto_para_o_verbo_raises_lowers": "full"
+        }
+      }
+    }
+  },
+  "parou_por_orcamento": false,
+  "orcamento_gpu_min": 90.0,
+  "tempo_total_medido_s": 827.7237819000002,
+  "timestamp_utc": "2026-09-16T03:17:27.721843+00:00"
+}

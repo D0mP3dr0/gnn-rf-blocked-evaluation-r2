@@ -1,0 +1,22 @@
+\begin{table}[!t]
+\centering
+\caption{RSSI MAE of the node-wise adaptation and of GNN-RF on valid-target test nodes with target RSSI of at least $-$85\,dBm, in the seven cells with at least \num{1000} such nodes (each cell the mean of five seeds; 35 paired runs). Nodes: number of test nodes of this population in the cell. The mean of cells is computed before rounding. The node-wise adaptation has the lower error in every cell. The population is described per cell, without an interval or a test.}
+\label{tab:cov85_ba1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrcc}
+\toprule
+Cell & Nodes & Node-wise adapt. & GNN-RF \\
+ & & MAE (dB) & MAE (dB) \\
+\midrule
+Bauru~Q1 & \num{7801} & 4.466 & 12.010 \\
+Bauru~Q3 & \num{1151} & 0.572 & 2.115 \\
+Campinas~Q1 & \num{6268} & 4.907 & 15.351 \\
+Campinas~Q3 & \num{29223} & 3.790 & 10.412 \\
+Lins~Q1 & \num{23249} & 3.566 & 10.049 \\
+Lins~Q2 & \num{109989} & 0.553 & 2.754 \\
+Sorocaba~Q3 & \num{4505} & 0.562 & 2.823 \\
+\midrule
+Mean of cells & & 2.631 & 7.931 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,85 @@
+{
+ "artefato": "config_ba1",
+ "protocolo": "_revisao_2026-10-14/PROTOCOLO_faseC_baselines_RASCUNHO_2026-10-14.md#Decisao-do-dono-15-10-2026",
+ "inventario": "fase_BA1/INVENTARIO_ESCOLHAS.md",
+ "regra": "valor null = ABERTA (decisao do dono). A guarda recusa o modo lote com qualquer null. smoke_provisorio vale SO no modo smoke e nao e decisao.",
+ "decisao_do_dono": {
+  "data": "2026-10-18",
+  "registro": "Dono escolheu no chat (AskUserQuestion) em 18/10/2026: regime igual ao GNN-RF (H1 = opcao b, molde); desempate pelos atributos da antena (E6 = ii); altura de slot vazio 0 (E10). Ata cientista_dados/ATAS/ata_2026-10-18_ieee-access-47637-faseC.md"
+ },
+ "chaves": {
+  "weight_decay": {
+   "item": "H1/T5",
+   "valor": 1e-05,
+   "smoke_provisorio": 1e-05,
+   "opcoes": {
+    "b_molde": 1e-05,
+    "c_codigo_antigo": 0.0001
+   },
+   "fontes": {
+    "b_molde": "train_mlp_c0_spatial.py:1381",
+    "c_codigo_antigo": "run_radiounet.py:465"
+   }
+  },
+  "scheduler": {
+   "item": "H1/T6",
+   "valor": "cosine",
+   "smoke_provisorio": "cosine",
+   "opcoes": {
+    "b_molde": "cosine",
+    "c_codigo_antigo": "constante"
+   },
+   "fontes": {
+    "b_molde": "train_mlp_c0_spatial.py:1382-1384 + config C0 (cosine_t0 10)",
+    "c_codigo_antigo": "run_radiounet.py:465-607 (sem scheduler)"
+   }
+  },
+  "max_norm": {
+   "item": "H1/T7",
+   "valor": 0.5,
+   "smoke_provisorio": 0.5,
+   "opcoes": {
+    "b_molde": 0.5,
+    "c_codigo_antigo": 1.0
+   },
+   "fontes": {
+    "b_molde": "train_mlp_c0_spatial.py:368,1492-1494 + config C0",
+    "c_codigo_antigo": "run_radiounet.py:528"
+   }
+  },
+  "amp": {
+   "item": "H1/T8",
+   "valor": "on",
+   "smoke_provisorio": "on",
+   "opcoes": {
+    "b_molde": "on",
+    "c_codigo_antigo": "off"
+   },
+   "fontes": {
+    "b_molde": "train_mlp_c0_spatial.py:1414-1415,1472",
+    "c_codigo_antigo": "run_radiounet.py:463-529 (sem autocast)"
+   }
+  },
+  "desempate_enlaces": {
+   "item": "E6",
+   "valor": "freq_eirp_altura_indice",
+   "smoke_provisorio": "indice_antena",
+   "opcoes": {
+    "i": "indice_antena",
+    "ii": "freq_eirp_altura_indice"
+   },
+   "fontes": {
+    "nota": "sem fonte (a)/(b)/(c); 79,4% dos pares adjacentes empatados em Bauru Q1"
+   }
+  },
+  "preench_altura": {
+   "item": "E10",
+   "valor": 0.0,
+   "smoke_provisorio": 0.0,
+   "opcoes": {},
+   "fontes": {
+    "nota": "sem fonte (a)/(b)/(c); o codigo antigo nao usa altura"
+   }
+  }
+ }
+}

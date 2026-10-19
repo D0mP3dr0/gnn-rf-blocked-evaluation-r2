@@ -1,0 +1,1208 @@
+{
+  "artefato_tipo": "agregado_t11_mlp_vs_gnn_4cidades",
+  "data": "2026-09-15",
+  "agregador": {
+    "proprio": true,
+    "declaracao": "AGREGADOR PROPRIO desta analise; NAO e o agregador da campanha. agregar_c1_multiseed_v2.py grava dados/treinos_c1/agregado_c1v2_<cidade>_g10b2.json, que e o agregado do modelo COM grafo, e o sobrescreveria; este script grava em nome distinto e nao importa nem executa aquele.",
+    "saida": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\treinos_c1\\agregado_t11_mlp_vs_gnn_4cidades_2026-09-15.json",
+    "nomes_que_este_script_NAO_toca": [
+      "dados/treinos_c1/agregado_c1v2_<cidade>_g10b2.json",
+      "dados/treinos_c1/agregado_mlp_vs_gnn_c1v2.json",
+      "dados/consolidacao/claim_c1v2_estatistica.json"
+    ]
+  },
+  "pre_registro": {
+    "caminho": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\planos\\criterios_fechamento_2026-09-13.json",
+    "sha256": "3ae02b44a2794d30560c0d3cf2aad628e1075995e87309e1634bfc6e62f032b2",
+    "entrada": "testes.T11_mlp_em_campinas_e_sorocaba",
+    "acao": "replicar o braco E1 (MLP sem grafo) em campinas e sorocaba, Q1-Q4, seeds 42-46 = 40 corridas",
+    "criterio_aceite": "teste pareado reportado em tres unidades (cidade n=4, celula n=16, cadeia n=20); a frase do artigo e escrita para o resultado que sair; com n=4 cidades o p minimo nao parametrico e 0.125 e isso e declarado junto com o numero",
+    "definicoes_de_unidade_usadas": {
+      "unidade_celula": "cidade x quadrante, com as 5 seeds como replicas",
+      "unidade_cadeia": "cidade x seed, media dos 4 quadrantes",
+      "unidade_cidade": "cidade, media das cadeias",
+      "mae_rssi_total": "media de |pred-alvo| do canal rssi sobre TODOS os nos da particao de teste, sentinela incluido (metricas_particao, train_gnn_c0_spatial.py:650-687)"
+    }
+  },
+  "metrica": {
+    "campo": "selecao.test_no_melhor_ckpt.mae_rssi_db",
+    "definicao": "media de |pred-alvo| do canal rssi sobre TODOS os nos da particao de teste, sentinela incluido (metricas_particao, train_gnn_c0_spatial.py:650-687)",
+    "populacao": "todos os nos da particao de teste do split espacialmente bloqueado, sentinela -110 dBm incluida",
+    "por_que_esta": "e a metrica e a populacao da comparacao ja publicada para lins e bauru (main.tex:546; agregado_mlp_vs_gnn_c1v2.json; ca_recomputo.json :: mlp_vs_gnn), verificadas em conferencia_de_continuidade",
+    "sinal": "delta = MAE(GNN) - MAE(MLP); negativo = GNN melhor"
+  },
+  "protocolo_de_pareamento": {
+    "regra": "por celula e semente; rf_data_sha256 e os tres idx_sha256_global (train/val/test) identicos entre mlpcf e c0c1cf, senao o script aborta sem gravar",
+    "problemas_encontrados": [],
+    "aviso_colisao_idx": "idx_sha256_global e o hash dos indices no dataset da propria celula; celulas de mesma geometria colidem (Q1 com Q2, Q3 com Q4 em campinas e sorocaba). O hash de indices SOZINHO nao identifica a celula; por isso o pareamento exige tambem rf_data_sha256."
+  },
+  "criterio_pre_registrado_aplicado": {
+    "frase_do_criterio": "teste pareado reportado em tres unidades (cidade n=4, celula n=16, cadeia n=20); a frase do artigo e escrita para o resultado que sair; com n=4 cidades o p minimo nao parametrico e 0.125 e isso e declarado junto com o numero",
+    "o_que_o_criterio_fixa": [
+      "reportar o teste pareado em TRES unidades: cidade n=4, celula n=16, cadeia n=20 (feito acima)",
+      "declarar, junto do numero de cidade, que com n=4 o p minimo nao parametrico e 0.125",
+      "a frase do artigo e escrita para o resultado que sair: o criterio nao define limiar de aprovacao/reprovacao"
+    ],
+    "o_que_o_criterio_NAO_fixa": [
+      "nenhum limiar de p, nenhuma margem de equivalencia e nenhuma direcao esperada; o TOST a 0,1 dB entra aqui apenas por continuidade com a frase ja publicada (main.tex:546), que o reporta, e esta rotulado como tal"
+    ],
+    "p_minimo_nao_parametrico_n4": 0.125,
+    "declaracao_obrigatoria_do_criterio": "com n=4 cidades, o menor p bicaudal alcancavel por teste nao parametrico e 0,125; nenhum resultado por cidade pode ser declarado significativo a 0,05 por essa via, independentemente dos dados",
+    "contagem_por_celula": {
+      "gnn_melhor_delta_negativo": 10,
+      "mlp_melhor_delta_positivo": 6,
+      "empate_exato": 0
+    }
+  },
+  "unidades": {
+    "cidade_n4": {
+      "unidade": "cidade (n=4)",
+      "n": 4,
+      "media_delta_db": -0.24749836027622224,
+      "dp_db": 0.3068206272042315,
+      "ep_db": 0.15341031360211574,
+      "gl": 3,
+      "t": -1.6133097864471668,
+      "p_bicaudal_t": 0.20507799509872437,
+      "ic95_db": [
+        -0.7357184459916903,
+        0.24072172543924591
+      ],
+      "t_critico": 3.1824463052837078,
+      "wilcoxon_p_bicaudal": 0.375,
+      "sinal_n_delta_positivo_mlp_melhor": 1,
+      "sinal_n_delta_negativo_gnn_melhor": 3,
+      "sinal_n_delta_zero": 0,
+      "teste_do_sinal_p_bicaudal": 0.625,
+      "p_minimo_nao_parametrico_possivel": 0.125,
+      "nota_piso": "piso exato de um teste bicaudal de sinais/postos com n=4: nenhum p nao parametrico pode ficar abaixo de 0.125, mesmo com todas as unidades apontando para o mesmo lado",
+      "valores_db": {
+        "lins": 0.0988332413136959,
+        "bauru": -0.07734107300639152,
+        "campinas": -0.5140260711312294,
+        "sorocaba": -0.4974595382809639
+      },
+      "tost_margem_0_1": {
+        "margem_db": 0.1,
+        "n": 4,
+        "p_inferior": 0.7963769801391252,
+        "p_superior": 0.05420423873257425,
+        "p_tost": 0.7963769801391252,
+        "equivalencia_estabelecida_alfa_0_05": false
+      }
+    },
+    "celula_n16": {
+      "unidade": "celula (n=16)",
+      "n": 16,
+      "media_delta_db": -0.24749836027622224,
+      "dp_db": 0.4394046066512559,
+      "ep_db": 0.10985115166281398,
+      "gl": 15,
+      "t": -2.2530338237683094,
+      "p_bicaudal_t": 0.03965617906926609,
+      "ic95_db": [
+        -0.4816405475671451,
+        -0.013356172985299397
+      ],
+      "t_critico": 2.1314495455597755,
+      "wilcoxon_p_bicaudal": 0.116668701171875,
+      "sinal_n_delta_positivo_mlp_melhor": 6,
+      "sinal_n_delta_negativo_gnn_melhor": 10,
+      "sinal_n_delta_zero": 0,
+      "teste_do_sinal_p_bicaudal": 0.454498291015625,
+      "p_minimo_nao_parametrico_possivel": 3.0517578125e-05,
+      "nota_piso": "piso exato de um teste bicaudal de sinais/postos com n=16: nenhum p nao parametrico pode ficar abaixo de 3.05176e-05, mesmo com todas as unidades apontando para o mesmo lado",
+      "valores_db": {
+        "lins_Q1": 0.08135160803794861,
+        "lins_Q2": 0.3018936783075333,
+        "lins_Q3": 0.027425181865692122,
+        "lins_Q4": -0.015337502956390386,
+        "bauru_Q1": -0.29472934007644647,
+        "bauru_Q2": -0.0030870258808136097,
+        "bauru_Q3": -0.04283906817436223,
+        "bauru_Q4": 0.03129114210605621,
+        "campinas_Q1": -1.3289242506027223,
+        "campinas_Q2": 0.03559846580028536,
+        "campinas_Q3": -0.41679534912109384,
+        "campinas_Q4": -0.345983150601387,
+        "sorocaba_Q1": -0.804892385005951,
+        "sorocaba_Q2": 0.12684593498706814,
+        "sorocaba_Q3": -0.8825328409671782,
+        "sorocaba_Q4": -0.42925886213779446
+      },
+      "tost_margem_0_1": {
+        "margem_db": 0.1,
+        "n": 16,
+        "p_inferior": 0.9003336384984708,
+        "p_superior": 0.003214153930555899,
+        "p_tost": 0.9003336384984708,
+        "equivalencia_estabelecida_alfa_0_05": false
+      }
+    },
+    "cadeia_n20": {
+      "unidade": "cadeia (n=20)",
+      "n": 20,
+      "media_delta_db": -0.24749836027622224,
+      "dp_db": 0.28605488453139893,
+      "ep_db": 0.0639638167108061,
+      "gl": 19,
+      "t": -3.869349469798128,
+      "p_bicaudal_t": 0.0010326218391347212,
+      "ic95_db": [
+        -0.38137616726370355,
+        -0.11362055328874093
+      ],
+      "t_critico": 2.0930240544083087,
+      "wilcoxon_p_bicaudal": 0.0031528472900390625,
+      "sinal_n_delta_positivo_mlp_melhor": 5,
+      "sinal_n_delta_negativo_gnn_melhor": 15,
+      "sinal_n_delta_zero": 0,
+      "teste_do_sinal_p_bicaudal": 0.04138946533203125,
+      "p_minimo_nao_parametrico_possivel": 1.9073486328125e-06,
+      "nota_piso": "piso exato de um teste bicaudal de sinais/postos com n=20: nenhum p nao parametrico pode ficar abaixo de 1.90735e-06, mesmo com todas as unidades apontando para o mesmo lado",
+      "valores_db": {
+        "lins_s42": 0.12968344241380692,
+        "lins_s43": 0.03751450031995773,
+        "lins_s44": 0.11888914927840233,
+        "lins_s45": 0.10819670930504799,
+        "lins_s46": 0.09988240525126457,
+        "bauru_s42": -0.03961561992764473,
+        "bauru_s43": -0.0216616652905941,
+        "bauru_s44": -0.12148623540997505,
+        "bauru_s45": -0.1327941119670868,
+        "bauru_s46": -0.07114773243665695,
+        "campinas_s42": -0.6245710141956806,
+        "campinas_s43": -0.5169421806931496,
+        "campinas_s44": -0.2548486292362213,
+        "campinas_s45": -0.544284213334322,
+        "campinas_s46": -0.6294843181967735,
+        "sorocaba_s42": -0.3599744439125061,
+        "sorocaba_s43": -0.5317988097667694,
+        "sorocaba_s44": -0.4695269241929054,
+        "sorocaba_s45": -0.6117255687713623,
+        "sorocaba_s46": -0.5142719447612762
+      },
+      "tost_margem_0_1": {
+        "margem_db": 0.1,
+        "n": 20,
+        "p_inferior": 0.9837239992789805,
+        "p_superior": 1.5262077605073898e-05,
+        "p_tost": 0.9837239992789805,
+        "equivalencia_estabelecida_alfa_0_05": false
+      }
+    }
+  },
+  "conferencia_de_continuidade": {
+    "o_que_e": "recomputo do mesmo estimador sobre as 8 celulas de lins e bauru, para conferir contra main.tex:546 e ca_recomputo.json :: mlp_vs_gnn.unidade_celula_n8",
+    "publicado_main_tex_546": {
+      "delta_db": 0.011,
+      "ic95_db": [
+        -0.126,
+        0.148
+      ],
+      "n": 8,
+      "p": 0.86,
+      "tost_p": 0.083
+    },
+    "recomputado": {
+      "delta_db": 0.010746084153652191,
+      "ic95_db": [
+        -0.12608384844337697,
+        0.14757601675068135
+      ],
+      "n": 8,
+      "p_bicaudal_t": 0.8579402320984146,
+      "tost_p": 0.08343614902330618
+    },
+    "diferenca_absoluta": {
+      "delta_db": 0.0002539158463478082,
+      "p": 0.002059767901585352,
+      "tost_p": 0.0004361490233061732
+    },
+    "nota": "o publicado esta impresso com 2-3 casas; diferenca residual abaixo de 5e-4 e arredondamento de impressao"
+  },
+  "sensibilidade_declarada_T1_sorocaba_Q3": {
+    "o_que_e": "pior caso do defeito T1 (aberto, bloqueante) sobre ESTE resultado; nao substitui o primario",
+    "fonte": {
+      "arquivo": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\dados\\contra_auditoria\\rodada2_2026-09-13\\t1-sorocaba-imputacao.json",
+      "sha256": "4e91937fb9fdcf23705ba29e44f0c5cb214b3a92c64f12077f3e9cb1ee3cfd62",
+      "campos": [
+        "resumo.dmae_rssi_db_max_abs_por_quadrante.Q3",
+        "cota_superior_db.Q3.cota_superior_dmae_rssi_db"
+      ]
+    },
+    "celula_afetada": "sorocaba_Q3 (unica celula com nos afetados no teste: 2232; Q1, Q2 e Q4 tem 0)",
+    "dmae_rssi_gnn_medido_db": 0.09433445334434509,
+    "cota_superior_dmae_rssi_mlp_db": 0.11251069605350494,
+    "deslocamento_pior_caso_no_delta_da_celula_db": 0.20684514939785004,
+    "unidades_sob_pior_caso": {
+      "cidade_n4": {
+        "unidade": "cidade (n=4) pior caso T1",
+        "n": 4,
+        "media_delta_db": -0.2345705384388566,
+        "dp_db": 0.293581678674193,
+        "ep_db": 0.1467908393370965,
+        "gl": 3,
+        "t": -1.597991669631231,
+        "p_bicaudal_t": 0.20833507163953985,
+        "ic95_db": [
+          -0.7017245027366936,
+          0.23258342585898045
+        ],
+        "t_critico": 3.1824463052837078,
+        "wilcoxon_p_bicaudal": 0.375,
+        "sinal_n_delta_positivo_mlp_melhor": 1,
+        "sinal_n_delta_negativo_gnn_melhor": 3,
+        "sinal_n_delta_zero": 0,
+        "teste_do_sinal_p_bicaudal": 0.625,
+        "p_minimo_nao_parametrico_possivel": 0.125,
+        "nota_piso": "piso exato de um teste bicaudal de sinais/postos com n=4: nenhum p nao parametrico pode ficar abaixo de 0.125, mesmo com todas as unidades apontando para o mesmo lado"
+      },
+      "celula_n16": {
+        "unidade": "celula (n=16) pior caso T1",
+        "n": 16,
+        "media_delta_db": -0.2345705384388566,
+        "dp_db": 0.4221807969517831,
+        "ep_db": 0.10554519923794578,
+        "gl": 15,
+        "t": -2.222465257846834,
+        "p_bicaudal_t": 0.04205066938662164,
+        "ic95_db": [
+          -0.4595348053905921,
+          -0.00960627148712112
+        ],
+        "t_critico": 2.1314495455597755,
+        "wilcoxon_p_bicaudal": 0.116668701171875,
+        "sinal_n_delta_positivo_mlp_melhor": 6,
+        "sinal_n_delta_negativo_gnn_melhor": 10,
+        "sinal_n_delta_zero": 0,
+        "teste_do_sinal_p_bicaudal": 0.454498291015625,
+        "p_minimo_nao_parametrico_possivel": 3.0517578125e-05,
+        "nota_piso": "piso exato de um teste bicaudal de sinais/postos com n=16: nenhum p nao parametrico pode ficar abaixo de 3.05176e-05, mesmo com todas as unidades apontando para o mesmo lado"
+      },
+      "cadeia_n20": {
+        "unidade": "cadeia (n=20) pior caso T1",
+        "n": 20,
+        "media_delta_db": -0.2345705384388566,
+        "dp_db": 0.27486744307111055,
+        "ep_db": 0.06146222875085567,
+        "gl": 19,
+        "t": -3.8164990630215465,
+        "p_bicaudal_t": 0.0011650586429446245,
+        "ic95_db": [
+          -0.36321246165194343,
+          -0.10592861522576977
+        ],
+        "t_critico": 2.0930240544083087,
+        "wilcoxon_p_bicaudal": 0.0031528472900390625,
+        "sinal_n_delta_positivo_mlp_melhor": 5,
+        "sinal_n_delta_negativo_gnn_melhor": 15,
+        "sinal_n_delta_zero": 0,
+        "teste_do_sinal_p_bicaudal": 0.04138946533203125,
+        "p_minimo_nao_parametrico_possivel": 1.9073486328125e-06,
+        "nota_piso": "piso exato de um teste bicaudal de sinais/postos com n=20: nenhum p nao parametrico pode ficar abaixo de 1.90735e-06, mesmo com todas as unidades apontando para o mesmo lado"
+      }
+    },
+    "nota": "o desenho balanceado faz o pior caso deslocar a media das TRES unidades pelo mesmo valor (desloc/16 dB)"
+  },
+  "celulas": {
+    "lins_Q1": {
+      "cidade": "lins",
+      "quadrante": "Q1",
+      "frac_cobertura_test": 0.029924675471123197,
+      "n_test": 833593,
+      "mlp_mae_rssi_db_media": 0.3660917699337006,
+      "gnn_mae_rssi_db_media": 0.4474433779716492,
+      "mlp_dp": 0.023884422028860243,
+      "gnn_dp": 0.07204057141432219,
+      "delta_gnn_menos_mlp_db": 0.08135160803794861,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.4005959630012512,
+          "gnn": 0.5013471245765686,
+          "delta": 0.10075116157531738,
+          "n_test": 833593
+        },
+        "s43": {
+          "mlp": 0.3475727140903473,
+          "gnn": 0.33782920241355896,
+          "delta": -0.00974351167678833,
+          "n_test": 833593
+        },
+        "s44": {
+          "mlp": 0.3558438718318939,
+          "gnn": 0.5198937654495239,
+          "delta": 0.16404989361763,
+          "n_test": 833593
+        },
+        "s45": {
+          "mlp": 0.38092753291130066,
+          "gnn": 0.4540621042251587,
+          "delta": 0.07313457131385803,
+          "n_test": 833593
+        },
+        "s46": {
+          "mlp": 0.3455187678337097,
+          "gnn": 0.42408469319343567,
+          "delta": 0.07856592535972595,
+          "n_test": 833593
+        }
+      }
+    },
+    "lins_Q2": {
+      "cidade": "lins",
+      "quadrante": "Q2",
+      "frac_cobertura_test": 0.14792110778281486,
+      "n_test": 833593,
+      "mlp_mae_rssi_db_media": 0.17209989130496978,
+      "gnn_mae_rssi_db_media": 0.47399356961250305,
+      "mlp_dp": 0.015312434494411236,
+      "gnn_dp": 0.06480701172150888,
+      "delta_gnn_menos_mlp_db": 0.3018936783075333,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.193654865026474,
+          "gnn": 0.49571287631988525,
+          "delta": 0.30205801129341125,
+          "n_test": 833593
+        },
+        "s43": {
+          "mlp": 0.17481866478919983,
+          "gnn": 0.44850054383277893,
+          "delta": 0.2736818790435791,
+          "n_test": 833593
+        },
+        "s44": {
+          "mlp": 0.1519523710012436,
+          "gnn": 0.37484872341156006,
+          "delta": 0.22289635241031647,
+          "n_test": 833593
+        },
+        "s45": {
+          "mlp": 0.1751081943511963,
+          "gnn": 0.5088342428207397,
+          "delta": 0.33372604846954346,
+          "n_test": 833593
+        },
+        "s46": {
+          "mlp": 0.16496536135673523,
+          "gnn": 0.5420714616775513,
+          "delta": 0.37710610032081604,
+          "n_test": 833593
+        }
+      }
+    },
+    "lins_Q3": {
+      "cidade": "lins",
+      "quadrante": "Q3",
+      "frac_cobertura_test": 0.10043155034370033,
+      "n_test": 824701,
+      "mlp_mae_rssi_db_media": 0.22658873498439788,
+      "gnn_mae_rssi_db_media": 0.25401391685009,
+      "mlp_dp": 0.019166445367750275,
+      "gnn_dp": 0.04898608139763678,
+      "delta_gnn_menos_mlp_db": 0.027425181865692122,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.21841943264007568,
+          "gnn": 0.33692893385887146,
+          "delta": 0.11850950121879578,
+          "n_test": 824701
+        },
+        "s43": {
+          "mlp": 0.25904467701911926,
+          "gnn": 0.22970378398895264,
+          "delta": -0.029340893030166626,
+          "n_test": 824701
+        },
+        "s44": {
+          "mlp": 0.20841389894485474,
+          "gnn": 0.25832080841064453,
+          "delta": 0.049906909465789795,
+          "n_test": 824701
+        },
+        "s45": {
+          "mlp": 0.22315660119056702,
+          "gnn": 0.21433711051940918,
+          "delta": -0.008819490671157837,
+          "n_test": 824701
+        },
+        "s46": {
+          "mlp": 0.22390906512737274,
+          "gnn": 0.23077894747257233,
+          "delta": 0.006869882345199585,
+          "n_test": 824701
+        }
+      }
+    },
+    "lins_Q4": {
+      "cidade": "lins",
+      "quadrante": "Q4",
+      "frac_cobertura_test": 0.12478461891036872,
+      "n_test": 824701,
+      "mlp_mae_rssi_db_media": 0.22995096445083618,
+      "gnn_mae_rssi_db_media": 0.2146134614944458,
+      "mlp_dp": 0.031688629832124324,
+      "gnn_dp": 0.04002937152294585,
+      "delta_gnn_menos_mlp_db": -0.015337502956390386,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.26368409395217896,
+          "gnn": 0.2610991895198822,
+          "delta": -0.002584904432296753,
+          "n_test": 824701
+        },
+        "s43": {
+          "mlp": 0.25250083208084106,
+          "gnn": 0.16796135902404785,
+          "delta": -0.08453947305679321,
+          "n_test": 824701
+        },
+        "s44": {
+          "mlp": 0.19795779883861542,
+          "gnn": 0.23666124045848846,
+          "delta": 0.03870344161987305,
+          "n_test": 824701
+        },
+        "s45": {
+          "mlp": 0.19487467408180237,
+          "gnn": 0.22962038218975067,
+          "delta": 0.0347457081079483,
+          "n_test": 824701
+        },
+        "s46": {
+          "mlp": 0.2407374233007431,
+          "gnn": 0.17772513628005981,
+          "delta": -0.06301228702068329,
+          "n_test": 824701
+        }
+      }
+    },
+    "bauru_Q1": {
+      "cidade": "bauru",
+      "quadrante": "Q1",
+      "frac_cobertura_test": 0.3281790489023149,
+      "n_test": 828243,
+      "mlp_mae_rssi_db_media": 0.9270193934440613,
+      "gnn_mae_rssi_db_media": 0.6322900533676148,
+      "mlp_dp": 0.08940841670549655,
+      "gnn_dp": 0.09256115738922711,
+      "delta_gnn_menos_mlp_db": -0.29472934007644647,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.9490293264389038,
+          "gnn": 0.7567873597145081,
+          "delta": -0.19224196672439575,
+          "n_test": 828243
+        },
+        "s43": {
+          "mlp": 0.8860480189323425,
+          "gnn": 0.6331746578216553,
+          "delta": -0.25287336111068726,
+          "n_test": 828243
+        },
+        "s44": {
+          "mlp": 1.0737992525100708,
+          "gnn": 0.563138484954834,
+          "delta": -0.5106607675552368,
+          "n_test": 828243
+        },
+        "s45": {
+          "mlp": 0.8701553344726562,
+          "gnn": 0.5254124402999878,
+          "delta": -0.34474289417266846,
+          "n_test": 828243
+        },
+        "s46": {
+          "mlp": 0.856065034866333,
+          "gnn": 0.6829373240470886,
+          "delta": -0.17312771081924438,
+          "n_test": 828243
+        }
+      }
+    },
+    "bauru_Q2": {
+      "cidade": "bauru",
+      "quadrante": "Q2",
+      "frac_cobertura_test": 0.14951892137935363,
+      "n_test": 828243,
+      "mlp_mae_rssi_db_media": 0.37261993885040284,
+      "gnn_mae_rssi_db_media": 0.36953291296958923,
+      "mlp_dp": 0.047161534191507565,
+      "gnn_dp": 0.07317991775114488,
+      "delta_gnn_menos_mlp_db": -0.0030870258808136097,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.4213395416736603,
+          "gnn": 0.4700026214122772,
+          "delta": 0.04866307973861694,
+          "n_test": 828243
+        },
+        "s43": {
+          "mlp": 0.32681941986083984,
+          "gnn": 0.3152998983860016,
+          "delta": -0.011519521474838257,
+          "n_test": 828243
+        },
+        "s44": {
+          "mlp": 0.3593941628932953,
+          "gnn": 0.4216393828392029,
+          "delta": 0.06224521994590759,
+          "n_test": 828243
+        },
+        "s45": {
+          "mlp": 0.331961065530777,
+          "gnn": 0.2999279499053955,
+          "delta": -0.03203311562538147,
+          "n_test": 828243
+        },
+        "s46": {
+          "mlp": 0.4235855042934418,
+          "gnn": 0.34079471230506897,
+          "delta": -0.0827907919883728,
+          "n_test": 828243
+        }
+      }
+    },
+    "bauru_Q3": {
+      "cidade": "bauru",
+      "quadrante": "Q3",
+      "frac_cobertura_test": 0.15914853333105022,
+      "n_test": 817601,
+      "mlp_mae_rssi_db_media": 0.43391852974891665,
+      "gnn_mae_rssi_db_media": 0.3910794615745544,
+      "mlp_dp": 0.027171471137603913,
+      "gnn_dp": 0.04753505541725987,
+      "delta_gnn_menos_mlp_db": -0.04283906817436223,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.4331739544868469,
+          "gnn": 0.373127281665802,
+          "delta": -0.06004667282104492,
+          "n_test": 817601
+        },
+        "s43": {
+          "mlp": 0.39315250515937805,
+          "gnn": 0.41911688446998596,
+          "delta": 0.02596437931060791,
+          "n_test": 817601
+        },
+        "s44": {
+          "mlp": 0.42732420563697815,
+          "gnn": 0.39470142126083374,
+          "delta": -0.03262278437614441,
+          "n_test": 817601
+        },
+        "s45": {
+          "mlp": 0.4646868407726288,
+          "gnn": 0.321684330701828,
+          "delta": -0.14300251007080078,
+          "n_test": 817601
+        },
+        "s46": {
+          "mlp": 0.4512551426887512,
+          "gnn": 0.4467673897743225,
+          "delta": -0.004487752914428711,
+          "n_test": 817601
+        }
+      }
+    },
+    "bauru_Q4": {
+      "cidade": "bauru",
+      "quadrante": "Q4",
+      "frac_cobertura_test": 0.13470629316744964,
+      "n_test": 817601,
+      "mlp_mae_rssi_db_media": 0.20481719374656676,
+      "gnn_mae_rssi_db_media": 0.23610833585262297,
+      "mlp_dp": 0.014135175262768385,
+      "gnn_dp": 0.07052507018365889,
+      "delta_gnn_menos_mlp_db": 0.03129114210605621,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.20282822847366333,
+          "gnn": 0.24799130856990814,
+          "delta": 0.04516308009624481,
+          "n_test": 817601
+        },
+        "s43": {
+          "mlp": 0.20131950080394745,
+          "gnn": 0.35310134291648865,
+          "delta": 0.1517818421125412,
+          "n_test": 817601
+        },
+        "s44": {
+          "mlp": 0.2091495394706726,
+          "gnn": 0.20424292981624603,
+          "delta": -0.004906609654426575,
+          "n_test": 817601
+        },
+        "s45": {
+          "mlp": 0.18585480749607086,
+          "gnn": 0.1744568794965744,
+          "delta": -0.01139792799949646,
+          "n_test": 817601
+        },
+        "s46": {
+          "mlp": 0.22493389248847961,
+          "gnn": 0.2007492184638977,
+          "delta": -0.02418467402458191,
+          "n_test": 817601
+        }
+      }
+    },
+    "campinas_Q1": {
+      "cidade": "campinas",
+      "quadrante": "Q1",
+      "frac_cobertura_test": 0.24117349100667743,
+      "n_test": 821276,
+      "mlp_mae_rssi_db_media": 1.8240848064422608,
+      "gnn_mae_rssi_db_media": 0.49516055583953855,
+      "mlp_dp": 0.033298310303389866,
+      "gnn_dp": 0.10025961956648474,
+      "delta_gnn_menos_mlp_db": -1.3289242506027223,
+      "por_semente": {
+        "s42": {
+          "mlp": 1.8355011940002441,
+          "gnn": 0.447235643863678,
+          "delta": -1.3882655501365662,
+          "n_test": 821276
+        },
+        "s43": {
+          "mlp": 1.845343828201294,
+          "gnn": 0.4898671507835388,
+          "delta": -1.3554766774177551,
+          "n_test": 821276
+        },
+        "s44": {
+          "mlp": 1.7970236539840698,
+          "gnn": 0.6673271059989929,
+          "delta": -1.129696547985077,
+          "n_test": 821276
+        },
+        "s45": {
+          "mlp": 1.7818773984909058,
+          "gnn": 0.45984721183776855,
+          "delta": -1.3220301866531372,
+          "n_test": 821276
+        },
+        "s46": {
+          "mlp": 1.86067795753479,
+          "gnn": 0.4115256667137146,
+          "delta": -1.4491522908210754,
+          "n_test": 821276
+        }
+      }
+    },
+    "campinas_Q2": {
+      "cidade": "campinas",
+      "quadrante": "Q2",
+      "frac_cobertura_test": 0.15140951397581326,
+      "n_test": 821276,
+      "mlp_mae_rssi_db_media": 0.31475239992141724,
+      "gnn_mae_rssi_db_media": 0.3503508657217026,
+      "mlp_dp": 0.022685494065686398,
+      "gnn_dp": 0.2051084863334441,
+      "delta_gnn_menos_mlp_db": 0.03559846580028536,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.3052429258823395,
+          "gnn": 0.26717692613601685,
+          "delta": -0.03806599974632263,
+          "n_test": 821276
+        },
+        "s43": {
+          "mlp": 0.3149223029613495,
+          "gnn": 0.24144937098026276,
+          "delta": -0.07347293198108673,
+          "n_test": 821276
+        },
+        "s44": {
+          "mlp": 0.28935930132865906,
+          "gnn": 0.7167841792106628,
+          "delta": 0.4274248778820038,
+          "n_test": 821276
+        },
+        "s45": {
+          "mlp": 0.3131440281867981,
+          "gnn": 0.25951018929481506,
+          "delta": -0.05363383889198303,
+          "n_test": 821276
+        },
+        "s46": {
+          "mlp": 0.35109344124794006,
+          "gnn": 0.26683366298675537,
+          "delta": -0.08425977826118469,
+          "n_test": 821276
+        }
+      }
+    },
+    "campinas_Q3": {
+      "cidade": "campinas",
+      "quadrante": "Q3",
+      "frac_cobertura_test": 0.29680351973896163,
+      "n_test": 822561,
+      "mlp_mae_rssi_db_media": 1.2287296533584595,
+      "gnn_mae_rssi_db_media": 0.8119343042373657,
+      "mlp_dp": 0.09867970863814463,
+      "gnn_dp": 0.16971131791463256,
+      "delta_gnn_menos_mlp_db": -0.41679534912109384,
+      "por_semente": {
+        "s42": {
+          "mlp": 1.2618937492370605,
+          "gnn": 0.6476114392280579,
+          "delta": -0.6142823100090027,
+          "n_test": 822561
+        },
+        "s43": {
+          "mlp": 1.1816576719284058,
+          "gnn": 0.8695249557495117,
+          "delta": -0.31213271617889404,
+          "n_test": 822561
+        },
+        "s44": {
+          "mlp": 1.1249802112579346,
+          "gnn": 1.0790520906448364,
+          "delta": -0.045928120613098145,
+          "n_test": 822561
+        },
+        "s45": {
+          "mlp": 1.192823052406311,
+          "gnn": 0.7133654356002808,
+          "delta": -0.4794576168060303,
+          "n_test": 822561
+        },
+        "s46": {
+          "mlp": 1.3822935819625854,
+          "gnn": 0.7501175999641418,
+          "delta": -0.6321759819984436,
+          "n_test": 822561
+        }
+      }
+    },
+    "campinas_Q4": {
+      "cidade": "campinas",
+      "quadrante": "Q4",
+      "frac_cobertura_test": 0.1349516935522107,
+      "n_test": 822561,
+      "mlp_mae_rssi_db_media": 0.567868173122406,
+      "gnn_mae_rssi_db_media": 0.221885022521019,
+      "mlp_dp": 0.06767340835596446,
+      "gnn_dp": 0.07756271389713804,
+      "delta_gnn_menos_mlp_db": -0.345983150601387,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.6426516771316528,
+          "gnn": 0.18498148024082184,
+          "delta": -0.457670196890831,
+          "n_test": 822561
+        },
+        "s43": {
+          "mlp": 0.5153107047080994,
+          "gnn": 0.188624307513237,
+          "delta": -0.32668639719486237,
+          "n_test": 822561
+        },
+        "s44": {
+          "mlp": 0.6289887428283691,
+          "gnn": 0.35779401659965515,
+          "delta": -0.271194726228714,
+          "n_test": 822561
+        },
+        "s45": {
+          "mlp": 0.4890812039375305,
+          "gnn": 0.16706599295139313,
+          "delta": -0.3220152109861374,
+          "n_test": 822561
+        },
+        "s46": {
+          "mlp": 0.5633085370063782,
+          "gnn": 0.2109593152999878,
+          "delta": -0.3523492217063904,
+          "n_test": 822561
+        }
+      }
+    },
+    "sorocaba_Q1": {
+      "cidade": "sorocaba",
+      "quadrante": "Q1",
+      "frac_cobertura_test": 0.2212375980706414,
+      "n_test": 818925,
+      "mlp_mae_rssi_db_media": 1.183776068687439,
+      "gnn_mae_rssi_db_media": 0.37888368368148806,
+      "mlp_dp": 0.026532234207803634,
+      "gnn_dp": 0.04605092318500672,
+      "delta_gnn_menos_mlp_db": -0.804892385005951,
+      "por_semente": {
+        "s42": {
+          "mlp": 1.2141473293304443,
+          "gnn": 0.3861083984375,
+          "delta": -0.8280389308929443,
+          "n_test": 818925
+        },
+        "s43": {
+          "mlp": 1.2072056531906128,
+          "gnn": 0.2982734739780426,
+          "delta": -0.9089321792125702,
+          "n_test": 818925
+        },
+        "s44": {
+          "mlp": 1.153964638710022,
+          "gnn": 0.4119611084461212,
+          "delta": -0.7420035302639008,
+          "n_test": 818925
+        },
+        "s45": {
+          "mlp": 1.1809468269348145,
+          "gnn": 0.3954279124736786,
+          "delta": -0.7855189144611359,
+          "n_test": 818925
+        },
+        "s46": {
+          "mlp": 1.1626158952713013,
+          "gnn": 0.4026475250720978,
+          "delta": -0.7599683701992035,
+          "n_test": 818925
+        }
+      }
+    },
+    "sorocaba_Q2": {
+      "cidade": "sorocaba",
+      "quadrante": "Q2",
+      "frac_cobertura_test": 0.1526513416979577,
+      "n_test": 818925,
+      "mlp_mae_rssi_db_media": 0.26391920149326326,
+      "gnn_mae_rssi_db_media": 0.3907651364803314,
+      "mlp_dp": 0.0268637035371961,
+      "gnn_dp": 0.11955427102878541,
+      "delta_gnn_menos_mlp_db": 0.12684593498706814,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.28941309452056885,
+          "gnn": 0.5934473872184753,
+          "delta": 0.3040342926979065,
+          "n_test": 818925
+        },
+        "s43": {
+          "mlp": 0.24751262366771698,
+          "gnn": 0.36040881276130676,
+          "delta": 0.11289618909358978,
+          "n_test": 818925
+        },
+        "s44": {
+          "mlp": 0.2500312328338623,
+          "gnn": 0.38124775886535645,
+          "delta": 0.13121652603149414,
+          "n_test": 818925
+        },
+        "s45": {
+          "mlp": 0.2366284430027008,
+          "gnn": 0.33958834409713745,
+          "delta": 0.10295990109443665,
+          "n_test": 818925
+        },
+        "s46": {
+          "mlp": 0.2960106134414673,
+          "gnn": 0.2791333794593811,
+          "delta": -0.01687723398208618,
+          "n_test": 818925
+        }
+      }
+    },
+    "sorocaba_Q3": {
+      "cidade": "sorocaba",
+      "quadrante": "Q3",
+      "frac_cobertura_test": 0.2204708778818605,
+      "n_test": 826159,
+      "mlp_mae_rssi_db_media": 1.3015114307403564,
+      "gnn_mae_rssi_db_media": 0.4189785897731781,
+      "mlp_dp": 0.22869091758740115,
+      "gnn_dp": 0.061790488107831824,
+      "delta_gnn_menos_mlp_db": -0.8825328409671782,
+      "por_semente": {
+        "s42": {
+          "mlp": 1.0862596035003662,
+          "gnn": 0.5051820874214172,
+          "delta": -0.581077516078949,
+          "n_test": 826159
+        },
+        "s43": {
+          "mlp": 1.2120507955551147,
+          "gnn": 0.4305950701236725,
+          "delta": -0.7814557254314423,
+          "n_test": 826159
+        },
+        "s44": {
+          "mlp": 1.3004255294799805,
+          "gnn": 0.4411727488040924,
+          "delta": -0.8592527806758881,
+          "n_test": 826159
+        },
+        "s45": {
+          "mlp": 1.686901569366455,
+          "gnn": 0.36142048239707947,
+          "delta": -1.3254810869693756,
+          "n_test": 826159
+        },
+        "s46": {
+          "mlp": 1.2219196557998657,
+          "gnn": 0.3565225601196289,
+          "delta": -0.8653970956802368,
+          "n_test": 826159
+        }
+      }
+    },
+    "sorocaba_Q4": {
+      "cidade": "sorocaba",
+      "quadrante": "Q4",
+      "frac_cobertura_test": 0.13514226680336353,
+      "n_test": 826159,
+      "mlp_mae_rssi_db_media": 0.6560837984085083,
+      "gnn_mae_rssi_db_media": 0.22682493627071382,
+      "mlp_dp": 0.048759554051284584,
+      "gnn_dp": 0.034627847569955475,
+      "delta_gnn_menos_mlp_db": -0.42925886213779446,
+      "por_semente": {
+        "s42": {
+          "mlp": 0.5932161808013916,
+          "gnn": 0.258400559425354,
+          "delta": -0.3348156213760376,
+          "n_test": 826159
+        },
+        "s43": {
+          "mlp": 0.7195589542388916,
+          "gnn": 0.16985543072223663,
+          "delta": -0.549703523516655,
+          "n_test": 826159
+        },
+        "s44": {
+          "mlp": 0.6285617351531982,
+          "gnn": 0.22049382328987122,
+          "delta": -0.408067911863327,
+          "n_test": 826159
+        },
+        "s45": {
+          "mlp": 0.6838393807411194,
+          "gnn": 0.244977205991745,
+          "delta": -0.4388621747493744,
+          "n_test": 826159
+        },
+        "s46": {
+          "mlp": 0.6552427411079407,
+          "gnn": 0.24039766192436218,
+          "delta": -0.4148450791835785,
+          "n_test": 826159
+        }
+      }
+    }
+  },
+  "controle_de_definicao_de_cidade": {
+    "media_das_cadeias_db": {
+      "lins": 0.0988332413136959,
+      "bauru": -0.07734107300639152,
+      "campinas": -0.5140260711312294,
+      "sorocaba": -0.4974595382809639
+    },
+    "media_das_celulas_db": {
+      "lins": 0.09883324131369592,
+      "bauru": -0.07734107300639152,
+      "campinas": -0.5140260711312294,
+      "sorocaba": -0.49745953828096384
+    },
+    "max_diferenca_absoluta_db": 5.551115123125783e-17,
+    "nota": "as duas leituras coincidem porque o desenho e balanceado (5 sementes x 4 quadrantes em toda cidade)"
+  },
+  "limites_declarados": [
+    "as 16 celulas nao sao independentes: Q2-Q4 herdam o checkpoint do Q1 da mesma semente (cadeia de transferencia) e os tiles sao adjacentes; a unidade cadeia (n=20) e a unidade cidade (n=4) existem exatamente para tornar isso visivel",
+    "o buffer de 2 km e menor que o alcance de autocorrelacao medido (20-30 km, T7 do mesmo pre-registro): o delta pareado e robusto a isso (os dois bracos veem o mesmo split), mas o nivel absoluto de MAE nao e",
+    "nenhum numero aqui e citavel antes de contra-auditoria"
+  ],
+  "ambiente": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "scipy": "1.17.0",
+    "executavel": "F:\\S33_dslm\\s33_amb_virtual\\.venv\\Scripts\\python.exe",
+    "dispositivo": "CPU (so leitura de JSON; nenhum .pt carregado)"
+  },
+  "script": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\scripts\\agregar_t11_mlp_vs_gnn_4cidades_2026-09-15.py",
+  "script_sha256": "4c60b3a91bdea66ada09675e8efe5a16b26e6b44524fcc656e826109034d02ad",
+  "fontes_sha256": {
+    "dados/planos/criterios_fechamento_2026-09-13.json": "3ae02b44a2794d30560c0d3cf2aad628e1075995e87309e1634bfc6e62f032b2",
+    "dados/baselines_v2/baselines_v2_lins_Q1.json": "d1adaabbd49e9fa884cdb4e5da638a1c548cb7f8e0eeafb3ce3694ed1f1c6d0c",
+    "treinos/mlpcf_lins_s42_Q1_g10b2/run_mlpcf_lins_s42_Q1_g10b2.json": "fe791c0d5dcdd5803b778503db6282568f181f33a1540e2d951e9811b2f82451",
+    "treinos/c0c1cf_lins_s42_Q1_g10b2/run_c0c1cf_lins_s42_Q1_g10b2.json": "e56719dffd273cce73fcafa71afbb8f8417ddd0ce8dd923089652bce253f8359",
+    "treinos/mlpcf_lins_s43_Q1_g10b2/run_mlpcf_lins_s43_Q1_g10b2.json": "6ff781b283c2bd3ffc684fbccc8d43f4877b1f7ffea0c036220ed30a84d4ff73",
+    "treinos/c0c1cf_lins_s43_Q1_g10b2/run_c0c1cf_lins_s43_Q1_g10b2.json": "c50e4b0e61f9ed418d2f7c609da1f2ee82ef8d405e71c41f8511f47bf91d4e91",
+    "treinos/mlpcf_lins_s44_Q1_g10b2/run_mlpcf_lins_s44_Q1_g10b2.json": "5adc41aa0d790b02f9e7964707bd75a02ea485c5e9a7e2a4e3f8766cc1d74b6c",
+    "treinos/c0c1cf_lins_s44_Q1_g10b2/run_c0c1cf_lins_s44_Q1_g10b2.json": "5eacf6c2e5d9d01af4cd197f4cb42098ada7b604dd00c05db146f8efb54c60d5",
+    "treinos/mlpcf_lins_s45_Q1_g10b2/run_mlpcf_lins_s45_Q1_g10b2.json": "7469dc5f3b0f6b90bc73fcec2a44e0a91280fb4e213d9aa5475dfd1c59bad11a",
+    "treinos/c0c1cf_lins_s45_Q1_g10b2/run_c0c1cf_lins_s45_Q1_g10b2.json": "282015323909d76308528d4a72f265ca3af4b9eb603de3cf75c759663214fcb0",
+    "treinos/mlpcf_lins_s46_Q1_g10b2/run_mlpcf_lins_s46_Q1_g10b2.json": "18477eda1a02182b431ee83861857c80f8495e867a2b3cd2fb792db58b59ce10",
+    "treinos/c0c1cf_lins_s46_Q1_g10b2/run_c0c1cf_lins_s46_Q1_g10b2.json": "d62e32f625356f65d74bcebc5308dc47ec9b250ca3d6bb29e90e8aa3a77c8a30",
+    "dados/baselines_v2/baselines_v2_lins_Q2.json": "99d86adc694ac2a5248a2d1df92db45e9816eb6fa163ecb08f1a8528f8b1a751",
+    "treinos/mlpcf_lins_s42_Q2_g10b2/run_mlpcf_lins_s42_Q2_g10b2.json": "66c212fd83b0f61773d7d6814049d53fd9c68211f95e83dc05bf10efa452a60c",
+    "treinos/c0c1cf_lins_s42_Q2_g10b2/run_c0c1cf_lins_s42_Q2_g10b2.json": "2c60de023b73a63d642a6023a4159bfe28bcbf85643be3f1c5b92f76f47fa0e9",
+    "treinos/mlpcf_lins_s43_Q2_g10b2/run_mlpcf_lins_s43_Q2_g10b2.json": "4aa4979630cbfe50eec87b7aa26854df09a27de92681318a826dd5699f95866b",
+    "treinos/c0c1cf_lins_s43_Q2_g10b2/run_c0c1cf_lins_s43_Q2_g10b2.json": "56a07cabb500e3634fa83738efcb224129ca885d83dcdcc1bf6bbef9f8648c3e",
+    "treinos/mlpcf_lins_s44_Q2_g10b2/run_mlpcf_lins_s44_Q2_g10b2.json": "c84d18f6368bc686e16d54a6c68c62ca2fa31e446a43149fc1ef4767f4600d78",
+    "treinos/c0c1cf_lins_s44_Q2_g10b2/run_c0c1cf_lins_s44_Q2_g10b2.json": "360cde6f78d8ab42e60505dc90f3f44dc017efd85462dda989848618d79d3162",
+    "treinos/mlpcf_lins_s45_Q2_g10b2/run_mlpcf_lins_s45_Q2_g10b2.json": "2ddc929f92aa49476590d9a1a6d1ccbd4992d72ecfee79b9cd82ecb5cda0f12a",
+    "treinos/c0c1cf_lins_s45_Q2_g10b2/run_c0c1cf_lins_s45_Q2_g10b2.json": "036e719a0e8525488a7c51c3b846cb44ce670fba46e360f0a9c90633a7f7821c",
+    "treinos/mlpcf_lins_s46_Q2_g10b2/run_mlpcf_lins_s46_Q2_g10b2.json": "8b79d979a82fb67c236fbb3493c7e6f5a81c23e7dc732c2950f8bfbd3eb5cf1c",
+    "treinos/c0c1cf_lins_s46_Q2_g10b2/run_c0c1cf_lins_s46_Q2_g10b2.json": "fe80888dbacf950a3d55c121c672b6b4a8ef9fd6b6f76617207e6f34466ace43",
+    "dados/baselines_v2/baselines_v2_lins_Q3.json": "393aca1f16886502d4f9cbf848511aa36eea576a59e2810d0117a8a485297443",
+    "treinos/mlpcf_lins_s42_Q3_g10b2/run_mlpcf_lins_s42_Q3_g10b2.json": "d13f400123aec2c529dbfce7f0c465a069d6826a7e82fd0c68a6580d5497af84",
+    "treinos/c0c1cf_lins_s42_Q3_g10b2/run_c0c1cf_lins_s42_Q3_g10b2.json": "0d25f361abecab655e17e28d5a82c9e7d2833d80bcf59367e31e3de5b61a4a77",
+    "treinos/mlpcf_lins_s43_Q3_g10b2/run_mlpcf_lins_s43_Q3_g10b2.json": "f9707387619be6224985e74383f4dca52d5a0a98eb93b7b29abeb4476c9c22b2",
+    "treinos/c0c1cf_lins_s43_Q3_g10b2/run_c0c1cf_lins_s43_Q3_g10b2.json": "7d6c0e8b85671deb6477fd80ed650a449acf2fc453a0d780bd7bd3b260269cb2",
+    "treinos/mlpcf_lins_s44_Q3_g10b2/run_mlpcf_lins_s44_Q3_g10b2.json": "8cdb42cc4abf3c0b33eb5271fbcb1367c7db98e86813599f2e7f907f74e59335",
+    "treinos/c0c1cf_lins_s44_Q3_g10b2/run_c0c1cf_lins_s44_Q3_g10b2.json": "c19b9d91ef5241bc3250a096f005d24aa077e5d2696bb25b1f68a23cd17f7462",
+    "treinos/mlpcf_lins_s45_Q3_g10b2/run_mlpcf_lins_s45_Q3_g10b2.json": "1a7ae1bc907560dc32f5ced4dee2e4e6e5718a4d51a5b1ea811066c32295b631",
+    "treinos/c0c1cf_lins_s45_Q3_g10b2/run_c0c1cf_lins_s45_Q3_g10b2.json": "dc570ad770ac6b62426638a6ba5dbfc9177329367410fca0434d00ebabf789d9",
+    "treinos/mlpcf_lins_s46_Q3_g10b2/run_mlpcf_lins_s46_Q3_g10b2.json": "bf61cade59919137ce67ddeb4b3db27f95a355ccedd3f207c5d57d7b488bece1",
+    "treinos/c0c1cf_lins_s46_Q3_g10b2/run_c0c1cf_lins_s46_Q3_g10b2.json": "7a8c2f90630e799aed27a5a149987189a9583b48a071ed49c80c3abbb648afb2",
+    "dados/baselines_v2/baselines_v2_lins_Q4.json": "4180f5c0c4b3e067b443b5af44ca9b235fcf4d85b801f910803ba505d346c917",
+    "treinos/mlpcf_lins_s42_Q4_g10b2/run_mlpcf_lins_s42_Q4_g10b2.json": "6c2bb214607e097755afce58590daeb77ac119d2a47026ea0081be2f7f8c2719",
+    "treinos/c0c1cf_lins_s42_Q4_g10b2/run_c0c1cf_lins_s42_Q4_g10b2.json": "f732d6e97c4146b4c053fad63023ba8ba131845e923a47eb1b0e1f5fd9d9d873",
+    "treinos/mlpcf_lins_s43_Q4_g10b2/run_mlpcf_lins_s43_Q4_g10b2.json": "167bf8b2e70a5287c42aa03f3e4806882c318db562608e6d2da3a643fefc1cd9",
+    "treinos/c0c1cf_lins_s43_Q4_g10b2/run_c0c1cf_lins_s43_Q4_g10b2.json": "75fbb87b97369dd05ccc293be92d1c0ad45645f529d987591d3597afdcd9f5db",
+    "treinos/mlpcf_lins_s44_Q4_g10b2/run_mlpcf_lins_s44_Q4_g10b2.json": "449b4d09093753e77536820e67611bf4f1ba520e5782989eba5749e7fa646f72",
+    "treinos/c0c1cf_lins_s44_Q4_g10b2/run_c0c1cf_lins_s44_Q4_g10b2.json": "14084cf70ec687e255950058c055ad1c1343fb9ef6f4a71723892481c507cf22",
+    "treinos/mlpcf_lins_s45_Q4_g10b2/run_mlpcf_lins_s45_Q4_g10b2.json": "c05c279ea70ebc7955a8ab5a98a13f071f0465dfd4101930aa83adde7cb40639",
+    "treinos/c0c1cf_lins_s45_Q4_g10b2/run_c0c1cf_lins_s45_Q4_g10b2.json": "6a490eaa980eaebea68469512b80bd28d539458f174e7571821658f9ba9645c5",
+    "treinos/mlpcf_lins_s46_Q4_g10b2/run_mlpcf_lins_s46_Q4_g10b2.json": "c932a521b6872fd29fecf9843b7f2a0ea3a421b6ffd7aeda0c3bb4a92b05b7ea",
+    "treinos/c0c1cf_lins_s46_Q4_g10b2/run_c0c1cf_lins_s46_Q4_g10b2.json": "7d3a345dca734f38c76cf42d5241b1dde6bffa72ec33d6e83e69f3ccbd8a3c1b",
+    "dados/baselines_v2/baselines_v2_bauru_Q1.json": "7490528f1549847c8d4600bfd955c977ee6762146bcf5de51f52bea6c508b58c",
+    "treinos/mlpcf_bauru_s42_Q1_g10b2/run_mlpcf_bauru_s42_Q1_g10b2.json": "417e2280782703a1d9c8473b2ee4c1a64dc24eb0fdd65af26494f597b690613d",
+    "treinos/c0c1cf_bauru_s42_Q1_g10b2/run_c0c1cf_bauru_s42_Q1_g10b2.json": "552890b4dd972c6e7e4bb2193d03a7483b70f6d6bcedb2434c0401cbd9c5f7a2",
+    "treinos/mlpcf_bauru_s43_Q1_g10b2/run_mlpcf_bauru_s43_Q1_g10b2.json": "10ab2c6742902950dc88cf086c63986523923719cd5910165a2cde3ce8aea970",
+    "treinos/c0c1cf_bauru_s43_Q1_g10b2/run_c0c1cf_bauru_s43_Q1_g10b2.json": "64fa2b439164e6b171e867ac17e5a2e5d573eaed57b50c7dd2ea08e09fc0eddb",
+    "treinos/mlpcf_bauru_s44_Q1_g10b2/run_mlpcf_bauru_s44_Q1_g10b2.json": "1703924ec9373060c38ae3a0fa5ace9e77be6562663d3671272808eb277723a4",
+    "treinos/c0c1cf_bauru_s44_Q1_g10b2/run_c0c1cf_bauru_s44_Q1_g10b2.json": "14818a43bb6cf7fab0466e3e9dab004303adb0c2411fb03c8fc07cc6715cac36",
+    "treinos/mlpcf_bauru_s45_Q1_g10b2/run_mlpcf_bauru_s45_Q1_g10b2.json": "300220e95f734245cd49b19ad5e39a8d94aa9afa2514ade793888a5e30c15055",
+    "treinos/c0c1cf_bauru_s45_Q1_g10b2/run_c0c1cf_bauru_s45_Q1_g10b2.json": "95553d530c4ad77be1ed2302f8373de5730d5c7a62581d10634b09606d397e9b",
+    "treinos/mlpcf_bauru_s46_Q1_g10b2/run_mlpcf_bauru_s46_Q1_g10b2.json": "08e18938d40a846af76115e7e846d454d2f99aeb0d2d832c981dad3f9705f5ae",
+    "treinos/c0c1cf_bauru_s46_Q1_g10b2/run_c0c1cf_bauru_s46_Q1_g10b2.json": "564055fceac0e9f3ce0a37e80eb3cae821d824e4f0b9714c30be7962d7c66bd4",
+    "dados/baselines_v2/baselines_v2_bauru_Q2.json": "19899c2c52a3f9b45ee1324ae698026c3ce7f8d52906fc016d970e632e9c190d",
+    "treinos/mlpcf_bauru_s42_Q2_g10b2/run_mlpcf_bauru_s42_Q2_g10b2.json": "05080dff1bda3f14b22d0241e5e8c4c2270c9c9eb094e44510c77f9ca75b1ba7",
+    "treinos/c0c1cf_bauru_s42_Q2_g10b2/run_c0c1cf_bauru_s42_Q2_g10b2.json": "42256b79ed7914b9776aaccc24ff1139236c59ce6662e653e8684419c436f7d2",
+    "treinos/mlpcf_bauru_s43_Q2_g10b2/run_mlpcf_bauru_s43_Q2_g10b2.json": "0939fd9b9b375adf9980b94b0ab8f246d4efcaf47b0792c0e954b9ce2bd22ec2",
+    "treinos/c0c1cf_bauru_s43_Q2_g10b2/run_c0c1cf_bauru_s43_Q2_g10b2.json": "aab330ee465de0f14c612ba957ab56071acb2b2d5fa0d7ab641ca03b1312c7f8",
+    "treinos/mlpcf_bauru_s44_Q2_g10b2/run_mlpcf_bauru_s44_Q2_g10b2.json": "bc40329d906f4abfce59fe262ece03630093a5ce923fdc0dab1c4567a676a60a",
+    "treinos/c0c1cf_bauru_s44_Q2_g10b2/run_c0c1cf_bauru_s44_Q2_g10b2.json": "4bdcab667b845ddf9eb36025526a8b5d78c7fbe80241330548c5deeedeee7bb5",
+    "treinos/mlpcf_bauru_s45_Q2_g10b2/run_mlpcf_bauru_s45_Q2_g10b2.json": "cab0f4ac477a1d1bdba9ee3aaaf7b3d02779704f96154c0862b533f449f6cd07",
+    "treinos/c0c1cf_bauru_s45_Q2_g10b2/run_c0c1cf_bauru_s45_Q2_g10b2.json": "5d7f30aa554d3b2160bdd0c52bc9f7055bcca37508b1c4509a9d89c6d5abe3ff",
+    "treinos/mlpcf_bauru_s46_Q2_g10b2/run_mlpcf_bauru_s46_Q2_g10b2.json": "77d3d6fe8641f8a4c47428eeb40556321dca4fd5ac19e34eeacf6bab2dcf04fe",
+    "treinos/c0c1cf_bauru_s46_Q2_g10b2/run_c0c1cf_bauru_s46_Q2_g10b2.json": "8501819293a69c900b708f52de1acd7a7491688edf3cffaec81bcce9b99be1b1",
+    "dados/baselines_v2/baselines_v2_bauru_Q3.json": "461b5fe25f1f5d116e4af0a80174f5e846cd565a6ca82343069db2d8c09daa62",
+    "treinos/mlpcf_bauru_s42_Q3_g10b2/run_mlpcf_bauru_s42_Q3_g10b2.json": "54bb57203f70fa4de085335582825bb4edd9b5a566f5904ebce45a87b1f60ef4",
+    "treinos/c0c1cf_bauru_s42_Q3_g10b2/run_c0c1cf_bauru_s42_Q3_g10b2.json": "a2519b94caf880d98995ea8066a99357a3e6780ec1ab35ebfca9d144fbe89909",
+    "treinos/mlpcf_bauru_s43_Q3_g10b2/run_mlpcf_bauru_s43_Q3_g10b2.json": "98083cd9ef5e453d9325b29f586b988b178d23c06cd9911e10defcea86e6a3f4",
+    "treinos/c0c1cf_bauru_s43_Q3_g10b2/run_c0c1cf_bauru_s43_Q3_g10b2.json": "ac0549c72e8349b786017e95aae3ea5328d4bb05d230c7fe4ec5cc0c33085aa4",
+    "treinos/mlpcf_bauru_s44_Q3_g10b2/run_mlpcf_bauru_s44_Q3_g10b2.json": "725257b63fc3219410dfaa54a0d3d6fa66813e1d347f0b362329f2822cd1ea05",
+    "treinos/c0c1cf_bauru_s44_Q3_g10b2/run_c0c1cf_bauru_s44_Q3_g10b2.json": "b918543ed15dbe8d019e231212d934504954315d741c3718253e2907fc9dc44a",
+    "treinos/mlpcf_bauru_s45_Q3_g10b2/run_mlpcf_bauru_s45_Q3_g10b2.json": "c3bc7c91729990aa7f099fb14c08284e4c38a5b55a84343aeadbd26ae1b7a121",
+    "treinos/c0c1cf_bauru_s45_Q3_g10b2/run_c0c1cf_bauru_s45_Q3_g10b2.json": "2c6979cf23d20a37921d37fba01287a38364cccf1cc89bfab7a17857cf1e332c",
+    "treinos/mlpcf_bauru_s46_Q3_g10b2/run_mlpcf_bauru_s46_Q3_g10b2.json": "236b3efe1a3ffc9ac2a42b5636b0a027218f0a5c22ea4c1ce6e65a0b56ecc421",
+    "treinos/c0c1cf_bauru_s46_Q3_g10b2/run_c0c1cf_bauru_s46_Q3_g10b2.json": "649120c22ecd103754043d108a7aeaea2ac4c09841505336fcbc4c1b314a827f",
+    "dados/baselines_v2/baselines_v2_bauru_Q4.json": "f1365f2c71116abae3b0cd4762c4d10323126e64f6270ba3da7dddf6e0c2d7b0",
+    "treinos/mlpcf_bauru_s42_Q4_g10b2/run_mlpcf_bauru_s42_Q4_g10b2.json": "c249a91b5a5436f9fc45fa3443da9b0662473874276445960651d57daab2ee5a",
+    "treinos/c0c1cf_bauru_s42_Q4_g10b2/run_c0c1cf_bauru_s42_Q4_g10b2.json": "adddf2211d473a592fc18722c12eb4ec980b1d5da7512f18611ede57d7fec885",
+    "treinos/mlpcf_bauru_s43_Q4_g10b2/run_mlpcf_bauru_s43_Q4_g10b2.json": "4fb655ad1ce56bf6e444235d887cf31f07ab4d17c9b19255b42e817da60698db",
+    "treinos/c0c1cf_bauru_s43_Q4_g10b2/run_c0c1cf_bauru_s43_Q4_g10b2.json": "71ae1a17f02a4e2751c28f01de1bfefd39c74718e0d9ea8ca1eefd0dd7cb6d0a",
+    "treinos/mlpcf_bauru_s44_Q4_g10b2/run_mlpcf_bauru_s44_Q4_g10b2.json": "73124708c2998d50dcb7f0eab21ac20c5587ab9c159ec94ba2a56cedd6b9f51c",
+    "treinos/c0c1cf_bauru_s44_Q4_g10b2/run_c0c1cf_bauru_s44_Q4_g10b2.json": "bbbd84b624e6869757069874a132b4af973d2aebdb02cb78063b8be99f28953a",
+    "treinos/mlpcf_bauru_s45_Q4_g10b2/run_mlpcf_bauru_s45_Q4_g10b2.json": "aea2e6bd240d4f0ef84833682ba0a120fcaba8c4d939da7ab778e013761cfbca",
+    "treinos/c0c1cf_bauru_s45_Q4_g10b2/run_c0c1cf_bauru_s45_Q4_g10b2.json": "f01c729ec19f6a90a677e9a2e9d48a631880ea1264bc46be07eade83c5df0f71",
+    "treinos/mlpcf_bauru_s46_Q4_g10b2/run_mlpcf_bauru_s46_Q4_g10b2.json": "0d6c40e15395c7ba0c5140ebf7303dbd87354587eba9a921fc452768ac079aa6",
+    "treinos/c0c1cf_bauru_s46_Q4_g10b2/run_c0c1cf_bauru_s46_Q4_g10b2.json": "c9d21b0bddbf6156236562e5c3a17ff6ea509e2fdc3ad641417617399cbc46b6",
+    "dados/baselines_v2/baselines_v2_campinas_Q1.json": "b88d508516381553ec997484020d0ecaa76217c40a59dab00b4f06511134f9f5",
+    "treinos/mlpcf_campinas_s42_Q1_g10b2/run_mlpcf_campinas_s42_Q1_g10b2.json": "cee6c9fdd5a54a1b139f28ad7d83722270186d658b398037f59f03654ae319e1",
+    "treinos/c0c1cf_campinas_s42_Q1_g10b2/run_c0c1cf_campinas_s42_Q1_g10b2.json": "257ca5ef60b07acede04a81a84764dc152d455d2adf797b417a64727dd8366c6",
+    "treinos/mlpcf_campinas_s43_Q1_g10b2/run_mlpcf_campinas_s43_Q1_g10b2.json": "7bdbc0723511941e717bc6d160b5b9d2398374b364260ac8abe06855b2b5955e",
+    "treinos/c0c1cf_campinas_s43_Q1_g10b2/run_c0c1cf_campinas_s43_Q1_g10b2.json": "173dc9da224db02258b7b7ff2c7ee6fe6ac16ac9cff068b37cbfe3f514bd53f0",
+    "treinos/mlpcf_campinas_s44_Q1_g10b2/run_mlpcf_campinas_s44_Q1_g10b2.json": "77806dca46c185e29222a6f60ecf10a9a8503d44befa0191c066261775d89684",
+    "treinos/c0c1cf_campinas_s44_Q1_g10b2/run_c0c1cf_campinas_s44_Q1_g10b2.json": "ee2dd20a967633359741d5acfd54b24a9d902d1055e229007d6afb4253fe016f",
+    "treinos/mlpcf_campinas_s45_Q1_g10b2/run_mlpcf_campinas_s45_Q1_g10b2.json": "ce32553158c5af04c2d083610d1599122e1aff404cc51c69cec7b108c9f4255f",
+    "treinos/c0c1cf_campinas_s45_Q1_g10b2/run_c0c1cf_campinas_s45_Q1_g10b2.json": "477a5e0851e4cc27d5eb3342cc1d9f48090a935209025d7dd1c3996fbaeb8d17",
+    "treinos/mlpcf_campinas_s46_Q1_g10b2/run_mlpcf_campinas_s46_Q1_g10b2.json": "5151a7fd2b7eb82938de9fa450a8f6ad772698484949eccc0084c108ebea8aea",
+    "treinos/c0c1cf_campinas_s46_Q1_g10b2/run_c0c1cf_campinas_s46_Q1_g10b2.json": "cbfc153d297bfa78a583437d8dd7de3d7095d97632ceac5b299f4ac617d05d52",
+    "dados/baselines_v2/baselines_v2_campinas_Q2.json": "93c03aa8c7b893c8238e4468a2f230770ce20ecb2e8b719266cb0834971d8165",
+    "treinos/mlpcf_campinas_s42_Q2_g10b2/run_mlpcf_campinas_s42_Q2_g10b2.json": "a42c8f77d7c01fa1785a412e87f26f6ba9faee98b9d08b8667a3eb907ce5b1c8",
+    "treinos/c0c1cf_campinas_s42_Q2_g10b2/run_c0c1cf_campinas_s42_Q2_g10b2.json": "3f4137ec7c2f7c1dcf23ba3d8c5eecac69038d75948c89d3d65785fe176a9df5",
+    "treinos/mlpcf_campinas_s43_Q2_g10b2/run_mlpcf_campinas_s43_Q2_g10b2.json": "8b966e41a0dba760cc67fd3554c7770581c9d7dfa6d1359c78114a4d716bceef",
+    "treinos/c0c1cf_campinas_s43_Q2_g10b2/run_c0c1cf_campinas_s43_Q2_g10b2.json": "87c28c80b5be1916212d18745611fa25a061d23412ac0151284a38826dca725e",
+    "treinos/mlpcf_campinas_s44_Q2_g10b2/run_mlpcf_campinas_s44_Q2_g10b2.json": "0e81a53fb91c0f83566428e309350487792de3475fa45ed083d6a16b75b39530",
+    "treinos/c0c1cf_campinas_s44_Q2_g10b2/run_c0c1cf_campinas_s44_Q2_g10b2.json": "dbaf47a140f23ab9965600917e44c51a64e1ec482081d60ecbe3f26d8916aeeb",
+    "treinos/mlpcf_campinas_s45_Q2_g10b2/run_mlpcf_campinas_s45_Q2_g10b2.json": "d43df18e2af39133d9b2bdd41005e3fb5cbd26b290ec6eae34ada10d5ccea893",
+    "treinos/c0c1cf_campinas_s45_Q2_g10b2/run_c0c1cf_campinas_s45_Q2_g10b2.json": "925a02365c8e8233264b7f6d1e40410ce123f5ef744dd2da10c12898f88a8b59",
+    "treinos/mlpcf_campinas_s46_Q2_g10b2/run_mlpcf_campinas_s46_Q2_g10b2.json": "18ecbe1eac99efafed222c8083d029c3b278e830f9e8136e775bbe133548076c",
+    "treinos/c0c1cf_campinas_s46_Q2_g10b2/run_c0c1cf_campinas_s46_Q2_g10b2.json": "920f98debc8dded5f25f6cf7cef651ebf061129c4fc5809bbec78052270e33db",
+    "dados/baselines_v2/baselines_v2_campinas_Q3.json": "b2da79d7e3035ba5e66fc500d994788b69f07d8a41714f376afdb616c5929c5f",
+    "treinos/mlpcf_campinas_s42_Q3_g10b2/run_mlpcf_campinas_s42_Q3_g10b2.json": "86c9d640dccaa8914e365e4cf16e63c508c751a0cebe0885ae7e72d4faf23de1",
+    "treinos/c0c1cf_campinas_s42_Q3_g10b2/run_c0c1cf_campinas_s42_Q3_g10b2.json": "2549ce770a5fce6fc95929a2ddfe42801f63e27dc435a8fe77c60bcc4c32477e",
+    "treinos/mlpcf_campinas_s43_Q3_g10b2/run_mlpcf_campinas_s43_Q3_g10b2.json": "9aac0d76fa8336e627e9c4d1a0040803c48c3ea5b7fc4a9e3ffbdd924bb9af52",
+    "treinos/c0c1cf_campinas_s43_Q3_g10b2/run_c0c1cf_campinas_s43_Q3_g10b2.json": "729864f4dfd8ab58cd6c5539fc9b87b2c57ec6f22d1fae4b9bca6dc0eec365b9",
+    "treinos/mlpcf_campinas_s44_Q3_g10b2/run_mlpcf_campinas_s44_Q3_g10b2.json": "f8bf57df7cf106b08def857228365cb2f06dce419c5a6a2af91e2dcf4b577f57",
+    "treinos/c0c1cf_campinas_s44_Q3_g10b2/run_c0c1cf_campinas_s44_Q3_g10b2.json": "2733c7c69b3ad5a9fb392767bbe5249d63e5c569afe2ed58071819de69dcf838",
+    "treinos/mlpcf_campinas_s45_Q3_g10b2/run_mlpcf_campinas_s45_Q3_g10b2.json": "11c258ddf345fad699df6a983732a5804c1a743cb9dc5d1f62778a69466c0135",
+    "treinos/c0c1cf_campinas_s45_Q3_g10b2/run_c0c1cf_campinas_s45_Q3_g10b2.json": "52fc61d188ce932818cc848d031d472c3a7e8150035b7baad1a2134808047723",
+    "treinos/mlpcf_campinas_s46_Q3_g10b2/run_mlpcf_campinas_s46_Q3_g10b2.json": "188394dd427fc113284c2dc7456b130d21467639946e08dfbe617512afb86ad7",
+    "treinos/c0c1cf_campinas_s46_Q3_g10b2/run_c0c1cf_campinas_s46_Q3_g10b2.json": "58f600c97bb3bb9a1c1dc9b40ee9bda0e1bce3f69a2b3b73db81912b3ffed50b",
+    "dados/baselines_v2/baselines_v2_campinas_Q4.json": "be40ee55a2bf2ac80d81ca238c7f3277047fb8cf11887fa214553b3666cbbc35",
+    "treinos/mlpcf_campinas_s42_Q4_g10b2/run_mlpcf_campinas_s42_Q4_g10b2.json": "062ee27913669f91e7ab2a492f09a757c1c65a5611d632c20823ec893853330a",
+    "treinos/c0c1cf_campinas_s42_Q4_g10b2/run_c0c1cf_campinas_s42_Q4_g10b2.json": "3760ce316e13e52a7ff614880b9fe3efe0524f5b55402d41f75948181ec07224",
+    "treinos/mlpcf_campinas_s43_Q4_g10b2/run_mlpcf_campinas_s43_Q4_g10b2.json": "7cbaac170981a85273e6a9c144fbd868f4fc9e820623e0bc64dd5bc4ff6de15a",
+    "treinos/c0c1cf_campinas_s43_Q4_g10b2/run_c0c1cf_campinas_s43_Q4_g10b2.json": "b82da5a801a98dddaf4d3fb2563f15f108d8240ccc33bfb440401f241ccf8d9e",
+    "treinos/mlpcf_campinas_s44_Q4_g10b2/run_mlpcf_campinas_s44_Q4_g10b2.json": "ac7d7fb5110545e50f5a7669f7c954bd9e62853a3550a4a824a6e08f2821f9ef",
+    "treinos/c0c1cf_campinas_s44_Q4_g10b2/run_c0c1cf_campinas_s44_Q4_g10b2.json": "da1078a8b616df457b99b062c2468493117b61249c2be1fd30e25c435b0cf977",
+    "treinos/mlpcf_campinas_s45_Q4_g10b2/run_mlpcf_campinas_s45_Q4_g10b2.json": "e0e607b1b8c55f1b5ca97b37f35b00e384baa5b71cc9fc351c1de1fbc56e6a4d",
+    "treinos/c0c1cf_campinas_s45_Q4_g10b2/run_c0c1cf_campinas_s45_Q4_g10b2.json": "423d614b3cb88b151f4d7f638b9bff480883c99ff2ddf343c5a44889ce05ff97",
+    "treinos/mlpcf_campinas_s46_Q4_g10b2/run_mlpcf_campinas_s46_Q4_g10b2.json": "1fdd5a7b83b1d85e55e863f3683b0e7c70d14374e07d10b0f517a3c309c8189a",
+    "treinos/c0c1cf_campinas_s46_Q4_g10b2/run_c0c1cf_campinas_s46_Q4_g10b2.json": "008ada2b16297cad2a593b18d9900214ecb3196e00980384f692584b1bdf60a2",
+    "dados/baselines_v2/baselines_v2_sorocaba_Q1.json": "08d905f2d7f44e84c4fb62e48405253c4d9efd7620085970c4b2ebbe347b2c75",
+    "treinos/mlpcf_sorocaba_s42_Q1_g10b2/run_mlpcf_sorocaba_s42_Q1_g10b2.json": "ebc9fbe440dd936be9d88471abb30825c68778d8ef20d6420ee856e46717428c",
+    "treinos/c0c1cf_sorocaba_s42_Q1_g10b2/run_c0c1cf_sorocaba_s42_Q1_g10b2.json": "091a498915d1482476f983fb260cc4f774ab9b3118fd7187e311259b01e03819",
+    "treinos/mlpcf_sorocaba_s43_Q1_g10b2/run_mlpcf_sorocaba_s43_Q1_g10b2.json": "614b79668789d8823ce00b391145b073b39049cf4fb8a801b683b0fdb1721f76",
+    "treinos/c0c1cf_sorocaba_s43_Q1_g10b2/run_c0c1cf_sorocaba_s43_Q1_g10b2.json": "c95e23e53ca8f35980ba449a4198f091cb32f26a56a33f3a0b0e8d081c299517",
+    "treinos/mlpcf_sorocaba_s44_Q1_g10b2/run_mlpcf_sorocaba_s44_Q1_g10b2.json": "45e90f20f34b4a8dd96c9270e993d8b07ed3547757ace7c9d5f31079df9a96cd",
+    "treinos/c0c1cf_sorocaba_s44_Q1_g10b2/run_c0c1cf_sorocaba_s44_Q1_g10b2.json": "3b0e9ba0644f4c70d4827e04db43f60acdb6985764b078b2c2780a937afd1344",
+    "treinos/mlpcf_sorocaba_s45_Q1_g10b2/run_mlpcf_sorocaba_s45_Q1_g10b2.json": "69e632f25e9f0a9b3c5636543184edd12da20d6765421d12a1811cf5e5c6cf88",
+    "treinos/c0c1cf_sorocaba_s45_Q1_g10b2/run_c0c1cf_sorocaba_s45_Q1_g10b2.json": "3d2ec630324e5a326147bfac625d16d43a7dd7d5bd9df81c61dce3732575bab8",
+    "treinos/mlpcf_sorocaba_s46_Q1_g10b2/run_mlpcf_sorocaba_s46_Q1_g10b2.json": "e231ff5e7383aaf4cf1d7208638e885b01a739098423d61a8f6ef3845638d294",
+    "treinos/c0c1cf_sorocaba_s46_Q1_g10b2/run_c0c1cf_sorocaba_s46_Q1_g10b2.json": "a1e3dc00ef2ebb029cd5a236472f926771b572ebcd3978e9570877ad5295b57a",
+    "dados/baselines_v2/baselines_v2_sorocaba_Q2.json": "07259670b5246a1a4a411ce7bb5b7fcf2590da882597d4f2a7a3987a29c69f44",
+    "treinos/mlpcf_sorocaba_s42_Q2_g10b2/run_mlpcf_sorocaba_s42_Q2_g10b2.json": "3077cde56832aff9e3879401d47c389ff0c05215eff4373cd3a3495c15dc7afa",
+    "treinos/c0c1cf_sorocaba_s42_Q2_g10b2/run_c0c1cf_sorocaba_s42_Q2_g10b2.json": "bafed7e36b1096e3e3bb064181357298d09212edf6e875f59f0997d10b0bf368",
+    "treinos/mlpcf_sorocaba_s43_Q2_g10b2/run_mlpcf_sorocaba_s43_Q2_g10b2.json": "e7f738d425b03b2a95496b526616bb6cadc763c4031fe54fa6344c4034fdb79a",
+    "treinos/c0c1cf_sorocaba_s43_Q2_g10b2/run_c0c1cf_sorocaba_s43_Q2_g10b2.json": "65047098d597a266bf755448abea97902652faf75ee796c508541eb1fcbe737c",
+    "treinos/mlpcf_sorocaba_s44_Q2_g10b2/run_mlpcf_sorocaba_s44_Q2_g10b2.json": "2d4f2b4091b0577a496c117bee451aab0864a5cd1b2dc862dacc3469b1856aae",
+    "treinos/c0c1cf_sorocaba_s44_Q2_g10b2/run_c0c1cf_sorocaba_s44_Q2_g10b2.json": "c27e07d58ddbff1cb7cf94b35c5f207f0b65f7f8d7985af1339b60a08b70ac4c",
+    "treinos/mlpcf_sorocaba_s45_Q2_g10b2/run_mlpcf_sorocaba_s45_Q2_g10b2.json": "ee6a9e4626d980389be1bfbdffaab77835e1897e88a640e8a8957320e43685e3",
+    "treinos/c0c1cf_sorocaba_s45_Q2_g10b2/run_c0c1cf_sorocaba_s45_Q2_g10b2.json": "a0ab7c97ad6a96c19679bf2e79d8876886d4d8fc6f0a85976e1da2833c188f5e",
+    "treinos/mlpcf_sorocaba_s46_Q2_g10b2/run_mlpcf_sorocaba_s46_Q2_g10b2.json": "1777eb68304e4d735143c07a3e0038c32b0f969935e0209ed5d6db155d7c427b",
+    "treinos/c0c1cf_sorocaba_s46_Q2_g10b2/run_c0c1cf_sorocaba_s46_Q2_g10b2.json": "fa2c78ffa5e7132bcf0448fc3461b9691c32c763c6faefbde70d7f4f97227343",
+    "dados/baselines_v2/baselines_v2_sorocaba_Q3.json": "597bb3b298e6d2794cad938bb5f13231da2290b9c406ab56dc6ddaff6195d712",
+    "treinos/mlpcf_sorocaba_s42_Q3_g10b2/run_mlpcf_sorocaba_s42_Q3_g10b2.json": "47f9747627d566faad9c6ff620e630bb37d7e173c39bee5b705f9720df42f04f",
+    "treinos/c0c1cf_sorocaba_s42_Q3_g10b2/run_c0c1cf_sorocaba_s42_Q3_g10b2.json": "dca25aaaa504d33a766859231164f49d2a825c3461fa9a47f9b3e9e9058c9069",
+    "treinos/mlpcf_sorocaba_s43_Q3_g10b2/run_mlpcf_sorocaba_s43_Q3_g10b2.json": "69a90989072750e1937ac5e20f2185e48e6b4bcf8e8350a59339a1653df1d098",
+    "treinos/c0c1cf_sorocaba_s43_Q3_g10b2/run_c0c1cf_sorocaba_s43_Q3_g10b2.json": "5d670eebfd7eaf49ca0bfff31f2ad2590f21b912ec4bc0d6f72729494300073d",
+    "treinos/mlpcf_sorocaba_s44_Q3_g10b2/run_mlpcf_sorocaba_s44_Q3_g10b2.json": "c337cb203de221dc57b3a2b553108ee9fcbffac9a487c4c06af8440d9f19f0c0",
+    "treinos/c0c1cf_sorocaba_s44_Q3_g10b2/run_c0c1cf_sorocaba_s44_Q3_g10b2.json": "aaec120fb1c7ca5778d6ef3b9314ec4a18b8444652c9b633ffc473463d92bd3f",
+    "treinos/mlpcf_sorocaba_s45_Q3_g10b2/run_mlpcf_sorocaba_s45_Q3_g10b2.json": "d5b888328dacedca8e527601559ee422cec949ef462aa9b48c2c8d031ef571ad",
+    "treinos/c0c1cf_sorocaba_s45_Q3_g10b2/run_c0c1cf_sorocaba_s45_Q3_g10b2.json": "8d34ec81ef5332dc4ef69005936377f16034f1b3038057608cedf680a3faf654",
+    "treinos/mlpcf_sorocaba_s46_Q3_g10b2/run_mlpcf_sorocaba_s46_Q3_g10b2.json": "66175f8386fb18dd38fc918818d28832d90320be8def1d15cdfcdcbe79be43e2",
+    "treinos/c0c1cf_sorocaba_s46_Q3_g10b2/run_c0c1cf_sorocaba_s46_Q3_g10b2.json": "a919dc9cfc11e0451515c6f68e7dfeca92731ac07a71776ba0e8c7fd5ebaecf7",
+    "dados/baselines_v2/baselines_v2_sorocaba_Q4.json": "01b3e82d32a6c9ae72951833a4e19e35a2a5b98fa208dca85c30e9b6ba5a74ec",
+    "treinos/mlpcf_sorocaba_s42_Q4_g10b2/run_mlpcf_sorocaba_s42_Q4_g10b2.json": "f6a0ca0b238e0a1788a252ba26c0d4c4839949ecff8b2e09ab894a6b7729e7f1",
+    "treinos/c0c1cf_sorocaba_s42_Q4_g10b2/run_c0c1cf_sorocaba_s42_Q4_g10b2.json": "2eaa5abd38fb24ff466b77501ba3ea0c1e4a2bb39a646701a441cb4856eba2d4",
+    "treinos/mlpcf_sorocaba_s43_Q4_g10b2/run_mlpcf_sorocaba_s43_Q4_g10b2.json": "fe51c48669608883f4f702e6d6a66a2f7b44cd20c01acc084d043e7a1b67375f",
+    "treinos/c0c1cf_sorocaba_s43_Q4_g10b2/run_c0c1cf_sorocaba_s43_Q4_g10b2.json": "d3d88d39f14744aebafad52c68dfcd0e7edf17fa827718bb97b75407bb7c6bf4",
+    "treinos/mlpcf_sorocaba_s44_Q4_g10b2/run_mlpcf_sorocaba_s44_Q4_g10b2.json": "aa9dda1a4bd797acd5b9a8f0875467e0206417db824115d9e9b2772f8264e832",
+    "treinos/c0c1cf_sorocaba_s44_Q4_g10b2/run_c0c1cf_sorocaba_s44_Q4_g10b2.json": "e169a43236c8e52f89306a4fc9f746393aec3d354d84729ef5b3080b8dac21a4",
+    "treinos/mlpcf_sorocaba_s45_Q4_g10b2/run_mlpcf_sorocaba_s45_Q4_g10b2.json": "ba49235147d91653a37396243ed9b61cfa18bfc299061cb45c3a33dbf3737ea5",
+    "treinos/c0c1cf_sorocaba_s45_Q4_g10b2/run_c0c1cf_sorocaba_s45_Q4_g10b2.json": "6d7586b23c31483d0dd6047ac6308dadfb24fcac1586091d1af579239677b78a",
+    "treinos/mlpcf_sorocaba_s46_Q4_g10b2/run_mlpcf_sorocaba_s46_Q4_g10b2.json": "95068cb0f60eaa8f615566f6931ca491984a01d800999b5bf59f2db22a68cef9",
+    "treinos/c0c1cf_sorocaba_s46_Q4_g10b2/run_c0c1cf_sorocaba_s46_Q4_g10b2.json": "72e43c69f96a9649635266dfa7755cb907d20472c50eb4b2143199fc6380b629"
+  },
+  "n_fontes": 178
+}

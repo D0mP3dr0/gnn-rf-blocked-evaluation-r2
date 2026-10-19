@@ -1,0 +1,271 @@
+{
+  "artefato_tipo": "agregado_mlp_vs_gnn_c1v2",
+  "script": "D:\\_ARQUIVO_SSD_F\\TOPO_RF\\GNN_RF\\gnn_rf_ieee_access\\FIRST_RESPONSE_REVIEW_IEEE_ACESSES\\EVIDENCIA_RESUBMISSAO\\scripts\\agregar_mlp_vs_gnn_c1v2.py",
+  "script_sha256": "05d6a1821b4cd093aee5967e7c235347e8cc670f65b2d9313c5b3cdf5e7776e0",
+  "protocolo": "comparacao pareada por celula: mesmo dataset, mesmo split (idx_sha256_global conferido por seed), mesma loss, mesma selecao por val, paridade de 1.812.515 parametros",
+  "unidade_estatistica": "celula (n=8) ou cidade (n=2); nunca os 40 runs (Q2-Q4 herdam checkpoint da mesma seed)",
+  "celulas": {
+    "lins_Q1": {
+      "frac_cobertura_test": 0.029924675471123197,
+      "mlp_mae_rssi_db": {
+        "por_seed": [
+          0.4005959630012512,
+          0.3475727140903473,
+          0.3558438718318939,
+          0.38092753291130066,
+          0.3455187678337097
+        ],
+        "media": 0.3660917699337006,
+        "dp": 0.023884422028860243
+      },
+      "gnn_mae_rssi_db": {
+        "por_seed": [
+          0.5013471245765686,
+          0.33782920241355896,
+          0.5198937654495239,
+          0.4540621042251587,
+          0.42408469319343567
+        ],
+        "media": 0.4474433779716492,
+        "dp": 0.07204057141432217
+      },
+      "delta_gnn_menos_mlp_db": 0.08135160803794861,
+      "pareamento_verificado": "rf_data_sha256 + idx_sha256_global de train/val/test identicos entre mlpcf e c0c1cf nas 5 seeds (abortaria acima)"
+    },
+    "lins_Q2": {
+      "frac_cobertura_test": 0.14792110778281486,
+      "mlp_mae_rssi_db": {
+        "por_seed": [
+          0.193654865026474,
+          0.17481866478919983,
+          0.1519523710012436,
+          0.1751081943511963,
+          0.16496536135673523
+        ],
+        "media": 0.17209989130496978,
+        "dp": 0.015312434494411236
+      },
+      "gnn_mae_rssi_db": {
+        "por_seed": [
+          0.49571287631988525,
+          0.44850054383277893,
+          0.37484872341156006,
+          0.5088342428207397,
+          0.5420714616775513
+        ],
+        "media": 0.47399356961250305,
+        "dp": 0.06480701172150888
+      },
+      "delta_gnn_menos_mlp_db": 0.3018936783075333,
+      "pareamento_verificado": "rf_data_sha256 + idx_sha256_global de train/val/test identicos entre mlpcf e c0c1cf nas 5 seeds (abortaria acima)"
+    },
+    "lins_Q3": {
+      "frac_cobertura_test": 0.10043155034370033,
+      "mlp_mae_rssi_db": {
+        "por_seed": [
+          0.21841943264007568,
+          0.25904467701911926,
+          0.20841389894485474,
+          0.22315660119056702,
+          0.22390906512737274
+        ],
+        "media": 0.22658873498439788,
+        "dp": 0.019166445367750275
+      },
+      "gnn_mae_rssi_db": {
+        "por_seed": [
+          0.33692893385887146,
+          0.22970378398895264,
+          0.25832080841064453,
+          0.21433711051940918,
+          0.23077894747257233
+        ],
+        "media": 0.25401391685009,
+        "dp": 0.04898608139763678
+      },
+      "delta_gnn_menos_mlp_db": 0.027425181865692122,
+      "pareamento_verificado": "rf_data_sha256 + idx_sha256_global de train/val/test identicos entre mlpcf e c0c1cf nas 5 seeds (abortaria acima)"
+    },
+    "lins_Q4": {
+      "frac_cobertura_test": 0.12478461891036872,
+      "mlp_mae_rssi_db": {
+        "por_seed": [
+          0.26368409395217896,
+          0.25250083208084106,
+          0.19795779883861542,
+          0.19487467408180237,
+          0.2407374233007431
+        ],
+        "media": 0.22995096445083618,
+        "dp": 0.031688629832124324
+      },
+      "gnn_mae_rssi_db": {
+        "por_seed": [
+          0.2610991895198822,
+          0.16796135902404785,
+          0.23666124045848846,
+          0.22962038218975067,
+          0.17772513628005981
+        ],
+        "media": 0.2146134614944458,
+        "dp": 0.04002937152294584
+      },
+      "delta_gnn_menos_mlp_db": -0.015337502956390386,
+      "pareamento_verificado": "rf_data_sha256 + idx_sha256_global de train/val/test identicos entre mlpcf e c0c1cf nas 5 seeds (abortaria acima)"
+    },
+    "bauru_Q1": {
+      "frac_cobertura_test": 0.3281790489023149,
+      "mlp_mae_rssi_db": {
+        "por_seed": [
+          0.9490293264389038,
+          0.8860480189323425,
+          1.0737992525100708,
+          0.8701553344726562,
+          0.856065034866333
+        ],
+        "media": 0.9270193934440613,
+        "dp": 0.08940841670549655
+      },
+      "gnn_mae_rssi_db": {
+        "por_seed": [
+          0.7567873597145081,
+          0.6331746578216553,
+          0.563138484954834,
+          0.5254124402999878,
+          0.6829373240470886
+        ],
+        "media": 0.6322900533676148,
+        "dp": 0.0925611573892271
+      },
+      "delta_gnn_menos_mlp_db": -0.29472934007644647,
+      "pareamento_verificado": "rf_data_sha256 + idx_sha256_global de train/val/test identicos entre mlpcf e c0c1cf nas 5 seeds (abortaria acima)"
+    },
+    "bauru_Q2": {
+      "frac_cobertura_test": 0.14951892137935363,
+      "mlp_mae_rssi_db": {
+        "por_seed": [
+          0.4213395416736603,
+          0.32681941986083984,
+          0.3593941628932953,
+          0.331961065530777,
+          0.4235855042934418
+        ],
+        "media": 0.37261993885040284,
+        "dp": 0.04716153419150756
+      },
+      "gnn_mae_rssi_db": {
+        "por_seed": [
+          0.4700026214122772,
+          0.3152998983860016,
+          0.4216393828392029,
+          0.2999279499053955,
+          0.34079471230506897
+        ],
+        "media": 0.36953291296958923,
+        "dp": 0.07317991775114488
+      },
+      "delta_gnn_menos_mlp_db": -0.0030870258808136097,
+      "pareamento_verificado": "rf_data_sha256 + idx_sha256_global de train/val/test identicos entre mlpcf e c0c1cf nas 5 seeds (abortaria acima)"
+    },
+    "bauru_Q3": {
+      "frac_cobertura_test": 0.15914853333105022,
+      "mlp_mae_rssi_db": {
+        "por_seed": [
+          0.4331739544868469,
+          0.39315250515937805,
+          0.42732420563697815,
+          0.4646868407726288,
+          0.4512551426887512
+        ],
+        "media": 0.43391852974891665,
+        "dp": 0.027171471137603917
+      },
+      "gnn_mae_rssi_db": {
+        "por_seed": [
+          0.373127281665802,
+          0.41911688446998596,
+          0.39470142126083374,
+          0.321684330701828,
+          0.4467673897743225
+        ],
+        "media": 0.3910794615745544,
+        "dp": 0.04753505541725987
+      },
+      "delta_gnn_menos_mlp_db": -0.04283906817436223,
+      "pareamento_verificado": "rf_data_sha256 + idx_sha256_global de train/val/test identicos entre mlpcf e c0c1cf nas 5 seeds (abortaria acima)"
+    },
+    "bauru_Q4": {
+      "frac_cobertura_test": 0.13470629316744964,
+      "mlp_mae_rssi_db": {
+        "por_seed": [
+          0.20282822847366333,
+          0.20131950080394745,
+          0.2091495394706726,
+          0.18585480749607086,
+          0.22493389248847961
+        ],
+        "media": 0.20481719374656676,
+        "dp": 0.014135175262768385
+      },
+      "gnn_mae_rssi_db": {
+        "por_seed": [
+          0.24799130856990814,
+          0.35310134291648865,
+          0.20424292981624603,
+          0.1744568794965744,
+          0.2007492184638977
+        ],
+        "media": 0.23610833585262297,
+        "dp": 0.07052507018365889
+      },
+      "delta_gnn_menos_mlp_db": 0.03129114210605621,
+      "pareamento_verificado": "rf_data_sha256 + idx_sha256_global de train/val/test identicos entre mlpcf e c0c1cf nas 5 seeds (abortaria acima)"
+    }
+  },
+  "cidades": {
+    "lins": {
+      "mlp_media_db": 0.2486828401684761,
+      "gnn_media_db": 0.347516081482172
+    },
+    "bauru": {
+      "mlp_media_db": 0.4845937639474869,
+      "gnn_media_db": 0.40725269094109534
+    }
+  },
+  "exploratorio": {
+    "correlacao_delta_x_cobertura": {
+      "definicao_operacional": "delta = media_gnn - media_mlp em dB de MAE_RSSI de teste (delta POSITIVO = erro do GNN maior = MLP melhor; delta NEGATIVO = GNN melhor); cobertura = fracao de alvo PL<299 no teste, lida de baselines_v2_<cidade>_<Q>.json",
+      "pearson_r": -0.6692741744523368,
+      "spearman_rho": -0.6190476190476191,
+      "n_celulas": 8,
+      "n_clusters_cidade": 2,
+      "p_permutacao_dentro_de_cidade": 0.1579861111111111,
+      "n_permutacoes_enumeradas": 576,
+      "leave_one_out_pearson": {
+        "sem_lins_Q1": -0.7013449489428374,
+        "sem_lins_Q2": -0.9681051774792687,
+        "sem_lins_Q3": -0.6777096787473662,
+        "sem_lins_Q4": -0.6813327260879833,
+        "sem_bauru_Q1": -0.03758805843970047,
+        "sem_bauru_Q2": -0.6692787810674755,
+        "sem_bauru_Q3": -0.6684794380696519,
+        "sem_bauru_Q4": -0.6683133266401589
+      },
+      "bootstrap_por_cluster_de_cidade": {
+        "ic95": [
+          -0.9951846476089695,
+          0.37477537871073363
+        ],
+        "n_reamostras_validas": 2000,
+        "n_clusters": 2,
+        "valores_distintos_de_r": [
+          -0.995185,
+          -0.669274,
+          0.374775
+        ],
+        "aviso": "com 2 clusters ha apenas 3 reamostras distintas (AA, AB, BB); o IC abaixo nao e informativo e esta aqui para tornar visivel a impossibilidade, nao para ser citado"
+      },
+      "por_que_nao_e_citavel": "(1) as 8 celulas nao sao independentes — Q2-Q4 herdam o checkpoint do Q1 da mesma semente e os tiles sao adjacentes, entao um r calculado como se fossem 8 observacoes independentes subestima o erro-padrao; (2) a alavancagem se concentra em bauru_Q1, a unica celula com cobertura acima de 0,16 — removendo-a o r cai para perto de zero (ver leave_one_out_pearson); (3) com 2 cidades nao existe IC bootstrap util por cluster. Este bloco entra em Discussion como HIPOTESE a testar com celulas de alta cobertura, nunca como resultado, e nunca com leitura causal."
+    }
+  }
+}
