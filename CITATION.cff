@@ -9,15 +9,15 @@ authors:
   - family-names: "Salles"
     given-names: "R. M."
     affiliation: "Military Institute of Engineering (IME)"
-doi: "10.5281/zenodo.23377937"
+doi: "10.5281/zenodo.23601078"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.23377937"
+    value: "10.5281/zenodo.23601078"
 license:
   - MIT
   - CC-BY-4.0
 repository-code: "https://github.com/D0mP3dr0/gnn-rf-blocked-evaluation-r2"
-version: "1.0.0"
+version: "4.0.0"
 keywords:
   - graph neural networks
   - radio propagation

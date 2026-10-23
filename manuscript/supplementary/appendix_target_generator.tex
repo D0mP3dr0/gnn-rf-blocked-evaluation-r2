@@ -34,7 +34,10 @@ evaluation uses the corrected files, whereas the comparisons quoted from the
 earlier campaign use the enriched files before correction. Antenna
 parameters come from a single ANATEL licensing extract,
 \texttt{antenas\_\allowbreak{}interior\_\allowbreak{}sp\_\allowbreak{}final\allowbreak{}.csv}
-(\texttt{ad9addb0\,c515\,a0b4}, 17\,763\,282~bytes). Everything reported in
+(\texttt{ad9addb0\,c515\,a0b4}, 17\,763\,282~bytes); these records are public
+ANATEL licensing data, identified in the data package by name, size, and
+SHA-256 digest and not redistributed there, because they are under a
+third-party license. Everything reported in
 this appendix is transcribed from those five files, and the equations below
 are annotated with the source line at which each expression is implemented
 so that the correspondence can be checked line by line.
@@ -42,7 +45,7 @@ so that the correspondence can be checked line by line.
 \subsection{Base path loss}
 
 The base term is a frequency-switched pair of empirical median-path-loss
-models, both evaluated in decibels with distance in kilometres and
+models, both evaluated in decibels with distance in kilometers and
 frequency in megahertz. The mobile-height correction factor for a
 medium-to-small city is applied identically in both branches,
 \begin{equation}
@@ -106,7 +109,7 @@ frequencies; in the four cities this clip is active for 27.4\,\% of the
 Lins transmitters, 26.8\,\% of Campinas, 24.5\,\% of Sorocaba and 30.1\,\%
 of Bauru, which means that for roughly a quarter of the field the base
 frequency has been silently substituted. Distance is floored at $10^{-3}$~km,
-that is at one metre (\texttt{generate\_\allowbreak{}realistic\_\allowbreak{}coverage\allowbreak{}.py:\allowbreak{}35,59}),
+that is at one meter (\texttt{generate\_\allowbreak{}realistic\_\allowbreak{}coverage\allowbreak{}.py:\allowbreak{}35,59}),
 three decades below the 1~km lower bound of the Okumura--Hata validity
 domain. Base-station height enters unclipped, and 5.1\,\% of the Lins
 transmitters, 23.3\,\% of Campinas, 18.9\,\% of Sorocaba and 6.7\,\% of
@@ -133,12 +136,12 @@ but only the band of the transmitter serving it. A verifiable corollary of
 this coupling is that the urban class can never reach the Okumura branch
 and the rural class can never reach COST\,231, which the transmitter records
 confirm exactly: zero transmitters fall in either impossible combination in any of
-the four cities. Terrain clutter is therefore unmodelled, and a frequency-indexed
+the four cities. Terrain clutter is therefore unmodeled, and a frequency-indexed
 correction constant stands in its place.
 
 \subsection{Vegetation attenuation}
 
-Vegetation enters through a single additive term parameterised by NDVI
+Vegetation enters through a single additive term parameterized by NDVI
 taken raw from column 12 of the terrain feature matrix
 (\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}140}), which the code maps to a
 density and then to an effective path depth,
@@ -148,7 +151,7 @@ density and then to an effective path depth,
 d_{v} = 0.3\, \rho_{v}\, d_{m} ,
 \label{eq:app-vegdepth}
 \end{equation}
-% generate_realistic_coverage.py:95,98 -- d_m in metres
+% generate_realistic_coverage.py:95,98 -- d_m in meters
 so that at most 30\,\% of the geometric path is declared to lie inside
 vegetation regardless of where the vegetation actually is. The attenuation
 follows the ITU-R P.833 functional form for a single vegetation entry,
@@ -157,8 +160,8 @@ A_{\mathrm{veg}} = \operatorname{clip}\!\bigl(
 0.25 f^{0.39} \min(d_{v}, 400)^{0.25},\, 0,\, 40 \bigr)\ [\mathrm{dB}] ,
 \label{eq:app-aveg}
 \end{equation}
-% generate_realistic_coverage.py:101-102 -- f in MHz, d_v in metres
-with frequency in megahertz and depth in metres, a depth cap of 400~m and
+% generate_realistic_coverage.py:101-102 -- f in MHz, d_v in meters
+with frequency in megahertz and depth in meters, a depth cap of 400~m and
 an attenuation cap of 40~dB. The depth cap is the dominant feature of this
 term in practice: for a node with $\mathrm{NDVI}=0.5$ the cap is reached at
 a geometric distance of about 1778~m, beyond which $A_{\mathrm{veg}}$ is
@@ -223,7 +226,7 @@ no cable, connector, body or feeder loss and no receive antenna gain,
 % prepare_transfer_dataset_v19.py:215
 where $P_{j}=10\log_{10}(1000\,P_{j}^{\mathrm{W}})$ is the transmitter power
 in dBm (\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}81}) and $G_{j}$ is the
-catalogue antenna gain in dBi, applied as a scalar in every direction. The
+catalog antenna gain in dBi, applied as a scalar in every direction. The
 serving cell is then the strongest received level among the transmitters
 whose planar distance to the node is within the 30~km inclusion radius,
 \begin{equation}
@@ -238,13 +241,13 @@ which is a pure best-server rule with no handover hysteresis, no load
 balancing, no cell-selection offset and no minimum-received-level
 qualification. Distances are planar rather than geodesic, computed as
 $\Delta y = 111000\,\Delta\varphi$ and
-$\Delta x = 111000\,\Delta\lambda\cos\varphi$ in metres
+$\Delta x = 111000\,\Delta\lambda\cos\varphi$ in meters
 (\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}183--185}); the constant
 111000~m per degree understates the WGS-84 mean meridian degree of
 111194.93~m by 0.175\,\%, a bias that is negligible against the decibel
 scale of the model but is nonetheless a systematic contraction of every
 distance in the dataset. Nodes with no transmitter inside the radius retain
-the sentinel initialisation of $-200$~dBm and 300~dB, and any node whose
+the sentinel initialization of $-200$~dBm and 300~dB, and any node whose
 best level falls below $-150$~dBm is subsequently overwritten with a
 constant $-110$~dBm (\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}274}),
 which introduces a point mass in the RSSI distribution that must be
@@ -275,7 +278,7 @@ and are discarded, and Table~\ref{tab:app-antenna-inventory} gives the
 resulting per-city inventory. The essential point for a reader assessing
 the physical realism of the target is that the radiation pattern is
 isotropic: azimuth, mechanical and electrical downtilt, half-power
-beamwidth, front-to-back ratio and polarisation are all present in the
+beamwidth, front-to-back ratio and polarization are all present in the
 source records and none is read by the loader
 (\texttt{prepare\_\allowbreak{}transfer\_\allowbreak{}dataset\_\allowbreak{}v19.py:\allowbreak{}73--79}). Because sectors of the
 same site share coordinates, discarding azimuth turns each site into a
@@ -283,8 +286,8 @@ stack of co-located omnidirectional sources that differ only in frequency,
 power, gain and height, with a mean of 13.5 and a maximum of 21 such
 sources per site in Lins and a maximum of 49 in Campinas; the best-server
 rule of Eq.~\eqref{eq:app-serving} then reduces each stack to whichever
-member happens to maximise $P_{j}+G_{j}-L_{\mathrm{tot}}$. The loader also
-retains catalogue gains of exactly 0~dBi where the licensing record carries
+member happens to maximize $P_{j}+G_{j}-L_{\mathrm{tot}}$. The loader also
+retains catalog gains of exactly 0~dBi where the licensing record carries
 no value, affecting 32 transmitters in Campinas, 4 in Sorocaba and 1 in
 Bauru, and it does not apply the 12~dBi substitution that the standalone
 coverage script uses for the same situation
@@ -318,7 +321,7 @@ Azimuth                 & \texttt{Azimute}, deg \\
 Downtilt                & \texttt{AnguloElevacao}, deg \\
 Half-power beamwidth    & \texttt{AnguloMeiaPotenciaAntena}, deg \\
 Front-to-back ratio     & \texttt{FrenteCostaAntena}, dB \\
-Polarisation            & \texttt{Polarizacao} \\
+Polarization            & \texttt{Polarizacao} \\
 \midrule
 \multicolumn{2}{@{}l}{\textit{Absent from the model altogether}} \\
 Feeder, connector, body loss & --- \\
@@ -368,10 +371,10 @@ in dB/m over a depth $d_{v} = d\,\operatorname{clip}(\mathrm{NDVI}-0.5,0,1)$
 capped at 40~dB, and a single knife-edge obstacle placed at the path
 midpoint with an obstruction height
 $h_{\mathrm{obs}} = \operatorname{clip}(0.5\,\Delta z_{\mathrm{m}} + 0.5\,r_{\mathrm{m}},\,0,\,80)$
-in metres, also capped at 40~dB, with the local elevation range $\Delta z_{\mathrm{m}}$ and roughness $r_{\mathrm{m}}$ in metres after
+in meters, also capped at 40~dB, with the local elevation range $\Delta z_{\mathrm{m}}$ and roughness $r_{\mathrm{m}}$ in meters after
 correction. These two channels are therefore the point
 at which the digital elevation model and the vegetation index enter the
-reference field as physically labelled attenuation terms, and they are the
+reference field as physically labeled attenuation terms, and they are the
 targets against which the decoder's vegetation and terrain heads are
 trained and scored. Two properties of the enrichment must be stated because
 they differ from the geometry of the total-loss channel: the distance it
@@ -397,12 +400,13 @@ Eq.~\eqref{eq:app-aterrain} depends only on the node and does not change which
 transmitter serves it. Second, the enrichment step read the topographic
 position index column where the diffraction term expects the local
 elevation range; the corrector reads the local-elevation-range column. Third, the
-obstruction height added the local elevation range in metres to roughness in normalised
+obstruction height added the local elevation range in meters to roughness in normalized
 units, whose scale differs by city; the corrector converts roughness to
-metres with the per-city elevation standard deviation. The diffraction
+meters with the per-city elevation standard deviation. The diffraction
 channel is then recomputed with the original enrichment function. Sentinel
 nodes keep their sentinel values in the total-loss and RSSI channels. The
-16 corrected reference fields are released with their SHA-256 digests.
+16 corrected reference fields are identified by their SHA-256 digests and
+can be regenerated with the released generator and corrector.
 
 \subsection{What the generator does not model}
 
@@ -423,14 +427,14 @@ log-normal fading (\texttt{generate\_\allowbreak{}realistic\_\allowbreak{}covera
 random term appears in the body of the function, and the only randomness in
 the pipeline was the terrain slope draw described above, which the corrector
 removes from the released fields. There is no noise floor, no
-receiver noise figure, no interference from neighbouring cells and
+receiver noise figure, no interference from neighboring cells and
 therefore no SINR, so the received level of Eq.~\eqref{eq:app-rssi} is a
 pure two-term link budget and coverage is a threshold on that budget rather
 than a link-quality decision. Finally, the geometry is two-dimensional and
 planar: node and transmitter altitudes never enter, the receiver is fixed
 at 1.5~m above an unspecified reference surface, Earth curvature is
-ignored, and the distance uses a constant metres-per-degree factor. Stating
-these absences precisely is what allows the reformulated contribution to be
+ignored, and the distance uses a constant meters-per-degree factor. Stating
+these absences precisely is what allows the contribution to be
 defended, because the quantity the network reproduces is a well-defined and
 fully specified analytical field, and the accuracy figures in the body of
 the paper measure emulation fidelity to that field and nothing more.

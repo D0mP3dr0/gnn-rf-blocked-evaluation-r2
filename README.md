@@ -1,7 +1,7 @@
 # Physics-Informed Multi-Target RF Field Reconstruction over Heterogeneous Terrain Graphs under Spatially Blocked Evaluation — code and data
 
 L. F. C. Seelig and R. M. Salles (Military Institute of Engineering, IME, Brazil).
-DOI: https://doi.org/10.5281/zenodo.23377937
+DOI: https://doi.org/10.5281/zenodo.23601078
 
 Code is released under the MIT License (`LICENSE`); data (run logs, checkpoints,
 prediction files, partition masks, reference-field hashes and evaluation outputs)
@@ -96,9 +96,3 @@ encoder-decoder (in-house adaptation, `ba1rus_*`). Each arm has 4 cities x 4 qua
 ## Citation
 
 See `CITATION.cff`.
-
-## Large artifacts (Zenodo only)
-
-This repository mirrors the code, run logs, results, partitions, manuscript and the 16 seed-42 GNN checkpoints. The full set of
-400 checkpoints and 400 prediction files (five arms x 80 runs, 10.5 GB) is published only in the Zenodo record
-https://doi.org/10.5281/zenodo.23377937, together with MANIFEST_SHA256.txt covering every file.
