@@ -641,7 +641,7 @@ All evaluations are restricted to four cities in S\~{a}o Paulo state (Brazil), a
 
 The 2\,km exclusion buffer is narrower than the spatial autocorrelation range~\cite{valavi2019blockcv} of the reference field, measured at 20\,km in Lins and 30\,km in Bauru and not measured in the other two cities, so the blocked results retain some dependence between training and test. Buffering against the full 20--30\,km range is geometrically infeasible within quadrant-scale tiles. The 2\,km buffer suppresses immediate mesh-scale interpolation, as the order-of-magnitude error inflation of the nearest-neighbor predictor in Section~\ref{sec:eval_protocol} reflects, but residual regional autocorrelation remains an explicit bound on claim independence.
 
-In three Sorocaba cells, 0.03--0.06\% of nodes with a valid target carry an RSSI below $-$150\,dBm that the target post-processing did not impute, and correcting Q3, the only one of these cells where it changes test error, in both arms does not change the conclusion of the comparison against the graph-free control in Section~\ref{sec:robustness} (the 16-cell aggregate of GNN-RF minus the control moves from \SI{-0.2475}{\deci\bel} to \SI{-0.2431}{\deci\bel}, $p{=}0.0402$).
+In three Sorocaba cells, 0.03--0.06\% of nodes with a valid target carry an RSSI below $-$150\,dBm that the target post-processing did not impute, and correcting Q3, the only one of these cells where it changes test error, in both arms does not change the conclusion of the comparison against the graph-free control in Section~\ref{sec:robustness}.
 
 \subsection{Limitations and future directions}
 
