@@ -1,6 +1,7 @@
 # Physics-Informed Multi-Target RF Field Reconstruction over Heterogeneous Terrain Graphs under Spatially Blocked Evaluation — code and data
 
 L. F. C. Seelig and R. M. Salles (Military Institute of Engineering, IME, Brazil).
+Article accepted for publication in *IEEE Access* (2026).
 DOI: https://doi.org/10.5281/zenodo.23601078
 
 Code is released under the MIT License (`LICENSE`); data (run logs, checkpoints,
